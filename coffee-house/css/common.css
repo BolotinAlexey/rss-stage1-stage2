@@ -7,4 +7,19 @@
   --bg-backdrop: 64, 63, 61, 0.8;
   --border-light: #c1b6ad;
   --border-dark: #665f55;
+  --desktop: 1440px;
+  --tablet: 768px;
+  --mobile: 380px;
+  --padding: 40px;
+  --padding-mobile: 16px;
+}
+
+* {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.container {
 }
