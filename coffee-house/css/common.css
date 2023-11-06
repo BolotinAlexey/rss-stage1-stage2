@@ -19,7 +19,53 @@
   font-style: normal;
   font-weight: 600;
   line-height: 1.5;
+  /* outline: 1px solid blue; */
+}
+
+body {
+  background-color: var(--bg-body);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  display: block;
+}
+
+.icon {
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .container {
+  display: flex;
+  max-width: var(--desktop);
+  margin: 0 auto;
+  padding: 20px var(--padding);
+  outline: 1px solid red;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-dark);
+}
+
+.nav__list {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.menu-link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-bottom: 4px;
 }
