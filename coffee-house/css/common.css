@@ -44,6 +44,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 1.5;
+  color: var(--text-dark);
   /* outline: 1px solid blue; */
 }
 
@@ -76,12 +77,15 @@ img {
   outline: 1px solid red;
 }
 
+.section {
+  margin-bottom: 100px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: var(--text-dark);
 }
 
 .nav__list {
