@@ -44,16 +44,18 @@ img {
 }
 
 .container {
-  display: flex;
   max-width: var(--desktop);
   margin: 0 auto;
-  padding: 20px var(--padding);
+  padding-left: var(--padding);
+  padding-right: var(--padding);
   outline: 1px solid red;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: var(--text-dark);
 }
 
@@ -68,4 +70,8 @@ img {
   gap: 8px;
   align-items: center;
   padding-bottom: 4px;
+}
+.menu-link__icon {
+  position: relative;
+  bottom: 2px;
 }

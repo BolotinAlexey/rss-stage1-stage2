@@ -1,0 +1,21 @@
+.hero {
+  color: var(--text-light);
+  padding: 100px;
+  border-radius: 40px;
+  background-image: url(../assets/images/hero-bg.jpeg);
+}
+.hero__container {
+  width: 530px;
+}
+
+.hero__title {
+  font-size: 72px;
+  line-height: 1.05;
+}
+.hero__title-first {
+  font-style: italic;
+  color: var(--text-accent);
+}
+.hero__describe {
+  font-weight: 400;
+}
