@@ -154,3 +154,39 @@
   grid-row-end: 6;
   background-image: url(../assets/images/about/about-4.jpg);
 }
+
+/* M O B I L E */
+.mobile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mobile__left,
+.mobile__right {
+  width: 630px;
+}
+
+.mobile .section__title {
+  text-align: left;
+}
+
+.mobile__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+
+.mobile__description {
+  margin: 0 0 40px;
+}
+
+.mobile__btns {
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.mobile__btn {
+  background-color: transparent;
+}
