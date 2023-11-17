@@ -108,3 +108,11 @@ button {
   position: relative;
   bottom: 2px;
 }
+
+.footer {
+  padding: 100px;
+  border-radius: 40px;
+}
+.footer__wrap {
+  background: var(--bg-container);
+}
