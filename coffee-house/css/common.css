@@ -87,11 +87,18 @@ button {
   outline: 1px solid blue;
 }
 
+/* H E A D E R */
+
 .header {
   display: flex;
   justify-content: space-between;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
 }
 
 .nav__list {
