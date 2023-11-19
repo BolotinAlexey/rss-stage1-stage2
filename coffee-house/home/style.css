@@ -202,7 +202,6 @@
 }
 
 .mobile__btn:hover {
-  cursor: pointer;
   background: var(--bg-container);
   color: var(--text-light);
 }

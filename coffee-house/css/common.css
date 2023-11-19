@@ -48,6 +48,9 @@
   /* color: var(--text-dark); */
   /* outline: 1px solid blue; */
 }
+a:hover {
+  cursor: default;
+}
 
 body {
   background-color: var(--bg-body);
@@ -109,19 +112,13 @@ button {
 
 .menu-link {
   display: flex;
-  gap: 8px;
   align-items: center;
-  padding-bottom: 4px;
 }
-.menu-link__icon {
-  position: relative;
-  bottom: 2px;
+.menu-link__link:hover {
+  cursor: pointer;
 }
 
 /* F O O T E R */
-
-.footer {
-}
 
 .footer__wrap {
   padding: 100px;
@@ -150,21 +147,9 @@ button {
 }
 
 .social__item {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: var(--border-light) solid 1px;
-  border-radius: 50%;
-  transition: all 0.25s linear;
 }
 
 .social__item:hover {
-  cursor: pointer;
-  background-color: var(--bg-body);
-  border: none;
-  color: var(--text-dark);
 }
 
 .address__links {
@@ -173,7 +158,21 @@ button {
   gap: 16px;
 }
 .social__link {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: var(--border-light) solid 1px;
+  border-radius: 50%;
+  transition: all 0.25s linear;
   font-size: 0;
+}
+.social__link:hover {
+  /* cursor: default; */
+  background-color: var(--bg-body);
+  border: none;
+  color: var(--text-dark);
 }
 .social__svg,
 .address__svg {
@@ -199,17 +198,20 @@ button {
   padding-bottom: 4px;
 }
 
-.address__link {
+.address__link,
+.menu-link__link,
+.nav__link {
   position: relative;
   width: fit-content;
   display: flex;
   gap: 8px;
   padding-bottom: 4px;
-  /* border-bottom: solid transparent 2px; */
   transition: all 0.25s linear;
 }
 
-.address__link:before {
+.address__link:before,
+.menu-link__link:before,
+.nav__link:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -220,7 +222,8 @@ button {
   transition: all 0.25s linear;
 }
 
-.address__link:hover:before {
-  /* border-bottom: solid currentColor 2px; */
+.address__link:hover:before,
+.menu-link__link:hover:before,
+.nav__link:hover:before {
   transform: scaleX(1);
 }
