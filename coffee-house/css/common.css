@@ -167,9 +167,40 @@ button {
   color: var(--text-dark);
 }
 
+.address__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .social__link {
   font-size: 0;
 }
-.social__svg {
+.social__svg,
+.address__svg {
   fill: none;
+}
+
+/* address */
+
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.address__title {
+  margin: 0 0 40px;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.address__link {
+  width: fit-content;
+  display: flex;
+  gap: 8px;
+  padding-bottom: 2px;
+  border-bottom: solid transparent 2px;
+  transition: all 0.25s linear;
+}
+.address__link:hover {
+  border-bottom: solid currentColor 2px;
 }
