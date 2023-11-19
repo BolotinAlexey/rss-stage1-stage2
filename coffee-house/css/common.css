@@ -192,7 +192,7 @@ button {
   line-height: 1.25;
 }
 
-.address__item:nth-last-child() {
+.address__item:nth-of-type(3) {
   display: flex;
   gap: 8px;
   padding-bottom: 4px;

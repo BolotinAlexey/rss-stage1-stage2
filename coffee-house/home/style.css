@@ -33,11 +33,30 @@
 .hero__button {
   width: 200px;
   padding: 20px 0;
-  border: none;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
   border-radius: 100px;
   line-height: 1.5;
   background-color: var(--bg-body);
+  transition: all 0.25s linear;
 }
+.hero__button:hover {
+  cursor: pointer;
+  color: var(--text-dark);
+}
+
+.hero__button:hover > span {
+  transform: translateX(0);
+}
+
+.hero__button > span {
+  color: var(--text-dark);
+  transform: translateX(14px);
+  transition: all 0.25s linear;
+}
+
 .section__title {
   margin: 0 0 40px;
   font-size: 60px;
