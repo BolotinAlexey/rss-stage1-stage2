@@ -12,15 +12,18 @@
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="style.css" />
-    <title>Home</title>
+    <title>Menu</title>
   </head>
   <body>
+    <!-- H E A D E R -->
     <header class="header container">
       <div class="logo">
         <a href="" class="logo__link">
           <img src="../assets/images/logo.svg" alt="logo" class="logo__img" />
         </a>
       </div>
+
+      <!-- nav -->
       <nav class="nav">
         <ul class="nav__list">
           <li class="nav__item">
@@ -37,12 +40,96 @@
           </li>
         </ul>
       </nav>
-      <div class="header__menu">
-        <a href="../menu/index.html" class="menu-link"></a>
+
+      <!-- menu-link -->
+      <div class="menu-link">
+        <a class="menu-page menu-link__link" href="">
+          <span class="menu-link__text">Menu</span>
+          <svg class="icon menu-link__icon" width="20" height="20">
+            <use href="../assets/sprite.svg#cup"></use>
+          </svg>
+        </a>
       </div>
     </header>
-    <main class="main"></main>
-    <footer class="footer"></footer>
+
+    <!-- M A I N -->
+    <main class="main container"></main>
+
+    <!-- F O O T E R -->
+    <footer class="footer section container">
+      <div class="footer__wrap">
+        <div class="footer__left">
+          <h2 class="section__title">
+            Sip, Savor, Smile.
+            <span class="section__title-accent"> It’s coffee time! </span>
+          </h2>
+
+          <!-- Social -->
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__link" href="http://twitter.com">
+                <svg class="icon social__svg" width="24" height="24">
+                  <use href="../assets/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="http://instagram.com">
+                <svg class="icon social__svg" width="24" height="24">
+                  <use href="../assets/sprite.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="http://facebook.com">
+                <svg class="icon social__svg" width="24" height="24">
+                  <use href="../assets/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__right">
+          <address class="address">
+            <h3 class="address__title">Contact us</h3>
+
+            <ul class="address__links">
+              <!-- geolocation -->
+              <li class="address__item">
+                <a
+                  href="https://www.google.com/maps/search/8558+Green+Rd.,+LA/@34.0200392,-118.7413804,10z/data=!3m1!4b1?authuser=0&entry=ttu"
+                  class="address__link"
+                >
+                  <svg class="icon address__svg" width="20" height="20">
+                    <use href="../assets/sprite.svg#geo"></use>
+                  </svg>
+                  <span class="address__text">8558 Green Rd.,&nbsp; LA</span>
+                </a>
+              </li>
+
+              <!-- telephone -->
+              <li class="address__item">
+                <a href="tel:+16035550123" class="address__link">
+                  <svg class="icon address__svg" width="20" height="20">
+                    <use href="../assets/sprite.svg#phone"></use>
+                  </svg>
+                  <span class="address__text">+1 (603) 555-0123</span>
+                </a>
+              </li>
+
+              <!-- schedule -->
+              <li class="address__item">
+                <svg class="icon address__svg" width="20" height="20">
+                  <use href="../assets/sprite.svg#clock"></use>
+                </svg>
+                <span class="address__text">Mon-Sat: 9:00 AM – 23:00 PM</span>
+              </li>
+            </ul>
+          </address>
+        </div>
+      </div>
+    </footer>
+
     <script src="./js/index.js"></script>
   </body>
 </html>
