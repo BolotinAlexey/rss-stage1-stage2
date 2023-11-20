@@ -75,9 +75,29 @@
 
 /* Slider */
 .slider {
+  padding: 0 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.slider__wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider__btn {
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-dark);
+  background-color: transparent;
 }
 
 .slider__item {
@@ -114,6 +134,7 @@
   width: 40px;
   height: 4px;
   background-color: var(--border-light);
+  border-radius: 2px;
 }
 
 .slider__input {
