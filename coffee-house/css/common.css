@@ -99,6 +99,31 @@ button {
   cursor: default;
 }
 
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.section__title {
+  margin: 0 0 40px;
+  font-size: 60px;
+  line-height: 1.25;
+}
+.section__title-accent {
+  font-style: italic;
+  color: var(--text-accent);
+  line-height: inherit;
+}
+
 /* H E A D E R */
 
 .header {
