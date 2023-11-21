@@ -53,7 +53,7 @@ html {
   /* outline: 1px solid blue; */
 }
 a:hover {
-  cursor: default;
+  /* cursor: default; */
 }
 
 body {
@@ -92,6 +92,11 @@ button {
 .section {
   margin-bottom: 100px;
   outline: 1px solid blue;
+}
+
+.inactive-link {
+  pointer-events: none;
+  cursor: default;
 }
 
 /* H E A D E R */
@@ -143,6 +148,9 @@ button {
 .footer .section__title {
   margin: 0;
 }
+.footer.section {
+  margin-bottom: 0;
+}
 
 /* Social */
 .social {
@@ -173,7 +181,6 @@ button {
   font-size: 0;
 }
 .social__link:hover {
-  /* cursor: default; */
   background-color: var(--bg-body);
   border: none;
   color: var(--text-dark);
