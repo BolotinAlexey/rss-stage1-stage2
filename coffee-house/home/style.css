@@ -1,4 +1,4 @@
-.hero {
+.enjoy {
   color: var(--text-light);
   padding: 100px;
   border-radius: 40px;
@@ -6,31 +6,31 @@
   background-position: center;
   background-size: cover;
 }
-.hero__container {
+.enjoy__container {
   width: 530px;
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.hero__title {
+.enjoy__title {
   margin: 0;
   font-size: 72px;
   line-height: 1.05;
   word-spacing: 0;
   color: var(--text-light);
 }
-.hero__title-accent {
+.enjoy__title-accent {
   font-style: italic;
   color: var(--text-accent);
   line-height: inherit;
 }
-.hero__describe {
+.enjoy__describe {
   margin: 0;
   font-weight: 400;
   color: var(--text-light);
 }
-.hero__button {
+.enjoy__button {
   width: 200px;
   padding: 20px 0;
   display: flex;
@@ -42,16 +42,16 @@
   background-color: var(--bg-body);
   transition: all 0.25s linear;
 }
-.hero__button:hover {
+.enjoy__button:hover {
   cursor: pointer;
   color: var(--text-dark);
 }
 
-.hero__button:hover > span {
+.enjoy__button:hover > span {
   transform: translateX(0);
 }
 
-.hero__button > span {
+.enjoy__button > span {
   color: var(--text-dark);
   transform: translateX(14px);
   transition: all 0.25s linear;
