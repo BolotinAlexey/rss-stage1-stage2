@@ -49,11 +49,6 @@ html {
   font-style: normal;
   font-weight: 600;
   line-height: 1.5;
-  /* color: var(--text-dark); */
-  /* outline: 1px solid blue; */
-}
-a:hover {
-  /* cursor: default; */
 }
 
 body {
@@ -86,12 +81,10 @@ button {
   margin: 0 auto;
   padding-left: var(--padding);
   padding-right: var(--padding);
-  outline: 1px solid red;
 }
 
 .section {
   margin-bottom: 100px;
-  outline: 1px solid blue;
 }
 
 .inactive-link {
