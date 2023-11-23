@@ -1,3 +1,6 @@
+.menu-page .menu-link__link:before {
+  transform: scaleX(1);
+}
 .menu-page .section__title {
   text-align: center;
 }
@@ -14,6 +17,20 @@
   display: flex;
   gap: 16px;
   margin-bottom: 38px;
+}
+
+.tab__input {
+  display: none;
+}
+.tab__input:checked ~ label {
+  background: var(--bg-container);
+  color: var(--text-light);
+  cursor: default;
+  pointer-events: none;
+}
+.tab__input:checked ~ label > .tab__img,
+.tab__btn:hover > .tab__img {
+  background-color: var(--bg-body);
 }
 
 .tab__btn {

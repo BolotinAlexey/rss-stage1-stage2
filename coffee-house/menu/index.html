@@ -16,7 +16,7 @@
   </head>
   <body>
     <!-- H E A D E R -->
-    <header class="header container">
+    <header class="header container menu-page">
       <div class="logo">
         <a href="../home/index.html" class="logo__link">
           <img src="../assets/images/logo.svg" alt="logo" class="logo__img" />
@@ -66,22 +66,31 @@
         </h2>
         <ul class="tab">
           <li class="tab__item">
-            <button class="tab__btn">
+            <input
+              class="tab__input"
+              type="radio"
+              checked
+              id="coffee"
+              name="kind"
+            />
+            <label class="tab__btn" for="coffee">
               <div class="tab__img"></div>
-              <span class="tab__text">Coffee</span>
-            </button>
+              <span class="tab__text">Coffee</span></label
+            >
           </li>
           <li class="tab__item">
-            <button class="tab__btn">
+            <input class="tab__input" type="radio" id="tea" name="kind" />
+            <label class="tab__btn" for="tea">
               <div class="tab__img"></div>
-              <span class="tab__text">Tea</span>
-            </button>
+              <span class="tab__text">Tea</span></label
+            >
           </li>
           <li class="tab__item">
-            <button class="tab__btn">
+            <input class="tab__input" type="radio" id="dessert" name="kind" />
+            <label class="tab__btn" for="dessert">
               <div class="tab__img"></div>
-              <span class="tab__text">Dessert</span>
-            </button>
+              <span class="tab__text">Dessert</span></label
+            >
           </li>
         </ul>
         <ul class="cards">
