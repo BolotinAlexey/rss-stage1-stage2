@@ -1,0 +1,254 @@
+:root {
+  --text-dark: #403f3d;
+  --text-light: #e1d4c9;
+  --text-accent: #b0907a;
+  --bg-body: #e1d4c9;
+  --bg-container: #665f55;
+  --bg-backdrop: 64, 63, 61, 0.8;
+  --border-light: #c1b6ad;
+  --border-dark: #665f55;
+  --desktop: 1440px;
+  --tablet: 768px;
+  --mobile: 380px;
+  --padding: 40px;
+  --padding-mobile: 16px;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url(../assets/font/Inter-SemiBoldItalic.ttf) format("ttf");
+  src: url(../assets/font/Inter-SemiBoldItalic.woff) format("woff");
+  src: url(../assets/font/Inter-SemiBoldItalic.woff2) format("woff2");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: Inter;
+  src: url(../assets/font/Inter-SemiBold.ttf) format("ttf");
+  src: url(../assets/font/Inter-SemiBold.woff) format("woff");
+  src: url(../assets/font/Inter-SemiBold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: Inter;
+  src: url(../assets/font/Inter-Regular.ttf) format("ttf");
+  src: url(../assets/font/Inter-Regular.woff) format("woff");
+  src: url(../assets/font/Inter-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+body {
+  background-color: var(--bg-body);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  display: block;
+}
+button {
+  border: none;
+}
+
+.icon {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.container {
+  max-width: var(--desktop);
+  margin: 0 auto;
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+}
+
+.section {
+  margin-bottom: 100px;
+}
+
+.inactive-link {
+  pointer-events: none;
+  cursor: default;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.section__title {
+  margin: 0 0 40px;
+  font-size: 60px;
+  line-height: 1.25;
+}
+.section__title-accent {
+  font-style: italic;
+  color: var(--text-accent);
+  line-height: inherit;
+}
+
+/* H E A D E R */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav__list {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+}
+.menu-link__link:hover {
+  cursor: pointer;
+}
+
+/* F O O T E R */
+
+.footer__wrap {
+  padding: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 100px;
+  background: var(--bg-container);
+  color: var(--text-light);
+  border-radius: 40px;
+}
+
+.footer__left {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+
+.footer .section__title {
+  margin: 0;
+}
+.footer.section {
+  margin-bottom: 40px;
+}
+
+/* Social */
+.social {
+  gap: 12px;
+  display: flex;
+}
+
+.address__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.social__link {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: var(--border-light) solid 1px;
+  border-radius: 50%;
+  transition: all 0.25s linear;
+  font-size: 0;
+}
+.social__link:hover {
+  background-color: var(--bg-body);
+  border: none;
+  color: var(--text-dark);
+}
+.social__svg,
+.address__svg {
+  fill: none;
+}
+
+/* address */
+
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.address__title {
+  margin: 0 0 40px;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.address__item:nth-of-type(3) {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 4px;
+}
+
+.address__link,
+.menu-link__link,
+.nav__link {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  gap: 8px;
+  padding-bottom: 4px;
+  transition: all 0.25s linear;
+}
+
+.address__link:before,
+.menu-link__link:before,
+.nav__link:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: all 0.25s linear;
+}
+
+.address__link:hover:before,
+.menu-link__link:hover:before,
+.nav__link:hover:before {
+  transform: scaleX(1);
+  opacity: 1;
+}

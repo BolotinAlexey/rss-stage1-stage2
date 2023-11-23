@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <!-- H E A D E R -->
+    <header class="header container">
+      <div class="logo">
+        <a href="" class="logo__link">
+          <img src="../assets/images/logo.svg" alt="logo" class="logo__img" />
+        </a>
+      </div>
+
+      <!-- nav -->
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#favorite" class="nav__link">Favorite coffee</a>
+          </li>
+          <li class="nav__item">
+            <a href="#about" class="nav__link">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="#mobile" class="nav__link">Mobile app</a>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">Contact us</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- menu-link -->
+      <div class="menu-link">
+        <a href="../menu/index.html" class="menu-link__link">
+          <span class="menu-link__text">Menu</span>
+          <svg class="icon menu-link__icon" width="20" height="20">
+            <use href="../assets/sprite.svg#cup"></use>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <main class="main container">
+      <!-- E N J O Y -->
+      <section class="section enjoy">
+        <div class="enjoy__container">
+          <h1 class="enjoy__title">
+            <span class="enjoy__title-accent">Enjoy </span> premium coffee at
+            our charming cafe
+          </h1>
+          <p class="enjoy__describe">
+            With its inviting atmosphere and delicious coffee options, the
+            Coffee House Resource is a popular destination for coffee lovers and
+            those seeking a warm and inviting space to enjoy their favorite
+            beverage.
+          </p>
+          <a href="../menu/index.html" class="enjoy__button"
+            ><span>Menu</span>
+            <svg class="icon menu-link__icon" width="20" height="20">
+              <use href="../assets/sprite.svg#cup"></use>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- F A V O R I T E -->
+      <section id="favorite" class="section favorite">
+        <h2 class="section__title">
+          Choose your <span class="section__title-accent">favorite</span> coffee
+        </h2>
+
+        <!-- SLIDER -->
+        <div class="slider">
+          <div class="slider__wrap">
+            <button class="slider__btn">
+              <svg class="icon slider__svg" width="24" height="24">
+                <use href="../assets/sprite.svg#arrow-left"></use>
+              </svg>
+            </button>
+            <div class="slider__item">
+              <img
+                src="../assets/images/slider/coffee-1.png"
+                alt="S’mores Frappuccino"
+                class="slider__img"
+              />
+              <div class="slider__text">
+                <h3 class="slider__name">S’mores Frappuccino</h3>
+                <p class="slider__description">
+                  This new drink takes an espresso and mixes it with brown sugar
+                  and cinnamon before being topped with oat milk.
+                </p>
+                <h3 class="slider__price">$5.50</h3>
+              </div>
+            </div>
+            <button class="slider__btn">
+              <svg class="icon slider__svg" width="24" height="24">
+                <use href="../assets/sprite.svg#arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Tabs -->
+          <ul class="slider__tabs">
+            <li class="slider__tab">
+              <input id="1" type="radio" class="slider__input" checked />
+              <label for="1" class="slider__label">
+                <span class="slider__inner"></span>
+              </label>
+            </li>
+            <li class="slider__tab">
+              <input id="2" type="radio" class="slider__input" />
+              <label for="2" class="slider__label">
+                <span class="slider__inner"></span>
+              </label>
+            </li>
+            <li class="slider__tab">
+              <input id="3" type="radio" class="slider__input" />
+              <label for="3" class="slider__label">
+                <span class="slider__inner"></span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- A B O U T -->
+      <section id="about" class="section about">
+        <h2 class="section__title about__title">
+          Resource is
+          <span class="section__title-accent">the perfect and cozy place</span>
+          where you can enjoy a variety of hot beverages, relax, catch up with
+          friends, or get some work done.
+        </h2>
+        <ul class="about__gallery">
+          <li class="about__item">
+            <img
+              src="../assets/images/about/about-1.jpg"
+              alt=""
+              class="about__img"
+            />
+          </li>
+          <li class="about__item">
+            <img
+              src="../assets/images/about/about-2.jpg"
+              alt=""
+              class="about__img"
+            />
+          </li>
+          <li class="about__item">
+            <img
+              src="../assets/images/about/about-3.jpg"
+              alt=""
+              class="about__img"
+            />
+          </li>
+          <li class="about__item">
+            <img
+              src="../assets/images/about/about-4.jpg"
+              alt=""
+              class="about__img"
+            />
+          </li>
+        </ul>
+      </section>
+
+      <!-- M O B I L E -->
+      <section id="mobile" class="section mobile">
+        <div class="mobile__left">
+          <h2 class="section__title">
+            <span class="section__title-accent">Download </span>our apps to
+            start ordering
+          </h2>
+          <p class="mobile__description">
+            Download the Resource app today and experience the comfort of
+            ordering your favorite coffee from wherever you are
+          </p>
+          <ul class="mobile__btns">
+            <li class="mobile__item">
+              <button class="mobile__btn">
+                <svg class="icon mobile__svg" width="36" height="36">
+                  <use href="../assets/sprite.svg#apple"></use>
+                </svg>
+                <span class="mobile__desc">
+                  Available on the<br />
+                  <span class="mobile__brand">App Store</span>
+                </span>
+              </button>
+            </li>
+            <li class="mobile__item">
+              <button class="mobile__btn">
+                <svg
+                  class="mobile__svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                >
+                  <path
+                    d="M3.7558 3.20309C3.39335 3.57302 3.18359 4.14896 3.18359 4.89483V31.4995C3.18359 32.2454 3.39335 32.8213 3.7558 33.1913L3.84525 33.2725L19.1359 18.3701V18.0182L3.84525 3.11587L3.7558 3.20309Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M26.0776 23.34L20.9863 18.3701V18.0182L26.0837 13.0482L26.1979 13.1129L32.2345 16.4618C33.9573 17.4122 33.9573 18.9761 32.2345 19.9325L26.1979 23.2754L26.0776 23.34Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M25.2733 24.2008L20.0617 19.1196L4.68164 34.1167C5.25384 34.7031 6.18695 34.7738 7.24807 34.1873L25.2733 24.2008Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M25.2733 12.1876L7.24807 2.20103C6.18695 1.62058 5.25384 1.69125 4.68164 2.27772L20.0617 17.2688L25.2733 12.1876Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <span class="mobile__desc">
+                  Available on<br />
+                  <span class="mobile__brand">Google play</span>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="mobile__right"></div>
+      </section>
+    </main>
+
+    <!-- F O O T E R -->
+    <footer id="contact" class="footer section container">
+      <div class="footer__wrap">
+        <div class="footer__left">
+          <h2 class="section__title">
+            Sip, Savor, Smile.
+            <span class="section__title-accent"> It’s coffee time! </span>
+          </h2>
+
+          <!-- Social -->
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__link" href="http://twitter.com">
+                <svg class="icon social__svg" width="24" height="24">
+                  <use href="../assets/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="http://instagram.com">
+                <svg class="icon social__svg" width="24" height="24">
+                  <use href="../assets/sprite.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="http://facebook.com">
+                <svg class="icon social__svg" width="24" height="24">
+                  <use href="../assets/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__right">
+          <address class="address">
+            <p class="address__title">Contact us</p>
+
+            <ul class="address__links">
+              <!-- geolocation -->
+              <li class="address__item">
+                <a
+                  href="https://www.google.com/maps/search/8558+Green+Rd.,+LA/@34.0200392,-118.7413804,10z/data=!3m1!4b1?authuser=0&entry=ttu"
+                  class="address__link"
+                >
+                  <svg class="icon address__svg" width="20" height="20">
+                    <use href="../assets/sprite.svg#geo"></use>
+                  </svg>
+                  <span class="address__text">8558 Green Rd.,&nbsp; LA</span>
+                </a>
+              </li>
+
+              <!-- telephone -->
+              <li class="address__item">
+                <a href="tel:+16035550123" class="address__link">
+                  <svg class="icon address__svg" width="20" height="20">
+                    <use href="../assets/sprite.svg#phone"></use>
+                  </svg>
+                  <span class="address__text">+1 (603) 555-0123</span>
+                </a>
+              </li>
+
+              <!-- schedule -->
+              <li class="address__item">
+                <svg class="icon address__svg" width="20" height="20">
+                  <use href="../assets/sprite.svg#clock"></use>
+                </svg>
+                <span class="address__text">Mon-Sat: 9:00 AM – 23:00 PM</span>
+              </li>
+            </ul>
+          </address>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

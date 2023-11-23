@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Menu</title>
+  </head>
+  <body>
+    <!-- H E A D E R -->
+    <header class="header container menu-page">
+      <div class="logo">
+        <a href="../home/index.html" class="logo__link">
+          <img src="../assets/images/logo.svg" alt="logo" class="logo__img" />
+        </a>
+      </div>
+
+      <!-- nav -->
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="../home/index.html#favorite" class="nav__link"
+              >Favorite coffee</a
+            >
+          </li>
+          <li class="nav__item">
+            <a href="../home/index.html#about" class="nav__link">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="../home/index.html#mobile" class="nav__link">Mobile app</a>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">Contact us</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- menu-link -->
+      <div class="menu-link">
+        <a class="inactive-link menu-link__link" href="">
+          <span class="menu-link__text">Menu</span>
+          <svg class="icon menu-link__icon" width="20" height="20">
+            <use href="../assets/sprite.svg#cup"></use>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- M A I N -->
+    <main class="main container menu-page">
+      <h1 class="visually-hidden">Menu Coffee house</h1>
+      <section class="section">
+        <h2 class="section__title">
+          Behind each of our cups<br />hides an
+          <span class="section__title-accent">amazing surprise</span>
+        </h2>
+        <ul class="tab">
+          <li class="tab__item">
+            <input
+              class="tab__input"
+              type="radio"
+              checked
+              id="coffee"
+              name="kind"
+            />
+            <label class="tab__btn" for="coffee">
+              <span class="tab__img"></span>
+              <span class="tab__text">Coffee</span></label
+            >
+          </li>
+          <li class="tab__item">
+            <input class="tab__input" type="radio" id="tea" name="kind" />
+            <label class="tab__btn" for="tea">
+              <span class="tab__img"></span>
+              <span class="tab__text">Tea</span></label
+            >
+          </li>
+          <li class="tab__item">
+            <input class="tab__input" type="radio" id="dessert" name="kind" />
+            <label class="tab__btn" for="dessert">
+              <span class="tab__img"></span>
+              <span class="tab__text">Dessert</span></label
+            >
+          </li>
+        </ul>
+        <ul class="cards">
+          <!-- 1 -->
+          <li class="cards__item">
+            <div class="cards__img-wrap">
+              <img
+                src="../assets/images/menu/coffee-1.jpg"
+                alt="Irish coffee"
+                class="cards__img"
+              />
+            </div>
+
+            <div class="cards__text">
+              <h3 class="cards__name">Irish coffee</h3>
+              <p class="cards__description">
+                Fragrant black coffee with Jameson Irish whiskey and whipped
+                milk
+              </p>
+              <h3 class="cards__price">$7.00</h3>
+            </div>
+          </li>
+          <!-- 2 -->
+          <li class="cards__item">
+            <div class="cards__img-wrap">
+              <img
+                src="../assets/images/menu/coffee-2.jpg"
+                alt="Kahlua coffee"
+                class="cards__img"
+              />
+            </div>
+            <div class="cards__text">
+              <h3 class="cards__name">Kahlua coffee</h3>
+              <p class="cards__description">
+                Classic coffee with milk and Kahlua liqueur under a cap of
+                frothed milk
+              </p>
+              <h3 class="cards__price">$7.00</h3>
+            </div>
+          </li>
+          <!-- 3 -->
+          <li class="cards__item">
+            <div class="cards__img-wrap">
+              <img
+                src="../assets/images/menu/coffee-3.jpg"
+                alt="Honey raf"
+                class="cards__img"
+              />
+            </div>
+            <div class="cards__text">
+              <h3 class="cards__name">Honey raf</h3>
+              <p class="cards__description">
+                Espresso with frothed milk, cream and aromatic honey
+              </p>
+              <h3 class="cards__price">$5.50</h3>
+            </div>
+          </li>
+          <!-- 4 -->
+          <li class="cards__item">
+            <div class="cards__img-wrap">
+              <img
+                src="../assets/images/menu/coffee-4.jpg"
+                alt="Ice cappuccino"
+                class="cards__img"
+              />
+            </div>
+            <div class="cards__text">
+              <h3 class="cards__name">Ice cappuccino</h3>
+              <p class="cards__description">
+                Cappuccino with soft thick foam in summer version with ice
+              </p>
+              <h3 class="cards__price">$5.00</h3>
+            </div>
+          </li>
+          <!-- 5 -->
+          <li class="cards__item">
+            <div class="cards__img-wrap">
+              <img
+                src="../assets/images/menu/coffee-5.jpg"
+                alt="Espresso"
+                class="cards__img"
+              />
+            </div>
+            <div class="cards__text">
+              <h3 class="cards__name">Espresso</h3>
+              <p class="cards__description">Classic black coffee</p>
+
+              <h3 class="cards__price">$4.50</h3>
+            </div>
+          </li>
+          <!-- 6 -->
+          <li class="cards__item">
+            <div class="cards__img-wrap">
+              <img
+                src="../assets/images/menu/coffee-6.jpg"
+                alt="Latte"
+                class="cards__img"
+              />
+            </div>
+            <div class="cards__text">
+              <h3 class="cards__name">Latte</h3>
+              <p class="cards__description">
+                Espresso coffee with the addition of steamed milk and dense milk
+                foam
+              </p>
+              <h3 class="cards__price">$5.50</h3>
+            </div>
+          </li>
+          <!-- 7 -->
+          <li class="cards__item">
+            <div class="cards__img-wrap">
+              <img
+                src="../assets/images/menu/coffee-7.jpg"
+                alt="Latte macchiato"
+                class="cards__img"
+              />
+            </div>
+            <div class="cards__text">
+              <h3 class="cards__name">Latte macchiato</h3>
+              <p class="cards__description">
+                Espresso with frothed milk and chocolate
+              </p>
+              <h3 class="cards__price">$5.50</h3>
+            </div>
+          </li>
+          <!-- 8 -->
+          <li class="cards__item">
+            <div class="cards__img-wrap">
+              <img
+                src="../assets/images/menu/coffee-8.jpg"
+                alt="Coffee with cognac"
+                class="cards__img"
+              />
+            </div>
+            <div class="cards__text">
+              <h3 class="cards__name">Coffee with cognac</h3>
+              <p class="cards__description">
+                Fragrant black coffee with cognac and whipped cream
+              </p>
+              <h3 class="cards__price">$6.50</h3>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- F O O T E R -->
+    <footer id="contact" class="footer section container">
+      <div class="footer__wrap">
+        <div class="footer__left">
+          <h2 class="section__title">
+            Sip, Savor, Smile.
+            <span class="section__title-accent"> It’s coffee time! </span>
+          </h2>
+
+          <!-- Social -->
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__link" href="http://twitter.com">
+                <svg class="icon social__svg" width="24" height="24">
+                  <use href="../assets/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="http://instagram.com">
+                <svg class="icon social__svg" width="24" height="24">
+                  <use href="../assets/sprite.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="http://facebook.com">
+                <svg class="icon social__svg" width="24" height="24">
+                  <use href="../assets/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__right">
+          <address class="address">
+            <p class="address__title">Contact us</p>
+
+            <ul class="address__links">
+              <!-- geolocation -->
+              <li class="address__item">
+                <a
+                  href="https://www.google.com/maps/search/8558+Green+Rd.,+LA/@34.0200392,-118.7413804,10z/data=!3m1!4b1?authuser=0&entry=ttu"
+                  class="address__link"
+                >
+                  <svg class="icon address__svg" width="20" height="20">
+                    <use href="../assets/sprite.svg#geo"></use>
+                  </svg>
+                  <span class="address__text">8558 Green Rd.,&nbsp; LA</span>
+                </a>
+              </li>
+
+              <!-- telephone -->
+              <li class="address__item">
+                <a href="tel:+16035550123" class="address__link">
+                  <svg class="icon address__svg" width="20" height="20">
+                    <use href="../assets/sprite.svg#phone"></use>
+                  </svg>
+                  <span class="address__text">+1 (603) 555-0123</span>
+                </a>
+              </li>
+
+              <!-- schedule -->
+              <li class="address__item">
+                <svg class="icon address__svg" width="20" height="20">
+                  <use href="../assets/sprite.svg#clock"></use>
+                </svg>
+                <span class="address__text">Mon-Sat: 9:00 AM – 23:00 PM</span>
+              </li>
+            </ul>
+          </address>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>
