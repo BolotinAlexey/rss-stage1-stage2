@@ -167,19 +167,13 @@ button {
   margin: 0;
 }
 .footer.section {
-  margin-bottom: 0;
+  margin-bottom: 40px;
 }
 
 /* Social */
 .social {
   gap: 12px;
   display: flex;
-}
-
-.social__item {
-}
-
-.social__item:hover {
 }
 
 .address__links {
@@ -248,6 +242,7 @@ button {
   height: 2px;
   background-color: currentColor;
   transform: scaleX(0);
+  opacity: 0;
   transition: all 0.25s linear;
 }
 
@@ -255,4 +250,5 @@ button {
 .menu-link__link:hover:before,
 .nav__link:hover:before {
   transform: scaleX(1);
+  opacity: 1;
 }
