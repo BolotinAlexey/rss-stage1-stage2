@@ -8,10 +8,12 @@
   align-items: center;
 }
 
+/* tabs */
+
 .tab {
   display: flex;
   gap: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 38px;
 }
 
 .tab__btn {
@@ -34,7 +36,6 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  /* padding: 0 7px; */
   background-position: center;
   background-color: var(--border-light);
   background-repeat: no-repeat;
@@ -48,4 +49,69 @@
 }
 .tab__item:nth-child(3) .tab__img {
   background-image: url(../assets/images/menu-btns/dessert.png);
+}
+
+/* cards */
+.cards {
+  display: flex;
+  column-gap: 40px;
+  row-gap: 38px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cards__item {
+  width: 310px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 40px;
+  border: 1px solid var(--border-light);
+}
+
+.cards__item:hover {
+  cursor: pointer;
+}
+.cards__item:hover .cards__img {
+  transform: scale(0.9);
+}
+
+.cards__img-wrap {
+  width: 100%;
+  height: 310px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.cards__img {
+  transform: scale(1);
+  transition: transform 0.25s linear;
+}
+.cards__img:hover {
+  transform: scale(0.9);
+}
+
+.cards__text {
+  height: 196px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: var(--text-dark);
+}
+
+.cards__name,
+.cards__price {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.25;
+}
+.cards__price {
+  margin-top: auto;
+}
+.cards__description {
+  margin: 12px 0 0;
+  font-weight: 400;
 }
