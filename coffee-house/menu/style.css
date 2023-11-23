@@ -1,3 +1,51 @@
 .menu-page .section__title {
   text-align: center;
 }
+
+.menu-page > .section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.tab__btn {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid var(--border-light);
+  border-radius: 23px;
+  background-color: transparent;
+  transition: all 0.25s linear;
+}
+.tab__btn:hover {
+  cursor: pointer;
+  background: var(--bg-container);
+  color: var(--text-light);
+}
+
+.tab__img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* padding: 0 7px; */
+  background-position: center;
+  background-color: var(--border-light);
+  background-repeat: no-repeat;
+}
+
+.tab__item:nth-child(1) .tab__img {
+  background-image: url(../assets/images/menu-btns/coffee.png);
+}
+.tab__item:nth-child(2) .tab__img {
+  background-image: url(../assets/images/menu-btns/tea.png);
+}
+.tab__item:nth-child(3) .tab__img {
+  background-image: url(../assets/images/menu-btns/dessert.png);
+}
