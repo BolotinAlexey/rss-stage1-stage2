@@ -42,13 +42,25 @@
   background-color: var(--bg-body);
   transition: all 0.25s linear;
 }
-.enjoy__button:hover {
-  cursor: pointer;
-  color: var(--text-dark);
-}
 
-.enjoy__button:hover > span {
-  transform: translateX(0);
+@media (hover: hover) {
+  .enjoy__button:hover {
+    cursor: pointer;
+    color: var(--text-dark);
+  }
+
+  .enjoy__button:hover > span {
+    transform: translateX(0);
+  }
+}
+@media (hover: none) {
+  .enjoy__button {
+    color: var(--text-dark);
+  }
+
+  .enjoy__button:hover > span {
+    transform: translateX(0);
+  }
 }
 
 .enjoy__button > span {
