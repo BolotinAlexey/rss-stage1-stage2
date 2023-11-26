@@ -42,7 +42,11 @@
   background-color: var(--bg-body);
   transition: all 0.25s linear;
 }
-
+.enjoy__button > span {
+  color: var(--text-dark);
+  transform: translateX(14px);
+  transition: all 0.25s linear;
+}
 @media (hover: hover) {
   .enjoy__button:hover {
     cursor: pointer;
@@ -58,15 +62,9 @@
     color: var(--text-dark);
   }
 
-  .enjoy__button:hover > span {
+  .enjoy__button > span {
     transform: translateX(0);
   }
-}
-
-.enjoy__button > span {
-  color: var(--text-dark);
-  transform: translateX(14px);
-  transition: all 0.25s linear;
 }
 
 /* F A V O R I T E */
@@ -102,12 +100,13 @@
   transition: all 0.25s linear;
 }
 
-.slider__btn:hover {
-  cursor: pointer;
-  background: var(--bg-container);
-  color: var(--text-light);
+@media (hover: hover) {
+  .slider__btn:hover {
+    cursor: pointer;
+    background: var(--bg-container);
+    color: var(--text-light);
+  }
 }
-
 .slider__item {
   display: flex;
   flex-direction: column;
