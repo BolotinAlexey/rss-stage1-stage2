@@ -29,9 +29,11 @@
   cursor: default;
   pointer-events: none;
 }
-.tab__input:checked ~ label > .tab__img,
-.tab__btn:hover > .tab__img {
-  background-color: var(--bg-body);
+@media (hover: hover) {
+  .tab__input:checked ~ label > .tab__img,
+  .tab__btn:hover > .tab__img {
+    background-color: var(--bg-body);
+  }
 }
 
 .tab__btn {
@@ -44,10 +46,12 @@
   background-color: transparent;
   transition: all 0.25s linear;
 }
-.tab__btn:hover {
-  cursor: pointer;
-  background: var(--bg-container);
-  color: var(--text-light);
+@media (hover: hover) {
+  .tab__btn:hover {
+    cursor: pointer;
+    background: var(--bg-container);
+    color: var(--text-light);
+  }
 }
 
 .tab__img {
@@ -86,11 +90,13 @@
   border: 1px solid var(--border-light);
 }
 
-.cards__item:hover {
-  cursor: pointer;
-}
-.cards__item:hover .cards__img {
-  transform: scale(0.9);
+@media (hover: hover) {
+  .cards__item:hover {
+    cursor: pointer;
+  }
+  .cards__item:hover .cards__img {
+    transform: scale(0.9);
+  }
 }
 
 .cards__img-wrap {
@@ -107,8 +113,11 @@
   transform: scale(1);
   transition: transform 0.25s linear;
 }
-.cards__img:hover {
-  transform: scale(0.9);
+
+@media (hover: hover) {
+  .cards__img:hover {
+    transform: scale(0.9);
+  }
 }
 
 .cards__text {
