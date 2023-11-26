@@ -168,10 +168,12 @@
   align-items: center;
   overflow: hidden;
 }
-.about__item:hover .about__img {
-  transform: scale(1);
-}
 
+@media (hover: hover) {
+  .about__item:hover .about__img {
+    transform: scale(1);
+  }
+}
 .about__item:nth-of-type(1) {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -248,12 +250,13 @@
   transition: all 0.25s linear;
 }
 
-.mobile__btn:hover {
-  cursor: pointer;
-  background: var(--bg-container);
-  color: var(--text-light);
+@media (hover: hover) {
+  .mobile__btn:hover {
+    cursor: pointer;
+    background: var(--bg-container);
+    color: var(--text-light);
+  }
 }
-
 .mobile__desc {
   text-align: left;
   font-size: 10px;
