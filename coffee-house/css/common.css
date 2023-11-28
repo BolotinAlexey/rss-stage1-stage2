@@ -79,10 +79,15 @@ button {
 .container {
   max-width: var(--desktop);
   margin: 0 auto;
-  padding-left: var(--padding);
-  padding-right: var(--padding);
+  padding-left: var(--padding-mobile);
+  padding-right: var(--padding-mobile);
 }
-
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+  }
+}
 .section {
   margin-bottom: 100px;
 }
