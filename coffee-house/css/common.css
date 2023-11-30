@@ -82,12 +82,7 @@ button {
   padding-left: var(--padding-mobile);
   padding-right: var(--padding-mobile);
 }
-@media screen and (min-width: 768px) {
-  .container {
-    padding-left: var(--padding);
-    padding-right: var(--padding);
-  }
-}
+
 .section {
   margin-bottom: 100px;
 }
@@ -113,7 +108,7 @@ button {
 
 .section__title {
   margin: 0 0 40px;
-  font-size: 60px;
+  font-size: 32px;
   line-height: 1.25;
 }
 .section__title-accent {
@@ -294,5 +289,17 @@ button {
   .nav__link:hover:before {
     transform: scaleX(1);
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 380px) {
+  .section__title {
+    font-size: 60px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding-left: var(--padding);
+    padding-right: var(--padding);
   }
 }
