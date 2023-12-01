@@ -133,10 +133,13 @@
   gap: 20px;
   align-items: center;
   width: 348px;
+}
+
+.slider__img {
   height: 348px;
+  object-fit: cover;
 }
 .slider__text {
-  width: 480px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -149,6 +152,8 @@
   line-height: 1.25;
 }
 .slider__description {
+  /* width: 100%;
+  word-wrap: break-word; */
   margin: 0;
   font-weight: 400;
   text-align: center;
@@ -177,7 +182,10 @@
 @media screen and (min-width: 768px) {
   .slider__item {
     width: 480px;
-    height: 480px;
+    /* height: 480px; */
+  }
+  .slider__btn {
+    display: flex;
   }
 }
 
