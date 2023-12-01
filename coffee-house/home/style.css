@@ -236,7 +236,7 @@
   transition: transform 0.25s linear;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 769px) {
   .about__gallery {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -273,6 +273,7 @@
 .mobile {
   display: flex;
   flex-direction: column;
+  gap: 40px;
   /* justify-content: space-between; */
 }
 
@@ -338,7 +339,9 @@
 
 .mobile__right {
   width: 100%;
+  background-size: contain;
   /* height: 630px; */
+  height: calc(100vw - var(--padding-mobile) * 2);
   background-image: url(../assets/images/mobile-screens.png);
   background-repeat: no-repeat;
 }
