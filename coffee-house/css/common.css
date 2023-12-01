@@ -85,6 +85,7 @@ button {
 
 .section {
   margin-bottom: 100px;
+  outline: 1px solid blue;
 }
 
 .inactive-link {
