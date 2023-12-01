@@ -182,14 +182,16 @@ button {
 }
 
 /* F O O T E R */
-footer {
-  overflow: hidden;
-}
+
 .footer__wrap {
-  padding: 100px;
-  display: grid;
+  /* padding: 100px; */
+  padding: 60px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 100px;
+  column-gap: 100px; */
   background: var(--bg-container);
   color: var(--text-light);
   border-radius: 40px;
