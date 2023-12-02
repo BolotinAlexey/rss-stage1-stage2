@@ -33,6 +33,7 @@
 }
 .enjoy__button {
   width: 200px;
+  max-width: calc(100% - 32px);
   padding: 20px 0;
   display: flex;
   gap: 8px;
@@ -93,7 +94,7 @@
 
 /* Slider */
 .slider {
-  padding: 0 4px;
+  /* padding: 0 4px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,6 +138,8 @@
 }
 
 .slider__img {
+  max-width: 100%;
+
   height: 348px;
   object-fit: cover;
 }
@@ -181,12 +184,18 @@
 }
 
 @media screen and (min-width: 768px) {
+  .slider__wrap {
+    width: 100%;
+  }
   .slider__item {
     width: 480px;
     /* height: 480px; */
   }
   .slider__btn {
     display: flex;
+  }
+  .slider__img {
+    height: 480px;
   }
 }
 
@@ -280,6 +289,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  align-items: center;
   /* justify-content: space-between; */
 }
 
@@ -306,12 +316,14 @@
 .mobile__btns {
   margin: 0;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .mobile__btn {
   width: 200px;
+  max-width: 100%;
   align-items: center;
   display: flex;
   padding: 11px 19px;
@@ -350,4 +362,14 @@
   height: calc(100vw - var(--padding-mobile) * 2);
   background-image: url(../assets/images/mobile-screens.png);
   background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile {
+    gap: 100px;
+  }
+  .mobile__right {
+    height: 630px;
+    width: 630px;
+  }
 }

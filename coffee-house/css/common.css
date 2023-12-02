@@ -214,6 +214,7 @@ button {
 .social {
   gap: 12px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .address__links {
@@ -307,4 +308,12 @@ button {
   .section__title {
     font-size: 60px;
   }
+  .footer__wrap {
+    padding: 100px 60px;
+    gap: 100px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  padding: 100px;
 }
