@@ -210,7 +210,7 @@
 
 @media (hover: hover) {
   .about__item:hover .about__img {
-    transform: scale(1);
+    transform: scale(1.1);
   }
 }
 @media (hover: none) {
@@ -242,6 +242,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 430px 40px 120px 40px 430px;
     grid-column-gap: 40px;
+    grid-row-gap: 0;
+  }
+  .about__item {
+    height: auto;
   }
   .about__item:nth-of-type(1) {
     grid-column-start: 1;
@@ -250,12 +254,14 @@
     grid-row-end: 4;
   }
   .about__item:nth-of-type(2) {
+    display: flex;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
   }
   .about__item:nth-of-type(3) {
+    display: flex;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 5;
