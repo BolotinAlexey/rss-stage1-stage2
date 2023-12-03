@@ -69,7 +69,7 @@
   }
 }
 
-@media screen and (min-width: 540px) {
+@media screen and (min-width: 680px) {
   .enjoy {
     padding: 100px 60px;
   }
@@ -183,7 +183,7 @@
   background-color: var(--border-dark);
 }
 
-@media screen and (min-width: 540px) {
+@media screen and (min-width: 680px) {
   .slider__wrap {
     width: 100%;
   }
@@ -365,7 +365,7 @@
   background-repeat: no-repeat;
 }
 
-@media screen and (min-width: 540px) {
+@media screen and (min-width: 680px) {
   .mobile {
     gap: 100px;
   }

@@ -297,7 +297,7 @@ button {
   }
 }
 
-@media screen and (min-width: 540px) {
+@media screen and (min-width: 680px) {
   .container {
     padding-left: var(--padding);
     padding-right: var(--padding);
