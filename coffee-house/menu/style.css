@@ -178,7 +178,7 @@
     height: auto;
   }
 }
-@media screen and (min-width: 540px) {
+@media screen and (min-width: 680px) {
   .tab {
     gap: 16px;
   }
