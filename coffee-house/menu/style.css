@@ -91,7 +91,7 @@
 
 .cards__item {
   display: none;
-  width: 310px;
+  width: 100%;
   max-width: 310px;
   flex-direction: column;
   border-radius: 40px;
@@ -170,6 +170,14 @@
   fill: none;
 }
 
+@media screen and (max-width: 360px) {
+  .cards__img {
+    width: 100%;
+  }
+  .cards__img-wrap {
+    height: auto;
+  }
+}
 @media screen and (min-width: 540px) {
   .tab {
     gap: 16px;
