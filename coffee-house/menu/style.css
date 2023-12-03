@@ -19,6 +19,8 @@
 
 .tab {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 8px;
   /* gap: 16px; */
   /* margin-bottom: 38px; */
@@ -153,6 +155,20 @@
   margin: 12px 0 0;
   font-weight: 400;
 }
+.more {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid var(--border-dark);
+}
+
+.more__icon {
+  fill: none;
+}
 
 @media screen and (min-width: 720px) {
   .tab {
@@ -165,5 +181,8 @@
   .cards__item:nth-of-type(7),
   .cards__item:nth-of-type(8) {
     display: flex;
+  }
+  .more {
+    display: none;
   }
 }
