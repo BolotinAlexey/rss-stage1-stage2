@@ -92,6 +92,7 @@
 .cards__item {
   display: none;
   width: 310px;
+  max-width: 310px;
   flex-direction: column;
   border-radius: 40px;
   border: 1px solid var(--border-light);
@@ -108,7 +109,7 @@
     cursor: pointer;
   }
   .cards__item:hover .cards__img {
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
 }
 
@@ -125,12 +126,6 @@
 .cards__img {
   transform: scale(1);
   transition: transform 0.25s linear;
-}
-
-@media (hover: hover) {
-  .cards__img:hover {
-    transform: scale(0.9);
-  }
 }
 
 .cards__text {
@@ -165,12 +160,17 @@
   border-radius: 50%;
   border: 1px solid var(--border-dark);
 }
+@media (hover: hover) {
+  .more:hover {
+    cursor: pointer;
+  }
+}
 
 .more__icon {
   fill: none;
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 540px) {
   .tab {
     gap: 16px;
   }
