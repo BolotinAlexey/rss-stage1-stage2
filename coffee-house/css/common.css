@@ -171,7 +171,7 @@ button {
   background-color: var(--border-dark);
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1024px) {
   .nav,
   .menu-link {
     display: flex;
@@ -298,9 +298,7 @@ button {
   }
 }
 
-@media screen and (min-width: 380px) {
-}
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 720px) {
   .container {
     padding-left: var(--padding);
     padding-right: var(--padding);
@@ -314,6 +312,12 @@ button {
   }
 }
 
-@media screen and (min-width: 1440px) {
-  padding: 100px;
+@media screen and (min-width: 1024px) {
+  .footer__wrap {
+    padding: 100px;
+    flex-direction: row;
+  }
+  .footer__left {
+    width: calc(50% - 50px);
+  }
 }
