@@ -128,13 +128,24 @@
     color: var(--text-light);
   }
 }
+
+.slider__window {
+  overflow: hidden;
+  width: 348px;
+  gap: 20px;
+}
+
+.slider__list {
+  display: flex;
+  width: calc(348px * 3 + 40px);
+  transform: translateX(-66.66%);
+}
 .slider__item {
+  width: 348px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  /* !doit */
-  /* width: 348px; */
 }
 
 .slider__img {
