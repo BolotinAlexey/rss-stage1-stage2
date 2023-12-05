@@ -14,6 +14,29 @@
     <title>Home</title>
   </head>
   <body>
+    <!-- MOBILE-MENU -->
+    <nav class="mobile-menu">
+      <ul class="mobile-menu__list">
+        <li class="mobile-menu__item">
+          <a href="#favorite" class="mobile-menu__link">Favorite coffee</a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="#about" class="mobile-menu__link">About</a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="#mobile" class="mobile-menu__link">Mobile app</a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="#contact" class="mobile-menu__link">Contact us</a>
+        </li>
+      </ul>
+      <a href="../menu/index.html" class="mobile-menu__button"
+        ><span>Menu</span>
+        <svg class="icon mobile-menu__icon" width="20" height="20">
+          <use href="../assets/sprite.svg#cup"></use>
+        </svg>
+      </a>
+    </nav>
     <!-- H E A D E R -->
     <header class="header container">
       <div class="logo">
@@ -60,30 +83,6 @@
 
     <!-- M A I N -->
     <main class="main container">
-      <!-- mobile-menu -->
-      <nav class="mobile-menu">
-        <ul class="mobile-menu__list">
-          <li class="mobile-menu__item">
-            <a href="#favorite" class="mobile-menu__link">Favorite coffee</a>
-          </li>
-          <li class="mobile-menu__item">
-            <a href="#about" class="mobile-menu__link">About</a>
-          </li>
-          <li class="mobile-menu__item">
-            <a href="#mobile" class="mobile-menu__link">Mobile app</a>
-          </li>
-          <li class="mobile-menu__item">
-            <a href="#contact" class="mobile-menu__link">Contact us</a>
-          </li>
-        </ul>
-        <a href="../menu/index.html" class="mobile-menu__button"
-          ><span>Menu</span>
-          <svg class="icon mobile-menu__icon" width="20" height="20">
-            <use href="../assets/sprite.svg#cup"></use>
-          </svg>
-        </a>
-      </nav>
-
       <!-- E N J O Y -->
       <section class="section enjoy">
         <div class="enjoy__container">
@@ -343,6 +342,8 @@
         </div>
       </div>
     </footer>
+
     <script src="./js/index.js"></script>
+    <script src="../js/burger-menu.js" type="module"></script>
   </body>
 </html>
