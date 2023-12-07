@@ -7,9 +7,12 @@ let currentSlide = 0;
 let rangeValue = 0;
 let isHover = false;
 
-const { tabs, sliderList } = getRefs();
+const { tabs, sliderList, sliderBtns } = getRefs();
 
 let intervalID = setInterval(sliderHandler, TIME);
+
+sliderBtns[0].addEventListener("click", () => changeSlide(currentSlide - 1));
+sliderBtns[1].addEventListener("click", () => changeSlide(currentSlide + 1));
 
 function sliderHandler() {
   if (rangeValue >= MAX_VALUE) {
