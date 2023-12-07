@@ -1,6 +1,6 @@
 export default function resetTabs(tabs) {
   tabs.forEach((tab) => {
-    console.log(tab);
+    // console.log(tab);
     tab.value = 0;
   });
 }

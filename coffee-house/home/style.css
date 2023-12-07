@@ -137,8 +137,8 @@
 
 .slider__list {
   display: flex;
-  width: calc(348px * 3 + 40px);
-  transform: translateX(-66.66%);
+  width: calc(348px * 3);
+  transition: transform 0.5s linear;
 }
 .slider__item {
   width: 348px;
