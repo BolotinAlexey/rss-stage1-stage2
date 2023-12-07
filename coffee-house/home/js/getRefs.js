@@ -3,5 +3,6 @@ export default function getRefs() {
     tabs: document.querySelectorAll(".slider__input"),
     sliderList: document.querySelector(".slider__list"),
     sliderBtns: document.querySelectorAll(".slider__btn"),
+    sliderItems: document.querySelectorAll(".slider__item"),
   };
 }

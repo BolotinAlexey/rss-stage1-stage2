@@ -7,9 +7,22 @@ let currentSlide = 0;
 let rangeValue = 0;
 let isHover = false;
 
-const { tabs, sliderList, sliderBtns } = getRefs();
+const { tabs, sliderList, sliderBtns, sliderItems } = getRefs();
 
 let intervalID = setInterval(sliderHandler, TIME);
+
+console.log(sliderItems);
+sliderItems.forEach((el) => {
+  console.log(el);
+  el.addEventListener("mouseover", () => {
+    console.log(el);
+
+    isHover = true;
+  });
+  el.addEventListener("mouseout", () => {
+    isHover = false;
+  });
+});
 
 sliderBtns[0].addEventListener("click", () => changeSlide(currentSlide - 1));
 sliderBtns[1].addEventListener("click", () => changeSlide(currentSlide + 1));
