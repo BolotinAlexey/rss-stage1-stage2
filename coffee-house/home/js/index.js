@@ -7,22 +7,26 @@ let currentSlide = 0;
 let rangeValue = 0;
 let isHover = false;
 
-const { tabs, sliderList, sliderBtns, sliderItems } = getRefs();
+const { tabs, sliderList, sliderBtns, sliderItems, slider, sliderWindow } =
+  getRefs();
 
 let intervalID = setInterval(sliderHandler, TIME);
 
-console.log(sliderItems);
-sliderItems.forEach((el) => {
-  console.log(el);
-  el.addEventListener("mouseover", () => {
-    console.log(el);
+sliderWindow.addEventListener("touchstart", () => swipeHandlerMobile);
+sliderWindow.addEventListener("mousedown", () => swipeHandlerDesktop);
 
-    isHover = true;
-  });
-  el.addEventListener("mouseout", () => {
-    isHover = false;
-  });
+// pause carousel handlers
+sliderWindow.addEventListener("mouseover", () => {
+  isHover = true;
 });
+// sliderWindow.addEventListener("touchend", () => {
+//   isHover = false;
+// });
+sliderWindow.addEventListener("mouseout", () => {
+  isHover = false;
+});
+
+// slider.addEventListener("touchstart", swipeHandler);
 
 sliderBtns[0].addEventListener("click", () => changeSlide(currentSlide - 1));
 sliderBtns[1].addEventListener("click", () => changeSlide(currentSlide + 1));
@@ -41,4 +45,11 @@ function changeSlide(slide) {
   rangeValue = 0;
   resetTabs(tabs);
   sliderList.style.transform = `translateX(-${currentSlide * 33.333}%)`;
+}
+
+function swipeHandlerMobile(e) {
+  isHover = true;
+}
+function swipeHandlerDesktop(e) {
+  isHover = true;
 }
