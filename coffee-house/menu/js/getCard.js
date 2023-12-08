@@ -1,4 +1,5 @@
 export default function getCard({ name, description, price, category, index }) {
+  //   console.log(name, description, category, index);
   return `
   <li class="cards__item">
             <div class="cards__img-wrap">
