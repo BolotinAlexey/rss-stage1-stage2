@@ -8,7 +8,6 @@ export default function getCard({ name, description, price, category, index }) {
                 class="cards__img"
               />
             </div>
-
             <div class="cards__text">
               <h3 class="cards__name">${name}</h3>
               <p class="cards__description">${description}

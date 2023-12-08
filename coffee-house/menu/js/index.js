@@ -1,7 +1,7 @@
 import items from "../../assets/items.js";
 import getRefs from "./getRefs.js";
 
-const { tab, tabInputs } = getRefs();
+const { tab, tabInputs, cards } = getRefs();
 tab.addEventListener("click", onTab);
 console.log(items);
 
