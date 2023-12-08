@@ -1,12 +1,23 @@
 import getRefs from "./getRefs.js";
 
-const { burger, mobileMenu } = getRefs();
+const { burger, mobileMenu, body } = getRefs();
 burger.addEventListener("click", onBurger);
 mobileMenu.addEventListener("click", onBurger);
+window.addEventListener("resize", resetModal);
 
 function onBurger(e) {
-  console.log(e.target);
   if (e.target.tagName === "NAV" || e.target.tagName === "UL") return;
   burger.classList.toggle("enableMenu");
   mobileMenu.classList.toggle("enableMenu");
+  body.classList.toggle("enableMenu");
+  if (burger.classList.contains("enableMenu")) {
+    window.scrollTo(0, 0);
+  }
+}
+function resetModal(e) {
+  if (burger.classList.contains("enableMenu")) {
+    burger.classList.remove("enableMenu");
+    mobileMenu.classList.remove("enableMenu");
+    body.classList.remove("enableMenu");
+  }
 }

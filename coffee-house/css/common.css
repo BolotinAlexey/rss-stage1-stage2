@@ -54,7 +54,10 @@ html {
 body {
   background-color: var(--bg-body);
   position: relative;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+}
+body.enableMenu {
+  overflow-y: hidden;
 }
 
 ul {
@@ -221,6 +224,7 @@ button {
 }
 .mobile-menu.enableMenu {
   transform: translateX(0);
+  overflow: scroll;
 }
 
 .mobile-menu__list {
