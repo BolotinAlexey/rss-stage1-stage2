@@ -1,7 +1,6 @@
 export default function getCard({ name, description, price, category, index }) {
-  //   console.log(name, description, category, index);
   return `
-  <li class="cards__item">
+  <li class="cards__item" data-name="${name}">
             <div class="cards__img-wrap">
               <img
                 src="../assets/images/menu/${category}-${index}.jpg"

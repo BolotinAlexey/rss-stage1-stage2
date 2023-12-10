@@ -1,6 +1,7 @@
 import showCardList from "./showCardList.js";
 import getRefs from "./getRefs.js";
 import items from "../../assets/items.js";
+import onCard from "./onCard.js";
 
 let isMore = false;
 let currentCategory = "coffee";
@@ -12,6 +13,8 @@ const { tab, tabInputs, cards, more } = getRefs();
 window.addEventListener("resize", onResize);
 tab.addEventListener("click", onTab);
 more.addEventListener("click", onMore);
+
+cards.addEventListener("click", onCard);
 onResize(null);
 
 function onTab(e) {
@@ -39,3 +42,10 @@ function onMore() {
   onTab();
   if (more.classList.contains("visible")) more.classList.remove("visible");
 }
+
+// function onCard(e) {
+//   const li = e.target.closest("li");
+//   if (!li || e.target.name === "UL") return;
+//   // console.log(li.firstElementChild.firstElementChild.alt);
+//   console.log(items.find((el) => li.dataset.name === el.name));
+// }
