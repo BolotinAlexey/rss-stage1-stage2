@@ -1,3 +1,5 @@
+import items from "../../assets/items.js";
+
 export default function onCard(e) {
   const li = e.target.closest("li");
   if (!li || e.target.name === "UL") return;
