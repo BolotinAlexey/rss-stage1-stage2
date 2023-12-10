@@ -1,9 +1,9 @@
 .enjoy {
+  position: relative;
   color: var(--text-light);
-  /* padding: 100px; */
   padding: 60px 16px;
   border-radius: 40px;
-  background-image: url(../assets/images/hero-bg.jpeg);
+  /* background-image: url(../assets/images/hero-bg.jpeg); */
   background-position: center;
   background-size: cover;
 }
@@ -11,6 +11,34 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+
+.enjoy__video-wrap {
+  position: absolute;
+  z-index: -1;
+  /* height: 644px; */
+  /* width: 100%; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 40px;
+  outline: 3px solid red;
+  overflow: hidden;
+}
+.enjoy__video {
+  position: relative;
+  /* left: calc((3840 * qh / 2024 - qw) / 2); */
+  display: block;
+  height: 100%;
+}
+
+@media screen and (min-width: 1305px) {
+  .enjoy__video {
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .enjoy__title {
