@@ -3,5 +3,6 @@ export default function getRefs() {
     tab: document.querySelector(".tab"),
     tabInputs: document.querySelectorAll(".tab__input"),
     cards: document.querySelector(".cards"),
+    more: document.querySelector(".more"),
   };
 }

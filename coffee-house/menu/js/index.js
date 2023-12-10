@@ -1,14 +1,41 @@
-import items from "../../assets/items.js";
 import showCardList from "./showCardList.js";
 import getRefs from "./getRefs.js";
+import items from "../../assets/items.js";
 
-const { tab, tabInputs, cards } = getRefs();
+let isMore = false;
+let currentCategory = "coffee";
+let currentItemsArray = items.filter((el) => el.category === currentCategory);
+
+let itemsNumber;
+const { tab, tabInputs, cards, more } = getRefs();
+
+window.addEventListener("resize", onResize);
 tab.addEventListener("click", onTab);
-onTab(null);
+more.addEventListener("click", onMore);
+onResize(null);
 
 function onTab(e) {
   if (e?.target?.tagName !== "INPUT" && e) return;
-  const category = e ? e.target.dataset.name : "coffee";
+  currentCategory = e ? e.target.dataset.name : currentCategory;
+  currentItemsArray = items.filter((el) => el.category === currentCategory);
+  // itemsNumber = isMore ? 4 : currentItemsArray.length;
+  if (e) onResize();
+  cards.innerHTML = showCardList(currentItemsArray, itemsNumber);
+}
 
-  cards.innerHTML = showCardList(category, 8);
+function onResize(e) {
+  // document.querySelector("body").clientWidth;
+  isMore = window.innerWidth > 768 ? false : true;
+  itemsNumber = isMore ? 4 : 8;
+  if (isMore && itemsNumber < currentItemsArray.length)
+    more.classList.add("visible");
+  else if (more.classList.contains("visible")) more.classList.remove("visible");
+  onTab(null);
+}
+
+function onMore() {
+  isMore = false;
+  itemsNumber = currentItemsArray.length;
+  onTab();
+  if (more.classList.contains("visible")) more.classList.remove("visible");
 }

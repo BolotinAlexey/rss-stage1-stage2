@@ -90,19 +90,19 @@
 }
 
 .cards__item {
-  display: none;
+  display: flex;
   width: 100%;
   max-width: 310px;
   flex-direction: column;
   border-radius: 40px;
   border: 1px solid var(--border-light);
 }
-.cards__item:nth-of-type(1),
+/* .cards__item:nth-of-type(1),
 .cards__item:nth-of-type(2),
 .cards__item:nth-of-type(3),
 .cards__item:nth-of-type(4) {
   display: flex;
-}
+} */
 
 @media (hover: hover) {
   .cards__item:hover {
@@ -153,12 +153,16 @@
 .more {
   width: 60px;
   height: 60px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   background-color: transparent;
   border-radius: 50%;
   border: 1px solid var(--border-dark);
+}
+
+.more.visible {
+  display: flex;
 }
 @media (hover: hover) {
   .more:hover {
@@ -184,13 +188,13 @@
   }
 }
 @media screen and (min-width: 1024px) {
-  .cards__item:nth-of-type(5),
+  /* .cards__item:nth-of-type(5),
   .cards__item:nth-of-type(6),
   .cards__item:nth-of-type(7),
   .cards__item:nth-of-type(8) {
     display: flex;
-  }
-  .more {
+  } */
+  /* .more {
     display: none;
-  }
+  } */
 }
