@@ -6,27 +6,37 @@ const MAX_VALUE = 100;
 let currentSlide = 0;
 let rangeValue = 0;
 let isHover = false;
+let isDrag = false;
+let x0, x;
 
 const { tabs, sliderList, sliderBtns, sliderItems, slider, sliderWindow } =
   getRefs();
 
 let intervalID = setInterval(sliderHandler, TIME);
 
-sliderWindow.addEventListener("touchstart", () => swipeHandlerMobile);
-sliderWindow.addEventListener("mousedown", () => swipeHandlerDesktop);
-
 // pause carousel handlers
+sliderWindow.addEventListener("touchstart", () => {
+  isHover = true;
+});
+sliderWindow.addEventListener("touchend", () => {
+  isHover = false;
+});
+
 sliderWindow.addEventListener("mouseover", () => {
   isHover = true;
 });
-// sliderWindow.addEventListener("touchend", () => {
-//   isHover = false;
-// });
 sliderWindow.addEventListener("mouseout", () => {
   isHover = false;
 });
 
-// slider.addEventListener("touchstart", swipeHandler);
+// swipe handlers
+slider.addEventListener("mousedown", onStartDrag);
+slider.addEventListener("touchstart", onStartDrag);
+
+slider.addEventListener("touchmove", (e) => (x = e.touches[0].clientX));
+
+slider.addEventListener("mouseup", onEndDrag);
+slider.addEventListener("touchend", onEndDrag);
 
 sliderBtns[0].addEventListener("click", () => changeSlide(currentSlide - 1));
 sliderBtns[1].addEventListener("click", () => changeSlide(currentSlide + 1));
@@ -47,9 +57,12 @@ function changeSlide(slide) {
   sliderList.style.transform = `translateX(-${currentSlide * 33.333}%)`;
 }
 
-function swipeHandlerMobile(e) {
-  isHover = true;
+function onStartDrag(e) {
+  x0 = e.type === "mousedown" ? e.clientX : e.touches[0].clientX;
 }
-function swipeHandlerDesktop(e) {
-  isHover = true;
+function onEndDrag(e) {
+  e.preventDefault();
+  x = e.type === "mouseup" ? e.clientX : x;
+  if (x - x0 > slider.clientWidth / 5) changeSlide(currentSlide - 1);
+  if (x - x0 < -slider.clientWidth / 5) changeSlide(currentSlide + 1);
 }
