@@ -35,6 +35,7 @@ export default function showModal({
           <div class="modal__additives additives">
             <p class="additives__text">Additives</p>
             <ul class="additives__list">
+            <!-- additives -->
             ${showAdditives(additives)}
             </ul>
           </div>

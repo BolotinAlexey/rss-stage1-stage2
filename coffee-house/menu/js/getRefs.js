@@ -5,5 +5,6 @@ export default function getRefs() {
     cards: document.querySelector(".cards"),
     more: document.querySelector(".more"),
     backdrop: document.querySelector(".backdrop"),
+    body: document.querySelector("body"),
   };
 }

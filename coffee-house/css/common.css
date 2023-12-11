@@ -56,7 +56,6 @@ html {
 body {
   background-color: var(--bg-body);
   position: relative;
-  /* overflow-x: hidden; */
 }
 body.enableMenu {
   overflow-y: hidden;
