@@ -8,11 +8,11 @@ export default function showSizes(sizes) {
                 <input
                   class="size__input"
                   type="radio"
-                  checked
                   id="${[b]}"
                   name="size"
                   data-name="${[b]}"
                   data-add="${sizes[b]["add-price"]}"
+                  ${!i ? "checked" : ""}
                 />
                 <label class="size__btn" for="${[b]}">
                   <span class="size__img">${[b].toString().toUpperCase()}</span>
