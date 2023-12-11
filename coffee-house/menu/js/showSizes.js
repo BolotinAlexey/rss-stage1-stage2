@@ -3,7 +3,7 @@ export default function showSizes(sizes) {
     (a, b, i) =>
       a +
       `
-     <!-- ${i} -->
+     <!-- ${i + 1} -->
           <li class="size__item">
                 <input
                   class="size__input"
