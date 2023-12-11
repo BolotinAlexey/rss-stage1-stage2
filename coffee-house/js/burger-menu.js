@@ -3,7 +3,9 @@ import getRefs from "./getRefs.js";
 const { burger, mobileMenu, body } = getRefs();
 burger.addEventListener("click", onBurger);
 mobileMenu.addEventListener("click", onBurger);
-window.addEventListener("resize", resetModal);
+window.addEventListener("resize", () => {
+  if (body.clientWidth > 768) resetModal();
+});
 
 function onBurger(e) {
   if (e.target.tagName === "NAV" || e.target.tagName === "UL") return;
@@ -14,7 +16,7 @@ function onBurger(e) {
     window.scrollTo(0, 0);
   }
 }
-function resetModal(e) {
+function resetModal() {
   if (burger.classList.contains("enableMenu")) {
     burger.classList.remove("enableMenu");
     mobileMenu.classList.remove("enableMenu");

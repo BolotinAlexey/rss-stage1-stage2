@@ -21,13 +21,12 @@ function onTab(e) {
   if (e?.target?.tagName !== "INPUT" && e) return;
   currentCategory = e ? e.target.dataset.name : currentCategory;
   currentItemsArray = items.filter((el) => el.category === currentCategory);
-  // itemsNumber = isMore ? 4 : currentItemsArray.length;
+
   if (e) onResize();
   cards.innerHTML = showCardList(currentItemsArray, itemsNumber);
 }
 
 function onResize(e) {
-  // document.querySelector("body").clientWidth;
   isMore = window.innerWidth > 768 ? false : true;
   itemsNumber = isMore ? 4 : 8;
   if (isMore && itemsNumber < currentItemsArray.length)
