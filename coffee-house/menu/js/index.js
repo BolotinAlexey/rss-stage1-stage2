@@ -8,13 +8,13 @@ let currentCategory = "coffee";
 let currentItemsArray = items.filter((el) => el.category === currentCategory);
 
 let itemsNumber;
-const { tab, tabInputs, cards, more } = getRefs();
+const { tab, cards, more } = getRefs();
 
 window.addEventListener("resize", onResize);
 tab.addEventListener("click", onTab);
 more.addEventListener("click", onMore);
 
-cards.addEventListener("click", onCard);
+cards.addEventListener("click", (e) => onCard(e, currentItemsArray));
 onResize(null);
 
 function onTab(e) {

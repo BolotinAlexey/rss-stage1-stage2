@@ -1,8 +1,13 @@
-import items from "../../assets/items.js";
+import getRefs from "./getRefs.js";
+import showModal from "./showModal.js";
 
-export default function onCard(e) {
+const { backdrop } = getRefs();
+
+export default function onCard(e, itemsArray) {
   const li = e.target.closest("li");
   if (!li || e.target.name === "UL") return;
   // console.log(li.firstElementChild.firstElementChild.alt);
-  console.log(items.find((el) => li.dataset.name === el.name));
+  const index = itemsArray.findIndex((el) => li.dataset.name === el.name);
+  backdrop.classList.add("visible");
+  backdrop.innerHTML = showModal({ ...itemsArray[index], index });
 }
