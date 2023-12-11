@@ -6,11 +6,9 @@ const MAX_VALUE = 100;
 let currentSlide = 0;
 let rangeValue = 0;
 let isHover = false;
-let isDrag = false;
 let x0, x;
 
-const { tabs, sliderList, sliderBtns, sliderItems, slider, sliderWindow } =
-  getRefs();
+const { tabs, sliderList, sliderBtns, slider, sliderWindow } = getRefs();
 
 let intervalID = setInterval(sliderHandler, TIME);
 
