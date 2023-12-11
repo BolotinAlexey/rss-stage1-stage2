@@ -1,3 +1,5 @@
+import showSizes from "./showSizes.js";
+
 export default function showModal({
   name,
   description,
@@ -18,58 +20,15 @@ export default function showModal({
         </div>
         <div class="modal__describe-wrap">
           <h3 class="modal__name">${name}</h3>
-          <p class="modal__description">
-            ${description}
-          </p>
-
-          <!-- sizes -->
+ <!-- sizes -->
           <div class="modal__sizes size">
             <p class="size__text">Size</p>
             <ul class="size__list">
-              <!-- 1 -->
-              <li class="size__item">
-                <input
-                  class="size__input"
-                  type="radio"
-                  checked
-                  id="s"
-                  name="size"
-                  data-name="s"
-                />
-                <label class="size__btn" for="s">
-                  <span class="size__img">S</span>
-                  <span class="size__text">200 ml</span></label
-                >
-              </li>
-              <!-- 2 -->
-              <li class="size__item">
-                <input
-                  class="size__input"
-                  type="radio"
-                  id="m"
-                  name="size"
-                  data-name="m"
-                />
-                <label class="size__btn" for="m">
-                  <span class="size__img">M</span>
-                  <span class="size__text">300 ml</span></label
-                >
-              </li>
-              <!-- 3 -->
-              <li class="size__item">
-                <input
-                  class="size__input"
-                  type="radio"
-                  id="l"
-                  name="size"
-                  data-name="l"
-                />
-                <label class="size__btn" for="l">
-                  <span class="size__img">L</span>
-                  <span class="size__text">400 ml</span></label
-                >
-              </li>
-            </ul>
+          ${showSizes(sizes)}
+          <p class="modal__description">
+            ${description}
+          </p>
+</ul>
           </div>
           <div class="modal__additives additives">
             <p class="additives__text">Additives</p>
