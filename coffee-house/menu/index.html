@@ -1,3 +1,4 @@
+<!-- MENU PAGE -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,6 +21,34 @@
     <title>Menu</title>
   </head>
   <body>
+    <!-- MOBILE-MENU -->
+    <nav class="mobile-menu">
+      <ul class="mobile-menu__list">
+        <li class="mobile-menu__item">
+          <a href="../home/index.html#favorite" class="mobile-menu__link"
+            >Favorite coffee</a
+          >
+        </li>
+        <li class="mobile-menu__item">
+          <a href="../home/index.html#about" class="mobile-menu__link">About</a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="../home/index.html#mobile" class="mobile-menu__link"
+            >Mobile app</a
+          >
+        </li>
+        <li class="mobile-menu__item">
+          <a href="#contact" class="mobile-menu__link">Contact us</a>
+        </li>
+      </ul>
+      <a href="#" class="mobile-menu__button"
+        ><span>Menu</span>
+        <svg class="icon mobile-menu__icon" width="20" height="20">
+          <use href="../assets/sprite.svg#cup"></use>
+        </svg>
+      </a>
+    </nav>
+
     <!-- H E A D E R -->
     <header class="header container menu-page">
       <div class="logo">
@@ -203,5 +232,6 @@
     <div class="backdrop"></div>
 
     <script type="module" src="./js/index.js"></script>
+    <script type="module" src="../js/burger-menu.js"></script>
   </body>
 </html>
