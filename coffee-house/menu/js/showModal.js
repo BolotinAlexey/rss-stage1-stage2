@@ -40,7 +40,7 @@ export default function showModal({
           </div>
           <div class="modal__price">
             <span class="modal__price-text">Total:</span>
-            <span class="modal__price-number">${price}</span>
+            <span class="modal__price-number">$${price}</span>
           </div>
           <div class="modal__info">
             <svg class="icon modal__info-icon" width="16" height="16">
