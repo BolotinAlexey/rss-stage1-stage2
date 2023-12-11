@@ -239,7 +239,6 @@
 
 @media (hover: hover) {
   .modal__img:hover {
-    cursor: pointer;
     transform: scale(1);
   }
 }
@@ -364,6 +363,15 @@
   border: 1px solid var(--border-dark);
   background-color: transparent;
   line-height: 1.5;
+  transition: all 0.25s linear;
+}
+
+@media (hover: hover) {
+  .modal__btn:hover {
+    cursor: pointer;
+    background-color: var(--bg-container);
+    color: var(--text-light);
+  }
 }
 
 @media screen and (min-width: 768px) {
