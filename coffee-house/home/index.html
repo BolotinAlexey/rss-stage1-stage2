@@ -14,6 +14,29 @@
     <title>Home</title>
   </head>
   <body>
+    <!-- MOBILE-MENU -->
+    <nav class="mobile-menu">
+      <ul class="mobile-menu__list">
+        <li class="mobile-menu__item">
+          <a href="#favorite" class="mobile-menu__link">Favorite coffee</a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="#about" class="mobile-menu__link">About</a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="#mobile" class="mobile-menu__link">Mobile app</a>
+        </li>
+        <li class="mobile-menu__item">
+          <a href="#contact" class="mobile-menu__link">Contact us</a>
+        </li>
+      </ul>
+      <a href="../menu/index.html" class="mobile-menu__button"
+        ><span>Menu</span>
+        <svg class="icon mobile-menu__icon" width="20" height="20">
+          <use href="../assets/sprite.svg#cup"></use>
+        </svg>
+      </a>
+    </nav>
     <!-- H E A D E R -->
     <header class="header container">
       <div class="logo">
@@ -58,9 +81,15 @@
       </button>
     </header>
 
+    <!-- M A I N -->
     <main class="main container">
       <!-- E N J O Y -->
       <section class="section enjoy">
+        <div class="enjoy__video-wrap">
+          <video class="enjoy__video" autoplay muted loop id="myVideo">
+            <source src="../assets/video/video (2160p).mp4" />
+          </video>
+        </div>
         <div class="enjoy__container">
           <h1 class="enjoy__title">
             <span class="enjoy__title-accent">Enjoy </span> premium coffee at
@@ -95,20 +124,60 @@
                 <use href="../assets/sprite.svg#arrow-left"></use>
               </svg>
             </button>
-            <div class="slider__item">
-              <img
-                src="../assets/images/slider/coffee-1.png"
-                alt="S’mores Frappuccino"
-                class="slider__img"
-              />
-              <div class="slider__text">
-                <h3 class="slider__name">S’mores Frappuccino</h3>
-                <p class="slider__description">
-                  This new drink takes an espresso and mixes it with brown sugar
-                  and cinnamon before being topped with oat milk.
-                </p>
-                <h3 class="slider__price">$5.50</h3>
-              </div>
+
+            <div class="slider__window">
+              <ul class="slider__list">
+                <!-- slide-1 -->
+                <li class="slider__item">
+                  <img
+                    src="../assets/images/slider/coffee-1.png"
+                    alt="S’mores Frappuccino"
+                    class="slider__img"
+                  />
+                  <div class="slider__text">
+                    <h3 class="slider__name">S’mores Frappuccino</h3>
+                    <p class="slider__description">
+                      This new drink takes an espresso and mixes it with brown
+                      sugar and cinnamon before being topped with oat milk.
+                    </p>
+                    <h3 class="slider__price">$5.50</h3>
+                  </div>
+                </li>
+
+                <!-- slide-2 -->
+                <li class="slider__item">
+                  <img
+                    src="../assets/images/slider/coffee-2.png"
+                    alt="Caramel Macchiato"
+                    class="slider__img"
+                  />
+                  <div class="slider__text">
+                    <h3 class="slider__name">Caramel Macchiato</h3>
+                    <p class="slider__description">
+                      Fragrant and unique classic espresso with rich
+                      caramel-peanut syrup, with cream under whipped thick foam.
+                    </p>
+                    <h3 class="slider__price">$5.00</h3>
+                  </div>
+                </li>
+
+                <!-- slide-3 -->
+                <li class="slider__item">
+                  <img
+                    src="../assets/images/slider/coffee-3.png"
+                    alt="Ice coffee"
+                    class="slider__img"
+                  />
+                  <div class="slider__text">
+                    <h3 class="slider__name">Ice coffee</h3>
+                    <p class="slider__description">
+                      A popular summer drink that tones and invigorates.
+                      Prepared from coffee, milk and ice.
+                    </p>
+                    <h3 class="slider__price">$4.50</h3>
+                  </div>
+                </li>
+              </ul>
             </div>
             <button class="slider__btn">
               <svg class="icon slider__svg" width="24" height="24">
@@ -120,22 +189,31 @@
           <!-- Tabs -->
           <ul class="slider__tabs">
             <li class="slider__tab">
-              <input id="1" type="radio" class="slider__input" checked />
-              <label for="1" class="slider__label">
-                <span class="slider__inner"></span>
-              </label>
+              <input
+                id="1"
+                type="range"
+                value="0"
+                class="slider__input"
+                disabled
+              />
             </li>
             <li class="slider__tab">
-              <input id="2" type="radio" class="slider__input" />
-              <label for="2" class="slider__label">
-                <span class="slider__inner"></span>
-              </label>
+              <input
+                id="2"
+                type="range"
+                value="0"
+                class="slider__input"
+                disabled
+              />
             </li>
             <li class="slider__tab">
-              <input id="3" type="radio" class="slider__input" />
-              <label for="3" class="slider__label">
-                <span class="slider__inner"></span>
-              </label>
+              <input
+                id="3"
+                type="range"
+                value="0"
+                class="slider__input"
+                disabled
+              />
             </li>
           </ul>
         </div>
@@ -318,6 +396,8 @@
         </div>
       </div>
     </footer>
-    <script src="./js/index.js"></script>
+
+    <script type="module" src="./js/index.js"></script>
+    <script src="../js/burger-menu.js" type="module"></script>
   </body>
 </html>
