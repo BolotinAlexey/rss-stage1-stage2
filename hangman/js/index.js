@@ -1,8 +1,31 @@
 import alphaArr from "../assets/alpha.js";
 import generateKeyboard from "./generateKeyboard.js";
-import transformInitialArray from "./transformInitialArray.js";
+import randomChoice from "./randomChoice.js";
 
-const qaArr = transformInitialArray();
-generateKeyboard();
+function game(isRepeat) {
+  const { question, answer } = randomChoice();
+  console.log(question, answer);
+  generateKeyboard(isRepeat);
+}
+let isGame = true;
 
-console.log(alphaArr);
+const restAlpha = [...alphaArr];
+
+window.addEventListener("keydown", onKeyDown);
+
+function onKeyDown(e) {
+  if (alphaArr.includes(e.code.substr(-1))) keyHandler(e.code.substr(-1));
+}
+
+export default function onKey({ target }) {
+  let keyNode;
+  if (target.tagName === "SPAN") keyNode = target.parentNode;
+  else if (target.tagName === "LI") keyNode = target;
+  else return;
+  keyHandler(keyNode.dataset.key);
+}
+
+function keyHandler(key) {
+  if (!restAlpha.includes(key) || !isGame) return;
+  restAlpha = restAlpha.filter((el) => el !== key);
+}
