@@ -1,12 +1,18 @@
 import alphaArr from "../assets/alpha.js";
+import createElandClass from "./createElandClass.js";
 import generateKeyboard from "./generateKeyboard.js";
+import generateTextSection from "./generateTextSection.js";
 import randomChoice from "./randomChoice.js";
 
+const body = document.querySelector("body");
 function game(isRepeat) {
+  restAlpha = [...alphaArr];
   const { question, answer } = randomChoice();
   console.log(question, answer);
-  generateKeyboard(isRepeat);
-  restAlpha = [...alphaArr];
+
+  generateTextSection(body, isRepeat, question, answer);
+
+  generateKeyboard(body, isRepeat);
 }
 let isGame = true;
 let restAlpha;
@@ -28,6 +34,5 @@ export default function onKey({ target }) {
 function keyHandler(key) {
   if (!restAlpha.includes(key) || !isGame) return;
   restAlpha = restAlpha.filter((el) => el !== key);
-  console.log(restAlpha);
 }
 game();

@@ -1,15 +1,47 @@
-/* KEYBOARD */
-.keyboard {
-  width: 600px;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: antiquewhite;
-  font-size: 2rem;
+/* Question */
+.section-text__question {
+  font-size: 1.5rem;
 }
+.answer {
+  font-size: 2.5rem;
+}
+.answer__list,
 .keyboard__list {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.answer__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  max-width: 600px;
+}
+.answer__item {
+  width: 3rem;
+  font-size: 3.5rem;
+  color: black;
+  background-color: black;
+}
+
+.answer__item.choice {
+  background-color: transparent;
+}
+
+.answer__char {
+  color: inherit;
+}
+
+/* KEYBOARD */
+.keyboard {
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+}
+.keyboard__list {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -21,7 +53,7 @@
   height: 55px;
   border-radius: 5px;
   background-color: black;
-  color: white;
+  color: antiquewhite;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,6 +66,15 @@
 .keyboard__item.checked {
   background-color: #777;
   color: red;
+}
+
+.keyboard__btn {
+  padding: 0;
+  color: inherit;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
 }
 
 /* Animation */
