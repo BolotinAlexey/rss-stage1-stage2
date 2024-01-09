@@ -1,5 +1,6 @@
 import alphaArr from "../assets/alpha.js";
 import generateKey from "./generateKey.js";
+import onKey from "./onKey.js";
 
 const body = document.querySelector("body");
 
@@ -12,4 +13,5 @@ export default function generateKeyboard() {
   section.append(list);
   const keyboardStr = alphaArr.reduce(generateKey, "");
   list.insertAdjacentHTML("afterbegin", keyboardStr);
+  list.addEventListener("click", onKey);
 }
