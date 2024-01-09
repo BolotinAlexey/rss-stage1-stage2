@@ -1,0 +1,63 @@
+/* KEYBOARD */
+.keyboard {
+  width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  font-size: 2rem;
+}
+.keyboard__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.keyboard__item {
+  width: 55px;
+  height: 55px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.keyboard__item:hover {
+  cursor: pointer;
+  animation: shake-rotate 1s linear infinite;
+}
+
+.keyboard__item.checked {
+  background-color: #777;
+  color: red;
+}
+
+/* Animation */
+
+@keyframes shake-rotate {
+  15% {
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  65% {
+    transform: rotate(5deg);
+  }
+  85% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
