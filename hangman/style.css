@@ -2,6 +2,8 @@
 .section-text__question {
   font-size: 1.5rem;
 }
+
+/* Answer */
 .answer {
   font-size: 2.5rem;
 }
@@ -20,7 +22,9 @@
   max-width: 600px;
 }
 .answer__item {
-  width: 3rem;
+  display: flex;
+  justify-content: center;
+  width: 3.5rem;
   font-size: 3.5rem;
   color: black;
   background-color: black;
@@ -58,23 +62,27 @@
   justify-content: center;
   align-items: center;
 }
-.keyboard__item:hover {
-  cursor: pointer;
+.keyboard__item:not(.checked):hover {
   animation: shake-rotate 1s linear infinite;
 }
 
 .keyboard__item.checked {
   background-color: #777;
-  color: red;
+  color: black;
 }
 
 .keyboard__btn {
   padding: 0;
+  width: 100%;
+  height: 100%;
   color: inherit;
   outline: none;
   border: none;
   background-color: transparent;
   font-size: 2rem;
+}
+.keyboard__btn:not(:disabled):hover {
+  cursor: pointer;
 }
 
 /* Animation */
