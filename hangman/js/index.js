@@ -6,10 +6,10 @@ function game(isRepeat) {
   const { question, answer } = randomChoice();
   console.log(question, answer);
   generateKeyboard(isRepeat);
+  restAlpha = [...alphaArr];
 }
 let isGame = true;
-
-const restAlpha = [...alphaArr];
+let restAlpha;
 
 window.addEventListener("keydown", onKeyDown);
 
@@ -28,4 +28,6 @@ export default function onKey({ target }) {
 function keyHandler(key) {
   if (!restAlpha.includes(key) || !isGame) return;
   restAlpha = restAlpha.filter((el) => el !== key);
+  console.log(restAlpha);
 }
+game();
