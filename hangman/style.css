@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 /* Question */
 .section-text__question {
   font-size: 1.5rem;
@@ -104,6 +108,48 @@
 }
 .keyboard__btn:not(:disabled):hover {
   cursor: pointer;
+}
+
+/* Modal */
+.modal {
+  max-width: 500px;
+  width: 90%;
+  padding: 3rem;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  color: white;
+  font-size: 2rem;
+  overflow: auto;
+  text-align: center;
+}
+
+.modal.success {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+.modal.unsuccess {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.modal__title {
+  font-size: 3.5rem;
+}
+.modal__score {
+}
+
+.modal__answer {
+  font-weight: 900;
+  font-style: italic;
 }
 
 /* Animation */

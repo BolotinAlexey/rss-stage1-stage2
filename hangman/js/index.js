@@ -1,4 +1,5 @@
 import alphaArr from "../assets/alpha.js";
+import gameOver from "./gameOver.js";
 import generateKeyboard from "./generateKeyboard.js";
 import generateTextSection from "./generateTextSection.js";
 import randomChoice from "./randomChoice.js";
@@ -62,5 +63,9 @@ function guess(key) {
 function notGuess(key) {
   console.log(guesses);
   showGuessesNumber(--guesses);
+  if (!guesses) {
+    console.log("gameOver");
+    gameOver(answer, guesses);
+  }
 }
 game();
