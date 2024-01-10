@@ -39,6 +39,12 @@ export default function onKey({ target }) {
 // !todo !restAlpha.includes(key) remove
 function keyHandler(key) {
   if (!restAlpha.includes(key) || !isGame) return;
+  document.querySelectorAll(".keyboard__item").forEach((el) => {
+    if (el.dataset.key === key) {
+      el.classList.add("checked");
+      el.children[0].disabled = true;
+    }
+  });
   restAlpha = restAlpha.filter((el) => el !== key);
   if (answer.split("").includes(key)) guess(key);
   else notGuess(key);
@@ -46,25 +52,19 @@ function keyHandler(key) {
 
 function guess(key) {
   const answerNodeList = document.querySelectorAll(".answer__item");
-  const keyboardNodeList = document.querySelectorAll(".keyboard__item");
   answerNodeList.forEach((el) => {
     if (el.dataset.char === key) {
       el.classList.add("choice");
     }
   });
-  keyboardNodeList.forEach((el) => {
-    if (el.dataset.key === key) {
-      el.classList.add("checked");
-      el.children[0].disabled = true;
-    }
-  });
+  if ([...answerNodeList].every((el) => el.classList.contains("choice")))
+    gameOver(answer, guesses, true);
 }
 
 function notGuess(key) {
   console.log(guesses);
   showGuessesNumber(--guesses);
   if (!guesses) {
-    console.log("gameOver");
     gameOver(answer, guesses);
   }
 }
