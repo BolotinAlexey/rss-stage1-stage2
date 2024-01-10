@@ -38,6 +38,27 @@
   color: inherit;
 }
 
+/* Guesses */
+.section-text__guesses {
+  font-size: 1.8rem;
+}
+.section-text__number {
+  display: inline-block;
+  font-weight: 900;
+}
+.section-text__number::first-letter {
+  text-shadow: 1px 1px black;
+}
+.section-text__number_fine::first-letter {
+  color: green;
+}
+.section-text__number_warn::first-letter {
+  color: yellow;
+}
+.section-text__number_danger::first-letter {
+  color: red;
+}
+
 /* KEYBOARD */
 .keyboard {
   max-width: 600px;

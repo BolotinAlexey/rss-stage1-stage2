@@ -2,14 +2,16 @@ import alphaArr from "../assets/alpha.js";
 import generateKeyboard from "./generateKeyboard.js";
 import generateTextSection from "./generateTextSection.js";
 import randomChoice from "./randomChoice.js";
+import showGuessesNumber from "./showGuessesNumber.js";
 
 const body = document.querySelector("body");
-let answer, question, restAlpha;
+let answer, question, restAlpha, guesses;
 function game(isRepeat) {
   restAlpha = [...alphaArr];
   const text = randomChoice();
   question = text.question;
   answer = text.answer;
+  guesses = 6;
   console.log(question, answer);
 
   generateTextSection(body, isRepeat, question, answer);
@@ -58,6 +60,7 @@ function guess(key) {
 }
 
 function notGuess(key) {
-  console.log(key);
+  console.log(guesses);
+  showGuessesNumber(--guesses);
 }
 game();
