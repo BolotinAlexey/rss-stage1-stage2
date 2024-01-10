@@ -3,6 +3,7 @@ import gameOver from "./gameOver.js";
 import generateKeyboard from "./generateKeyboard.js";
 import generateTextSection from "./generateTextSection.js";
 import randomChoice from "./randomChoice.js";
+import redirectTolinkedIn from "./redirectTolinkedIn.js";
 import showGuessesNumber from "./showGuessesNumber.js";
 
 const body = document.querySelector("body");
@@ -67,5 +68,15 @@ function notGuess(key) {
   if (!guesses) {
     gameOver(answer, guesses);
   }
+}
+
+export function isRepeatHandler(e) {
+  if (e.target.tagName !== "BUTTON") return;
+  e.target.parentNode.parentNode.remove();
+  if (e.target.classList.contains("modal__btn_no")) redirectTolinkedIn();
+  else {
+    game(true);
+  }
+  console.log(e.target.parentNode.parentNode);
 }
 game();

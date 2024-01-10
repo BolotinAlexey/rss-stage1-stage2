@@ -130,10 +130,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
 
   color: white;
-  text-shadow: 2px 2px black;
+  text-shadow: -1px -1px black;
   font-size: 2rem;
   overflow: auto;
   text-align: center;
@@ -145,6 +144,9 @@
 .modal.unsuccess {
   background-color: rgba(255, 0, 0, 0.7);
 }
+.modal.welcome {
+  background-color: rgb(11, 54, 170, 0.7);
+}
 
 .modal__title {
   font-size: 3.5rem;
@@ -155,6 +157,37 @@
 .modal__answer {
   font-weight: 900;
   font-style: italic;
+  color: aqua;
+  letter-spacing: 0.2rem;
+}
+
+.modal__wrap-btns {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.modal__btn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  /* text-shadow: 1px 1px white; */
+}
+.modal__btn:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+.modal__btn::first-letter {
+  font-size: 1.2em;
+}
+.modal__btn_no {
+  background-color: rgb(200, 18, 128);
+}
+.modal__btn_yes {
+  background-color: green;
 }
 
 /* Animation */

@@ -1,4 +1,5 @@
 import createElandClass from "./createElandClass.js";
+import { isRepeatHandler } from "./index.js";
 
 const modal = document.querySelector(".modal");
 
@@ -13,7 +14,7 @@ export default function showModal(answer, guesses, isWin) {
   const score = createElandClass(
     "p",
     ["modal__score"],
-    `You have ${6 - guesses} incorrect answers`
+    `You have ${6 - guesses} incorrect answers.`
   );
   const answerNodePre = createElandClass(
     "p",
@@ -22,5 +23,28 @@ export default function showModal(answer, guesses, isWin) {
   );
   const answerNode = createElandClass("span", ["modal__answer"], answer);
   answerNodePre.append(answerNode);
-  modal.append(modalTitle, score, answerNodePre);
+
+  const repeatAnswer = createElandClass(
+    "p",
+    ["modal__repeat-answer"],
+    "Would you repeat?"
+  );
+  answerNodePre.append(answerNode);
+
+  const wrapBtns = createElandClass("div", ["modal__wrap-btns"]);
+  const noBtn = createElandClass(
+    "button",
+    ["modal__btn", "modal__btn_no"],
+    "❌ NO"
+  );
+  const yesBtn = createElandClass(
+    "button",
+    ["modal__btn", "modal__btn_yes"],
+    `✅ YES`
+  );
+
+  wrapBtns.addEventListener("click", isRepeatHandler);
+  wrapBtns.append(noBtn, yesBtn);
+
+  modal.append(modalTitle, score, answerNodePre, repeatAnswer, wrapBtns);
 }
