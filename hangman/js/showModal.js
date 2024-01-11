@@ -4,10 +4,13 @@ import { isRepeatHandler } from "./index.js";
 const modal = document.querySelector(".modal");
 
 export default function showModal(answer, guesses, isWin) {
+  const backDrop = createElandClass("div", ["backdrop-modal"]);
+
   const bgColorClass = isWin ? "success" : "unsuccess";
   const modal = createElandClass("div", ["modal", bgColorClass]);
+  backDrop.append(modal);
+  document.querySelector("body").append(backDrop);
 
-  document.querySelector("body").append(modal);
   const modalTitle = isWin
     ? createElandClass("h2", ["modal__title"], "You win!")
     : createElandClass("h2", ["modal__title"], "You loose!");

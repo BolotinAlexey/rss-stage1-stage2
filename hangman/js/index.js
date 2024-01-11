@@ -9,6 +9,8 @@ import showGuessesNumber from "./showGuessesNumber.js";
 const body = document.querySelector("body");
 let answer, question, restAlpha, guesses;
 function game(isRepeat) {
+  window.addEventListener("keydown", onKeyDown);
+
   restAlpha = [...alphaArr];
   const text = randomChoice();
   question = text.question;
@@ -22,15 +24,12 @@ function game(isRepeat) {
 }
 let isGame = true;
 
-window.addEventListener("keydown", onKeyDown);
-
 function onKeyDown(e) {
   if (restAlpha.includes(e.code.substr(-1))) keyHandler(e.code.substr(-1));
 }
 
 export default function onKey({ target }) {
   let keyNode;
-  console.log(target);
   if (target.tagName === "BUTTON") keyNode = target.parentNode;
   else if (target.tagName === "LI") keyNode = target;
   else return;
@@ -48,7 +47,7 @@ function keyHandler(key) {
   });
   restAlpha = restAlpha.filter((el) => el !== key);
   if (answer.split("").includes(key)) guess(key);
-  else notGuess(key);
+  else notGuess();
 }
 
 function guess(key) {
@@ -58,25 +57,26 @@ function guess(key) {
       el.classList.add("choice");
     }
   });
-  if ([...answerNodeList].every((el) => el.classList.contains("choice")))
+  if ([...answerNodeList].every((el) => el.classList.contains("choice"))) {
+    window.removeEventListener("keydown", onKeyDown);
     gameOver(answer, guesses, true);
+  }
 }
 
-function notGuess(key) {
-  console.log(guesses);
+function notGuess() {
   showGuessesNumber(--guesses);
   if (!guesses) {
+    window.removeEventListener("keydown", onKeyDown);
     gameOver(answer, guesses);
   }
 }
 
 export function isRepeatHandler(e) {
   if (e.target.tagName !== "BUTTON") return;
-  e.target.parentNode.parentNode.remove();
+  e.currentTarget.parentNode.parentNode.remove();
   if (e.target.classList.contains("modal__btn_no")) redirectTolinkedIn();
   else {
     game(true);
   }
-  console.log(e.target.parentNode.parentNode);
 }
 game();
