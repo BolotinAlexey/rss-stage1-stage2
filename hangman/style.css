@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
 }
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
 /* Question */
 .section-text__question {
@@ -65,6 +70,13 @@
 }
 .section-text__number_danger::first-letter {
   color: red;
+}
+
+/* GALLOWS */
+.gallows__img {
+  width: 353px;
+  height: 581px;
+  background-image: url(./assets/gallows.png);
 }
 
 /* KEYBOARD */
@@ -160,8 +172,6 @@
 
 .modal__title {
   font-size: 3.5rem;
-}
-.modal__score {
 }
 
 .modal__answer {

@@ -2,7 +2,6 @@ import createElandClass from "./createElandClass.js";
 import generateChar from "./generateChar.js";
 
 export default function generateTextSection(
-  body,
   isRepeat,
   question,
   answer,
@@ -30,10 +29,11 @@ export default function generateTextSection(
   );
 
   const answerList = createElandClass("ul", ["answer__list"]);
-  body.append(section);
   quessesNode.append(quessesNodeNumber);
   section.append(questionNode, answerList, quessesNode);
 
   const answerListStr = answer.split("").reduce(generateChar, "");
   answerList.insertAdjacentHTML("afterbegin", answerListStr);
+
+  return section;
 }

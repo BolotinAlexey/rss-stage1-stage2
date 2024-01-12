@@ -1,4 +1,6 @@
 import alphaArr from "../assets/alpha.js";
+import createElandClass from "./createElandClass.js";
+import createGallows from "./createGallows.js";
 import gameOver from "./gameOver.js";
 import generateKeyboard from "./generateKeyboard.js";
 import generateTextSection from "./generateTextSection.js";
@@ -6,8 +8,11 @@ import randomChoice from "./randomChoice.js";
 import redirectTolinkedIn from "./redirectTolinkedIn.js";
 import showGuessesNumber from "./showGuessesNumber.js";
 
-const body = document.querySelector("body");
+const page = createElandClass("main", ["page"]);
+document.querySelector("body").append(page);
+
 let answer, question, restAlpha, guesses;
+
 function game(isRepeat) {
   window.addEventListener("keydown", onKeyDown);
 
@@ -18,9 +23,9 @@ function game(isRepeat) {
   guesses = 6;
   console.log(question, answer);
 
-  generateTextSection(body, isRepeat, question, answer);
-
-  generateKeyboard(body, isRepeat);
+  createGallows(isRepeat);
+  page.append(generateTextSection(isRepeat, question, answer));
+  generateKeyboard(isRepeat);
 }
 let isGame = true;
 
