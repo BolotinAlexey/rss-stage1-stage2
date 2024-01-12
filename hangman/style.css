@@ -99,7 +99,7 @@ ul {
 .body__part_head {
   width: 70%;
   height: 20%;
-  border: 5px black solid;
+  border: 10px black solid;
   border-radius: 50%;
   /* background-color: white; */
 }
@@ -107,7 +107,7 @@ ul {
   top: 20%;
   width: 70%;
   height: 50%;
-  border: 5px black solid;
+  border: 10px black solid;
   border-radius: 50%;
   z-index: 5;
   /* background-color: white; */
@@ -117,7 +117,8 @@ ul {
   left: -15%;
   width: 0;
   height: 30%;
-  border: 3px black solid;
+  border: 5px black solid;
+  border-radius: 5px;
   rotate: 40deg;
 }
 .body__part_right-hand {
@@ -125,7 +126,8 @@ ul {
   right: 15%;
   width: 0;
   height: 30%;
-  border: 3px black solid;
+  border: 5px black solid;
+  border-radius: 5px;
   rotate: -40deg;
 }
 .body__part_left-leg {
@@ -133,7 +135,8 @@ ul {
   left: -5%;
   width: 0;
   height: 35%;
-  border: 3px black solid;
+  border: 5px black solid;
+  border-radius: 5px;
   rotate: 20deg;
 }
 .body__part_right-leg {
@@ -141,7 +144,8 @@ ul {
   right: 25%;
   width: 0;
   height: 35%;
-  border: 3px black solid;
+  border: 5px black solid;
+  border-radius: 7px;
   rotate: -20deg;
 }
 
