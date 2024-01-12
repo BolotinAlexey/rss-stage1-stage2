@@ -7,6 +7,10 @@ ul {
   padding: 0;
 }
 
+.page {
+  display: grid;
+}
+
 /* Question */
 .section-text__question {
   font-size: 1.5rem;
@@ -73,18 +77,41 @@ ul {
 }
 
 /* GALLOWS */
+
+.page__title {
+  font-size: 2.5rem;
+}
+@media screen and (min-width: 420px) {
+  .page__title {
+    font-size: 3.3rem;
+  }
+}
+
 .gallows__img {
   position: relative;
-  width: 353px;
-  height: 581px;
+  width: 80vw;
+  height: calc(58100vw / 423);
+  max-width: 423px;
+  max-height: 581px;
   background-image: url(./assets/gallows.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 420px) {
+  .gallows__img {
+    width: 100vw;
+    height: calc(58100vw / 353);
+    max-width: 353px;
+    max-height: 581px;
+  }
 }
 
 .gallows__body {
   position: absolute;
   width: 30%;
   right: -5.5%;
-  top: 25%;
+  top: 24%;
   bottom: 15%;
 }
 

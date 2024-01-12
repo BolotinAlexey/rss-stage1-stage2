@@ -23,7 +23,7 @@ export default function createGallows(isRepeat, parts) {
     body.append(createElandClass("li", ["body__part", `body__part_${part}`]))
   );
   gallowsImg.append(body);
-  gallows.append(gallowsImg, title);
+  gallows.append(title, gallowsImg);
 
   document.querySelector(".page").append(gallows);
 }
