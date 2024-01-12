@@ -90,6 +90,11 @@ ul {
 
 .body__part {
   position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+.body__part.visible {
+  opacity: 1;
 }
 .body__part_head {
   width: 70%;

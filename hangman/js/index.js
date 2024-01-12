@@ -8,6 +8,14 @@ import randomChoice from "./randomChoice.js";
 import redirectTolinkedIn from "./redirectTolinkedIn.js";
 import showGuessesNumber from "./showGuessesNumber.js";
 
+const parts = [
+  "head",
+  "trunk",
+  "left-hand",
+  "right-hand",
+  "left-leg",
+  "right-leg",
+];
 const page = createElandClass("main", ["page"]);
 document.querySelector("body").append(page);
 
@@ -23,7 +31,7 @@ function game(isRepeat) {
   guesses = 6;
   console.log(question, answer);
 
-  createGallows(isRepeat);
+  createGallows(isRepeat, parts);
   page.append(generateTextSection(isRepeat, question, answer));
   generateKeyboard(isRepeat);
 }
@@ -69,7 +77,11 @@ function guess(key) {
 }
 
 function notGuess() {
+  document
+    .querySelector(`.body__part_${parts[[6 - guesses]]}`)
+    .classList.add("visible");
   showGuessesNumber(--guesses);
+  document.querySelectorAll(".body__part")[6 - guesses];
   if (!guesses) {
     window.removeEventListener("keydown", onKeyDown);
     gameOver(answer, guesses);

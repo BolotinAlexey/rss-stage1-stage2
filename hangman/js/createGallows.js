@@ -7,7 +7,7 @@ const parts = [
   "left-leg",
   "right-leg",
 ];
-export default function createGallows(isRepeat) {
+export default function createGallows(isRepeat, parts) {
   if (isRepeat) {
     const parts = document.querySelectorAll(".body__part");
     parts.forEach((part) => {
