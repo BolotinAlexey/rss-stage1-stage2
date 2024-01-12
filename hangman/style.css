@@ -334,6 +334,7 @@ ul {
 }
 .modal__btn_yes {
   background-color: green;
+  animation: shake-rotate 1s linear infinite;
 }
 
 /* Animation */

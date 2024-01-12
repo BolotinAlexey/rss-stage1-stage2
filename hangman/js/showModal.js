@@ -30,7 +30,7 @@ export default function showModal(answer, guesses, isWin) {
   const repeatAnswer = createElandClass(
     "p",
     ["modal__repeat-answer"],
-    "Would you repeat?"
+    "Want to play again?"
   );
   answerNodePre.append(answerNode);
 
