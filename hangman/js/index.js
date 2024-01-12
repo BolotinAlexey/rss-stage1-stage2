@@ -29,7 +29,7 @@ function game(isRepeat) {
   question = text.question;
   answer = text.answer;
   guesses = 6;
-  console.log(question, answer);
+  console.log("Answer: " + answer);
 
   createGallows(isRepeat, parts);
   page.append(generateTextSection(isRepeat, question, answer));
