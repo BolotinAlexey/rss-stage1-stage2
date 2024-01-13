@@ -5,7 +5,7 @@ export default function randomChoice() {
   const rndNumber = Math.floor(Math.random() * qaArr.length);
   window.localStorage.setItem(
     "questionArray",
-    JSON.stringify(qaArr.filter((el, i) => i !== rndNumber))
+    JSON.stringify(qaArr.filter((_, i) => i !== rndNumber))
   );
   return qaArr[rndNumber];
 }
