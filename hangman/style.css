@@ -1,0 +1,370 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: antiquewhite;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+  grid-template-areas:
+    "gallows"
+    "text"
+    "keyboard";
+}
+@media screen and (min-width: 768px) {
+  .page {
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: min-content min-content;
+    grid-template-areas:
+      "gallows text"
+      "gallows keyboard";
+  }
+}
+
+/* Question */
+
+.section-text {
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-text__question {
+  font-size: 1.5rem;
+}
+
+/* Answer */
+.answer {
+  font-size: 2.5rem;
+}
+.answer__list,
+.keyboard__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.answer__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  max-width: 600px;
+}
+.answer__item {
+  display: flex;
+  justify-content: center;
+  width: 3.5rem;
+  font-size: 3.5rem;
+  color: transparent;
+  border-bottom: 3px black solid;
+  /* background-color: black; */
+}
+
+.answer__item.choice {
+  color: black;
+  border: none;
+  /* background-color: transparent; */
+}
+
+.answer__char {
+  color: inherit;
+  line-height: 0.6;
+}
+
+/* Guesses */
+.section-text__guesses {
+  font-size: 1.8rem;
+}
+.section-text__number {
+  display: inline-block;
+  font-weight: 900;
+}
+.section-text__number::first-letter {
+  text-shadow: 1px 1px black;
+}
+.section-text__number_fine::first-letter {
+  color: green;
+}
+.section-text__number_warn::first-letter {
+  color: yellow;
+}
+.section-text__number_danger::first-letter {
+  color: red;
+}
+
+/* GALLOWS */
+
+.gallows {
+  grid-area: gallows;
+  justify-self: start;
+}
+
+.page__title {
+  font-size: 3.2rem;
+  margin-top: 1rem;
+}
+
+.gallows__img {
+  position: relative;
+  width: 80vw;
+  height: calc(58100vw / 423);
+  max-width: 368px;
+  max-height: 505px;
+  background-image: url(./assets/gallows.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 420px) {
+  .gallows__img {
+    width: 100vw;
+    height: calc(58100vw / 353);
+    max-width: 353px;
+    max-height: 581px;
+  }
+}
+
+.gallows__body {
+  position: absolute;
+  width: 30%;
+  right: -5.5%;
+  top: 24%;
+  bottom: 15%;
+}
+
+.body__part {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+.body__part.visible {
+  opacity: 1;
+}
+.body__part_head {
+  width: 70%;
+  height: 20%;
+  border: 10px black solid;
+  border-radius: 50%;
+  /* background-color: white; */
+}
+.body__part_trunk {
+  top: 20%;
+  width: 70%;
+  height: 50%;
+  border: 10px black solid;
+  border-radius: 50%;
+  z-index: 5;
+  /* background-color: white; */
+}
+.body__part_left-hand {
+  top: 20%;
+  left: -15%;
+  width: 0;
+  height: 30%;
+  border: 5px black solid;
+  border-radius: 5px;
+  rotate: 40deg;
+}
+.body__part_right-hand {
+  top: 20%;
+  right: 15%;
+  width: 0;
+  height: 30%;
+  border: 5px black solid;
+  border-radius: 5px;
+  rotate: -40deg;
+}
+.body__part_left-leg {
+  bottom: 0;
+  left: -5%;
+  width: 0;
+  height: 35%;
+  border: 5px black solid;
+  border-radius: 5px;
+  rotate: 20deg;
+}
+.body__part_right-leg {
+  bottom: 0;
+  right: 25%;
+  width: 0;
+  height: 35%;
+  border: 5px black solid;
+  border-radius: 7px;
+  rotate: -20deg;
+}
+
+/* KEYBOARD */
+
+.keyboard {
+  max-width: 700px;
+  padding: 20px;
+  grid-area: keyboard;
+}
+.keyboard__list {
+  padding: 1rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: antiquewhite;
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.keyboard__item {
+  width: 55px;
+  height: 55px;
+  border-radius: 5px;
+  background-color: black;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.keyboard__item:not(.checked):hover {
+  animation: shake-rotate 1s linear infinite;
+}
+
+.keyboard__item.checked {
+  background-color: #777;
+  color: black;
+}
+
+.keyboard__btn {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+}
+.keyboard__btn:not(:disabled):hover {
+  cursor: pointer;
+}
+
+/* Modal */
+.backdrop-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  max-width: 500px;
+  width: 90%;
+  padding: 3rem;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-shadow: -1px -1px black;
+  font-size: 2rem;
+  overflow: auto;
+  text-align: center;
+}
+
+.modal.success {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+.modal.unsuccess {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+.modal.welcome {
+  background-color: rgb(11, 54, 170, 0.7);
+}
+
+.modal__title {
+  font-size: 3.5rem;
+}
+
+.modal__answer {
+  font-weight: 900;
+  font-style: italic;
+  color: aqua;
+  letter-spacing: 0.2rem;
+}
+
+.modal__wrap-btns {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.modal__btn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  /* text-shadow: 1px 1px white; */
+}
+.modal__btn:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+.modal__btn::first-letter {
+  font-size: 1.2em;
+}
+.modal__btn_no {
+  background-color: rgb(200, 18, 128);
+}
+.modal__btn_yes {
+  background-color: green;
+  animation: shake-rotate 1s linear infinite;
+}
+
+/* Animation */
+
+@keyframes shake-rotate {
+  15% {
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  65% {
+    transform: rotate(5deg);
+  }
+  85% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
