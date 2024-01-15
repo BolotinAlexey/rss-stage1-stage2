@@ -9,17 +9,18 @@ export default function transformInitialArray() {
   return localStorageQuestionArr
     ? localStorageQuestionArr
     : initialArray
-        .filter(
-          (el) =>
-            !el[el.answer].includes(" ") &&
-            isNaN(parseInt(el[el.answer])) &&
-            el[el.answer]
-              .toUpperCase()
-              .split("")
-              .every((char) => alphaArr.includes(char))
+        .filter((el) =>
+          el[el.answer]
+            .toUpperCase()
+            .split("")
+            .every((char) => alphaArr.includes(char))
         )
         .map((el) => ({
-          question: el.question,
           answer: el[el.answer].toUpperCase(),
-        }));
+          question: el.question,
+        }))
+        .reduce((a, b) => {
+          if (a.find(({ answer }) => answer === b.answer)) return a;
+          return [...a, b];
+        }, []);
 }
