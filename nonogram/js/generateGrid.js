@@ -14,7 +14,7 @@ export default function generateGrid({ leftTotal, topTotal, nonogram }) {
   grid.append(table);
 
   const colgroupStr = generateColgroup(maxLeft, nonogram.length / 5);
-  const head = generateHead(maxTop, topTotal);
+  const head = generateHead(maxTop, maxLeft, topTotal);
   table.insertAdjacentHTML("beforeend", colgroupStr);
   table.append(head);
 }
