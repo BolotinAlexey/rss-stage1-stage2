@@ -12,9 +12,11 @@ export default function (maxTop, arr) {
   unusedTr.append(unusedTh);
 
   // generate clues rows
-  new Array(maxTop)
-    .fill(0)
-    .forEach((_) => normaliseArr(arr, maxTop).forEach((th) => {}));
+  // new Array(maxTop)
+  //   .fill(0)
+  //   .forEach((_) => normaliseArr(arr, maxTop).forEach((th) => {}));
+  console.log(arr,maxTop)
+  console.log(normaliseArr(arr,maxTop));
 
   return thead;
 }
