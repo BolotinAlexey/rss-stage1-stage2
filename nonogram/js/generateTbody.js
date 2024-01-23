@@ -1,0 +1,24 @@
+import createElandClass from "./createElandClass.js";
+
+export default function generateTbody(nonogram, leftTotal, maxLeft) {
+  const tbody = createElandClass("tbody", ["tbody"]);
+  for (let j = 0; j < nonogram.length; j += 1) {
+    const tr = createElandClass("tr", ["table__tr"]);
+    tbody.append(tr);
+    for (let i = 0; i < maxLeft + nonogram.length; i += 1) {
+      const td = createElandClass("td", ["table__td"]);
+      tr.append(td);
+      if (i < maxLeft) {
+        td.classList.add("table__th");
+        if (leftTotal[j][i]) {
+          td.dataset.glue = td.innerText = leftTotal[j][i];
+        } else {
+          td.dataset.glue = td.innerText = null;
+        }
+      } else {
+        td.dataset.bool = td.innerText = nonogram[j][i - maxLeft];
+      }
+    }
+  }
+  return tbody;
+}
