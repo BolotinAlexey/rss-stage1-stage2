@@ -1,9 +1,10 @@
 .table {
   border-collapse: collapse;
+  border: solid 3px;
 }
 
-th,
-td {
+.table__th,
+.table__td {
   width: 2rem;
   height: 2rem;
   border: solid 1px;
@@ -15,4 +16,14 @@ td {
 }
 .table__unused-th {
   background-color: #ccc;
+}
+
+/* .table__tr:not(.thead__tr):nth-of-type(5n),
+.thead__tr:nth-last-of-type(1) */
+.table__tr:nth-last-of-type(5n + 1) {
+  border-bottom: solid 3px;
+}
+.table__td:nth-last-of-type(5n + 1),
+.table__unused-th {
+  border-right: solid 3px;
 }

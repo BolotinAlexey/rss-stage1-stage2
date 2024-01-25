@@ -14,11 +14,8 @@ export default function generateGrid({ leftTotal, topTotal, nonogram }) {
   const table = createElandClass("table", ["table"]);
   grid.append(table);
 
-  // generate thead
   const colgroupStr = generateColgroup(maxLeft, nonogram.length / 5);
   const head = generateHead(maxTop, maxLeft, topTotal);
   table.insertAdjacentHTML("beforeend", colgroupStr);
   table.append(head, generateTbody(nonogram, leftTotal, maxLeft));
-
-  // generate tbody
 }
