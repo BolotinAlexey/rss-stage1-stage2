@@ -11,4 +11,8 @@ td {
 }
 .table__th {
   font-weight: 900;
+  background-color: #ccc;
+}
+.table__unused-th {
+  background-color: #ccc;
 }

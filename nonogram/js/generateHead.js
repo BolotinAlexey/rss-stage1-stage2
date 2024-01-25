@@ -1,5 +1,5 @@
 import createElandClass from "./createElandClass.js";
-import normaliseArr from "./normalizeArr.js";
+import normaliseArrHead from "./normalizeArrHead.js";
 
 export default function (maxTop, maxLeft, arr) {
   const thead = createElandClass("thead", ["thead"]);
@@ -13,7 +13,7 @@ export default function (maxTop, maxLeft, arr) {
   unusedTr.append(unusedTh);
 
   // generate clues rows
-  normaliseArr(arr, maxTop).forEach((rowClue, i) => {
+  normaliseArrHead(arr, maxTop).forEach((rowClue, i) => {
     const tr = createElandClass("tr", ["table__tr", "thead__tr"]);
     if (i) thead.append(tr);
     rowClue.forEach((clue) => {

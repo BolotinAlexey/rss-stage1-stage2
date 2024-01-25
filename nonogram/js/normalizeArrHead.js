@@ -1,4 +1,4 @@
-export default function normaliseArr(arr, maxTop) {
+export default function normaliseArrHead(arr, maxTop) {
   return new Array(maxTop).fill(0).map((_, i) => {
     return arr.reduce((a,glue) => {
       if(glue[i]) return [...a,glue[i]]

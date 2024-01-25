@@ -1,6 +1,8 @@
 import createElandClass from "./createElandClass.js";
+import normalizeArrLeft from "./normalizeArrLeft.js";
 
 export default function generateTbody(nonogram, leftTotal, maxLeft) {
+  const leftTotalNormolize = normalizeArrLeft(leftTotal, maxLeft);
   const tbody = createElandClass("tbody", ["tbody"]);
   for (let j = 0; j < nonogram.length; j += 1) {
     const tr = createElandClass("tr", ["table__tr"]);
@@ -10,11 +12,8 @@ export default function generateTbody(nonogram, leftTotal, maxLeft) {
       tr.append(td);
       if (i < maxLeft) {
         td.classList.add("table__th");
-        if (leftTotal[j][i]) {
-          td.dataset.glue = td.innerText = leftTotal[j][i];
-        } else {
-          td.dataset.glue = td.innerText = null;
-        }
+
+        td.dataset.glue = td.innerText = leftTotalNormolize[j][i];
       } else {
         td.dataset.bool = td.innerText = nonogram[j][i - maxLeft];
       }
