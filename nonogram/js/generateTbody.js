@@ -16,6 +16,7 @@ export default function generateTbody(nonogram, leftTotal, maxLeft) {
         td.dataset.glue = td.innerText = leftTotalNormolize[j][i];
       } else {
         td.dataset.bool = nonogram[j][i - maxLeft];
+        td.dataset.fill = 0;
       }
     }
   }
