@@ -1,0 +1,84 @@
+/* Modal */
+.backdrop-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+
+.modal {
+  max-width: 500px;
+  width: 90%;
+  padding: 3rem;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  background-color: rgba(0, 255, 0, 0.7);
+  text-shadow: -1px -1px black;
+  font-size: 2rem;
+  /* overflow-y: auto; */
+  text-align: center;
+}
+
+.modal__title {
+  font-size: 3.5rem;
+}
+
+.modal__btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  padding: 0;
+  vertical-align: baseline;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  background-color: transparent;
+  /* text-shadow: 1px 1px white; */
+}
+.modal__btn:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+  transform: rotate(360deg);
+  transition: 0.5s linear;
+}
+
+/* Animation */
+
+@keyframes shake-rotate {
+  15% {
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  65% {
+    transform: rotate(5deg);
+  }
+  85% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

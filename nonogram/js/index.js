@@ -4,6 +4,7 @@ import checkWin from "./checkWin.js";
 import countFill from "./countFill.js";
 import createElandClass from "./createElandClass.js";
 import generateGrid from "./generateGrid.js";
+import showModal from "./showModal.js";
 
 const body = document.querySelector("body");
 
@@ -45,7 +46,9 @@ function onClickTable(e) {
   }
 
   isWin = currentFill === numberFill && checkWin();
-  console.log(isWin);
+  if (isWin) {
+    showModal();
+  }
 }
 
 function onClickRightTable(e) {
@@ -62,5 +65,7 @@ function onClickRightTable(e) {
   }
 
   isWin = currentFill === numberFill && checkWin();
-  console.log(isWin);
+  if (isWin) {
+    showModal();
+  }
 }
