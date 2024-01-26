@@ -27,3 +27,24 @@
 .table__unused-th {
   border-right: solid 3px;
 }
+
+.fill {
+  background-color: #000;
+}
+
+.table__td.cross {
+  background: linear-gradient(
+      45deg,
+      transparent calc(50% - 1px),
+      #000000 calc(50% - 1px),
+      #000000 calc(50% + 1px),
+      transparent calc(50% + 1px)
+    ),
+    linear-gradient(
+      -45deg,
+      transparent calc(50% - 1px),
+      #000000 calc(50% - 1px),
+      #000000 calc(50% + 1px),
+      transparent calc(50% + 1px)
+    );
+}

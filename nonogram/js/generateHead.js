@@ -18,7 +18,6 @@ export default function (maxTop, maxLeft, arr) {
     if (i) thead.append(tr);
     rowClue.forEach((clue) => {
       const th = createElandClass("th", ["table__th"], clue);
-      console.log(th);
       if (!i) {
         unusedTr.append(th);
       } else {

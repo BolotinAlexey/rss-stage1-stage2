@@ -10,4 +10,35 @@ const grid = createElandClass("section", ["grid"]);
 main.append(grid);
 body.append(main);
 
-generateGrid({ ...calculateClues(nonogram), nonogram });
+function game(isRepeat) {
+  const table = generateGrid({ ...calculateClues(nonogram), nonogram });
+  table.addEventListener("click", onClickTable);
+  table.addEventListener("contextmenu", onClickRightTable);
+}
+
+game();
+
+// TODO: delete data-cross
+function onClickTable(e) {
+  e.target.dataset.fill = e.target.dataset.fill ? "" : true;
+  e.target.classList.contains("fill")
+    ? e.target.classList.remove("fill")
+    : e.target.classList.add("fill");
+  if (e.target.classList.contains("cross")) {
+    e.target.dataset.cross = "";
+    e.target.classList.remove("cross");
+  }
+}
+
+function onClickRightTable(e) {
+  e.preventDefault();
+  console.log(e.target);
+  e.target.dataset.cross = e.target.dataset.cross ? "" : true;
+  e.target.classList.contains("cross")
+    ? e.target.classList.remove("cross")
+    : e.target.classList.add("cross");
+  if (e.target.classList.contains("fill")) {
+    e.target.dataset.fill = "";
+    e.target.classList.remove("fill");
+  }
+}
