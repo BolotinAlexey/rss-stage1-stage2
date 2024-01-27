@@ -1,9 +1,10 @@
-import { nonogram } from "../assets/nonograms/5x5.js";
+import { fish } from "../assets/nonograms/15x15.js";
 import calculateClues from "./calculateClues.js";
 import checkWin from "./checkWin.js";
 import countFill from "./countFill.js";
 import createElandClass from "./createElandClass.js";
 import generateGrid from "./generateGrid.js";
+import showAnswer from "./showAnswer.js";
 import showModal from "./showModal.js";
 
 const body = document.querySelector("body");
@@ -15,6 +16,7 @@ body.append(main);
 
 let isWin, currentFill, numberFill;
 function game(isRepeat) {
+  const nonogram = fish;
   isWin = false;
   const { leftTotal, topTotal } = calculateClues(nonogram);
   const table = generateGrid({ leftTotal, topTotal, nonogram });
@@ -24,6 +26,10 @@ function game(isRepeat) {
 
   table.addEventListener("click", onClickTable);
   table.addEventListener("contextmenu", onClickRightTable);
+
+  const answerBtn = createElandClass("button", ["answer-btn"], "Show answer");
+  main.append(answerBtn);
+  answerBtn.addEventListener("click", showAnswer);
 }
 
 game();
