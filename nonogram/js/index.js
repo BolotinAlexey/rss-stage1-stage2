@@ -1,4 +1,4 @@
-import { nonogram } from "../assets/nonograms/5x5/1.js";
+import { nonogram } from "../assets/nonograms/5x5.js";
 import calculateClues from "./calculateClues.js";
 import checkWin from "./checkWin.js";
 import countFill from "./countFill.js";
@@ -68,4 +68,13 @@ function onClickRightTable(e) {
   if (isWin) {
     showModal();
   }
+}
+
+export function onClickBackDrop(e) {
+  if (
+    !e.target.classList.contains("backdrop-modal") &&
+    !e.target.classList.contains("modal__btn")
+  )
+    return;
+  document.querySelector(".backdrop-modal").innerHTML = "";
 }
