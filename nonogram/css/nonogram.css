@@ -24,6 +24,7 @@
   border-bottom: solid 3px;
 }
 .table__td:nth-last-of-type(5n + 1),
+.table__th:nth-last-of-type(5n + 1),
 .table__unused-th {
   border-right: solid 3px;
 }

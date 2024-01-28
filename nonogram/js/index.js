@@ -1,9 +1,10 @@
-import { fish } from "../assets/nonograms/15x15.js";
+import { runner } from "../assets/nonograms/10x10.js";
 import calculateClues from "./calculateClues.js";
 import checkWin from "./checkWin.js";
 import countFill from "./countFill.js";
 import createElandClass from "./createElandClass.js";
 import generateGrid from "./generateGrid.js";
+import resetNonogram from "./resetNonogram.js";
 import showAnswer from "./showAnswer.js";
 import showModal from "./showModal.js";
 
@@ -14,9 +15,9 @@ const grid = createElandClass("section", ["grid"]);
 main.append(grid);
 body.append(main);
 
-let isWin, currentFill, numberFill;
-function game(isRepeat) {
-  const nonogram = fish;
+let isWin, currentFill, numberFill, nonogram;
+
+function game(nonogram) {
   isWin = false;
   const { leftTotal, topTotal } = calculateClues(nonogram);
   const table = generateGrid({ leftTotal, topTotal, nonogram });
@@ -28,14 +29,21 @@ function game(isRepeat) {
   table.addEventListener("contextmenu", onClickRightTable);
 
   const answerBtn = createElandClass("button", ["answer-btn"], "Show answer");
-  main.append(answerBtn);
   answerBtn.addEventListener("click", showAnswer);
+  const resetBtn = createElandClass("button", ["reset-btn"], "Reset");
+  resetBtn.addEventListener("click", () => {
+    resetNonogram();
+    currentFill = 0;
+  });
+
+  main.append(answerBtn, resetBtn);
 }
 
-game();
+game(runner);
 
 // TODO: delete data-cross
 function onClickTable(e) {
+  if (!e.target.dataset.bool) return;
   e.target.dataset.fill = e.target.dataset.fill === "1" ? "0" : "1";
   if (e.target.classList.contains("fill")) {
     e.target.classList.remove("fill");
@@ -59,7 +67,7 @@ function onClickTable(e) {
 
 function onClickRightTable(e) {
   e.preventDefault();
-  console.log(e.target);
+  if (!e.target.dataset.bool) return;
   e.target.dataset.cross = e.target.dataset.cross ? "" : 1;
   e.target.classList.contains("cross")
     ? e.target.classList.remove("cross")
@@ -84,3 +92,8 @@ export function onClickBackDrop(e) {
     return;
   document.querySelector(".backdrop-modal").innerHTML = "";
 }
+
+// function resetNonogram() {
+//   document.querySelector(".grid").innerHTML = "";
+//   game(nonogram);
+// }
