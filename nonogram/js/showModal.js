@@ -1,4 +1,5 @@
 import createElandClass from "./createElandClass.js";
+import { onClickBackDrop } from "./index.js";
 
 export default function showModal(name, time) {
   console.log(name, time);
