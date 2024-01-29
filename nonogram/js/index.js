@@ -1,3 +1,4 @@
+import { listNonograms } from "../assets/listNonograms.js";
 import { runner } from "../assets/nonograms/10x10.js";
 import calculateClues from "./calculateClues.js";
 import checkWin from "./checkWin.js";
@@ -9,7 +10,10 @@ import showAnswer from "./showAnswer.js";
 import showModal from "./showModal.js";
 
 const body = document.querySelector("body");
-
+console.log(listNonograms);
+// for (const list in listNonograms) {
+//   console.log(list.key);
+// }
 const main = createElandClass("main", ["page"]);
 const grid = createElandClass("section", ["grid"]);
 main.append(grid);
