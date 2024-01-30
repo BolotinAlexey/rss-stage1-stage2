@@ -1,6 +1,5 @@
 export default function normaliseArrHead(arr, maxTop) {
   arr.forEach((clue) => clue.reverse());
-  console.log(arr);
   return new Array(maxTop)
     .fill(0)
     .map((_, i) => {

@@ -4,6 +4,7 @@ import countFill from "./countFill.js";
 import createAccordion from "./createAccordion.js";
 import createElandClass from "./createElandClass.js";
 import generateGrid from "./generateGrid.js";
+import randomGame from "./randomGame.js";
 import resetNonogram from "./resetNonogram.js";
 import showAnswer from "./showAnswer.js";
 import showModal from "./showModal.js";
@@ -15,14 +16,43 @@ document.querySelector("body").append(main);
 
 createAccordion(main).addEventListener("click", accordionHandler);
 
-let isWin, currentFill, numberFill, nonogram;
+let isWin, currentFill, numberFill, currentNonogram;
 
-async function game(folder, nonogramName) {
+game(randomGame(null));
+
+const answerBtn = createElandClass(
+  "button",
+  ["answer-btn", "btn"],
+  "Show answer"
+);
+answerBtn.addEventListener("click", showAnswer);
+
+const resetBtn = createElandClass("button", ["reset-btn", "btn"], "Reset");
+resetBtn.addEventListener("click", () => {
+  resetNonogram();
+  currentFill = 0;
+});
+
+const randomBtn = createElandClass(
+  "button",
+  ["random-btn", "btn"],
+  "Randome game"
+);
+randomBtn.addEventListener("click", () => {
+  game(randomGame(currentNonogram));
+});
+
+main.append(answerBtn, resetBtn, randomBtn);
+
+async function game({ folder, nonogramName }) {
+  currentNonogram = { folder, nonogramName };
   const module = await import(`../assets/nonograms/${folder}.js`);
   const nonogram = module[nonogramName];
-  console.log(nonogram);
   isWin = false;
   const { leftTotal, topTotal } = calculateClues(nonogram);
+
+  if (document.querySelector(".table"))
+    document.querySelector(".grid").innerHTML = "";
   const table = generateGrid({ leftTotal, topTotal, nonogram });
 
   numberFill = countFill(topTotal);
@@ -30,20 +60,6 @@ async function game(folder, nonogramName) {
 
   table.addEventListener("click", onClickTable);
   table.addEventListener("contextmenu", onClickRightTable);
-
-  const answerBtn = createElandClass(
-    "button",
-    ["answer-btn", "btn"],
-    "Show answer"
-  );
-  answerBtn.addEventListener("click", showAnswer);
-  const resetBtn = createElandClass("button", ["reset-btn", "btn"], "Reset");
-  resetBtn.addEventListener("click", () => {
-    resetNonogram();
-    currentFill = 0;
-  });
-
-  main.append(answerBtn, resetBtn);
 }
 
 // TODO: delete data-cross
@@ -115,10 +131,11 @@ function accordionHandler(e) {
     document.querySelectorAll(".complexity__list").forEach((el) => {
       if (el.classList.contains("show")) el.classList.remove("show");
     });
-    console.log(e.target);
     const folder = e.target.parentNode.parentNode;
-    console.dir(folder.firstChild.data);
 
-    game(folder.firstChild.data, e.target.textContent);
+    game({
+      folder: folder.firstChild.data,
+      nonogramName: e.target.textContent,
+    });
   }
 }

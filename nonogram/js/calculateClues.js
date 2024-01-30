@@ -1,5 +1,4 @@
 export default function calculateClues(arr) {
-  console.dir(arr);
   const leftTotal = [];
   const topTotal = [];
 
