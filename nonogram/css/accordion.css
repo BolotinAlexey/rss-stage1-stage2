@@ -1,0 +1,32 @@
+.accordion__list {
+  position: relative;
+  padding: 2rem;
+  width: max-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0;
+  list-style: none;
+  /* overflow: hidden; */
+  text-align: center;
+}
+
+.complexity {
+  /* overflow: hidden; */
+  /* height: 2rem; */
+}
+.complexity__list {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s linear;
+}
+.complexity__item {
+}
+
+.complexity__list.show {
+  overflow: auto;
+  height: 6rem;
+  overflow: hidden;
+}

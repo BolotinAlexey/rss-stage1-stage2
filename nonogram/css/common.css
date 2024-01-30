@@ -1,3 +1,24 @@
+/* Common */
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.btn {
+  background-color: transparent;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 400px;
+}
+
 /* Modal */
 .backdrop-modal {
   position: fixed;
