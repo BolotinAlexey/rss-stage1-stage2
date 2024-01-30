@@ -69,11 +69,9 @@ function onClickTable(e) {
   if (e.target.classList.contains("fill")) {
     e.target.classList.remove("fill");
     currentFill -= 1;
-    console.log(currentFill);
   } else {
     e.target.classList.add("fill");
     currentFill += 1;
-    console.log(currentFill);
   }
   if (e.target.classList.contains("cross")) {
     e.target.dataset.cross = "";
@@ -116,14 +114,13 @@ export function onClickBackDrop(e) {
 
 function accordionHandler(e) {
   console.log(e.target);
-
   // click 5x5, 10x10 or 15x15
-  if (e.target.classList.contains("complexity")) {
+  if (e.target.classList.contains("complexity__text")) {
     document.querySelectorAll(".complexity__list").forEach((el) => {
-      if (el === e.target.firstElementChild) return;
+      if (el === e.target.parentNode.childNodes[1]) return;
       if (el.classList.contains("show")) el.classList.remove("show");
     });
-    e.target.firstElementChild.classList.toggle("show");
+    e.target.parentNode.childNodes[1].classList.toggle("show");
   }
 
   // click nonograme name

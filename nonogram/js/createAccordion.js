@@ -11,12 +11,13 @@ export default function createAccordion(page) {
   const list = createElandClass("ul", ["accordion__list"]);
   accordion.append(title, list);
   for (const key in listNonograms) {
-    const complexity = createElandClass(
-      "li",
-      ["accordion__item", "complexity"],
-      key
-    );
+    const complexity = createElandClass("li", [
+      "accordion__item",
+      "complexity",
+    ]);
+    const p = createElandClass("p", ["complexity__text"], key);
     list.append(complexity);
+    complexity.append(p);
 
     const complexityList = createElandClass("ul", [
       "accordion__list",
