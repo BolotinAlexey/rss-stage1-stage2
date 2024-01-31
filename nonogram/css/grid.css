@@ -1,3 +1,8 @@
+.grid {
+  grid-area: grid;
+  padding: 1rem;
+}
+
 .table {
   border-collapse: collapse;
   border: solid 3px;
@@ -5,8 +10,8 @@
 
 .table__th,
 .table__td {
-  width: 2rem;
-  height: 2rem;
+  width: 21px;
+  height: 21px;
   border: solid 1px;
   text-align: center;
 }
@@ -18,8 +23,6 @@
   background-color: #ccc;
 }
 
-/* .table__tr:not(.thead__tr):nth-of-type(5n),
-.thead__tr:nth-last-of-type(1) */
 .table__tr:nth-last-of-type(5n + 1) {
   border-bottom: solid 3px;
 }

@@ -31,6 +31,7 @@ export default function createAccordion(page) {
         ["accordion__item", "complexity__item"],
         nameNonogram
       );
+      nonogram.dataset.folder = key;
       complexityList.append(nonogram);
     });
   }

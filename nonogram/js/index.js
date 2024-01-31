@@ -4,6 +4,7 @@ import countFill from "./countFill.js";
 import createAccordion from "./createAccordion.js";
 import createElandClass from "./createElandClass.js";
 import generateGrid from "./generateGrid.js";
+import onResize from "./onResize.js";
 import randomGame from "./randomGame.js";
 import resetNonogram from "./resetNonogram.js";
 import showAnswer from "./showAnswer.js";
@@ -13,8 +14,6 @@ const main = createElandClass("main", ["page"]);
 const grid = createElandClass("section", ["grid"]);
 main.append(grid);
 document.querySelector("body").append(main);
-
-createAccordion(main).addEventListener("click", accordionHandler);
 
 let isWin, currentFill, numberFill, currentNonogram;
 
@@ -42,7 +41,17 @@ randomBtn.addEventListener("click", () => {
   game(randomGame(currentNonogram));
 });
 
-main.append(answerBtn, resetBtn, randomBtn);
+const buttonsWrap = createElandClass("section", ["section", "btns"]);
+
+buttonsWrap.append(answerBtn, resetBtn, randomBtn);
+
+const infoWrap = createElandClass("div", ["info-wrap"]);
+main.append(infoWrap);
+infoWrap.append(buttonsWrap);
+
+createAccordion(infoWrap).addEventListener("click", accordionHandler);
+
+window.addEventListener("resize", onResize);
 
 async function game({ folder, nonogramName }) {
   currentNonogram = { folder, nonogramName };
@@ -128,10 +137,10 @@ function accordionHandler(e) {
     document.querySelectorAll(".complexity__list").forEach((el) => {
       if (el.classList.contains("show")) el.classList.remove("show");
     });
-    const folder = e.target.parentNode.parentNode;
+    const folder = e.target.dataset.folder;
 
     game({
-      folder: folder.firstChild.data,
+      folder,
       nonogramName: e.target.textContent,
     });
   }
