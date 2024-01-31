@@ -6,22 +6,29 @@ export default function onResize() {
   const accordion = document.querySelector(".accordion");
 
   if (
-    body.offsetWidth - 20 <
+    body.offsetWidth - 50 <
     table.offsetWidth + btns.offsetWidth + accordion.offsetWidth
   ) {
-    infoWrap.classList.add("column");
+    if (!infoWrap.classList.contains("column"))
+      infoWrap.classList.add("column");
   }
   if (
     infoWrap.classList.contains("column") &&
-    (body.offsetWidth - 20 >
-      table.offsetWidth + btns.offsetWidth + accordion.offsetWidth ||
-      body.offsetWidth + 20 < table.offsetWidth + btns.offsetWidth)
+    body.offsetWidth - 50 >
+      table.offsetWidth + btns.offsetWidth + accordion.offsetWidth
   )
     infoWrap.classList.remove("column");
 
-  console.log(
-    body.offsetWidth - 20 >
-      table.offsetWidth + btns.offsetWidth + accordion.offsetWidth
-  );
+  if (
+    infoWrap.classList.contains("column") &&
+    body.offsetWidth - 50 > btns.offsetWidth + accordion.offsetWidth &&
+    body.offsetWidth - 50 < table.offsetWidth + btns.offsetWidth
+  )
+    infoWrap.classList.remove("column");
+
+  // console.log(
+  //   body.offsetWidth - 20 >
+  //     table.offsetWidth + btns.offsetWidth + accordion.offsetWidth
+  // );
 }
 // const table = document.querySelector(".table");

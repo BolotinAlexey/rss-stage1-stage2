@@ -11,9 +11,14 @@ import showAnswer from "./showAnswer.js";
 import showModal from "./showModal.js";
 
 const main = createElandClass("main", ["page"]);
+const title = createElandClass("h1", ["title"], "Nonogram");
 const grid = createElandClass("section", ["grid"]);
+
+grid.append(title);
 main.append(grid);
 document.querySelector("body").append(main);
+
+console.dir(title);
 
 let isWin, currentFill, numberFill, currentNonogram;
 
@@ -61,8 +66,11 @@ async function game({ folder, nonogramName }) {
   const { leftTotal, topTotal } = calculateClues(nonogram);
 
   if (document.querySelector(".table"))
-    document.querySelector(".grid").innerHTML = "";
-  const table = generateGrid({ leftTotal, topTotal, nonogram });
+    document.querySelector(".table").remove();
+
+  const table = createElandClass("table", ["table"]);
+  grid.append(table);
+  generateGrid({ leftTotal, topTotal, nonogram });
 
   numberFill = countFill(topTotal);
   currentFill = 0;

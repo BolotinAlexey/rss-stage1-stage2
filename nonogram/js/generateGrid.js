@@ -7,13 +7,10 @@ export default function generateGrid({ leftTotal, topTotal, nonogram }) {
   const maxLeft = Math.max(...leftTotal.map((row) => row.length));
   const maxTop = Math.max(...topTotal.map((col) => col.length));
 
-  const grid = document.querySelector(".grid");
-  const table = createElandClass("table", ["table"]);
-  grid.append(table);
+  const table = document.querySelector(".table");
 
   const colgroupStr = generateColgroup(maxLeft, nonogram.length / 5);
   const head = generateHead(maxTop, maxLeft, topTotal);
   table.insertAdjacentHTML("beforeend", colgroupStr);
   table.append(head, generateTbody(nonogram, leftTotal, maxLeft));
-  return table;
 }

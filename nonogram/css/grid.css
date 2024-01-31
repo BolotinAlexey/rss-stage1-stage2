@@ -1,6 +1,6 @@
 .grid {
   grid-area: grid;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 2rem;
 }
 
 .table {
