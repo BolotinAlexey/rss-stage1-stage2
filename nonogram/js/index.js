@@ -46,7 +46,9 @@ randomBtn.addEventListener("click", () => {
 });
 
 const saveBtn = createElandClass("button", ["save-btn", "btn"], "Save game");
-saveBtn.addEventListener("click", () => saveGame(table));
+saveBtn.addEventListener("click", () =>
+  saveGame({ table, numberFill, currentFill })
+);
 
 const buttonsWrap = createElandClass("section", ["section", "btns"]);
 
@@ -87,7 +89,6 @@ async function game({ folder, nonogramName }) {
   table.addEventListener("contextmenu", onClickRightTable);
 }
 
-// TODO: delete data-cross
 function onClickTable(e) {
   if (!e.target.dataset.bool) return;
   e.target.dataset.fill = e.target.dataset.fill === "1" ? "0" : "1";
@@ -99,7 +100,6 @@ function onClickTable(e) {
     currentFill += 1;
   }
   if (e.target.classList.contains("cross")) {
-    e.target.dataset.cross = "";
     e.target.classList.remove("cross");
   }
 
@@ -112,10 +112,7 @@ function onClickTable(e) {
 function onClickRightTable(e) {
   e.preventDefault();
   if (!e.target.dataset.bool) return;
-  e.target.dataset.cross = e.target.dataset.cross ? "" : 1;
-  e.target.classList.contains("cross")
-    ? e.target.classList.remove("cross")
-    : e.target.classList.add("cross");
+  e.target.classList.toggle("cross");
   if (e.target.classList.contains("fill")) {
     currentFill -= 1;
     e.target.dataset.fill = "0";
@@ -134,11 +131,10 @@ export function onClickBackDrop(e) {
     !e.target.classList.contains("modal__btn")
   )
     return;
-  document.querySelector(".backdrop-modal").innerHTML = "";
+  document.querySelector(".backdrop-modal").remove();
 }
 
 function accordionHandler(e) {
-  console.log(e.target);
   // click 5x5, 10x10 or 15x15
   if (e.target.classList.contains("complexity__text")) {
     document.querySelectorAll(".complexity__list").forEach((el) => {
@@ -162,7 +158,8 @@ function accordionHandler(e) {
   }
 }
 
-export default function loadGame() {
-  console.log(localStorage.getItem("nonograme"));
+export function loadGame() {
   table.innerHTML = localStorage.getItem("nonograme");
+  numberFill = +localStorage.getItem("numberFill");
+  currentFill = +localStorage.getItem("currentFill");
 }
