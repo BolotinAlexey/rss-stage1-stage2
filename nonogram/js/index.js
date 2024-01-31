@@ -7,6 +7,7 @@ import generateGrid from "./generateGrid.js";
 import onResize from "./onResize.js";
 import randomGame from "./randomGame.js";
 import resetNonogram from "./resetNonogram.js";
+import saveGame from "./saveGame.js";
 import showAnswer from "./showAnswer.js";
 import showModal from "./showModal.js";
 
@@ -18,9 +19,7 @@ grid.append(title);
 main.append(grid);
 document.querySelector("body").append(main);
 
-console.dir(title);
-
-let isWin, currentFill, numberFill, currentNonogram;
+let isWin, currentFill, numberFill, table, currentNonogram;
 
 game(randomGame(null));
 
@@ -46,9 +45,18 @@ randomBtn.addEventListener("click", () => {
   game(randomGame(currentNonogram));
 });
 
+const saveBtn = createElandClass("button", ["save-btn", "btn"], "Save game");
+saveBtn.addEventListener("click", () => saveGame(table));
+
 const buttonsWrap = createElandClass("section", ["section", "btns"]);
 
-buttonsWrap.append(answerBtn, resetBtn, randomBtn);
+buttonsWrap.append(answerBtn, resetBtn, randomBtn, saveBtn);
+
+if (localStorage.getItem("nonograme")) {
+  const loadBtn = createElandClass("button", ["load-btn", "btn"], "Load game");
+  loadBtn.addEventListener("click", loadGame);
+  buttonsWrap.append(loadBtn);
+}
 
 const infoWrap = createElandClass("div", ["info-wrap"]);
 main.append(infoWrap);
@@ -68,7 +76,7 @@ async function game({ folder, nonogramName }) {
   if (document.querySelector(".table"))
     document.querySelector(".table").remove();
 
-  const table = createElandClass("table", ["table"]);
+  table = createElandClass("table", ["table"]);
   grid.append(table);
   generateGrid({ leftTotal, topTotal, nonogram });
 
@@ -152,4 +160,9 @@ function accordionHandler(e) {
       nonogramName: e.target.textContent,
     });
   }
+}
+
+export default function loadGame() {
+  console.log(localStorage.getItem("nonograme"));
+  table.innerHTML = localStorage.getItem("nonograme");
 }
