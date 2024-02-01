@@ -3,7 +3,6 @@ import { onClickBackDrop } from "./index.js";
 
 export default function showModal(time) {
   const name = document.querySelector(".colgroup").dataset.name;
-  console.log(name, time);
   const backDrop = createElandClass("div", ["backdrop-modal"]);
 
   const modal = createElandClass("div", ["modal"]);

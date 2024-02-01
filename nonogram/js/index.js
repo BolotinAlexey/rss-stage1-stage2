@@ -28,7 +28,11 @@ const answerBtn = createElandClass(
   ["answer-btn", "btn"],
   "Show answer"
 );
-answerBtn.addEventListener("click", showAnswer);
+answerBtn.addEventListener("click", () => {
+  table.removeEventListener("click", onClickTable);
+  table.removeEventListener("click", onClickRightTable);
+  showAnswer();
+});
 
 const resetBtn = createElandClass("button", ["reset-btn", "btn"], "Reset");
 resetBtn.addEventListener("click", () => {
@@ -133,6 +137,7 @@ export function onClickBackDrop(e) {
     return;
   document.querySelector(".backdrop-modal").remove();
   table.removeEventListener("click", onClickTable);
+  table.removeEventListener("click", onClickRightTable);
 }
 
 function accordionHandler(e) {
