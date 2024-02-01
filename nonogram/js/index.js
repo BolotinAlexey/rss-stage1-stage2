@@ -19,7 +19,7 @@ grid.append(title);
 main.append(grid);
 document.querySelector("body").append(main);
 
-let isWin, currentFill, numberFill, table, currentNonogram;
+let isWin, currentFill, numberFill, table, currentNonogram, time;
 
 game(randomGame(null));
 
@@ -47,14 +47,14 @@ randomBtn.addEventListener("click", () => {
 
 const saveBtn = createElandClass("button", ["save-btn", "btn"], "Save game");
 saveBtn.addEventListener("click", () =>
-  saveGame({ table, numberFill, currentFill })
+  saveGame({ table, numberFill, currentFill, currentNonogram })
 );
 
 const buttonsWrap = createElandClass("section", ["section", "btns"]);
 
 buttonsWrap.append(answerBtn, resetBtn, randomBtn, saveBtn);
 
-if (localStorage.getItem("nonograme")) {
+if (localStorage.getItem("nonogrameB")) {
   const loadBtn = createElandClass("button", ["load-btn", "btn"], "Load game");
   loadBtn.addEventListener("click", loadGame);
   buttonsWrap.append(loadBtn);
@@ -80,7 +80,7 @@ async function game({ folder, nonogramName }) {
 
   table = createElandClass("table", ["table"]);
   grid.append(table);
-  generateGrid({ leftTotal, topTotal, nonogram });
+  generateGrid({ leftTotal, topTotal, nonogram, nonogramName });
 
   numberFill = countFill(topTotal);
   currentFill = 0;
@@ -105,7 +105,7 @@ function onClickTable(e) {
 
   isWin = currentFill === numberFill && checkWin();
   if (isWin) {
-    showModal();
+    showModal(time);
   }
 }
 
@@ -132,6 +132,7 @@ export function onClickBackDrop(e) {
   )
     return;
   document.querySelector(".backdrop-modal").remove();
+  table.removeEventListener("click", onClickTable);
 }
 
 function accordionHandler(e) {
@@ -159,7 +160,8 @@ function accordionHandler(e) {
 }
 
 export function loadGame() {
-  table.innerHTML = localStorage.getItem("nonograme");
+  table.innerHTML = localStorage.getItem("nonogrameB");
   numberFill = +localStorage.getItem("numberFill");
   currentFill = +localStorage.getItem("currentFill");
+  currentNonogram.nonogramName = document.querySelector(".colgroup");
 }
