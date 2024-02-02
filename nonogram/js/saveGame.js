@@ -1,12 +1,7 @@
 import createElandClass from "./createElandClass.js";
 import { loadGame } from "./index.js";
 
-export default function saveGame({
-  table,
-  numberFill,
-  currentFill,
-  currentNonogram,
-}) {
+export default function saveGame({ table, numberFill, currentFill }) {
   if (
     !localStorage.getItem("nonograme") &&
     !localStorage.getItem("nonogrameB")
@@ -20,7 +15,13 @@ export default function saveGame({
     document.querySelector(".btns").append(loadBtn);
   }
 
-  localStorage.setItem("nonogrameB", table.innerHTML);
-  localStorage.setItem("numberFill", numberFill);
-  localStorage.setItem("currentFill", currentFill);
+  localStorage.setItem(
+    "nonogrameBolotin",
+    JSON.stringify({
+      nonograme: table.innerHTML,
+      numberFill,
+      currentFill,
+      time: document.querySelector(".table__unused-th").innerText,
+    })
+  );
 }

@@ -10,6 +10,7 @@ import resetNonogram from "./resetNonogram.js";
 import saveGame from "./saveGame.js";
 import showAnswer from "./showAnswer.js";
 import showModal from "./showModal.js";
+import timeCounter from "./timeCounter.js";
 
 const main = createElandClass("main", ["page"]);
 const title = createElandClass("h1", ["title"], "Nonogram");
@@ -19,7 +20,7 @@ grid.append(title);
 main.append(grid);
 document.querySelector("body").append(main);
 
-let isWin, currentFill, numberFill, table, currentNonogram, time;
+let isWin, currentFill, numberFill, table, currentNonogram, timerId;
 
 game(randomGame(null));
 
@@ -31,11 +32,13 @@ const answerBtn = createElandClass(
 answerBtn.addEventListener("click", () => {
   table.removeEventListener("click", onClickTable);
   table.removeEventListener("click", onClickRightTable);
+  timerId && clearInterval(timerId);
   showAnswer();
 });
 
 const resetBtn = createElandClass("button", ["reset-btn", "btn"], "Reset");
 resetBtn.addEventListener("click", () => {
+  timerId && clearInterval(timerId);
   resetNonogram();
   currentFill = 0;
 });
@@ -46,13 +49,14 @@ const randomBtn = createElandClass(
   "Randome game"
 );
 randomBtn.addEventListener("click", () => {
+  timerId && clearInterval(timerId);
   game(randomGame(currentNonogram));
 });
 
 const saveBtn = createElandClass("button", ["save-btn", "btn"], "Save game");
-saveBtn.addEventListener("click", () =>
-  saveGame({ table, numberFill, currentFill, currentNonogram })
-);
+saveBtn.addEventListener("click", () => {
+  saveGame({ table, numberFill, currentFill, currentNonogram });
+});
 
 const buttonsWrap = createElandClass("section", ["section", "btns"]);
 
@@ -89,12 +93,20 @@ async function game({ folder, nonogramName }) {
   numberFill = countFill(topTotal);
   currentFill = 0;
 
+  document.querySelector(".table__unused-th").innerText = "0:00";
+
   table.addEventListener("click", onClickTable);
   table.addEventListener("contextmenu", onClickRightTable);
 }
 
 function onClickTable(e) {
   if (!e.target.dataset.bool) return;
+
+  if (!currentFill) {
+    timerId && clearInterval(timerId);
+    timerId = setInterval(timeCounter, 1000);
+  }
+
   e.target.dataset.fill = e.target.dataset.fill === "1" ? "0" : "1";
   if (e.target.classList.contains("fill")) {
     e.target.classList.remove("fill");
@@ -103,13 +115,15 @@ function onClickTable(e) {
     e.target.classList.add("fill");
     currentFill += 1;
   }
+
   if (e.target.classList.contains("cross")) {
     e.target.classList.remove("cross");
   }
 
   isWin = currentFill === numberFill && checkWin();
   if (isWin) {
-    showModal(time);
+    clearInterval(timerId);
+    showModal();
   }
 }
 
@@ -157,6 +171,8 @@ function accordionHandler(e) {
     });
     const folder = e.target.dataset.folder;
 
+    timerId && clearInterval(timerId);
+
     game({
       folder,
       nonogramName: e.target.textContent,
@@ -165,8 +181,15 @@ function accordionHandler(e) {
 }
 
 export function loadGame() {
-  table.innerHTML = localStorage.getItem("nonogrameB");
-  numberFill = +localStorage.getItem("numberFill");
-  currentFill = +localStorage.getItem("currentFill");
+  const ls = JSON.parse(localStorage.getItem("nonogrameBolotin"));
+  currentFill = ls.currentFill;
+  numberFill = ls.numberFill;
+  document.querySelector(".table__unused-th").innerText = ls.time;
+  table.innerHTML = ls.nonograme;
+
   currentNonogram.nonogramName = document.querySelector(".colgroup");
+
+  if (ls.time === "0:00") return;
+  timerId && clearInterval(timerId);
+  timerId = setInterval(timeCounter, 1000);
 }

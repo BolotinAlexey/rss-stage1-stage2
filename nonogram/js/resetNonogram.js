@@ -1,4 +1,5 @@
 export default function resetNonogram() {
+  document.querySelector(".table__unused-th").innerText = "0:00";
   const bools = document.querySelectorAll("[data-bool]");
   bools.forEach((el) => {
     if (el.classList.contains("fill")) {
