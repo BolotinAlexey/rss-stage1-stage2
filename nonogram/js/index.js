@@ -3,6 +3,7 @@ import checkWin from "./checkWin.js";
 import countFill from "./countFill.js";
 import createAccordion from "./createAccordion.js";
 import createElandClass from "./createElandClass.js";
+import generateFooter from "./generateFooter.js";
 import generateGrid from "./generateGrid.js";
 import onResize from "./onResize.js";
 import randomGame from "./randomGame.js";
@@ -18,7 +19,8 @@ const grid = createElandClass("section", ["grid"]);
 
 grid.append(title);
 main.append(grid);
-document.querySelector("body").append(main);
+const body = document.querySelector("body");
+body.append(main);
 
 let isWin, currentFill, numberFill, table, currentNonogram, timerId;
 
@@ -64,7 +66,7 @@ const themeBtn = createElandClass(
   "Change theme"
 );
 themeBtn.addEventListener("click", () => {
-  document.querySelector("body").classList.toggle("theme-dark");
+  body.classList.toggle("theme-dark");
 });
 main.append(themeBtn);
 
@@ -83,6 +85,8 @@ main.append(infoWrap);
 infoWrap.append(buttonsWrap);
 
 createAccordion(infoWrap).addEventListener("click", accordionHandler);
+
+body.insertAdjacentHTML("beforeend", generateFooter());
 
 window.addEventListener("resize", onResize);
 

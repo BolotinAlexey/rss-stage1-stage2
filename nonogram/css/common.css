@@ -1,4 +1,6 @@
 :root {
+  --accent-second: #08c92f;
+  --text: #fbd9b0;
   --bgColor: #ddd;
   --color: #222;
   .theme-dark {
@@ -27,6 +29,15 @@
     width: 2.1vw;
     height: 2.1vw;
   }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
 }
 
 body {
