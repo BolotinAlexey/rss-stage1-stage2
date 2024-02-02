@@ -12,6 +12,8 @@ footer {
   padding: 15px 20px;
   background-color: var(--bgColor);
   border-top: solid 1px var(--color);
+
+  transition: all 0.25s linear;
 }
 
 .footer__list {

@@ -5,6 +5,7 @@ import createAccordion from "./createAccordion.js";
 import createElandClass from "./createElandClass.js";
 import generateFooter from "./generateFooter.js";
 import generateGrid from "./generateGrid.js";
+import generateHeader from "./generateHeader.js";
 import onResize from "./onResize.js";
 import randomGame from "./randomGame.js";
 import resetNonogram from "./resetNonogram.js";
@@ -60,16 +61,6 @@ saveBtn.addEventListener("click", () => {
   saveGame({ table, numberFill, currentFill, currentNonogram });
 });
 
-const themeBtn = createElandClass(
-  "button",
-  ["theme-btn", "btn"],
-  "Change theme"
-);
-themeBtn.addEventListener("click", () => {
-  body.classList.toggle("theme-dark");
-});
-main.append(themeBtn);
-
 const buttonsWrap = createElandClass("section", ["section", "btns"]);
 
 buttonsWrap.append(answerBtn, resetBtn, randomBtn, saveBtn);
@@ -86,6 +77,7 @@ infoWrap.append(buttonsWrap);
 
 createAccordion(infoWrap).addEventListener("click", accordionHandler);
 
+body.insertAdjacentHTML("afterbegin", generateHeader());
 body.insertAdjacentHTML("beforeend", generateFooter());
 
 window.addEventListener("resize", onResize);

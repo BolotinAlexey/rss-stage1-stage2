@@ -20,8 +20,6 @@
   font-weight: 900;
   background-color: #777;
 }
-.table__unused-th {
-}
 
 .table__tr:nth-last-of-type(5n + 1) {
   border-bottom: solid 3px;
@@ -51,4 +49,12 @@
       var(--color) calc(50% + 1px),
       transparent calc(50% + 1px)
     );
+}
+
+@media screen and (min-width: 980px) {
+  td.table__td,
+  th.table__th {
+    width: 2.1vw;
+    height: 2.1vw;
+  }
 }

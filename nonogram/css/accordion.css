@@ -73,7 +73,7 @@
 
   height: 1px;
   background-color: var(--color);
-  transition: all 0.3s linear;
+  transition: all 0.25s linear;
 }
 
 .complexity:has(.show) > .complexity__text:before {
