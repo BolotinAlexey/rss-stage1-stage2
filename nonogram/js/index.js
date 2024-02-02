@@ -15,7 +15,7 @@ import showModal from "./showModal.js";
 import timeCounter from "./timeCounter.js";
 
 const main = createElandClass("main", ["page"]);
-const title = createElandClass("h1", ["title"], "Nonogram");
+const title = createElandClass("h2", ["page__title"], "Nonograms");
 const grid = createElandClass("section", ["grid"]);
 
 grid.append(title);

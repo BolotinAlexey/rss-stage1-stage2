@@ -1,7 +1,18 @@
 :root {
   --accent-second: #08c92f;
   --bgColor: #ddd;
+  --bgColorAlpha: 221, 221, 221;
+
   --color: #222;
+  --colorAlpha: 34, 34, 34;
+}
+
+:root:has(.theme-btn__input:checked) {
+  --bgColor: #222;
+  --color: #ddd;
+
+  --bgColorAlpha: 34, 34, 34;
+  --colorAlpha: 221, 221, 221;
 }
 
 /* Common */
@@ -37,6 +48,7 @@ body {
 }
 
 .page {
+  padding-bottom: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -47,25 +59,25 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
-.title {
+.page__title {
   position: relative;
   margin: 0 0 0.5rem -2rem;
   width: 0;
   font-size: 2rem;
-  letter-spacing: 0.7rem;
+  letter-spacing: 0.5rem;
   font-family: "Gochi Hand", "Inter", sans-serif;
   /* writing-mode: vertical-lr; */
 }
 
-.title:before {
+.page__title:before {
   position: absolute;
-  content: "onogram";
+  content: "onograms";
   word-break: break-all;
-  line-height: 0.9;
+  line-height: 0.78;
   margin-top: 1.9rem;
 }
 
-.title::first-letter {
+.page__title::first-letter {
   color: red;
 }
 
@@ -77,7 +89,7 @@ body {
   right: 0;
   bottom: 0;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(var(--colorAlpha), 0.5);
   overflow-y: auto;
 }
 
@@ -103,8 +115,8 @@ body {
   justify-content: center;
   align-items: center;
 
-  color: #fff;
-  background-color: rgba(0, 255, 0, 0.7);
+  color: var(--color);
+  background-color: rgba(var(--bgColorAlpha), 0.8);
   text-shadow: -1px -1px black;
   font-size: 2rem;
   /* overflow-y: auto; */

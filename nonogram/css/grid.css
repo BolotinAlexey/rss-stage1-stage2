@@ -18,7 +18,7 @@
 }
 .table__th {
   font-weight: 900;
-  background-color: #777;
+  background-color: rgba(128, 128, 128, 0.15);
 }
 
 .table__tr:nth-last-of-type(5n + 1) {
@@ -28,6 +28,12 @@
 .table__th:nth-last-of-type(5n + 1),
 .table__unused-th {
   border-right: solid 3px;
+}
+
+.table__unused-th {
+  font-family: "Pacifico", cursive;
+  font-size: 1.2rem;
+  transform: rotate(-45deg);
 }
 
 .fill {
