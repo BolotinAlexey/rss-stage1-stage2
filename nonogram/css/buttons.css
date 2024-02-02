@@ -29,8 +29,5 @@
 
 .btn:hover {
   cursor: pointer;
-}
-
-.btn:hover:nth-of-type(1) {
-  /* background-color: #000; */
+  color: var(--accent);
 }

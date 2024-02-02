@@ -8,7 +8,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   color: var(--color);
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 15px 20px;
   background-color: var(--bgColor);
   border-top: solid 1px var(--color);
@@ -26,7 +26,7 @@ footer {
 }
 .contacts__link:hover,
 .contacts__link:active {
-  color: var(--accent-second);
+  color: var(--accent);
 }
 .contacts__icon-invert {
   fill: currentColor;
@@ -52,7 +52,7 @@ footer {
 
 .logo:hover {
   animation: shake-rotate 1s linear;
-  color: var(--accent-second);
+  color: var(--accent);
 }
 
 .logo > a,

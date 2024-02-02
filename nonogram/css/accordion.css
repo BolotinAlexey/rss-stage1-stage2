@@ -61,12 +61,18 @@
   color: var(--color);
   transition: color 0.25s linear;
 }
-
+.complexity__item:hover {
+  color: var(--accent);
+}
 .complexity__text {
   margin: 0;
   padding: 0.5rem 1rem;
   position: relative;
   text-shadow: var(--color) 1px 1px;
+  transition: text-shadow 0.25s linear;
+}
+.complexity__text:hover {
+  text-shadow: var(--accent) 1px 1px;
 }
 
 .complexity__text:before {

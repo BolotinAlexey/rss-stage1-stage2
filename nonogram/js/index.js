@@ -7,6 +7,7 @@ import generateFooter from "./generateFooter.js";
 import generateGrid from "./generateGrid.js";
 import generateHeader from "./generateHeader.js";
 import onResize from "./onResize.js";
+import onToggleMobile from "./onToggleMobile.js";
 import randomGame from "./randomGame.js";
 import resetNonogram from "./resetNonogram.js";
 import saveGame from "./saveGame.js";
@@ -79,6 +80,18 @@ createAccordion(infoWrap).addEventListener("click", accordionHandler);
 
 body.insertAdjacentHTML("afterbegin", generateHeader());
 body.insertAdjacentHTML("beforeend", generateFooter());
+
+// create mobile menu listener
+document
+  .querySelector(".burger-wrap")
+  .addEventListener("click", onToggleMobile);
+
+document.querySelector(".bg-mobile").addEventListener("click", (e) => {
+  console.log(e.target);
+  if (e.target === document.querySelector(".bg-mobile")) {
+    onToggleMobile();
+  }
+});
 
 window.addEventListener("resize", onResize);
 
