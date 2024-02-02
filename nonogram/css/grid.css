@@ -1,6 +1,6 @@
 .grid {
   grid-area: grid;
-  padding: 1rem 1rem 1rem 2rem;
+  padding: 1rem 1rem 1rem 2.5rem;
 }
 
 .table {
@@ -14,13 +14,13 @@
   height: 21px;
   border: solid 1px;
   text-align: center;
+  transition: background-color 0.25s linear;
 }
 .table__th {
   font-weight: 900;
-  background-color: #ccc;
+  background-color: #777;
 }
 .table__unused-th {
-  background-color: #ccc;
 }
 
 .table__tr:nth-last-of-type(5n + 1) {
@@ -33,22 +33,22 @@
 }
 
 .fill {
-  background-color: #000;
+  background-color: var(--color);
 }
 
 .table__td.cross {
   background: linear-gradient(
       45deg,
       transparent calc(50% - 1px),
-      #000000 calc(50% - 1px),
-      #000000 calc(50% + 1px),
+      var(--color) calc(50% - 1px),
+      var(--color) calc(50% + 1px),
       transparent calc(50% + 1px)
     ),
     linear-gradient(
       -45deg,
       transparent calc(50% - 1px),
-      #000000 calc(50% - 1px),
-      #000000 calc(50% + 1px),
+      var(--color) calc(50% - 1px),
+      var(--color) calc(50% + 1px),
       transparent calc(50% + 1px)
     );
 }

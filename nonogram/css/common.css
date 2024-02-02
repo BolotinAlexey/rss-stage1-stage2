@@ -1,3 +1,12 @@
+:root {
+  --bgColor: #ddd;
+  --color: #222;
+  .theme-dark {
+    --bgColor: #222;
+    --color: #ddd;
+  }
+}
+
 /* Common */
 .visually-hidden {
   position: absolute;
@@ -20,9 +29,13 @@
   }
 }
 
-/* body {
-  margin: 1rem auto;
-} */
+body {
+  margin: 0;
+  /* min-height: 100vh; */
+  background-color: var(--bgColor);
+  color: var(--color);
+  transition: all 0.25s linear;
+}
 
 .page {
   display: flex;
@@ -32,7 +45,7 @@
 .info-wrap {
   margin-top: 1.5rem;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .title {
@@ -91,7 +104,7 @@
   justify-content: center;
   align-items: center;
 
-  color: white;
+  color: #fff;
   background-color: rgba(0, 255, 0, 0.7);
   text-shadow: -1px -1px black;
   font-size: 2rem;

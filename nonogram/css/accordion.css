@@ -61,7 +61,7 @@
   right: 100%;
 
   height: 1px;
-  background-color: #000;
+  background-color: var(--color);
   transition: all 0.3s linear;
 }
 .complexity__text:after {
@@ -72,7 +72,7 @@
   left: 100%;
 
   height: 1px;
-  background-color: #000;
+  background-color: var(--color);
   transition: all 0.3s linear;
 }
 

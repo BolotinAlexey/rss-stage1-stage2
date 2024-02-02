@@ -58,6 +58,16 @@ saveBtn.addEventListener("click", () => {
   saveGame({ table, numberFill, currentFill, currentNonogram });
 });
 
+const themeBtn = createElandClass(
+  "button",
+  ["theme-btn", "btn"],
+  "Change theme"
+);
+themeBtn.addEventListener("click", () => {
+  document.querySelector("body").classList.toggle("theme-dark");
+});
+main.append(themeBtn);
+
 const buttonsWrap = createElandClass("section", ["section", "btns"]);
 
 buttonsWrap.append(answerBtn, resetBtn, randomBtn, saveBtn);
