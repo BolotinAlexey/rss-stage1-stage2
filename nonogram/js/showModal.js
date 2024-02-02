@@ -15,7 +15,7 @@ export default function showModal() {
   const score = createElandClass(
     "p",
     ["modal__score"],
-    `You solved the picture ${name} in ${time} minutes.`
+    `Great! You have solved the nonogram "${name}" in ${time} seconds!`
   );
 
   const crossBtn = createElandClass("button", ["modal__btn"], "❌");
