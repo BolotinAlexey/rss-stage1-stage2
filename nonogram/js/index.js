@@ -11,6 +11,7 @@ import onToggleMobile from "./onToggleMobile.js";
 import randomGame from "./randomGame.js";
 import resetNonogram from "./resetNonogram.js";
 import saveGame from "./saveGame.js";
+import saveInTable from "./saveInTable.js";
 import setSizeCell from "./setSizeCell.js";
 import showAnswer from "./showAnswer.js";
 import showModal from "./showModal.js";
@@ -145,6 +146,7 @@ function onClickTable(e) {
   isWin = currentFill === numberFill && checkWin();
   if (isWin) {
     clearInterval(timerId);
+    saveInTable();
     showModal();
   }
 }
