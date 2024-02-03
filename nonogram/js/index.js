@@ -11,6 +11,7 @@ import onToggleMobile from "./onToggleMobile.js";
 import randomGame from "./randomGame.js";
 import resetNonogram from "./resetNonogram.js";
 import saveGame from "./saveGame.js";
+import setSizeCell from "./setSizeCell.js";
 import showAnswer from "./showAnswer.js";
 import showModal from "./showModal.js";
 import timeCounter from "./timeCounter.js";
@@ -112,7 +113,9 @@ async function game({ folder, nonogramName }) {
   numberFill = countFill(topTotal);
   currentFill = 0;
 
-  document.querySelector(".table__unused-th").innerText = "0:00";
+  setSizeCell(folder);
+
+  document.querySelector(".table__unused-th").innerText = "00:00";
 
   table.addEventListener("click", onClickTable);
   table.addEventListener("contextmenu", onClickRightTable);
@@ -208,7 +211,9 @@ export function loadGame() {
 
   currentNonogram.nonogramName = document.querySelector(".colgroup");
 
-  if (ls.time === "0:00") return;
+  const time = document.querySelector(".table__unused-th").innerText;
+
+  if (time === "00:00") return;
   timerId && clearInterval(timerId);
   timerId = setInterval(timeCounter, 1000);
 }

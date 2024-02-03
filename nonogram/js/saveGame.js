@@ -2,10 +2,7 @@ import createElandClass from "./createElandClass.js";
 import { loadGame } from "./index.js";
 
 export default function saveGame({ table, numberFill, currentFill }) {
-  if (
-    !localStorage.getItem("nonograme") &&
-    !localStorage.getItem("nonogrameB")
-  ) {
+  if (!localStorage.getItem("nonogrameBolotin")) {
     const loadBtn = createElandClass(
       "button",
       ["load-btn", "btn"],
@@ -21,7 +18,6 @@ export default function saveGame({ table, numberFill, currentFill }) {
       nonograme: table.innerHTML,
       numberFill,
       currentFill,
-      time: document.querySelector(".table__unused-th").innerText,
     })
   );
 }

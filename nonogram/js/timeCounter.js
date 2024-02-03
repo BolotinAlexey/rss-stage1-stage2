@@ -10,5 +10,9 @@ function incrementTime(strTime) {
   let [min, sec] = strTime.split(":");
 
   min = +min + Math.floor(++sec / SECOND_IN_MINUTE);
-  return min + ":" + String(sec % SECOND_IN_MINUTE).padStart(2, "0");
+  return (
+    String(min).padStart(2, "0") +
+    ":" +
+    String(sec % SECOND_IN_MINUTE).padStart(2, "0")
+  );
 }
