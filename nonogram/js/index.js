@@ -1,3 +1,4 @@
+import { listNonograms } from "../assets/listNonograms.js";
 import calculateClues from "./calculateClues.js";
 import checkWin from "./checkWin.js";
 import countFill from "./countFill.js";
@@ -28,7 +29,13 @@ body.append(main);
 
 let isWin, currentFill, numberFill, table, currentNonogram, timerId;
 
-game(randomGame(null));
+game({
+  folder: "5x5",
+  nonogramName:
+    listNonograms["5x5"][
+      Math.floor(Math.random() * listNonograms["5x5"].length)
+    ],
+});
 
 const answerBtn = createElandClass(
   "button",
