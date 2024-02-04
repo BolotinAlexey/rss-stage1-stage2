@@ -8,7 +8,6 @@ export default function saveInTable() {
     time,
     name,
   };
-  console.log(newData);
   const ls = localStorage.getItem("tableBolotin");
   const arr = ls ? JSON.parse(ls) : [];
   arr.push(newData);

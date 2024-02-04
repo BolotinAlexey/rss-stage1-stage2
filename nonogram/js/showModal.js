@@ -1,9 +1,14 @@
 import createElandClass from "./createElandClass.js";
 import { onClickBackDrop } from "./index.js";
 
+const SECOND_IN_MINUTE = 60;
+
 export default function showModal() {
   const name = document.querySelector(".colgroup").dataset.name;
-  const time = document.querySelector(".table__unused-th").innerText;
+  const [min, sec] = document
+    .querySelector(".table__unused-th")
+    .innerText.split(":");
+  const time = +sec + min * SECOND_IN_MINUTE;
 
   const backDrop = createElandClass("div", ["backdrop-modal"]);
 
