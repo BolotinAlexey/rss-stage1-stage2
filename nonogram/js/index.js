@@ -15,7 +15,7 @@ import saveGame from "./saveGame.js";
 import saveInTable from "./saveInTable.js";
 import setSizeCell from "./setSizeCell.js";
 import showAnswer from "./showAnswer.js";
-import showModal from "./showModal.js";
+import showWinModal from "./showWinModal.js";
 import timeCounter from "./timeCounter.js";
 
 const main = createElandClass("main", ["page"]);
@@ -154,7 +154,7 @@ function onClickTable(e) {
   if (isWin) {
     clearInterval(timerId);
     saveInTable();
-    showModal();
+    showWinModal();
   }
 }
 
@@ -170,7 +170,7 @@ function onClickRightTable(e) {
 
   isWin = currentFill === numberFill && checkWin();
   if (isWin) {
-    showModal();
+    showWinModal();
   }
 }
 
