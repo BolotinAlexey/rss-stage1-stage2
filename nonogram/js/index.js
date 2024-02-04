@@ -15,6 +15,7 @@ import saveGame from "./saveGame.js";
 import saveInTable from "./saveInTable.js";
 import setSizeCell from "./setSizeCell.js";
 import showAnswer from "./showAnswer.js";
+import showTableScore from "./showTableScore.js";
 import showWinModal from "./showWinModal.js";
 import timeCounter from "./timeCounter.js";
 
@@ -75,7 +76,7 @@ const buttonsWrap = createElandClass("section", ["section", "btns"]);
 
 buttonsWrap.append(answerBtn, resetBtn, randomBtn, saveBtn);
 
-if (localStorage.getItem("nonogrameB")) {
+if (localStorage.getItem("nonogrameBolotin")) {
   const loadBtn = createElandClass("button", ["load-btn", "btn"], "Load game");
   loadBtn.addEventListener("click", loadGame);
   buttonsWrap.append(loadBtn);
@@ -89,6 +90,10 @@ createAccordion(infoWrap).addEventListener("click", accordionHandler);
 
 body.insertAdjacentHTML("afterbegin", generateHeader());
 body.insertAdjacentHTML("beforeend", generateFooter());
+
+document
+  .querySelector(".table-button")
+  .addEventListener("click", showTableScore);
 
 // create mobile menu listener
 document
@@ -132,6 +137,7 @@ async function game({ folder, nonogramName }) {
 function onClickTable(e) {
   if (!e.target.dataset.bool) return;
 
+  // !-todo timerId && clearInterval(timerId) for cross;
   if (!currentFill) {
     timerId && clearInterval(timerId);
     timerId = setInterval(timeCounter, 1000);
@@ -170,6 +176,8 @@ function onClickRightTable(e) {
 
   isWin = currentFill === numberFill && checkWin();
   if (isWin) {
+    clearInterval(timerId);
+    saveInTable();
     showWinModal();
   }
 }

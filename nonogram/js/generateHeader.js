@@ -58,11 +58,25 @@ export default function generateHeader() {
           </ul>
         </nav>
 
+         <button class="table-button">
+              <span>
+                <svg class="table-button__icon" width="50" height="50">
+                  <use href="./assets/sprite.svg#table"></use>
+                </svg>
+              </span>
+            </button>
+
         <label class="theme-btn">
+        <svg class="weather__icon" width="20" height="20">
+                  <use href="./assets/sprite.svg#sun"></use>
+                </svg>
           <input type="checkbox" class="theme-btn__input">
           </input>
           <span class="theme-btn__inner">
           </span>
+          <svg class="weather__icon" width="20" height="20">
+                  <use href="./assets/sprite.svg#moon"></use>
+                </svg>
         </label>
 
         <div class="burger-wrap">

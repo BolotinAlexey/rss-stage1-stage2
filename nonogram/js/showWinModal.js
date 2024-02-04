@@ -10,12 +10,6 @@ export default function showWinModal() {
     .innerText.split(":");
   const time = +sec + min * SECOND_IN_MINUTE;
 
-  // const backDrop = createElandClass("div", ["backdrop-modal"]);
-
-  // const modal = createElandClass("div", ["modal"]);
-  // backDrop.append(modal);
-  // document.querySelector("body").append(backDrop);
-
   const contentModal = createElandClass(
     "p",
     ["modal__score"],
@@ -23,10 +17,4 @@ export default function showWinModal() {
   );
 
   generateModal("You win!", contentModal);
-
-  // const crossBtn = createElandClass("button", ["modal__btn"], "❌");
-
-  // backDrop.addEventListener("click", onClickBackDrop);
-
-  // modal.append(modalTitle, score, crossBtn);
 }

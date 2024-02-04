@@ -66,6 +66,13 @@ header {
 
 .theme-btn:hover {
   cursor: pointer;
+  border-color: var(--accent);
+}
+.theme-btn:hover > .theme-btn__inner {
+  background-color: var(--accent);
+}
+.theme-btn__inner {
+  transition: background-color 0.25s linear;
 }
 
 .theme-btn__input {
@@ -85,6 +92,24 @@ header {
 }
 .theme-btn__input:checked + .theme-btn__inner {
   transform: translateY(25px);
+}
+
+.table-button {
+  padding: 5px 0 0 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.table-button:hover {
+  cursor: pointer;
+}
+.table-button:hover .table-button__icon {
+  fill: var(--accent);
+}
+.table-button__icon {
+  fill: var(--color);
+  transition: fill 0.25s linear;
 }
 
 /* burger */
@@ -199,7 +224,7 @@ body.visibleMobile {
   overflow: hidden;
 }
 
-@media screen and (max-width: 1128px) {
+@media screen and (max-width: 1200px) {
   .header__nav {
     display: none;
   }
