@@ -189,6 +189,7 @@ export function onClickBackDrop(e) {
   )
     return;
   document.querySelector(".backdrop-modal").remove();
+  if (!isWin) return;
   table.removeEventListener("click", onClickTable);
   table.removeEventListener("contextmenu", onClickRightTable);
 }

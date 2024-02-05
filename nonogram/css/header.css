@@ -170,6 +170,8 @@ header {
   width: 100%;
   height: calc(100vh - 98px);
   padding: 80px;
+  overflow: auto;
+
   background-color: rgba(var(--bgColorAlpha), 0.7);
   right: 0;
   top: 0;
