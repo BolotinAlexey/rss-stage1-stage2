@@ -1,0 +1,111 @@
+.accordion {
+  grid-area: accordion;
+  padding: 1rem;
+  cursor: pointer;
+  width: max-content;
+  font-size: 2rem;
+  color: var(--bgColor);
+  transition: color 0.25s linear;
+}
+
+.accordion__list {
+  position: relative;
+  padding: 2rem;
+  width: 210px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.accordion > .accordion__list {
+  border: 1px solid var(--color);
+  border-radius: 1rem;
+}
+
+.complexity {
+  width: 100%;
+
+  transition: all 0.25s linear;
+}
+.complexity:nth-of-type(1) {
+  /* background-color: rgba(0, 238, 20, 0.2); */
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+/* .complexity:nth-of-type(2) {
+  background-color: rgba(255, 255, 0, 0.2);
+} */
+.complexity:nth-of-type(3) {
+  /* background-color: rgba(255, 0, 0, 0.2); */
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.complexity__list {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.25s linear;
+}
+.complexity__item {
+  padding: 0 1rem;
+  text-align: center;
+  position: relative;
+  font-family: "Pacifico", cursive;
+  line-height: 1.175;
+  color: var(--color);
+  transition: color 0.25s linear;
+}
+.complexity__item:hover {
+  color: var(--accent);
+}
+.complexity__text {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  position: relative;
+  text-shadow: var(--color) 1px 1px;
+  transition: text-shadow 0.25s linear;
+}
+.complexity__text:hover {
+  text-shadow: var(--accent) 1px 1px;
+}
+
+.complexity__text:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+
+  height: 1px;
+  background-color: var(--color);
+  transition: all 0.3s linear;
+}
+.complexity__text:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  left: 100%;
+
+  height: 1px;
+  background-color: var(--color);
+  transition: all 0.25s linear;
+}
+
+.complexity:has(.show) > .complexity__text:before {
+  right: 50%;
+}
+.complexity:has(.show) > .complexity__text:after {
+  left: 50%;
+}
+
+.complexity__list.show {
+  overflow: auto;
+  height: calc(6 * 2rem);
+  overflow: hidden;
+}

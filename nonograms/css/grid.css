@@ -1,0 +1,67 @@
+.grid {
+  grid-area: grid;
+  padding: 1rem 1rem 1rem 2.5rem;
+}
+
+.table {
+  border-collapse: collapse;
+  border: solid 3px;
+}
+
+.table__th,
+.table__td {
+  width: 21px;
+  height: 21px;
+  border: solid 1px;
+  text-align: center;
+  transition: background-color 0.25s linear;
+}
+.table__th {
+  font-weight: 900;
+  background-color: rgba(128, 128, 128, 0.15);
+}
+
+.table__tr:nth-last-of-type(5n + 1) {
+  border-bottom: solid 3px;
+}
+.table__td:nth-last-of-type(5n + 1),
+.table__th:nth-last-of-type(5n + 1),
+.table__unused-th {
+  border-right: solid 3px;
+}
+
+.table__unused-th {
+  font-family: "Pacifico", cursive;
+  font-size: 1.5rem;
+  transform: rotate(-45deg);
+  overflow: hidden;
+}
+
+.fill {
+  background-color: var(--color);
+}
+
+.table__td.cross {
+  background: linear-gradient(
+      45deg,
+      transparent calc(50% - 1px),
+      var(--color) calc(50% - 1px),
+      var(--color) calc(50% + 1px),
+      transparent calc(50% + 1px)
+    ),
+    linear-gradient(
+      -45deg,
+      transparent calc(50% - 1px),
+      var(--color) calc(50% - 1px),
+      var(--color) calc(50% + 1px),
+      transparent calc(50% + 1px)
+    );
+}
+
+@media screen and (min-width: 980px) {
+  td.table__td,
+  th.table__th {
+    width: 2.1vw;
+    height: 2.1vw;
+  }
+}

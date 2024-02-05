@@ -1,0 +1,194 @@
+:root {
+  --accent: #f00;
+  --bgColor: #ddd;
+  --bgColorAlpha: 221, 221, 221;
+
+  --color: #222;
+  --colorAlpha: 34, 34, 34;
+}
+
+:root:has(.theme-btn__input:checked) {
+  --bgColor: #222;
+  --color: #ddd;
+
+  --bgColorAlpha: 34, 34, 34;
+  --colorAlpha: 221, 221, 221;
+
+  /* --colorTable: #ddd; */
+}
+
+/* Common */
+* {
+  box-sizing: border-box;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.25s linear;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bgColor);
+  color: var(--color);
+  transition: all 0.25s linear;
+}
+
+.page {
+  padding-bottom: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.info-wrap {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.page__title {
+  position: relative;
+  margin: 0 0 0.5rem -2rem;
+  width: 0;
+  font-size: 2rem;
+  letter-spacing: 1.5rem;
+  font-family: "Gochi Hand", "Inter", sans-serif;
+  /* writing-mode: vertical-lr; */
+}
+
+.page__title:before {
+  position: absolute;
+  content: "onograms";
+  word-break: break-all;
+  line-height: 1.3;
+  margin-top: 1.9rem;
+}
+
+.page__title::first-letter {
+  color: red;
+}
+
+/* Modal */
+.backdrop-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(var(--colorAlpha), 0.5);
+  overflow-y: auto;
+}
+
+.column {
+  margin-top: 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal {
+  max-width: 500px;
+  width: 90%;
+  padding: 3rem;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--color);
+  background-color: rgba(var(--bgColorAlpha), 0.8);
+  text-shadow: -1px -1px black;
+  font-size: 2rem;
+  /* overflow-y: auto; */
+  text-align: center;
+}
+
+.modal__title {
+  font-size: 3.5rem;
+}
+
+.modal__btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  padding: 0;
+  vertical-align: baseline;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  background-color: transparent;
+  /* text-shadow: 1px 1px white; */
+}
+.modal__btn:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+  transform: rotate(360deg);
+  transition: 0.5s linear;
+}
+
+.table__td-score {
+  padding: 10px 20px;
+  border: 1px solid var(--color);
+}
+.table__th-score:nth-last-of-type(2) {
+  border-left: 3px solid var(--bgColor);
+  border-right: 3px solid var(--bgColor);
+}
+.table__th-score {
+  padding: 10px 20px;
+  font-family: "Gochi Hand";
+  background-color: var(--color);
+  color: var(--bgColor);
+}
+
+/* Animation */
+
+@keyframes shake-rotate {
+  15% {
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  65% {
+    transform: rotate(5deg);
+  }
+  85% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
