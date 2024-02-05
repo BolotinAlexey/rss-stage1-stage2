@@ -77,7 +77,11 @@ const buttonsWrap = createElandClass("section", ["section", "btns"]);
 buttonsWrap.append(answerBtn, resetBtn, randomBtn, saveBtn);
 
 if (localStorage.getItem("nonogrameBolotin")) {
-  const loadBtn = createElandClass("button", ["load-btn", "btn"], "Load game");
+  const loadBtn = createElandClass(
+    "button",
+    ["load-btn", "btn"],
+    "Continue last game"
+  );
   loadBtn.addEventListener("click", loadGame);
   buttonsWrap.append(loadBtn);
 }

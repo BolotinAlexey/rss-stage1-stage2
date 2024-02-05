@@ -6,7 +6,7 @@ export default function saveGame({ table, numberFill, currentFill }) {
     const loadBtn = createElandClass(
       "button",
       ["load-btn", "btn"],
-      "Load game"
+      "Continue last game"
     );
     loadBtn.addEventListener("click", loadGame);
     document.querySelector(".btns").append(loadBtn);
