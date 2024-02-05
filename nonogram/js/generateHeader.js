@@ -68,14 +68,14 @@ export default function generateHeader() {
 
         <label class="theme-btn">
         <svg class="weather__icon" width="20" height="20">
-                  <use href="./assets/sprite.svg#sun"></use>
+                  <use href="./assets/sprite.svg#moon"></use>
                 </svg>
           <input type="checkbox" class="theme-btn__input">
           </input>
           <span class="theme-btn__inner">
           </span>
-          <svg class="weather__icon" width="20" height="20">
-                  <use href="./assets/sprite.svg#moon"></use>
+          <svg class="weather__icon" width="20" height="20" fill="none">
+                  <use href="./assets/sprite.svg#sun"></use>
                 </svg>
         </label>
 

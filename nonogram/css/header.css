@@ -49,6 +49,7 @@ header {
 
 /* theme button */
 .theme-btn {
+  position: relative;
   display: flex;
 
   background-color: transparent;
@@ -71,6 +72,9 @@ header {
 .theme-btn:hover > .theme-btn__inner {
   background-color: var(--accent);
 }
+.theme-btn:hover > .weather__icon {
+  color: var(--accent);
+}
 .theme-btn__inner {
   transition: background-color 0.25s linear;
 }
@@ -79,10 +83,21 @@ header {
   display: none;
 }
 
+.weather__icon {
+  position: absolute;
+}
+.weather__icon:nth-of-type(1) {
+  top: 3px;
+}
+.weather__icon:nth-of-type(2) {
+  bottom: 3px;
+}
+
 /* .theme-btn:has(.theme-btn__input:checked) {
   align-items: end;
 } */
 .theme-btn__inner {
+  z-index: 10;
   display: inline-block;
   width: 20px;
   height: 20px;
