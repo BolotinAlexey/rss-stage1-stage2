@@ -44,11 +44,7 @@ game({
     ],
 });
 
-const answerBtn = createElandClass(
-  "button",
-  ["answer-btn", "btn"],
-  "Show answer"
-);
+const answerBtn = createElandClass("button", ["answer-btn", "btn"], "Solution");
 answerBtn.addEventListener("click", () => {
   table.removeEventListener("click", onClickTable);
   table.removeEventListener("contextmenu", onClickRightTable);

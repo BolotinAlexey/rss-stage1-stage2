@@ -27,6 +27,11 @@
   transition: all 0.25s linear;
 }
 
+.btn:active {
+  background-color: var(--color);
+  transform: scale(1.2);
+}
+
 .btn:hover {
   cursor: pointer;
   color: var(--accent);
