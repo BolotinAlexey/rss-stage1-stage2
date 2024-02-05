@@ -45,7 +45,7 @@ const answerBtn = createElandClass(
 );
 answerBtn.addEventListener("click", () => {
   table.removeEventListener("click", onClickTable);
-  table.removeEventListener("click", onClickRightTable);
+  table.removeEventListener("contextmenu", onClickRightTable);
   timerId && clearInterval(timerId);
   showAnswer();
 });
@@ -190,7 +190,7 @@ export function onClickBackDrop(e) {
     return;
   document.querySelector(".backdrop-modal").remove();
   table.removeEventListener("click", onClickTable);
-  table.removeEventListener("click", onClickRightTable);
+  table.removeEventListener("contextmenu", onClickRightTable);
 }
 
 function accordionHandler(e) {
