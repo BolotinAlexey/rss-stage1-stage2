@@ -1,6 +1,7 @@
 import createElandClass from "./createElandClass.js";
 import generateModal from "./generateModal.js";
 
+let table;
 export default function showTableScore() {
   const score = localStorage.getItem("tableBolotin")
     ? JSON.parse(localStorage.getItem("tableBolotin"))
@@ -18,20 +19,21 @@ export default function showTableScore() {
     return;
   }
 
-  const table = createElandClass("table", ["table"]);
+  table = createElandClass("table", ["table"]);
 
   // Table is sorted by time of the game using XX:XX format (for example, using LocalStorage). Every line should include: solved puzzle (either naming, or picture, or both); difficulty; stop-watch result.
 
   const insertStringThead =
     "<tr>" +
     Object.keys(score[0]).reduce(
-      (a, b) => a + `<th data-th='${b}'>${b}</th>`,
+      (a, b) => a + `<th class="table__th-score" data-th='${b}'>${b}</th>`,
       ""
     ) +
     "</tr>";
   table.insertAdjacentHTML("beforeend", insertStringThead);
   createBody([...score].sort(), table);
 
+  changeOrderTable(score, "time", 1, table);
   generateModal("Score Table", table);
   // add btns
   // addBtn("score", scoreNames, k);
@@ -40,7 +42,7 @@ export default function showTableScore() {
   // addBtn("name", scoreNames, k);
 }
 
-function createBody(arr, table) {
+function createBody(arr) {
   const insertString = arr.reduce((a, b) => a + tableRow(b), "");
   table.insertAdjacentHTML("beforeend", insertString);
 }
@@ -48,26 +50,45 @@ function createBody(arr, table) {
 function tableRow({ time, level, name }) {
   return `
   <tr>
-  <td>${name}</td>
-  <td>${level}x${level}</td>
-   <td>${time}</td>
+  <td class="table__td-score">${name}</td>
+  <td class="table__td-score">${level}x${level}</td>
+   <td class="table__td-score">${time}</td>
 </tr>
     `;
 }
 
-function changeOrderTable(scoreNames, key, k) {
-  const trs = Object.values(refs.table.querySelectorAll("tr"));
+function changeOrderTable(score, key, k) {
+  const trs = Object.values(table.querySelectorAll("tr"));
 
   // delete all tr, exactly 0th(contains th)
   trs.forEach((tr, i) => i && tr.remove());
 
-  const sortFn =
+  let sortFn =
     key === "name"
       ? (a, b) =>
           k > 0 ? b[key].localeCompare(a[key]) : a[key].localeCompare(b[key])
       : (a, b) => k * b[key] - k * a[key];
-  const tempArr = [...scoreNames].sort(sortFn);
-  renderTable(tempArr);
+
+  if (key === "time") {
+    sortFn = (a, b) =>
+      k *
+        a.time
+          .split(":")
+          .reduce(
+            (acc, t, i, array) => acc + +t * (array.length - i) * 59 + t,
+            0
+          ) -
+      k *
+        b.time
+          .split(":")
+          .reduce(
+            (acc, t, i, array) => acc + +t * (array.length - i) * 59 + t,
+            0
+          );
+  }
+
+  const tempArr = [...score].sort(sortFn);
+  createBody(tempArr);
 }
 
 function addBtn(key, scoreNames, k) {

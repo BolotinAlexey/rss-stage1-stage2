@@ -152,6 +152,21 @@ body {
   transition: 0.5s linear;
 }
 
+.table__td-score {
+  padding: 10px 20px;
+  border: 1px solid var(--color);
+}
+.table__th-score:nth-last-of-type(2) {
+  border-left: 3px solid var(--bgColor);
+  border-right: 3px solid var(--bgColor);
+}
+.table__th-score {
+  padding: 10px 20px;
+  font-family: "Gochi Hand";
+  background-color: var(--color);
+  color: var(--bgColor);
+}
+
 /* Animation */
 
 @keyframes shake-rotate {
