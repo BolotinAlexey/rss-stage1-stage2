@@ -9,6 +9,7 @@ import generateGrid from "./generateGrid.js";
 import generateHeader from "./generateHeader.js";
 import onResize from "./onResize.js";
 import onToggleMobile from "./onToggleMobile.js";
+import playWinMelody from "./playWinMelody.js";
 import randomGame from "./randomGame.js";
 import resetNonogram from "./resetNonogram.js";
 import saveGame from "./saveGame.js";
@@ -175,6 +176,7 @@ function onClickTable(e) {
   isWin = currentFill === numberFill && checkWin();
   if (isWin) {
     clearInterval(timerId);
+    playWinMelody(audio, audioFon);
     saveInTable();
     showWinModal();
   }
@@ -208,6 +210,8 @@ function onClickRightTable(e) {
   isWin = currentFill === numberFill && checkWin();
   if (isWin) {
     clearInterval(timerId);
+    audio.src = "./assets/sounds/win.mp3";
+    audio.play();
     saveInTable();
     showWinModal();
   }
