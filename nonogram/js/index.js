@@ -210,8 +210,7 @@ function onClickRightTable(e) {
   isWin = currentFill === numberFill && checkWin();
   if (isWin) {
     clearInterval(timerId);
-    audio.src = "./assets/sounds/win.mp3";
-    audio.play();
+    playWinMelody(audio, audioFon);
     saveInTable();
     showWinModal();
   }
