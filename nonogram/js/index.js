@@ -30,6 +30,11 @@ body.append(main);
 
 let isWin, currentFill, numberFill, table, currentNonogram, timerId;
 
+const audioFon = new Audio("./assets/sounds/fon.mp3");
+audioFon.loop = true;
+
+const audio = new Audio();
+
 game({
   folder: "5x5",
   nonogramName:
@@ -111,6 +116,10 @@ document.querySelector(".bg-mobile").addEventListener("click", (e) => {
   }
 });
 
+document
+  .querySelector(".melody-button__input")
+  .addEventListener("input", onCheckedMelody);
+
 window.addEventListener("resize", onResize);
 
 async function game({ folder, nonogramName }) {
@@ -141,11 +150,14 @@ async function game({ folder, nonogramName }) {
 function onClickTable(e) {
   if (!e.target.dataset.bool) return;
 
-  // !-todo timerId && clearInterval(timerId) for cross;
   if (!currentFill) {
     timerId && clearInterval(timerId);
     timerId = setInterval(timeCounter, 1000);
   }
+  audio.src = e.target.classList.contains("fill")
+    ? "./assets/sounds/unfill.mp3"
+    : "./assets/sounds/fill.mp3";
+  audio.play();
 
   e.target.dataset.fill = e.target.dataset.fill === "1" ? "0" : "1";
   if (e.target.classList.contains("fill")) {
@@ -171,6 +183,21 @@ function onClickTable(e) {
 function onClickRightTable(e) {
   e.preventDefault();
   if (!e.target.dataset.bool) return;
+
+  audio.src = e.target.classList.contains("cross")
+    ? "./assets/sounds/uncross.mp3"
+    : "./assets/sounds/cross.mp3";
+  audio.play();
+
+  if (
+    !(
+      document.querySelectorAll(".cross").length +
+      document.querySelectorAll(".fill").length
+    )
+  ) {
+    timerId && clearInterval(timerId);
+    timerId = setInterval(timeCounter, 1000);
+  }
   e.target.classList.toggle("cross");
   if (e.target.classList.contains("fill")) {
     currentFill -= 1;
@@ -238,4 +265,9 @@ export function loadGame() {
   if (time === "00:00") return;
   timerId && clearInterval(timerId);
   timerId = setInterval(timeCounter, 1000);
+}
+
+function onCheckedMelody(e) {
+  if (e.target.checked) audioFon.play();
+  else audioFon.pause();
 }

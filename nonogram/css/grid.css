@@ -32,8 +32,9 @@
 
 .table__unused-th {
   font-family: "Pacifico", cursive;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   transform: rotate(-45deg);
+  overflow: hidden;
 }
 
 .fill {

@@ -60,11 +60,20 @@ export default function generateHeader() {
 
          <button class="table-button">
               <span>
-                <svg class="table-button__icon" width="50" height="50">
+                <svg class="table-button__icon" width="40" height="40">
                   <use href="./assets/sprite.svg#table"></use>
                 </svg>
               </span>
             </button>
+
+         <label class="melody-button">
+         <input class="melody-button__input" type="checkbox" />
+              <span>
+                <svg class="melody-button__icon" width="40" height="40">
+                  <use href="./assets/sprite.svg#melody"></use>
+                </svg>
+              </span>
+            </label>
 
         <label class="theme-btn">
         <svg class="weather__icon" width="20" height="20">

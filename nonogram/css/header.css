@@ -109,22 +109,39 @@ header {
   transform: translateY(25px);
 }
 
-.table-button {
+.table-button,
+.melody-button {
   padding: 5px 0 0 0;
   margin: 0;
   background-color: transparent;
   border: none;
 }
 
-.table-button:hover {
+.table-button:hover,
+.melody-button:hover {
   cursor: pointer;
 }
-.table-button:hover .table-button__icon {
+.table-button:hover .table-button__icon,
+.melody-button:hover .melody-button__icon {
   fill: var(--accent);
 }
-.table-button__icon {
+.table-button__icon,
+.melody-button__icon {
   fill: var(--color);
   transition: fill 0.25s linear;
+}
+
+.melody-button__input {
+  display: none;
+}
+.melody-button:has(.melody-button__input:not(:checked)) {
+  background: linear-gradient(
+    -45deg,
+    transparent calc(50% - 1px),
+    var(--color) calc(50% - 1px),
+    var(--color) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
 }
 
 /* burger */
