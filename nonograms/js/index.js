@@ -31,10 +31,11 @@ body.append(main);
 
 let isWin, currentFill, numberFill, table, currentNonogram, timerId;
 
-const audioFon = new Audio("./assets/sounds/fon.mp3");
-audioFon.loop = true;
+// const audioFon = new Audio("./assets/sounds/fon.mp3");
+// audioFon.loop = true;
 
 const audio = new Audio();
+audio.muted = false;
 
 game({
   folder: "5x5",
@@ -171,7 +172,9 @@ function onClickTable(e) {
   isWin = currentFill === numberFill && checkWin();
   if (isWin) {
     clearInterval(timerId);
-    playWinMelody(audio, audioFon);
+    // playWinMelody(audio, audioFon);
+    audio.src = "./assets/sounds/win.mp3";
+    audio.play();
     saveInTable();
     showWinModal();
   }
@@ -205,7 +208,9 @@ function onClickRightTable(e) {
   isWin = currentFill === numberFill && checkWin();
   if (isWin) {
     clearInterval(timerId);
-    playWinMelody(audio, audioFon);
+    // playWinMelody(audio, audioFon);
+    audio.src = "./assets/sounds/win.mp3";
+    audio.play();
     saveInTable();
     showWinModal();
   }
@@ -272,6 +277,11 @@ export function loadGame() {
 }
 
 function onCheckedMelody(e) {
-  if (e.target.checked) audioFon.play();
-  else audioFon.pause();
+  if (e.target.checked) {
+    // audioFon.play();
+    audio.muted = false;
+  } else {
+    audio.muted = true;
+    // audioFon.pause();
+  }
 }
