@@ -67,7 +67,7 @@ export default function generateHeader() {
             </button>
 
          <label class="melody-button">
-         <input class="melody-button__input" type="checkbox" />
+         <input class="melody-button__input" type="checkbox" checked/>
               <span>
                 <svg class="melody-button__icon" width="40" height="40">
                   <use href="./assets/sprite.svg#melody"></use>
