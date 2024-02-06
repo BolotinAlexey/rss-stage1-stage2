@@ -107,7 +107,6 @@ document
   .addEventListener("click", onToggleMobile);
 
 document.querySelector(".bg-mobile").addEventListener("click", (e) => {
-  console.log(e.target);
   if (e.target === document.querySelector(".bg-mobile")) {
     onToggleMobile();
   }
@@ -254,7 +253,7 @@ export function loadGame() {
   const ls = JSON.parse(localStorage.getItem("nonogrameBolotin"));
   currentFill = ls.currentFill;
   numberFill = ls.numberFill;
-  document.querySelector(".table__unused-th").innerText = ls.time;
+  // document.querySelector(".table__unused-th").innerText = ls.time;
   table.innerHTML = ls.nonograme;
 
   currentNonogram.nonogramName = document.querySelector(".colgroup");
@@ -264,6 +263,12 @@ export function loadGame() {
   if (time === "00:00") return;
   timerId && clearInterval(timerId);
   timerId = setInterval(timeCounter, 1000);
+
+  table.removeEventListener("click", onClickTable);
+  table.removeEventListener("contextmenu", onClickRightTable);
+
+  table.addEventListener("click", onClickTable);
+  table.addEventListener("contextmenu", onClickRightTable);
 }
 
 function onCheckedMelody(e) {
