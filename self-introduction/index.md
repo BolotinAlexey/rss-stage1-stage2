@@ -1,4 +1,4 @@
-###[ YouTube link my presentation](https://youtu.be/6GT28dBUEaE)
+[ YouTube link my presentation](https://youtu.be/6GT28dBUEaE)
 
 - Hello! My name is Alexey Bolotin. When I was still in school I was very interested in programming. Back then computers were'nt comparable to today's computers. We recorded programs on a tape recorder. Instead of monitors we had black and white TV sets. We wrote code in Fortran, Basic, and Pascal. At that time I wrote some simple games and programs. I took part in computer science olympiads and even passed to the republican level.
 - After school I entered Samarkand State University at the faculty of physics, and worked as a lab technician in a computer center. I taught people computer literacy: namely to work with MS-DOS, text editor and spreadsheet. After a year of study, I transferred to Kirovograd Institute of Agricultural Engineering on the specialty of engineer-system technician. Unfortunately at that time could not find work in programming. I worked as an electrical engineer.
