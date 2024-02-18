@@ -24,7 +24,27 @@
 > `let list: Array<number> = [1, 2, 3];` syntax
 > and about `typles`: `let person: [string, number]` syntax**
 
-> **3. I learned about the `interface`, there is similar to Java. This is some code contract which describe an object, naming and parameterizing the object's types, and to compose existing named object types into new ones.**
+> **3. I learned about the `interface`, there is similar to Java. This is some code contract which describe an object, naming and parameterizing the object's types, and to compose existing named object types into new ones. Syntax:**
+
+```
+interface Employee {
+    firstName: string;
+    lastName: string;
+    fullName(): string;
+}
+```
+
+> **Alias can also be used:**
+
+```
+type Employee = {
+    firstName: string;
+    lastName: string;
+    fullName(): string;
+}
+```
+
+> **but key distinction is that a type alias cannot be reopened to add new properties whereas an interface is always extendable. Also, you can only describe a union or tuple using a type alias.**
 
 > **4. I learned about the typification of the parameters of the function, as well as the typification of the returned function of the function,required and optional parameters, default and rest parameters, which also facilitates the stability of the code and its documentation.**
 
@@ -50,3 +70,7 @@
 > - _Provide better tooling support for bundling._
 > - _Are recommended over namespaces for Node.js applications because modules are the default._
 > - _Can resolve top-down JavaScript flow issues because a reference to an external method or class is instantiated only on method invocation._
+
+```
+
+```
