@@ -9,7 +9,7 @@ export interface Articles {
     articles: NewsArticle[]; // The results of the request.
 }
 
-interface Source {
+export interface Source {
     id: string; // The identifier of the news source. You can use this with our other endpoints.
     name: string; //The name of the news source
     description: string; //A description of the news source
