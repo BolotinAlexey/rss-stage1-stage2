@@ -24,7 +24,7 @@ interface SourceArticle {
     name: string; //The name for the source this article came from.
 }
 
-interface NewsArticle {
+export interface NewsArticle {
     source: SourceArticle; //The identifier id and a display name name for the source this article came from.
     author: string; //The author of the article
     title: string; //The headline or title of the article.
