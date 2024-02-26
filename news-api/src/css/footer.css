@@ -8,6 +8,8 @@ footer {
     width: 100%;
     padding: 0.5rem;
     border-top: 1px var(--main-color) solid;
+    background-color: rgba(var(--bgAlpha));
+    z-index: 5;
 }
 /* .footer__wrapper {
  

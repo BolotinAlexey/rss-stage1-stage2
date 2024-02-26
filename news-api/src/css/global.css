@@ -4,6 +4,8 @@
     --accent-rgb: 255, 93, 82;
     --second-color: #fff;
     --logoJS: #ff5d52;
+    --bg: #17181c;
+    --bgAlpha: 23, 24, 28, 0.7;
 }
 
 * {
@@ -22,15 +24,23 @@ p {
 }
 ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 body {
-    color: #fff;
-    background: #17181c;
+    color: var(--second-color);
+    background: var(--bg);
     font-family: sans-serif;
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     padding: 10px 30px;
+    z-index: 5;
+    background-color: rgba(var(--bgAlpha));
 }
 
 header h1 {
