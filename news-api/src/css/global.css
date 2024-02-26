@@ -1,3 +1,28 @@
+:root {
+    --main-color: #30c5ff;
+    --accent-color: #ff5d52;
+    --accent-rgb: 255, 93, 82;
+    --second-color: #fff;
+    --logoJS: #ff5d52;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Hind Madurai';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+ul {
+    list-style: none;
+}
 body {
     color: #fff;
     background: #17181c;
@@ -13,12 +38,12 @@ header h1 {
     font-weight: 800;
 }
 
-footer {
+/* footer {
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 footer .copyright {
     font-size: 14px;
     color: #333;

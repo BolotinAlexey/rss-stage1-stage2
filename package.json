@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "svg-inline-loader": "^0.8.2"
+  }
+}
