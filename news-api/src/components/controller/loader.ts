@@ -21,7 +21,7 @@ class Loader {
     }
 
     getResp(
-        { endpoint, options = {} }: { endpoint: Endpoint; options: Options },
+        { endpoint, options = {} }: { endpoint: Endpoint; options?: Options },
         callback: CallbackFunctionEmpty = () => {
             console.error('No callback for GET response');
         }
@@ -35,7 +35,6 @@ class Loader {
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
-
         return res;
     }
 

@@ -59,6 +59,7 @@ export enum Endpoint {
     sources = 'sources',
     everything = 'everything',
 }
+
 export enum Method {
     get = 'GET',
     post = 'POST',
