@@ -9,7 +9,8 @@ class Sources {
         assertIsDefined(sourceItemTemp);
 
         data.forEach((item: Source) => {
-            const sourceClone = <HTMLElement>sourceItemTemp.content.cloneNode(true);
+            const sourceClone = sourceItemTemp.content.cloneNode(true);
+            if (!(sourceClone instanceof HTMLElement)) throw new Error('Error');
 
             const itemName = getElement(sourceClone, '.source__item-name');
             itemName.textContent = item.name;

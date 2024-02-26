@@ -12,8 +12,9 @@ class News {
         assertIsDefined(newsItemTemp);
 
         news.forEach((item: NewsArticle, idx: number) => {
-            const newsClone = <HTMLElement>newsItemTemp.content.cloneNode(true);
+            const newsClone = newsItemTemp.content.cloneNode(true);
             assertIsDefined(newsClone);
+            if (!(newsClone instanceof HTMLElement)) throw new Error('Error');
             if (idx % 2) {
                 const node = getElement(newsClone, '.news__item');
                 node.classList.add('alt');
