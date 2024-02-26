@@ -1,9 +1,9 @@
 import { assertIsDefined } from '../../supFunctions';
-import { CallbackFunctionEmpty, Endpoint } from '../../types/index';
+import { Articles, CallbackFunction, Endpoint, ResponseNews } from '../../types/index';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback: CallbackFunctionEmpty) {
+    getSources(callback: CallbackFunction<ResponseNews>) {
         super.getResp(
             {
                 endpoint: Endpoint.sources,
@@ -12,7 +12,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: CallbackFunctionEmpty) {
+    getNews(e: Event, callback: CallbackFunction<Articles>) {
         let target: EventTarget | null = e.target;
         assertIsDefined(target);
         if (!(target instanceof Element)) throw new Error('Error');

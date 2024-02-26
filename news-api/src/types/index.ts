@@ -52,7 +52,7 @@ export type KeyOptions = {
     apiKey: string | undefined;
 };
 
-export type CallbackFunction<T> = (data: T) => void;
+export type CallbackFunction<T> = (data?: T) => void;
 export type CallbackFunctionEmpty = () => void;
 
 export enum Endpoint {
