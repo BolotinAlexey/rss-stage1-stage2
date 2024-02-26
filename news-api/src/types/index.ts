@@ -15,7 +15,7 @@ export interface Source {
     description: string; //A description of the news source
     url: string; //The URL of the homepage.
     category: string; //The type of news to expect from this news source.
-    language: string; //The language that this news source writes in.
+    language: Lang; //The language that this news source writes in.
     country: string; //The country this news source is based in (and primarily writes about).
 }
 
@@ -52,7 +52,10 @@ export type KeyOptions = {
     apiKey: string | undefined;
 };
 
+export type CallbackFunctionLang<T, L> = (data?: T, lang?: L) => void;
+
 export type CallbackFunction<T> = (data?: T) => void;
+
 export type CallbackFunctionEmpty = () => void;
 
 export enum Endpoint {
@@ -72,4 +75,21 @@ export enum Status {
     NotFound = 404,
     TooManyRequests = 429,
     ServerError = 500,
+}
+
+export enum Lang {
+    ar = 'ar',
+    de = 'de',
+    en = 'en',
+    es = 'es',
+    fr = 'fr',
+    he = 'he',
+    it = 'it',
+    nl = 'nl',
+    no = 'no',
+    pt = 'pt',
+    ru = 'ru',
+    sv = 'sv',
+    ud = 'ud',
+    zh = 'zh',
 }

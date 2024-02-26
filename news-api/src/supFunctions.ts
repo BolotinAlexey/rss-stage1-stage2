@@ -12,3 +12,15 @@ export function getElement<T extends HTMLElement>(parent: HTMLElement, selector:
     assertIsDefined(el);
     return el;
 }
+export function getElementDocument<T extends HTMLElement>(selector: string): T {
+    const el = document.querySelector<T>(selector);
+    assertIsDefined(el);
+    return el;
+}
+
+export function createElement(tag: string, cls?: string, content?: string): HTMLElement {
+    const el: HTMLElement = document.createElement(tag);
+    el.innerHTML = content ? content : '';
+    cls && el.classList.add(cls);
+    return el;
+}

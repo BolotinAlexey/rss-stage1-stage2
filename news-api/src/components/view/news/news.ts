@@ -3,7 +3,7 @@ import { NewsArticle } from '../../../types/index';
 import './news.css';
 
 class News {
-    draw(data: NewsArticle[]): void {
+    public draw(data: NewsArticle[]): void {
         const news: NewsArticle[] =
             data.length >= 10 ? data.filter((_item: NewsArticle, idx: number) => idx < 10) : data;
 

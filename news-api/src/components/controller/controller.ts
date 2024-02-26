@@ -1,4 +1,4 @@
-import { assertIsDefined } from '../../supFunctions';
+import { assertIsDefined, getElementDocument } from '../../supFunctions';
 import { Articles, CallbackFunction, Endpoint, ResponseNews } from '../../types/index';
 import AppLoader from './appLoader';
 
@@ -20,6 +20,14 @@ class AppController extends AppLoader {
         const newsContainer = e.currentTarget;
         assertIsDefined(newsContainer);
         if (!(newsContainer instanceof Element)) throw new Error('Error');
+
+        const body: HTMLElement = getElementDocument('body');
+        body.classList.add('transform');
+
+        const btn: HTMLElement = getElementDocument('.un-transform');
+        btn.addEventListener('click', (): void => {
+            if (body.classList.contains('transform')) body.classList.remove('transform');
+        });
 
         while (target !== newsContainer) {
             assertIsDefined(target);

@@ -38,9 +38,14 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    padding: 10px 30px;
+    padding: 10px 20px;
     z-index: 5;
     background-color: rgba(var(--bgAlpha));
+    transition: transform 1s linear;
+}
+
+body.transform header {
+    transform: translateY(-200px);
 }
 
 header h1 {
@@ -67,4 +72,44 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+
+.lang-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: space-around;
+}
+.lang-item {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    color: var(--second-color);
+    border: solid 1px currentColor;
+}
+.lang-item:hover {
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+.un-transform {
+    position: fixed;
+    opacity: 0;
+    top: 20px;
+    right: 20px;
+    padding: 5px 10px;
+    color: var(--accent-color);
+    border: solid 1px var(--accent-color);
+    border-radius: 5px;
+    background-color: transparent;
+    font: 1rem bold;
+    transform: all 0.3s linear;
+    z-index: 3;
+}
+
+.un-transform:hover {
+    cursor: pointer;
+    background-color: var(--main-color);
+}
+body.transform .un-transform {
+    opacity: 1;
 }

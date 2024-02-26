@@ -10,10 +10,12 @@ footer {
     border-top: 1px var(--main-color) solid;
     background-color: rgba(var(--bgAlpha));
     z-index: 5;
+    transition: transform 1s linear;
 }
-/* .footer__wrapper {
- 
-} */
+
+body.transform footer {
+    transform: translateY(200px);
+}
 
 .footer__list {
     display: flex;

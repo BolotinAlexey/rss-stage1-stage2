@@ -1,4 +1,4 @@
-import { Articles, NewsArticle, ResponseNews, Source } from '../../types/index';
+import { Articles, Lang, NewsArticle, ResponseNews, Source } from '../../types/index';
 import News from './news/news';
 import Sources from './sources/sources';
 
@@ -15,9 +15,9 @@ export class AppView {
         this._news.draw(values);
     }
 
-    drawSources(data: ResponseNews | undefined) {
+    drawSources(data: ResponseNews | undefined, currentLang: Lang) {
         const values: Source[] = data?.sources ? data?.sources : [];
-        this._sources.draw(values);
+        this._sources.draw(values, currentLang);
     }
 }
 
