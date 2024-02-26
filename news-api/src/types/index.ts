@@ -34,3 +34,40 @@ export interface NewsArticle {
     publishedAt: string; //The date and time that the article was published, in UTC (+000)
     content: string; //The unformatted content of the article, where available. This is truncated to 200 chars.
 }
+
+interface NotPartialOptions {
+    sources: string;
+}
+export type Options = Partial<NotPartialOptions>;
+
+export interface UrlOptions {
+    category?: string | undefined;
+    language?: string | undefined;
+    country?: string | undefined;
+    sources?: string | undefined;
+}
+
+export type KeyOptions = {
+    apiKey: string;
+};
+
+export type CallbackFunction<T> = (data: T) => void;
+export type CallbackFunctionEmpty = () => void;
+
+export enum Endpoint {
+    sources = 'sources',
+    everything = 'everything',
+}
+export enum Method {
+    get = 'GET',
+    post = 'POST',
+}
+export enum Status {
+    Success = 200,
+    Accepted = 202,
+    BadRequest = 400,
+    Unauthorized = 401,
+    NotFound = 404,
+    TooManyRequests = 429,
+    ServerError = 500,
+}
