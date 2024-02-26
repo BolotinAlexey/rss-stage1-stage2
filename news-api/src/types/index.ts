@@ -40,15 +40,16 @@ interface NotPartialOptions {
 }
 export type Options = Partial<NotPartialOptions>;
 
-export interface UrlOptions {
-    category?: string | undefined;
-    language?: string | undefined;
-    country?: string | undefined;
-    sources?: string | undefined;
+interface UrlOptionsRough {
+    category: string | undefined;
+    language: string | undefined;
+    country: string | undefined;
+    sources: string | undefined;
 }
+export type UrlOptions = Partial<UrlOptionsRough>;
 
 export type KeyOptions = {
-    apiKey: string;
+    apiKey: string | undefined;
 };
 
 export type CallbackFunction<T> = (data: T) => void;

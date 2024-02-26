@@ -1,3 +1,4 @@
+import { assertIsDefined } from '../../supFunctions';
 import {
     CallbackFunction,
     CallbackFunctionEmpty,
@@ -11,8 +12,10 @@ import {
 
 class Loader {
     private _baseLink: string;
-    private _options: object;
-    constructor(baseLink: string, options: KeyOptions) {
+    private _options: KeyOptions;
+    constructor(baseLink: string | undefined, options: KeyOptions) {
+        assertIsDefined(baseLink);
+        assertIsDefined(options.apiKey);
         this._baseLink = baseLink;
         this._options = options;
     }
