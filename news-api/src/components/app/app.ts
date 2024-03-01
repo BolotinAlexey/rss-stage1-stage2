@@ -26,6 +26,12 @@ class App {
             const li: HTMLElement = createElement('li', 'lang-item', ln);
             ul.append(li);
             li.addEventListener('click', (): void => {
+                const langItems: NodeListOf<HTMLElement> | null = document.querySelectorAll('.lang-item');
+                assertIsDefined(langItems);
+                langItems.forEach((el: HTMLElement) => {
+                    if (el.classList.contains('checked')) el.classList.remove('checked');
+                });
+                li.classList.add('checked');
                 sources.innerHTML = '';
                 this._controller.getSources(
                     (data: ResponseNews | undefined, currentLang: Lang | undefined = Lang[ln]) =>

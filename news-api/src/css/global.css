@@ -113,3 +113,7 @@ footer .copyright:before {
 body.transform .un-transform {
     opacity: 1;
 }
+
+.lang-item.checked {
+    color: var(--main-color);
+}
