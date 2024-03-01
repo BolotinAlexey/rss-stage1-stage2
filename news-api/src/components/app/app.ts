@@ -3,6 +3,8 @@ import { Articles, Lang, ResponseNews } from '../../types/index';
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 
+const LANG_DEFAULT = Lang.ru;
+
 class App {
     private _controller: AppController;
     private _view: AppView;
@@ -24,6 +26,7 @@ class App {
         const ul: HTMLElement = createElement('ul', 'lang-list');
         Object.values(Lang).forEach((ln) => {
             const li: HTMLElement = createElement('li', 'lang-item', ln);
+            li.dataset.lang = ln;
             ul.append(li);
             li.addEventListener('click', (): void => {
                 const langItems: NodeListOf<HTMLElement> | null = document.querySelectorAll('.lang-item');
@@ -40,8 +43,10 @@ class App {
             });
         });
         header.appendChild(ul);
-
-        this._controller.getSources((data: ResponseNews | undefined, currentLang: Lang | undefined = Lang.ru) =>
+        const langDefault = document.querySelector(`[data-lang = ${LANG_DEFAULT}]`);
+        assertIsDefined(langDefault);
+        langDefault.classList.add('checked');
+        this._controller.getSources((data: ResponseNews | undefined, currentLang: Lang | undefined = LANG_DEFAULT) =>
             this._view.drawSources(data, currentLang)
         );
     }

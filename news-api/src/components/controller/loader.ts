@@ -43,10 +43,6 @@ class Loader {
         const urlOptions: UrlOptions = { ...this._options, ...options };
         let url = `${this._baseLink}${endpoint}?`;
 
-        // Object.keys(urlOptions).forEach((key: string) => {
-        //     url += `${key}=${urlOptions[key]}&`;
-        // });
-
         Object.entries(urlOptions).forEach(([key, value]): void => {
             url += `${key}=${value ?? ''}&`;
         });
@@ -54,12 +50,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load<T>(method: Method = Method.get, endpoint: Endpoint, callback: CallbackFunction<T>, options = {}) {
+    load<T>(method: Method = Method.get, endpoint: Endpoint, callback: CallbackFunction<T>, options: Options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res: Response) => res.json())
-            .then((data) => callback(data))
-            .catch((err) => console.error(err));
+            .then((data: T) => callback(data))
+            .catch((err: Error) => console.error(err));
     }
 }
 
