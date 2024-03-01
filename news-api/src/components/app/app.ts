@@ -46,7 +46,7 @@ class App {
         const langDefault = document.querySelector(`[data-lang = ${LANG_DEFAULT}]`);
         assertIsDefined(langDefault);
         langDefault.classList.add('checked');
-        this._controller.getSources((data: ResponseNews | undefined, currentLang: Lang | undefined = LANG_DEFAULT) =>
+        this._controller.getSources((data: ResponseNews | undefined, currentLang: Lang = LANG_DEFAULT) =>
             this._view.drawSources(data, currentLang)
         );
     }
