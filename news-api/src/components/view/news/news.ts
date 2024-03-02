@@ -15,23 +15,23 @@ class News {
             const newsClone = <HTMLElement>newsItemTemp.content.cloneNode(true);
             assertIsDefined(newsClone);
             if (idx % 2) {
-                const node = getElement(newsClone, '.news__item');
+                const node: HTMLElement = getElement(newsClone, '.news__item');
                 node.classList.add('alt');
             }
 
-            const photo = getElement(newsClone, '.news__meta-photo');
+            const photo: HTMLElement = getElement(newsClone, '.news__meta-photo');
             photo.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
 
-            const author = getElement(newsClone, '.news__meta-author');
+            const author: HTMLElement = getElement(newsClone, '.news__meta-author');
             author.textContent = item.author || item.source.name;
 
-            const date = getElement(newsClone, '.news__meta-date');
+            const date: HTMLElement = getElement(newsClone, '.news__meta-date');
             date.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
 
-            const title = getElement(newsClone, '.news__description-title');
+            const title: HTMLElement = getElement(newsClone, '.news__description-title');
             title.textContent = item.title;
 
-            const source = getElement(newsClone, '.news__description-source');
+            const source: HTMLElement = getElement(newsClone, '.news__description-source');
             source.textContent = item.title;
             source.textContent = item.source.name;
 
@@ -44,7 +44,7 @@ class News {
             fragment.append(newsClone);
         });
 
-        const newsContainer = document.querySelector('.news');
+        const newsContainer: HTMLElement | null = document.querySelector('.news');
         assertIsDefined(newsContainer);
         newsContainer.innerHTML = '';
         newsContainer.appendChild(fragment);

@@ -14,17 +14,17 @@ class App {
     }
 
     public start(): void {
-        const sources = document.querySelector('.sources');
+        const sources: HTMLElement | null = document.querySelector('.sources');
         assertIsDefined(sources);
 
         sources.addEventListener('click', (e: Event) =>
             this._controller.getNews(e, (data: Articles | undefined) => this._view.drawNews(data))
         );
 
-        const header = document.querySelector('header');
+        const header: HTMLElement | null = document.querySelector('header');
         assertIsDefined(header);
         const ul: HTMLElement = createElement('ul', 'lang-list');
-        Object.values(Lang).forEach((ln) => {
+        Object.values(Lang).forEach((ln: Lang) => {
             const li: HTMLElement = createElement('li', 'lang-item', ln);
             li.dataset.lang = ln;
             ul.append(li);
@@ -43,7 +43,7 @@ class App {
             });
         });
         header.appendChild(ul);
-        const langDefault = document.querySelector(`[data-lang = ${LANG_DEFAULT}]`);
+        const langDefault: HTMLElement | null = document.querySelector(`[data-lang = ${LANG_DEFAULT}]`);
         assertIsDefined(langDefault);
         langDefault.classList.add('checked');
         this._controller.getSources((data: ResponseNews | undefined, currentLang: Lang = LANG_DEFAULT) =>

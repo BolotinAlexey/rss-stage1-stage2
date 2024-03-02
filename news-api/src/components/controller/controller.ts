@@ -17,7 +17,7 @@ class AppController extends AppLoader {
         assertIsDefined(target);
         if (!(target instanceof Element)) throw new Error('Error');
 
-        const newsContainer = e.currentTarget;
+        const newsContainer: EventTarget | null = e.currentTarget;
         assertIsDefined(newsContainer);
         if (!(newsContainer instanceof Element)) throw new Error('Error');
 

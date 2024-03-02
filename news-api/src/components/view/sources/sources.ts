@@ -10,12 +10,12 @@ class Sources {
 
         data.forEach((item: Source) => {
             if (item.language === currentLang) {
-                const sourceClone = <HTMLElement>sourceItemTemp.content.cloneNode(true);
+                const sourceClone: HTMLElement = <HTMLElement>sourceItemTemp.content.cloneNode(true);
 
-                const itemName = getElement(sourceClone, '.source__item-name');
+                const itemName: HTMLElement = getElement(sourceClone, '.source__item-name');
                 itemName.textContent = item.name;
 
-                const itemEl = getElement(sourceClone, '.source__item');
+                const itemEl: HTMLElement = getElement(sourceClone, '.source__item');
 
                 itemEl.setAttribute('data-source-id', item.id);
 

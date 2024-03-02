@@ -37,10 +37,9 @@ export interface NewsArticle {
     content: string;
 }
 
-interface NotPartialOptions {
-    sources: string;
+export interface Options {
+    sources?: string;
 }
-export type Options = Partial<NotPartialOptions>;
 
 type PropsUrl = 'category' | 'language' | 'country' | 'sources';
 
