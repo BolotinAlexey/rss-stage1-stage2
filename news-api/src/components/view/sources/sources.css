@@ -1,8 +1,9 @@
 .sources {
     position: fixed;
-    top: 100px;
+    top: 120px;
+    left: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
     min-height: 80px;
@@ -17,19 +18,27 @@
     transition: transform 1s linear;
 }
 
+
 body.transform .sources {
-    transform: translateY(calc(-100% - 200px));
+    transform: translateY(calc(-100% - 300px));
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 557px) {
     .sources {
         top: 150px;
     }
 }
-@media screen and (max-width: 372px) {
+@media screen and (max-width: 302px) {
     .sources {
         top: 200px;
     }
+}
+
+@media screen and (max-width: 219px) {
+    .sources {
+        top: 240px;
+    }
+  
 }
 
 .source__item {
@@ -43,6 +52,13 @@ body.transform .sources {
     transition: 0.25s;
     cursor: pointer;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .source__item {
+        margin: 0.25em;
+    padding: .5em 1em;
+    }
 }
 
 .source__item:hover,

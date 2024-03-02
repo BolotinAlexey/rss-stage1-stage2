@@ -33,6 +33,12 @@ body {
     font-family: sans-serif;
 }
 
+.container{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -44,13 +50,23 @@ header {
     transition: transform 1s linear;
 }
 
+.main{
+    position: relative;
+}
+
 body.transform header {
     transform: translateY(-200px);
 }
 
-header h1 {
+ h1 {
     font-size: 40px;
     font-weight: 800;
+    margin-bottom: 1rem;
+}
+@media screen and (max-width: 270px) {
+    h1{
+        font-size: 2rem;
+    }
 }
 
 /* footer {
@@ -78,13 +94,19 @@ footer .copyright:before {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    justify-content: space-around;
+    justify-content: center;
 }
 .lang-item {
     font-size: 1.5rem;
     padding: 5px 10px;
     color: var(--second-color);
     border: solid 1px currentColor;
+}
+@media screen and (max-width: 700px) {
+    .lang-item {
+        font-size: 1.2rem;
+    padding: 3px 7px;
+    }
 }
 .lang-item:hover {
     cursor: pointer;
