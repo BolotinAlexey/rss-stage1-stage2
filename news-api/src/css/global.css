@@ -97,18 +97,19 @@ footer .copyright:before {
     top: 20px;
     right: 20px;
     padding: 5px 10px;
-    color: var(--accent-color);
-    border: solid 1px var(--accent-color);
-    border-radius: 5px;
+    color: var(--main-color);
+    border: none;
     background-color: transparent;
     font: 1rem bold;
-    transform: all 0.3s linear;
+    transform: color 0.3s linear;
     z-index: 3;
 }
-
+.un-transform path{
+    transition: all .5s linear;
+}
 .un-transform:hover {
     cursor: pointer;
-    background-color: var(--main-color);
+    color: var(--accent-color)
 }
 body.transform .un-transform {
     opacity: 1;
