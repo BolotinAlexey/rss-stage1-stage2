@@ -1,15 +1,20 @@
 type BaseProps = Record<"tag" | "class" | "txt", string>;
-export class Base {
+export default class Base {
   private tag: string;
+
   private class: string;
+
   private txt: string;
+
   private parent: HTMLElement | null;
+
   constructor(pr: BaseProps, parent: HTMLElement | null) {
     this.tag = pr.tag;
     this.class = pr.class;
     this.txt = pr.txt;
     this.parent = parent;
   }
+
   private createElement(): HTMLElement {
     const el = document.createElement(this.tag);
     el.className = this.class;

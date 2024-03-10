@@ -27,8 +27,8 @@ export function createElement(
   content?: string,
 ): HTMLElement {
   const el: HTMLElement = document.createElement(tag);
-  el.innerHTML = content ? content : "";
-  cls && el.classList.add(cls);
+  el.innerHTML = content || "";
+  if (cls) el.classList.add(cls);
   return el;
 }
 
