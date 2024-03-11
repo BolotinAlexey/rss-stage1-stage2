@@ -1,4 +1,4 @@
-import { User } from "@interfaces/index";
+import { User } from "../interfaces/index";
 
 const KEY_USER = "user-puzzle";
 export default class ApiLS {

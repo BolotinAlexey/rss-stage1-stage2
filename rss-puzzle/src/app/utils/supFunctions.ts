@@ -21,15 +21,15 @@ export function getElementDocument<T extends HTMLElement>(selector: string): T {
   return el;
 }
 
-export function createElement(
+export function createElement<T extends HTMLElement>(
   tag: string,
-  cls?: string,
+  cls?: string[],
   content?: string,
-): HTMLElement {
+): T {
   const el: HTMLElement = document.createElement(tag);
   el.innerHTML = content || "";
-  if (cls) el.classList.add(cls);
-  return el;
+  if (cls) el.classList.add(...cls);
+  return <T>el;
 }
 
 export function isHTML(param: unknown): param is HTMLElement {
