@@ -29,9 +29,7 @@
     border-radius: 0.7rem;
     transition: all 0.5s linear;
     &::placeholder {
-      font:
-        100 2rem "Dancing Script",
-        cursive;
+      font: 100 2rem "Dancing Script" cursive;
       color: var(--main-color);
     }
     &.correct {

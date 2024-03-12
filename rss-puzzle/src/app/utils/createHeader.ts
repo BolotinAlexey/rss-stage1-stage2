@@ -13,9 +13,11 @@ export default function createHeader(user: User): HTMLElement {
   const logoutWrap: HTMLDivElement = createElement("div", ["logout"]);
   const userName: HTMLSpanElement = createElement("span", ["logout__user"]);
   const logoutBtn: HTMLButtonElement = createElement("button", ["logout__btn"]);
+  const logoutTxt: HTMLSpanElement = createElement("span", ["logout__txt"]);
   userName.textContent = Object.values(user).join(" ");
 
-  logoutBtn.textContent = "Logout";
+  logoutTxt.textContent = "Logout";
+  logoutBtn.append(logoutTxt);
   logoutBtn.insertAdjacentHTML("beforeend", logoutSvg());
   logoutBtn.addEventListener("click", logout);
   logoutWrap.append(userName, logoutBtn);
