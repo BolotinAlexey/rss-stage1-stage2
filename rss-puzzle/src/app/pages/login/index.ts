@@ -1,5 +1,6 @@
 import checkLogin from "../../services/checkLogin";
 import createForm from "../../services/createForm";
+import submitLogin from "../../services/submitLogin";
 import { createElement, getElementDocument } from "../../utils/supFunctions";
 
 import "./style.scss";
@@ -17,4 +18,5 @@ export default function login() {
   body.append(container);
   nameInput.addEventListener("change", checkLogin);
   surnameInput.addEventListener("change", checkLogin);
+  form.addEventListener("submit", submitLogin);
 }

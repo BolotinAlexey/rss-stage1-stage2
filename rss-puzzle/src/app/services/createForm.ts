@@ -11,7 +11,7 @@ export default function createForm(): Login {
     "login__input",
     "login__input-surname",
   ]);
-  const submitBtn = createElement<HTMLInputElement>(
+  const submitBtn = createElement<HTMLButtonElement>(
     "button",
     ["login__input", "login__input-submit"],
     "LOGIN",
