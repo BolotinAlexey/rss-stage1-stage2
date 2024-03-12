@@ -1,4 +1,6 @@
+import checkLogin from "../../services/checkLogin";
 import createForm from "../../services/createForm";
+import submitLogin from "../../services/submitLogin";
 import { createElement, getElementDocument } from "../../utils/supFunctions";
 
 import "./style.scss";
@@ -11,7 +13,10 @@ export default function login() {
     ["page__title", "visually-hidden"],
     "Login",
   );
-  const form = createForm();
+  const { form, nameInput, surnameInput } = createForm();
   container.append(title, form);
   body.append(container);
+  nameInput.addEventListener("input", checkLogin);
+  surnameInput.addEventListener("input", checkLogin);
+  form.addEventListener("submit", submitLogin);
 }
