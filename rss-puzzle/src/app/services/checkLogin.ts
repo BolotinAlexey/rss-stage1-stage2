@@ -1,4 +1,3 @@
-import welcome from "../pages/welcome/index";
 import isCheckInput from "./isCheckInput";
 
 export default function checkLogin(e: Event): void {
@@ -29,7 +28,9 @@ export default function checkLogin(e: Event): void {
     (a: boolean, b: HTMLInputElement) => a && b.classList.contains("correct"),
     true,
   );
-  if (isCorrectToSubmit) {
-    welcome();
-  }
+
+  const btn = el.parentElement.parentElement.children[2];
+  if (!(btn instanceof HTMLButtonElement))
+    throw new Error("Not HTMLInputElement");
+  btn.disabled = !isCorrectToSubmit;
 }
