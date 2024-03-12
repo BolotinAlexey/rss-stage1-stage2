@@ -18,6 +18,8 @@ export default function createForm(): Login {
   surnameInput.placeholder = "Enter your surname";
   nameInput.required = true;
   surnameInput.required = true;
+  nameInput.name = "name";
+  surnameInput.name = "surname";
 
   nameLabel.append(nameInput, nameSpan);
   surnameLabel.append(surnameInput, surnameSpan);
