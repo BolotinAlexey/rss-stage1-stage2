@@ -27,18 +27,29 @@
     font-style: italic;
     border: 2px solid currentColor;
     border-radius: 0.7rem;
+    transition: all 0.5s linear;
     &::placeholder {
       font:
         100 2rem "Dancing Script",
         cursive;
       color: var(--main-color);
     }
+    &.correct {
+      border-color: rgb(var(--succes-color));
+      background-color: rgba(var(--succes-color), 0.2);
+    }
+    &.wrong {
+      border-color: rgb(var(--error-color));
+      background-color: rgba(var(--error-color), 0.2);
+    }
+
     &-submit {
       padding-top: 22px;
       font-family: "Luckiest Guy";
       border-radius: 2rem;
-      background-color: var(--error-color);
+      background-color: rgb(var(--error-color));
       color: #fff;
+      transition: background-color 0.5s linear;
       &:not(:disabled) {
         cursor: pointer;
       }
@@ -49,11 +60,11 @@
     position: absolute;
     bottom: -1.5rem;
     left: 0;
-    color: var(--error-color);
+    color: rgb(var(--error-color));
     font-size: 1.4rem;
   }
 }
 
 .login__input-submit:enabled {
-  background-color: var(--succes-color);
+  background-color: rgb(var(--succes-color));
 }

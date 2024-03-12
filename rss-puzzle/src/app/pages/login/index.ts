@@ -16,7 +16,7 @@ export default function login() {
   const { form, nameInput, surnameInput } = createForm();
   container.append(title, form);
   body.append(container);
-  nameInput.addEventListener("change", checkLogin);
-  surnameInput.addEventListener("change", checkLogin);
+  nameInput.addEventListener("input", checkLogin);
+  surnameInput.addEventListener("input", checkLogin);
   form.addEventListener("submit", submitLogin);
 }
