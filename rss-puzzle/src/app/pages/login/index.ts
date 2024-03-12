@@ -1,3 +1,4 @@
+import checkLogin from "../../services/checkLogin";
 import createForm from "../../services/createForm";
 import { createElement, getElementDocument } from "../../utils/supFunctions";
 
@@ -11,7 +12,9 @@ export default function login() {
     ["page__title", "visually-hidden"],
     "Login",
   );
-  const form = createForm();
+  const { form, nameInput, surnameInput } = createForm();
   container.append(title, form);
   body.append(container);
+  nameInput.addEventListener("change", checkLogin);
+  surnameInput.addEventListener("change", checkLogin);
 }

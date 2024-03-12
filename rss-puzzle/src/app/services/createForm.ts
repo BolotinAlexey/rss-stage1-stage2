@@ -1,6 +1,7 @@
+import { Login } from "../interfaces/index";
 import { createElement } from "../utils/supFunctions";
 
-export default function createForm(): HTMLElement {
+export default function createForm(): Login {
   const form = createElement<HTMLFormElement>("form", ["login__form"]);
   const nameInput = createElement<HTMLInputElement>("input", [
     "login__input",
@@ -23,5 +24,5 @@ export default function createForm(): HTMLElement {
   surnameInput.required = true;
 
   form.append(nameInput, surnameInput, submitBtn);
-  return form;
+  return { form, nameInput, surnameInput };
 }
