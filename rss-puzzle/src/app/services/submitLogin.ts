@@ -28,5 +28,5 @@ export default function submitLogin(e: Event) {
       el.classList.remove("correct");
     if (el instanceof HTMLButtonElement && !el.disabled) el.disabled = true;
   });
-  showWelcomePage();
+  showWelcomePage(userObj);
 }

@@ -68,6 +68,7 @@
 }
 
 .welcome {
+  position: relative;
   height: 0;
   display: flex;
   flex-direction: column;
@@ -110,6 +111,12 @@
       color: var(--second-color);
     }
   }
+  &__user-name {
+    position: absolute;
+    top: 100px;
+    font: 900 3rem/1 "Dancing Script";
+    animation: colorChange 2s linear infinite;
+  }
 }
 @media screen and (max-width: 800px) {
   .welcome {
@@ -146,5 +153,14 @@
   background-position: bottom;
   &.show {
     opacity: 0.4;
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: rgb(var(--succes-color));
+  }
+  100% {
+    color: rgb(var(--error-color));
   }
 }
