@@ -3,6 +3,7 @@ import login from "./app/pages/login/login";
 import welcome from "./app/pages/welcome/welcome";
 import ApiLS from "./app/services/apiLocalStorage";
 import bgImageWelcome from "./app/services/bgImageWelcome";
+import showUserName from "./app/services/showUserName";
 import createHeader from "./app/utils/createHeader";
 import { getElementDocument } from "./app/utils/supFunctions";
 
@@ -22,6 +23,7 @@ if (apiLS.isUser()) {
   if (!header.classList.contains("show")) header.classList.add("show");
   if (!bgImg.classList.contains("show")) bgImg.classList.add("show");
   if (loginPage.classList.contains("show")) loginPage.classList.remove("show");
+  showUserName(apiLS.getUser());
 } else {
   if (!loginPage.classList.contains("show")) loginPage.classList.add("show");
   if (welcomePage.classList.contains("show"))
