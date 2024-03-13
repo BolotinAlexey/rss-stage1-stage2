@@ -1,15 +1,16 @@
 @import url(../../../common.scss);
 
 .login {
-  height: calc(100vh - 100px);
+  height: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   transform: translateY(-100vh);
-  transition: transform 0.5s linear;
+  transition: all 0.5s linear;
 
   &.show {
     transform: translateY(0);
+    height: calc(100vh - 100px);
   }
 
   &__form {

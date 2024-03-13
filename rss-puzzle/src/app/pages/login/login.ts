@@ -21,6 +21,8 @@ export default function login(): HTMLElement {
   container.append(title, form);
   nameInput.addEventListener("input", checkLogin);
   surnameInput.addEventListener("input", checkLogin);
+  nameInput.addEventListener("input", checkLogin);
+  surnameInput.addEventListener("input", checkLogin);
   form.addEventListener("submit", submitLogin);
   return container;
 }

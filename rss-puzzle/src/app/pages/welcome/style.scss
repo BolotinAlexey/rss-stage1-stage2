@@ -1,5 +1,8 @@
 @import url(../../../common.scss);
 .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -44,8 +47,10 @@
     font:
       400 2rem/1 "Philosopher",
       sans-serif;
+    transition: color 0.5s linear;
     &:hover {
       cursor: pointer;
+      color: rgb(var(--error-color));
     }
   }
   &__svg {
@@ -60,4 +65,86 @@
 
 .logout__btn:hover .arrow-logout {
   transform: translateX(1px);
+}
+
+.welcome {
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(calc(-100vh - 200px));
+  transition: all 0.5s linear;
+  overflow: auto;
+
+  &.show {
+    transform: translateY(0);
+    height: calc(100vh - 100px);
+    padding-top: 100px;
+  }
+
+  &__title {
+    font: 400 4rem / 1 "Luckiest Guy";
+    color: var(--second-color);
+    text-shadow: 5px 5px var(--main-color);
+  }
+
+  &__describe {
+    font:
+      400 1.5rem / 1.2 "Philosopher",
+      sans-serif;
+  }
+  &__luck {
+    font:
+      400 3rem/1 "Dancing Script",
+      cursive;
+  }
+  &__button {
+    margin-top: 2rem;
+    padding: 2rem 1.5rem 15px;
+    font-size: 3rem;
+    background-color: transparent;
+    &:hover {
+      background-color: var(--main-color);
+      color: var(--second-color);
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .welcome {
+    gap: 1rem;
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__describe {
+      font-size: 1rem;
+    }
+    &__luck {
+      font-size: 1.5rem;
+    }
+    &__button {
+      margin-top: 2rem;
+      padding: 1rem 0.7rem 7px;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.bg-image-welcome {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: calc(100vw * 831 / 1016);
+  opacity: 0;
+  transition: opacity 0.5s linear;
+  z-index: -5;
+  background-image: url(../../../assets/bg_puzzle.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  &.show {
+    opacity: 0.4;
+  }
 }
