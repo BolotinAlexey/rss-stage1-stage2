@@ -1,10 +1,16 @@
 @import url(../../../common.scss);
 
 .login {
-  height: calc(100vh - 2rem);
+  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translateY(-100vh);
+  transition: transform 0.5s linear;
+
+  &.show {
+    transform: translateY(0);
+  }
 
   &__form {
     display: flex;
@@ -29,9 +35,7 @@
     border-radius: 0.7rem;
     transition: all 0.5s linear;
     &::placeholder {
-      font:
-        100 2rem "Dancing Script",
-        cursive;
+      font: 100 2rem "Dancing Script" cursive;
       color: var(--main-color);
     }
     &.correct {

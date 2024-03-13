@@ -23,4 +23,8 @@ export default class ApiLS {
   setUser(user: User): void {
     localStorage.setItem(this.keyUser, JSON.stringify(user));
   }
+
+  delUser(): void {
+    localStorage.removeItem(this.keyUser);
+  }
 }
