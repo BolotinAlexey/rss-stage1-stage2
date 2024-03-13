@@ -3,7 +3,7 @@ import { User } from "../interfaces/index";
 import logout from "../services/logout";
 import { createElement } from "./supFunctions";
 
-export default function createHeader(user: User): HTMLElement {
+export default function createHeader(user: User | null): HTMLElement {
   const header: HTMLElement = createElement("header", ["header"]);
   const logo: HTMLParagraphElement = createElement(
     "p",
@@ -14,7 +14,7 @@ export default function createHeader(user: User): HTMLElement {
   const userName: HTMLSpanElement = createElement("span", ["logout__user"]);
   const logoutBtn: HTMLButtonElement = createElement("button", ["logout__btn"]);
   const logoutTxt: HTMLSpanElement = createElement("span", ["logout__txt"]);
-  userName.textContent = Object.values(user).join(" ");
+  userName.textContent = user ? Object.values(user).join(" ") : "";
 
   logoutTxt.textContent = "Logout";
   logoutBtn.append(logoutTxt);
