@@ -2,6 +2,7 @@ import { User } from "../interfaces/index";
 import isValidUser from "../utils/isValidUser";
 import updateHeader from "../utils/updateHeader";
 import ApiLS from "./apiLocalStorage";
+import showWelcomePage from "./showWelcomePage";
 
 export default function submitLogin(e: Event) {
   e.preventDefault();
@@ -27,13 +28,5 @@ export default function submitLogin(e: Event) {
       el.classList.remove("correct");
     if (el instanceof HTMLButtonElement && !el.disabled) el.disabled = true;
   });
-
-  const welcomePage = document.querySelector(".welcome");
-  const header = document.querySelector(".header");
-  if (welcomePage) welcomePage.classList.add("show");
-  if (header && !header.classList.contains("show"))
-    header.classList.add("show");
-  const loginPage = document.querySelector(".login");
-  if (loginPage && loginPage.classList.contains("show"))
-    loginPage.classList.remove("show");
+  showWelcomePage();
 }
