@@ -1,4 +1,4 @@
-import logoutSvg from "../../assets/logoutSvg";
+import logoutSvg from "../assets/logoutSvg";
 import { User } from "../interfaces/index";
 import logout from "../services/logout";
 import { createElement } from "./supFunctions";
