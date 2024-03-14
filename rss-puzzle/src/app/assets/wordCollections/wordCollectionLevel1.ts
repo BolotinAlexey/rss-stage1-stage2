@@ -1,4 +1,6 @@
-const level1 = {
+import { Level } from "../../interfaces/index";
+
+const level1: Level = {
   rounds: [
     {
       levelData: {

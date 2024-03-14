@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Luckiest+Guy&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
+  --tablet: 720px;
   --main-color: #333;
   --second-color: #eee;
   --succes-color: 7, 246, 35;
   --error-color: 216, 26, 9;
+  --bg-block: #eee;
+  --padBlock: 1rem;
 }
 
 * {
@@ -18,6 +21,7 @@ h4,
 h5,
 h6,
 p,
+div,
 body {
   margin: 0;
   padding: 0;
@@ -41,7 +45,7 @@ body {
   overflow: hidden;
 }
 .container {
-  max-width: 760px;
+  max-width: calc(var(--tablet) + 2 * var(--padBlock));
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
