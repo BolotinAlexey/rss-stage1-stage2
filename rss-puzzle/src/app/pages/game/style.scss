@@ -1,0 +1,18 @@
+@import url("../../../common.scss");
+
+.block {
+  width: calc(var(--tablet));
+  padding: var(--padBlock);
+  background-color: var(--bg-block);
+  border: 1px solid var(--main-color);
+}
+
+.result-block {
+  height: calc(var(--tablet) * 858 / 1300 + var(--padBlock) * 2);
+  margin-top: 120px;
+}
+
+.data-block {
+  height: calc(var(--tablet) * 858 / 13000 + var(--padBlock) * 2);
+  margin-top: 50px;
+}
