@@ -30,7 +30,6 @@ export default function createPuzzles(
   line.forEach((el, i) => {
     el.style.padding = `${Math.floor(paddingY)}px ${Math.floor(paddingX) - BORDER}px`;
     el.style.order = newOrder[i].toString();
-    // el.style.paddingRight = `${Math.floor(paddingX) - BORDER}px`;
   });
   console.log(paddingY);
 }

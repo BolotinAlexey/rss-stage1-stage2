@@ -21,14 +21,21 @@
 
 .result-block {
   height: calc(var(--tablet) * 858 / 1300);
+  display: flex;
+  flex-direction: column;
   background-size: cover;
   background-position: center;
-  opacity: 0.3;
+}
+
+.result-block__line {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: calc(var(--tablet) * 858 / 13000);
 }
 
 .data-block {
   display: flex;
-  justify-content: space-between;
   height: calc(var(--tablet) * 858 / 13000);
   align-items: center;
 }
@@ -36,6 +43,10 @@
 .puzzle {
   border: 1px solid var(--main-color);
   font:
-    400 1.5rem/1 "Philosopher",
+    400 1.2rem/1.5 "Luckiest Guy",
     sans-serif;
+  color: #fff;
+  text-shadow: 2px 2px var(--second-color);
+  -webkit-text-stroke: 1px #000;
+  cursor: pointer;
 }
