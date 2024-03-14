@@ -1,14 +1,14 @@
 /* eslint-disable no-param-reassign */
+import randomOrder from "./randomOrder";
 import { createElement } from "./supFunctions";
 
 const BORDER = 1;
 
 export default function createPuzzles(
-  textExample: string,
+  imgWords: string[],
   dataBlock: HTMLElement,
   resultBlock: HTMLElement,
 ) {
-  const imgWords = textExample.split(" ");
   const line = imgWords.reduce((a: HTMLElement[], word: string, i: number) => {
     const node = createElement("div", ["puzzle", "puzzle-data"], word);
     node.dataset.id = i.toString();
@@ -26,8 +26,10 @@ export default function createPuzzles(
 
   const paddingX = (dataBlock.clientWidth - totalLength) / (2 * line.length);
   const paddingY = (resultBlock.clientHeight / 10 - line[0].clientHeight) / 2;
-  line.forEach((el) => {
+  const newOrder: number[] = randomOrder(line.length);
+  line.forEach((el, i) => {
     el.style.padding = `${Math.floor(paddingY)}px ${Math.floor(paddingX) - BORDER}px`;
+    el.style.order = newOrder[i].toString();
     // el.style.paddingRight = `${Math.floor(paddingX) - BORDER}px`;
   });
   console.log(paddingY);

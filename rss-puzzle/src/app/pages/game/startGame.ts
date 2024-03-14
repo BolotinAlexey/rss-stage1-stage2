@@ -4,6 +4,7 @@ import getElementsResultBlock from "../../services/getElementsResultBlock";
 import hideWelcomePage from "../../services/hideWelcomePage";
 import renderGame from "../../services/renderGame";
 import createPuzzles from "../../utils/createPuzzles";
+import randomOrder from "../../utils/randomOrder";
 
 import "./style.scss";
 
@@ -19,5 +20,8 @@ export default function startGame() {
 
   resultBlock.style.backgroundImage = `url("https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/images/${imageSrc}")`;
   const { textExample } = level.rounds[0].words[0];
-  createPuzzles(textExample, dataBlock, resultBlock);
+  const imgWords: string[] = textExample.split(" ");
+  createPuzzles(imgWords, dataBlock, resultBlock);
+  const random = randomOrder(imgWords.length);
+  console.log(random);
 }
