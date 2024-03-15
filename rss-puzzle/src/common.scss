@@ -27,6 +27,12 @@ body {
   padding: 0;
 }
 
+@media screen and (min-width: 980px) {
+  :root {
+    --tablet: 920px;
+  }
+}
+
 %flexCenter {
   display: flex;
   justify-content: center;

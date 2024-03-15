@@ -1,35 +1,35 @@
-/* eslint-disable no-param-reassign */
-import randomOrder from "./randomOrder";
-import { createElement } from "./supFunctions";
+import getElementsResultBlock from "../services/getElementsResultBlock";
+import createPuzzleElements from "./createPuzzleElementsts";
+import { getElementDocument } from "./supFunctions";
 
-const BORDER = 1;
+const KOEF_EXT = 1.3;
 
-export default function createPuzzles(
-  imgWords: string[],
-  dataBlock: HTMLElement,
-  resultBlock: HTMLElement,
-) {
-  const line = imgWords.reduce((a: HTMLElement[], word: string, i: number) => {
-    const node = createElement("div", ["puzzle", "puzzle-data"], word);
-    node.dataset.id = i.toString();
-    node.dataset.word = word;
-    return [...a, node];
-  }, []);
+export default function createPuzzles(imgWords: string[]) {
+  const { resultBlock, dataBlock } = getElementsResultBlock();
+  const countChars = imgWords.length * 2 + imgWords.join("").length;
+  const size = (dataBlock.clientWidth * KOEF_EXT) / countChars;
+  const puzzleList: NodeList = document.querySelectorAll(".puzzle");
+  const line = puzzleList.length
+    ? Object.values(puzzleList).reduce(
+        (a: HTMLElement[], b: Node) =>
+          b instanceof HTMLElement ? [...a, b] : a,
+        [],
+      )
+    : createPuzzleElements(imgWords, dataBlock);
 
-  dataBlock.append(...line);
-
+  const paddingY = (resultBlock.clientHeight / 10 - line[0].clientHeight) / 2;
   const totalLength = line.reduce((a: number, el: HTMLElement) => {
-    el.dataset.width = el.clientWidth.toString();
-    el.dataset.height = el.clientHeight.toString();
     return a + el.clientWidth;
   }, 0);
+  const coef = dataBlock.clientWidth / totalLength;
 
-  const paddingX = (dataBlock.clientWidth - totalLength) / (2 * line.length);
-  const paddingY = (resultBlock.clientHeight / 10 - line[0].clientHeight) / 2;
-  const newOrder: number[] = randomOrder(line.length);
-  line.forEach((el, i) => {
-    el.style.padding = `${Math.floor(paddingY)}px ${Math.floor(paddingX) - BORDER}px`;
-    el.style.order = newOrder[i].toString();
-  });
-  console.log(paddingY);
+  imgWords.forEach((word: string) => {
+    const el = getElementDocument(`[data-word="${word}"]`);
+    el.style.padding = `${paddingY}px ${size * coef - 1}px`;
+    el.style.fontSize = `${size * coef}px`;
+  }, []);
+  // const totalLengt2 = line.reduce((a: number, el: HTMLElement) => {
+  //   return a + el.clientWidth;
+  // }, 0);
+  // console.log(coef,totalLengt2,dataBlock.clientWidth);
 }
