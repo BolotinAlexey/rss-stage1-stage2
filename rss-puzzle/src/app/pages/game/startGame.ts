@@ -21,9 +21,9 @@ export default function startGame() {
 
   resultBlock.style.backgroundImage = `url("https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/images/${imageSrc}")`;
   const { textExample } = level.rounds[0].words[0];
+  // const  textExample  = `I was surprised when my friends suddenly shouted, “Happy birthday!”`;
   const imgWords: string[] = textExample.split(" ");
   createPuzzles(imgWords, dataBlock, resultBlock);
-  // const lines: HTMLElement[] = createLines(resultBlock);
   createLines(resultBlock);
   resultBlock.dataset.currentLine = "0";
   dataBlock.addEventListener("click", moveToDataBlock);
