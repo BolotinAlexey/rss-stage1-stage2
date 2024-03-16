@@ -1,6 +1,6 @@
+import { KEY_USER } from "../constants/index";
 import { User } from "../interfaces/index";
 
-const KEY_USER = "user-puzzle";
 export default class ApiLS {
   keyUser: string;
 

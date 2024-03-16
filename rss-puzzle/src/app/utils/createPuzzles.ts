@@ -1,8 +1,7 @@
+import { KOEF_EXT } from "../constants/index";
 import getElementsResultBlock from "../services/getElementsResultBlock";
 import createPuzzleElements from "./createPuzzleElementsts";
 import { getElementDocument } from "./supFunctions";
-
-const KOEF_EXT = 1.3;
 
 export default function createPuzzles(imgWords: string[]) {
   const { resultBlock, dataBlock } = getElementsResultBlock();

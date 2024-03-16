@@ -1,7 +1,7 @@
+import { KOEF_EXT } from "../constants/index";
 import randomOrder from "./randomOrder";
 import { createElement } from "./supFunctions";
 
-const KOEF_EXT = 1.3;
 export default function createPuzzleElements(
   imgWords: string[],
   dataBlock: HTMLElement,

@@ -41,7 +41,9 @@
 }
 
 .puzzle {
+  position: relative;
   border: 1px solid var(--main-color);
+  background-color: var(--bg-block);
   font:
     400 1.2rem/1.5 "Luckiest Guy",
     sans-serif;
@@ -49,4 +51,16 @@
   text-shadow: 2px 2px var(--second-color);
   -webkit-text-stroke: 1px #000;
   cursor: pointer;
+  transition: transform 0.3s linear;
+}
+.absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.width-zero {
+  width: 0;
+  padding: 0 !important;
+  border: none;
+  font-size: 0 !important;
 }

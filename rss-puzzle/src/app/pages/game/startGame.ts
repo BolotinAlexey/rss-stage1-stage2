@@ -1,5 +1,6 @@
 import level1 from "../../assets/wordCollections/wordCollectionLevel1";
 import { Level } from "../../interfaces/index";
+import changeOrdersInBlock from "../../services/changeOrdersInBlock";
 import getElementsResultBlock from "../../services/getElementsResultBlock";
 import hideWelcomePage from "../../services/hideWelcomePage";
 import moveToDataBlock from "../../services/moveToDataBlock";
@@ -26,6 +27,7 @@ export default function startGame() {
   createLines(resultBlock);
   createPuzzles(imgWords);
   resultBlock.dataset.currentLine = "0";
+  changeOrdersInBlock(dataBlock);
   // const bindCreatePuzzles = createPuzzles.bind(null, imgWords, false);
   // window.addEventListener("resize", bindCreatePuzzles);
   dataBlock.addEventListener("click", moveToDataBlock);

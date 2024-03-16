@@ -1,6 +1,5 @@
+import { COUNT_LINES_PER_RESULT_BLOCK } from "../constants/index";
 import { createElement } from "./supFunctions";
-
-const COUNT_LINES_PER_RESULT_BLOCK = 10;
 
 export default function createLines(resultBlock: HTMLElement): HTMLElement[] {
   const height: number = resultBlock.clientHeight / 10;
