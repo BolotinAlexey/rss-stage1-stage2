@@ -1,13 +1,13 @@
+import { KOEF_EXT } from "../constants/index";
 import getElementsResultBlock from "../services/getElementsResultBlock";
-import createPuzzleElements from "./createPuzzleElementsts";
+import createPuzzleElements from "./createPuzzleElements";
 import { getElementDocument } from "./supFunctions";
-
-const KOEF_EXT = 1.3;
 
 export default function createPuzzles(imgWords: string[]) {
   const { resultBlock, dataBlock } = getElementsResultBlock();
   const countChars = imgWords.length * 2 + imgWords.join("").length;
   const size = (dataBlock.clientWidth * KOEF_EXT) / countChars;
+
   const puzzleList: NodeList = document.querySelectorAll(".puzzle");
   const line = puzzleList.length
     ? Object.values(puzzleList).reduce(

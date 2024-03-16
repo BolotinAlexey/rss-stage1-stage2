@@ -1,4 +1,4 @@
-const ALPHA_UPPER: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ-";
+import { ALPHA_UPPER } from "../constants/index";
 
 export default function isCheckInput(el: HTMLInputElement): boolean {
   const val: string = el.value;

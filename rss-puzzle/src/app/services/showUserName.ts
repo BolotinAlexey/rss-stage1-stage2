@@ -1,7 +1,6 @@
+import { TIME_SHOW_USERNAME } from "../constants/index";
 import { User } from "../interfaces/index";
 import { createElement, getElementDocument } from "../utils/supFunctions";
-
-const TIME_SHOW_USERNAME = 5000;
 
 export default function showUserName(userObj: User) {
   const userName = createElement(
