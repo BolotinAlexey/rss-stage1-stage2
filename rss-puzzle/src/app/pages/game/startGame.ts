@@ -31,6 +31,7 @@ export default function startGame() {
   createLines(resultBlock);
   createPuzzles(imgWords);
   resultBlock.dataset.currentLine = "0";
+  resultBlock.dataset.currentWordIndex = "0";
   changeOrdersInBlock(dataBlock);
   const continueBtn = createContinueButton(game);
   // const bindCreatePuzzles = createPuzzles.bind(null, imgWords, false);
