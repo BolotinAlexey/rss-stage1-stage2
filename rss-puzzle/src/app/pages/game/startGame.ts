@@ -3,8 +3,8 @@ import { Level } from "../../interfaces/index";
 import changeOrdersInBlock from "../../services/changeOrdersInBlock";
 import getElementsResultBlock from "../../services/getElementsResultBlock";
 import hideWelcomePage from "../../services/hideWelcomePage";
-import moveToDataBlock from "../../services/moveToDataBlock";
-import moveToResultBlock from "../../services/moveToResultBlock";
+import moveFromDataBlock from "../../services/moveFromDataBlock";
+import moveFromResultBlock from "../../services/moveFromResultBlock";
 import renderGame from "../../services/renderGame";
 import createLines from "../../utils/createLines";
 import createPuzzles from "../../utils/createPuzzles";
@@ -30,6 +30,6 @@ export default function startGame() {
   changeOrdersInBlock(dataBlock);
   // const bindCreatePuzzles = createPuzzles.bind(null, imgWords, false);
   // window.addEventListener("resize", bindCreatePuzzles);
-  dataBlock.addEventListener("click", moveToDataBlock);
-  resultBlock.addEventListener("click", moveToResultBlock);
+  dataBlock.addEventListener("click", moveFromDataBlock);
+  resultBlock.addEventListener("click", moveFromResultBlock);
 }

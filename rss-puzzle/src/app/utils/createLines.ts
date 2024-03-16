@@ -10,7 +10,7 @@ export default function createLines(resultBlock: HTMLElement): HTMLElement[] {
         "line",
         "result-block__line",
       ]);
-      el.dataset.id = i.toString();
+      el.dataset.line = i.toString();
       el.style.height = height.toString();
       return [...a, el];
     }, []);
