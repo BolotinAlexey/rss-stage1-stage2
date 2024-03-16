@@ -63,7 +63,7 @@ body {
   transition:
     background-color 0.5s linear,
     color 0.5s linear;
-  &:hover {
+  &:hover:not(:disabled) {
     cursor: pointer;
   }
 }

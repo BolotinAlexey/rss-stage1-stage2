@@ -1,11 +1,13 @@
 import level1 from "../../assets/wordCollections/wordCollectionLevel1";
 import { Level } from "../../interfaces/index";
+import addNewLine from "../../services/addNewLine";
 import changeOrdersInBlock from "../../services/changeOrdersInBlock";
 import getElementsResultBlock from "../../services/getElementsResultBlock";
 import hideWelcomePage from "../../services/hideWelcomePage";
 import moveFromDataBlock from "../../services/moveFromDataBlock";
 import moveFromResultBlock from "../../services/moveFromResultBlock";
 import renderGame from "../../services/renderGame";
+import createContinueButton from "../../utils/createContinueButton";
 import createLines from "../../utils/createLines";
 import createPuzzles from "../../utils/createPuzzles";
 
@@ -14,7 +16,7 @@ import "./style.scss";
 export default function startGame() {
   hideWelcomePage();
   const gameMarkup: HTMLElement | null = document.querySelector(".game");
-  if (!gameMarkup) renderGame();
+  const game = !gameMarkup ? renderGame() : gameMarkup;
   const { resultBlock, dataBlock } = getElementsResultBlock();
 
   const level: Level = level1;
@@ -28,8 +30,10 @@ export default function startGame() {
   createPuzzles(imgWords);
   resultBlock.dataset.currentLine = "0";
   changeOrdersInBlock(dataBlock);
+  const continueBtn = createContinueButton(game);
   // const bindCreatePuzzles = createPuzzles.bind(null, imgWords, false);
   // window.addEventListener("resize", bindCreatePuzzles);
   dataBlock.addEventListener("click", moveFromDataBlock);
   resultBlock.addEventListener("click", moveFromResultBlock);
+  continueBtn.addEventListener("click", addNewLine);
 }
