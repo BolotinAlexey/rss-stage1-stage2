@@ -1,5 +1,4 @@
 import level from "../assets/wordCollections/wordCollectionLevel1";
-import { COUNT_LINES_PER_RESULT_BLOCK } from "../constants/index";
 import getElementsResultBlock from "../services/getElementsResultBlock";
 import createLines from "./createLines";
 import createPuzzles from "./createPuzzles";
