@@ -9,7 +9,8 @@ import createPuzzles from "../../utils/createPuzzles";
 import onContinueGame from "../../services/onContinueGame";
 import "./style.scss";
 import checkSentence from "../../services/checkSentence";
-import createButtons from "../../utils/createButtns";
+import createButtons from "../../utils/createButtons";
+import autoCompleteSentence from "../../services/autoCompleteSentence";
 
 export default function startGame() {
   hideWelcomePage();
@@ -29,10 +30,11 @@ export default function startGame() {
   ["currentLine", "currentRound", "currentLevel"].forEach((data) => {
     resultBlock.dataset[data] = "0";
   });
-  const { continueBtn, checkBtn } = createButtons(game);
+  const { continueBtn, checkBtn, autoCompleteBtn } = createButtons(game);
 
   dataBlock.addEventListener("click", moveFromDataBlock);
   resultBlock.addEventListener("click", moveFromResultBlock);
   continueBtn.addEventListener("click", onContinueGame);
   checkBtn.addEventListener("click", checkSentence);
+  autoCompleteBtn.addEventListener("click", autoCompleteSentence);
 }

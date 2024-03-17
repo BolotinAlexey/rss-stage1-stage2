@@ -4,7 +4,7 @@
   --tablet: 720px;
   --main-color: #333;
   --second-color: #eee;
-  --succes-color: 7, 246, 35;
+  --success-color: 7, 246, 35;
   --error-color: 216, 26, 9;
   --bg-block: #eee;
   --padBlock: 1rem;
@@ -63,6 +63,7 @@ body {
   transition:
     background-color 0.5s linear,
     color 0.5s linear;
+  border: 1px solid currentColor;
   &:hover:not(:disabled) {
     cursor: pointer;
   }

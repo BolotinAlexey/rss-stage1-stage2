@@ -1,6 +1,6 @@
 import { createElement } from "./supFunctions";
 
-export default function createContinueButton(
+export default function createButton(
   container: HTMLElement,
   nameButton: string,
 ): HTMLButtonElement {
