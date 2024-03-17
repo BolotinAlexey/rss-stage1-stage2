@@ -13,4 +13,6 @@ export default function logout() {
   if (!login.classList.contains("show")) login.classList.add("show");
   if (welcome.classList.contains("show")) welcome.classList.remove("show");
   if (bgImg.classList.contains("show")) bgImg.classList.remove("show");
+  const game = getElementDocument(".game");
+  game.remove();
 }
