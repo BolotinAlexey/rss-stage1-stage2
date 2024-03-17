@@ -7,5 +7,8 @@ export default function getElementsBtns() {
   const checkBtn: HTMLButtonElement =
     getElementDocument<HTMLButtonElement>(".game__btn-check");
 
-  return { continueBtn, checkBtn };
+  const autoCompleteBtn: HTMLButtonElement =
+    getElementDocument<HTMLButtonElement>(".game__btn-auto-complete");
+
+  return { continueBtn, checkBtn, autoCompleteBtn };
 }

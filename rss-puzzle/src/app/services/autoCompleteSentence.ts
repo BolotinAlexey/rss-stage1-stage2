@@ -1,17 +1,17 @@
-import { createElement } from "../utils/supFunctions";
 import getCurrentLineElement from "./getCurrentLineElement";
+import getElementsBtns from "./getElementsBtns";
 import getElementsResultBlock from "./getElementsResultBlock";
 
-export default function autoCompleteSentence(e: Event) {
-  const autoCompleteBtn: EventTarget | null = e.target;
-  if (!(autoCompleteBtn instanceof HTMLButtonElement))
-    throw new Error("autocomlete button isn't HTMLButtonElement");
+export default function autoCompleteSentence() {
+  const { autoCompleteBtn, checkBtn, continueBtn } = getElementsBtns();
   autoCompleteBtn.disabled = true;
+  checkBtn.disabled = true;
+  continueBtn.disabled = false;
 
   const { dataBlock } = getElementsResultBlock();
   const puzzles: NodeList = document.querySelectorAll(".puzzle-data");
-
-  const sortArray = Object.values(puzzles)
+  const currentLineEl = getCurrentLineElement();
+  Object.values(puzzles)
     .sort((a: Node, b: Node) => {
       if (!(a instanceof HTMLElement) || !(b instanceof HTMLElement))
         throw new Error(`${a} or ${b} isn't HTMLElement`);
@@ -20,17 +20,12 @@ export default function autoCompleteSentence(e: Event) {
 
       return Number(a.dataset.id) - Number(b.dataset.id);
     })
-    .map((el: Node, i: number) => {
+    .forEach((el: Node) => {
       if (!(el instanceof HTMLElement))
         throw new Error(`${el} isn't HTMLElement`);
-      const newEl = createElement("div", ["puzzle"], el.dataset.word);
-      newEl.style.order = i.toString();
-      newEl.style.padding = el.style.padding;
-      return newEl;
+      const fakeEl = el;
+      fakeEl.style.flexGrow = "1";
+      currentLineEl.append(el);
     });
-  const currentLineEl = getCurrentLineElement();
   dataBlock.innerHTML = "";
-  currentLineEl.innerHTML = "";
-  currentLineEl.style.justifyContent = "space-between";
-  currentLineEl.append(...sortArray);
 }

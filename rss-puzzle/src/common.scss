@@ -60,12 +60,12 @@ body {
 .button {
   font-family: "Luckiest Guy";
   border-radius: 2rem;
-  transition:
-    background-color 0.5s linear,
-    color 0.5s linear;
+  transition: all 0.5s linear;
   border: 1px solid currentColor;
   &:hover:not(:disabled) {
     cursor: pointer;
+    color: #fff;
+    background-color: rgba(var(--success-color), 0.3);
   }
 }
 
