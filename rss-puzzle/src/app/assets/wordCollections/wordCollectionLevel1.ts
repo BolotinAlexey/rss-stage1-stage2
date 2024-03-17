@@ -1,6 +1,6 @@
 import { Level } from "../../interfaces/index";
 
-const level1: Level = {
+const level: Level = {
   rounds: [
     {
       levelData: {
@@ -4263,4 +4263,4 @@ const level1: Level = {
   ],
   roundsCount: 45,
 };
-export default level1;
+export default level;

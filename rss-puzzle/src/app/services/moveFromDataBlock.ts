@@ -30,7 +30,8 @@ export default function moveFromDataBlock(e: Event) {
     currentLineEl.classList.contains("flex-between")
   )
     currentLineEl.classList.remove("flex-between");
-  if (dataBlock.childNodes.length === 1) {
+
+  setTimeout(() => {
     enabledContinueButton(isCorrectSentence(currentLineEl));
-  }
+  }, ANIMATION_TIME);
 }

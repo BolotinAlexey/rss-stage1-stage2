@@ -1,5 +1,4 @@
-import level1 from "../../assets/wordCollections/wordCollectionLevel1";
-import { Level } from "../../interfaces/index";
+import level from "../../assets/wordCollections/wordCollectionLevel1";
 import getElementsResultBlock from "../../services/getElementsResultBlock";
 import hideWelcomePage from "../../services/hideWelcomePage";
 import moveFromDataBlock from "../../services/moveFromDataBlock";
@@ -17,7 +16,6 @@ export default function startGame() {
   const game = !gameMarkup ? renderGame() : gameMarkup;
   const { resultBlock, dataBlock } = getElementsResultBlock();
 
-  const level: Level = level1;
   const { imageSrc } = level.rounds[0].levelData;
 
   resultBlock.style.backgroundImage = `url("https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/images/${imageSrc}")`;
@@ -29,7 +27,9 @@ export default function startGame() {
   createLines(resultBlock);
   createPuzzles(imgWords);
   resultBlock.dataset.currentLine = "0";
-  resultBlock.dataset.currentWordIndex = "0";
+  // resultBlock.dataset.currentWordIndex = "0";
+  resultBlock.dataset.currentRound = "0";
+  resultBlock.dataset.currentLevel = "0";
   // changeOrdersInBlock(dataBlock);
   const continueBtn = createContinueButton(game);
   // const bindCreatePuzzles = createPuzzles.bind(null, imgWords, false);

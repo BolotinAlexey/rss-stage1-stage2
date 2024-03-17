@@ -1,13 +1,11 @@
-import level1 from "../assets/wordCollections/wordCollectionLevel1";
-import { Level } from "../interfaces/index";
-import createLines from "../utils/createLines";
+import level from "../assets/wordCollections/wordCollectionLevel1";
 import createPuzzles from "../utils/createPuzzles";
 import { getElementDocument } from "../utils/supFunctions";
 import getElementsResultBlock from "./getElementsResultBlock";
 import readDataSetResultBlock from "./readDataSetResultBlock";
 
 export default function changeLine() {
-  const { resultBlock, dataBlock } = getElementsResultBlock();
+  const { resultBlock } = getElementsResultBlock();
   const currentLineAttr = readDataSetResultBlock("currentLine");
   if (!currentLineAttr)
     throw new Error("data attribute current-line don't exist in result block");
@@ -15,7 +13,7 @@ export default function changeLine() {
   resultBlock.dataset.currentLine = Number(currentLine).toString();
   // console.log(lines[Number(currentLine)]);
 
-  const level: Level = level1;
+  // const currentRound = readDataSetResultBlock("round")
   const { textExample } = level.rounds[0].words[currentLine];
   console.log(textExample);
   const imgWords: string[] = textExample.split(" ");
