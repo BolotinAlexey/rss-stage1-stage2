@@ -13,7 +13,7 @@ export default function onContinueGame() {
   checkBtn.disabled = true;
 
   const nextLine: number = Number(readDataSetResultBlock("currentLine"));
-  resultBlock.style.paddingBottom = `${(resultBlock.clientHeight * (COUNT_LINES_PER_RESULT_BLOCK - 1 - nextLine)) / 10}px`;
+  resultBlock.style.paddingBottom = `${(resultBlock.clientHeight * (COUNT_LINES_PER_RESULT_BLOCK - 1 - nextLine)) / COUNT_LINES_PER_RESULT_BLOCK}px`;
   changeDataPuzzles();
 
   if (nextLine === 9) changeRound();
