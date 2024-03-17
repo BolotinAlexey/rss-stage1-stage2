@@ -10,8 +10,8 @@ export default function createPuzzleElements(
   const countChars = imgWords.length * 2 + imgWords.join("").length;
   const size = (dataBlock.clientWidth * KOEF_EXT) / countChars;
 
-  const line: HTMLElement[] = imgWords.reduce(
-    (a: HTMLElement[], word: string, i: number) => {
+  const line: HTMLElement[] = imgWords
+    .reduce((a: HTMLElement[], word: string, i: number) => {
       const node = createElement("div", ["puzzle", "puzzle-data"], word);
       node.dataset.id = i.toString();
       node.dataset.word = word;
@@ -20,9 +20,12 @@ export default function createPuzzleElements(
       node.style.paddingRight = `${size}px`;
       node.style.fontSize = `${size}px`;
       return [...a, node];
-    },
-    [],
-  );
+    }, [])
+    .sort((a: HTMLElement, b: HTMLElement): number => {
+      const aOrder: number = Number(a.style.order);
+      const bOrder: number = Number(b.style.order);
+      return aOrder - bOrder;
+    });
   dataBlock.append(...line);
   return line;
 }

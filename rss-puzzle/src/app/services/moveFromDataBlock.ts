@@ -1,6 +1,6 @@
 import { ANIMATION_TIME } from "../constants/index";
 import isPuzzle from "../utils/isPuzzle";
-import continueGame from "./continueGame";
+import enabledContinueButton from "./enabledContinueButton";
 import getElementsResultBlock from "./getElementsResultBlock";
 import isCorrectSentence from "./isCorrectSentence";
 import changeOrdersInBlock from "./translateBlock";
@@ -30,7 +30,7 @@ export default function moveFromDataBlock(e: Event) {
     currentLineEl.classList.contains("flex-between")
   )
     currentLineEl.classList.remove("flex-between");
-  if (dataBlock.childNodes.length === 1 && isCorrectSentence(currentLineEl)) {
-    continueGame(currentLine);
+  if (dataBlock.childNodes.length === 1) {
+    enabledContinueButton(isCorrectSentence(currentLineEl));
   }
 }

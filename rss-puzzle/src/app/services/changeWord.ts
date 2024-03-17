@@ -1,4 +1,7 @@
-export default function changeWord(resultBlock: HTMLElement) {
+import getElementsResultBlock from "./getElementsResultBlock";
+
+export default function changeWord() {
+  const { resultBlock } = getElementsResultBlock();
   const currentWordIndex: string | undefined =
     resultBlock.dataset?.currentWordIndex;
   if (!currentWordIndex)
