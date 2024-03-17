@@ -1,4 +1,4 @@
-const level6 = {
+const level = {
   rounds: [
     {
       levelData: {
@@ -2520,4 +2520,4 @@ const level6 = {
   ],
   roundsCount: 25,
 };
-export default level6;
+export default level;

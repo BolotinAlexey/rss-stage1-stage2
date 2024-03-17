@@ -1,6 +1,6 @@
 import { createElement, getElementDocument } from "../utils/supFunctions";
 
-export default function renderGame(): void {
+export default function renderGame(): HTMLElement {
   const body: HTMLBodyElement = getElementDocument("body");
   const game = createElement("div", ["page", "game", "container"]);
   const dataBlockWrap = createElement("div", ["block-wrap", "data-block-wrap"]);
@@ -18,4 +18,5 @@ export default function renderGame(): void {
   // resultBlock.append(resultImg);
   game.append(resultBlockWrap, dataBlockWrap);
   body.append(game);
+  return game;
 }
