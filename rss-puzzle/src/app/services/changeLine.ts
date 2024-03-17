@@ -14,7 +14,8 @@ export default function changeLine() {
   // console.log(lines[Number(currentLine)]);
 
   // const currentRound = readDataSetResultBlock("round")
-  const { textExample } = level.rounds[0].words[currentLine];
+  const currentRound: number = Number(readDataSetResultBlock("currentRound"));
+  const { textExample } = level.rounds[currentRound].words[currentLine];
   console.log(textExample);
   const imgWords: string[] = textExample.split(" ");
   createPuzzles(imgWords);

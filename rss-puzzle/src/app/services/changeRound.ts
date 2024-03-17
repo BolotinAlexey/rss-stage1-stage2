@@ -1,3 +1,6 @@
+import level from "../assets/wordCollections/wordCollectionLevel1";
+import runNewRound from "../utils/runNewRound";
+import getElementsResultBlock from "./getElementsResultBlock";
 import readDataSetResultBlock from "./readDataSetResultBlock";
 
 export default function changeRound() {
@@ -10,7 +13,11 @@ export default function changeRound() {
   // const levelNumber: number = Number(currentLevel);
   // import(`level${levelNumber}`)
   // if(Number(currentRound) + 1 >=  )
-  const nextCurrentRound: number = Number(currentLevel) + 1;
+  const { resultBlock } = getElementsResultBlock();
 
-  console.log(`next round:${nextCurrentRound}`);
+  const nextRound: number = Number(currentLevel) + 1;
+  if (nextRound < level.rounds.length) {
+    resultBlock.dataset.currentRound = nextRound.toString();
+    runNewRound(nextRound);
+  }
 }

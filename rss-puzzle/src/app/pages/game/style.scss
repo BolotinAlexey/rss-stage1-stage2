@@ -85,8 +85,13 @@
 }
 
 .game__buttons-wrap {
+  position: relative;
+  // width: 200px;
+  height: 60px;
   display: flex;
+  flex-direction: column;
   gap: 2rem;
+  overflow: hidden;
 }
 .game__btn-continue,
 .game__btn-check {
@@ -94,10 +99,19 @@
     900 2rem/1 "Philosopher",
     sans-serif;
   padding: 0.5rem 1rem;
+  transform: translateY(calc(-100% - 2rem));
+  transition: transform 0.3s linear;
 }
+
 .game__btn-continue:not(:disabled),
 .game__btn-check:not(:disabled) {
   color: rgb(var(--succes-color));
+}
+.game__btn-continue:not(:disabled) ~ .game__btn-check {
+  transform: translateY(0);
+}
+.game__btn-continue:not(:disabled) {
+  transform: translateY(0);
 }
 
 .correct-puzzle {

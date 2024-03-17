@@ -9,7 +9,6 @@ export default function runNewRound(roundNum: number) {
   const { resultBlock } = getElementsResultBlock();
   resultBlock.style.backgroundImage = `url("https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/images/${imageSrc}")`;
   const { textExample } = level.rounds[roundNum].words[0];
-  // const textExample = `I was surprised when my friends suddenly shouted, “Happy birthday!”`;
   console.log(textExample);
 
   const imgWords: string[] = textExample.split(" ");
@@ -17,5 +16,5 @@ export default function runNewRound(roundNum: number) {
   createLines(resultBlock);
   createPuzzles(imgWords);
   resultBlock.dataset.currentLine = "0";
-  resultBlock.dataset.currentWordIndex = "0";
+  resultBlock.style.paddingBottom = `${resultBlock.clientHeight}px`;
 }
