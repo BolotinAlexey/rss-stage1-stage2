@@ -4,11 +4,12 @@ import hideWelcomePage from "../../services/hideWelcomePage";
 import moveFromDataBlock from "../../services/moveFromDataBlock";
 import moveFromResultBlock from "../../services/moveFromResultBlock";
 import renderGame from "../../services/renderGame";
-import createContinueButton from "../../utils/createContinueButton";
 import createLines from "../../utils/createLines";
 import createPuzzles from "../../utils/createPuzzles";
 import onContinueGame from "../../services/onContinueGame";
 import "./style.scss";
+import checkSentence from "../../services/checkSentence";
+import createButtons from "../../utils/createButtns";
 
 export default function startGame() {
   hideWelcomePage();
@@ -20,21 +21,18 @@ export default function startGame() {
 
   resultBlock.style.backgroundImage = `url("https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/images/${imageSrc}")`;
   const { textExample } = level.rounds[0].words[0];
-  // const textExample = `I was surprised when my friends suddenly shouted, “Happy birthday!”`;
   console.log(textExample);
 
   const imgWords: string[] = textExample.split(" ");
   createLines(resultBlock);
   createPuzzles(imgWords);
-  resultBlock.dataset.currentLine = "0";
-  // resultBlock.dataset.currentWordIndex = "0";
-  resultBlock.dataset.currentRound = "0";
-  resultBlock.dataset.currentLevel = "0";
-  // changeOrdersInBlock(dataBlock);
-  const continueBtn = createContinueButton(game);
-  // const bindCreatePuzzles = createPuzzles.bind(null, imgWords, false);
-  // window.addEventListener("resize", bindCreatePuzzles);
+  ["currentLine", "currentRound", "currentLevel"].forEach((data) => {
+    resultBlock.dataset[data] = "0";
+  });
+  const { continueBtn, checkBtn } = createButtons(game);
+
   dataBlock.addEventListener("click", moveFromDataBlock);
   resultBlock.addEventListener("click", moveFromResultBlock);
   continueBtn.addEventListener("click", onContinueGame);
+  checkBtn.addEventListener("click", checkSentence);
 }
