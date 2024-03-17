@@ -2,11 +2,12 @@ import { createElement } from "./supFunctions";
 
 export default function createContinueButton(
   container: HTMLElement,
+  nameButton: string,
 ): HTMLButtonElement {
   const btn: HTMLElement = createElement(
     "button",
-    ["button", "game__btn-continue"],
-    "Continue",
+    ["button", `game__btn-${nameButton}`],
+    nameButton,
   );
 
   if (!(btn instanceof HTMLButtonElement))

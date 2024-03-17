@@ -84,12 +84,25 @@
   font-size: 0 !important;
 }
 
-.game__btn-continue {
+.game__buttons-wrap {
+  display: flex;
+  gap: 2rem;
+}
+.game__btn-continue,
+.game__btn-check {
   font:
     900 2rem/1 "Philosopher",
     sans-serif;
   padding: 0.5rem 1rem;
 }
-.game__btn-continue:enabled {
+.game__btn-continue:not(:disabled),
+.game__btn-check:not(:disabled) {
   color: rgb(var(--succes-color));
+}
+
+.correct-puzzle {
+  border-bottom: 12px rgb(var(--succes-color)) double;
+}
+.wrong-puzzle {
+  border-bottom: 12px rgb(var(--error-color)) double;
 }
