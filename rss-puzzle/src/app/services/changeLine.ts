@@ -14,8 +14,10 @@ export default function changeLine() {
   resultBlock.dataset.currentLine = Number(currentLine).toString();
 
   const currentRound: number = Number(readDataSetResultBlock("currentRound"));
-  const { textExample, textExampleTranslate } =
+  const { textExample, textExampleTranslate, audioExample } =
     level.rounds[currentRound].words[currentLine];
+
+  resultBlock.dataset.audioSrc = audioExample;
   console.log(textExample);
   setHintInMarkup(textExampleTranslate);
   const imgWords: string[] = textExample.split(" ");

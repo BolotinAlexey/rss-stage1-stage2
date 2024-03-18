@@ -1,6 +1,5 @@
 import lampHint from "../assets/lampHint";
 import { CheckBox } from "../interfaces/index";
-import pronounceSentence from "../services/pronounceSentence";
 import createCheckBox from "./createCheckBox";
 import createVolume from "./createVolume";
 import { createElement, getElementDocument } from "./supFunctions";
@@ -15,5 +14,6 @@ export default function createHintBlock() {
   hintBlock.append(lamp);
   logo.insertAdjacentElement("afterend", hintBlock);
   const volume = createVolume();
-  volume.addEventListener("click", pronounceSentence);
+
+  return volume;
 }
