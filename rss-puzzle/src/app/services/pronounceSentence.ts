@@ -1,3 +1,4 @@
+import { DELAY_PRONOUNCE } from "../constants/index";
 import { getElementDocument } from "../utils/supFunctions";
 import readDataSetResultBlock from "./readDataSetResultBlock";
 
@@ -20,5 +21,5 @@ export default function pronounceSentence(audio: HTMLAudioElement) {
         volumeBtn.classList.remove("animation-volume");
       }
     }, duration);
-  }, 300);
+  }, DELAY_PRONOUNCE);
 }
