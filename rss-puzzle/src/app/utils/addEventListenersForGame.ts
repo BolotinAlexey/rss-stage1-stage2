@@ -3,13 +3,16 @@ import checkSentence from "../services/checkSentence";
 import moveFromDataBlock from "../services/moveFromDataBlock";
 import moveFromResultBlock from "../services/moveFromResultBlock";
 import onContinueGame from "../services/onContinueGame";
+import pronounceSentence from "../services/pronounceSentence";
 import createButtons from "./createButtons";
+import createHintBlock from "./createHintBlock";
 import resizeListener from "./resizeListener";
 
 export default function addEventListenersForGame(
   game: HTMLElement,
   dataBlock: HTMLElement,
   resultBlock: HTMLElement,
+  audio: HTMLAudioElement,
 ) {
   const { continueBtn, checkBtn, autoCompleteBtn } = createButtons(game);
 
@@ -19,4 +22,7 @@ export default function addEventListenersForGame(
   checkBtn.addEventListener("click", checkSentence);
   autoCompleteBtn.addEventListener("click", autoCompleteSentence);
   resizeListener();
+  const bindpronounceSentence = pronounceSentence.bind(null, audio);
+  const volumeBtn = createHintBlock();
+  volumeBtn.addEventListener("click", bindpronounceSentence);
 }

@@ -5,7 +5,7 @@ export default function createVolume(): HTMLButtonElement {
   const wrapResult: HTMLElement = getElementDocument(".result-block-wrap");
   const volume: HTMLButtonElement = createElement<HTMLButtonElement>("button", [
     "button",
-    "button-value",
+    "button-volume",
   ]);
   volume.insertAdjacentHTML("beforeend", volumeSvg());
   wrapResult.append(volume);
