@@ -20,11 +20,9 @@
 }
 
 .result-block-wrap {
+  position: relative;
   margin-top: 120px;
 }
-
-// .data-block-wrap {
-// }
 
 .result-block {
   position: relative;
@@ -46,6 +44,15 @@
   flex-wrap: nowrap;
   width: 100%;
   height: calc(var(--tablet) * 858 / 13000);
+}
+
+.result-block__hint {
+  position: absolute;
+  left: 0;
+  top: -2rem;
+  font:
+    100 1.1rem/1 "Lobster",
+    sans-serif;
 }
 
 .data-block {
