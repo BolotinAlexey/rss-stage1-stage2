@@ -9,7 +9,8 @@ export default function runNewRound(roundNum: number) {
 
   const { resultBlock } = getElementsResultBlock();
   resultBlock.style.backgroundImage = `url("https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/images/${imageSrc}")`;
-  const { textExample, textExampleTranslate } = level.rounds[roundNum].words[0];
+  const { textExample, textExampleTranslate, audioExample } =
+    level.rounds[roundNum].words[0];
   console.log(textExample);
   setHintInMarkup(textExampleTranslate);
   const imgWords: string[] = textExample.split(" ");
@@ -17,5 +18,7 @@ export default function runNewRound(roundNum: number) {
   createLines(resultBlock);
   createPuzzles(imgWords);
   resultBlock.dataset.currentLine = "0";
+  resultBlock.dataset.audioSrc = audioExample;
+
   resultBlock.style.paddingBottom = `${resultBlock.clientHeight}px`;
 }

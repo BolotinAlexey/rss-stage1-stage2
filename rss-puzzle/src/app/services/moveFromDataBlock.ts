@@ -5,6 +5,7 @@ import getElementsBtns from "./getElementsBtns";
 import getElementsResultBlock from "./getElementsResultBlock";
 import isCorrectSentence from "./isCorrectSentence";
 import setDependFlexBetween from "./setDependFlexBetween";
+import showWin from "./showWin";
 import changeOrdersInBlock from "./translateBlock";
 
 export default function moveFromDataBlock(e: Event) {
@@ -18,7 +19,11 @@ export default function moveFromDataBlock(e: Event) {
   setDependFlexBetween(currentLineEl, dataBlock);
   setTimeout(() => {
     checkBtn.disabled = !!dataBlock.childElementCount;
-    continueBtn.disabled =
+    const check: boolean =
       !!dataBlock.childElementCount || !isCorrectSentence(currentLineEl);
+    continueBtn.disabled = check;
+    if (!check) {
+      showWin();
+    }
   }, ANIMATION_TIME);
 }

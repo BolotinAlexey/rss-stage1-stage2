@@ -21,7 +21,7 @@
 
 .result-block-wrap {
   position: relative;
-  margin-top: 120px;
+  margin-top: 130px;
 }
 
 .result-block {
@@ -169,4 +169,26 @@
   &:not(:checked) ~ .hint-svg {
     fill: rgb(var(--error-color));
   }
+}
+.result-block__hint.show-hint {
+  transform: translateY(0);
+}
+.button-value {
+  position: absolute;
+  width: 3rem;
+  right: 0;
+  top: -3rem;
+  border: none;
+  background-color: transparent;
+  transition: all 0.3s linear;
+  color: var(--main-color);
+  &:hover {
+    color: var(--error-color);
+  }
+}
+.button-value.show-hint {
+  transform: translateY(0);
+}
+.volume-svg {
+  fill: currentColor;
 }

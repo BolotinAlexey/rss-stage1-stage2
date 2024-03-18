@@ -1,17 +1,14 @@
+import { getElementDocument } from "../utils/supFunctions";
 import changeLine from "./changeLine";
-import changeDataPuzzles from "./changeDataPuzzles";
-import readDataSetResultBlock from "./readDataSetResultBlock";
-import getElementsResultBlock from "./getElementsResultBlock";
-import { COUNT_LINES_PER_RESULT_BLOCK } from "../constants/index";
 import changeRound from "./changeRound";
+import readDataSetResultBlock from "./readDataSetResultBlock";
 
 export default function onContinueGame() {
-  const { resultBlock } = getElementsResultBlock();
-
   const nextLine: number = Number(readDataSetResultBlock("currentLine"));
+  const hintSentence = getElementDocument(".result-block__hint");
 
-  resultBlock.style.paddingBottom = `${(resultBlock.clientHeight * (COUNT_LINES_PER_RESULT_BLOCK - 1 - nextLine)) / 10}px`;
-  changeDataPuzzles();
+  if (hintSentence.classList.contains("show-hint"))
+    hintSentence.classList.remove("show-hint");
 
   if (nextLine === 9) changeRound();
   else changeLine();

@@ -16,7 +16,7 @@ export default function changeRound() {
   // if(Number(currentRound) + 1 >=  )
   const { resultBlock } = getElementsResultBlock();
 
-  const nextRound: number = Number(currentLevel) + 1;
+  const nextRound: number = Number(currentRound) + 1;
   if (nextRound < level.rounds.length) {
     resultBlock.dataset.currentRound = nextRound.toString();
     const { continueBtn, checkBtn, autoCompleteBtn } = getElementsBtns();
