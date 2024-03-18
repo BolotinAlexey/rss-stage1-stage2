@@ -5,5 +5,7 @@ export default function changeDataPuzzles() {
     if (!(el instanceof HTMLElement))
       throw new Error("puzzle-data isn't HTMLElement");
     el.classList.remove("puzzle-data");
+    const fakeEl = el;
+    fakeEl.style.flexGrow = "1";
   });
 }

@@ -40,8 +40,8 @@
       color: var(--main-color);
     }
     &.correct {
-      border-color: rgb(var(--succes-color));
-      background-color: rgba(var(--succes-color), 0.2);
+      border-color: rgb(var(--success-color));
+      background-color: rgba(var(--success-color), 0.2);
     }
     &.wrong {
       border-color: rgb(var(--error-color));
@@ -71,5 +71,5 @@
 }
 
 .login__input-submit:enabled {
-  background-color: rgb(var(--succes-color));
+  background-color: rgb(var(--success-color));
 }

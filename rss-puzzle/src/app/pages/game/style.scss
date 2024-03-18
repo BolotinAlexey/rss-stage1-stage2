@@ -85,13 +85,30 @@
 }
 
 .game__buttons-wrap {
-  position: relative;
-  // width: 200px;
-  height: 60px;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+.game__check-continue-wrap {
+  height: 53px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   overflow: hidden;
+}
+
+.game__btn-auto-complete {
+  font:
+    900 2rem/1 "Philosopher",
+    sans-serif;
+  padding: 0.5rem 1rem;
+  &:not(:disabled) {
+    color: rgb(var(--error-color));
+    &:hover {
+      color: #fff;
+      background-color: rgba(var(--error-color), 0.3);
+    }
+  }
 }
 .game__btn-continue,
 .game__btn-check {
@@ -100,12 +117,11 @@
     sans-serif;
   padding: 0.5rem 1rem;
   transform: translateY(calc(-100% - 2rem));
-  transition: transform 0.3s linear;
 }
 
 .game__btn-continue:not(:disabled),
 .game__btn-check:not(:disabled) {
-  color: rgb(var(--succes-color));
+  color: rgb(var(--success-color));
 }
 .game__btn-continue:not(:disabled) ~ .game__btn-check {
   transform: translateY(0);
@@ -115,7 +131,7 @@
 }
 
 .correct-puzzle {
-  border-bottom: 12px rgb(var(--succes-color)) double;
+  border-bottom: 12px rgb(var(--success-color)) double;
 }
 .wrong-puzzle {
   border-bottom: 12px rgb(var(--error-color)) double;

@@ -107,7 +107,7 @@
     font-size: 3rem;
     background-color: transparent;
     border-color: rgb(var(--error-color));
-    color: rgba(var(--succes-color), 0.4);
+    color: rgba(var(--success-color), 0.4);
     -webkit-text-stroke: 2px rgb(var(--error-color));
     &:hover {
       background-color: rgba(0, 0, 0, 0.3);
@@ -161,7 +161,7 @@
 
 @keyframes colorChange {
   0% {
-    color: rgb(var(--succes-color));
+    color: rgb(var(--success-color));
   }
   100% {
     color: rgb(var(--error-color));

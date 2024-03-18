@@ -1,5 +1,6 @@
 import level from "../assets/wordCollections/wordCollectionLevel1";
 import runNewRound from "../utils/runNewRound";
+import getElementsBtns from "./getElementsBtns";
 import getElementsResultBlock from "./getElementsResultBlock";
 import readDataSetResultBlock from "./readDataSetResultBlock";
 
@@ -18,6 +19,10 @@ export default function changeRound() {
   const nextRound: number = Number(currentLevel) + 1;
   if (nextRound < level.rounds.length) {
     resultBlock.dataset.currentRound = nextRound.toString();
+    const { continueBtn, checkBtn, autoCompleteBtn } = getElementsBtns();
+    continueBtn.disabled = true;
+    checkBtn.disabled = true;
+    autoCompleteBtn.disabled = false;
     runNewRound(nextRound);
   }
 }

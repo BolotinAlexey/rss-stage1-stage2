@@ -1,9 +1,7 @@
-import { getElementDocument } from "../utils/supFunctions";
-import readDataSetResultBlock from "./readDataSetResultBlock";
+import getCurrentLineElement from "./getCurrentLineElement";
 
 export default function checkSentence() {
-  const currentLine: string = readDataSetResultBlock("currentLine");
-  const currentLineEl = getElementDocument(`[data-line="${currentLine}"]`);
+  const currentLineEl = getCurrentLineElement();
   const puzzles: Element[] = Object.values(currentLineEl.children);
   puzzles.forEach((b: Element, i: number) => {
     if (!(b instanceof HTMLElement))

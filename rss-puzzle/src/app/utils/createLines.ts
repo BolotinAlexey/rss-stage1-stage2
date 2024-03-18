@@ -14,6 +14,7 @@ export default function createLines(resultBlock: HTMLElement): HTMLElement[] {
       el.style.height = height.toString();
       return [...a, el];
     }, []);
+
   resultBlock.append(...lines);
   return lines;
 }

@@ -1,15 +1,11 @@
 import level from "../../assets/wordCollections/wordCollectionLevel1";
 import getElementsResultBlock from "../../services/getElementsResultBlock";
 import hideWelcomePage from "../../services/hideWelcomePage";
-import moveFromDataBlock from "../../services/moveFromDataBlock";
-import moveFromResultBlock from "../../services/moveFromResultBlock";
 import renderGame from "../../services/renderGame";
 import createLines from "../../utils/createLines";
 import createPuzzles from "../../utils/createPuzzles";
-import onContinueGame from "../../services/onContinueGame";
 import "./style.scss";
-import checkSentence from "../../services/checkSentence";
-import createButtons from "../../utils/createButtns";
+import addEventListenersForGame from "../../utils/addEventListenersForGame";
 
 export default function startGame() {
   hideWelcomePage();
@@ -29,10 +25,6 @@ export default function startGame() {
   ["currentLine", "currentRound", "currentLevel"].forEach((data) => {
     resultBlock.dataset[data] = "0";
   });
-  const { continueBtn, checkBtn } = createButtons(game);
 
-  dataBlock.addEventListener("click", moveFromDataBlock);
-  resultBlock.addEventListener("click", moveFromResultBlock);
-  continueBtn.addEventListener("click", onContinueGame);
-  checkBtn.addEventListener("click", checkSentence);
+  addEventListenersForGame(game, dataBlock, resultBlock);
 }
