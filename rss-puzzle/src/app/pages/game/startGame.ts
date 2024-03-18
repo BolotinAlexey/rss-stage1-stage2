@@ -7,6 +7,7 @@ import createPuzzles from "../../utils/createPuzzles";
 import "./style.scss";
 import addEventListenersForGame from "../../utils/addEventListenersForGame";
 import setHintInMarkup from "../../utils/setHintInMarkup";
+import createHintBlock from "../../utils/createHintBlock";
 
 export default function startGame() {
   hideWelcomePage();
@@ -27,6 +28,7 @@ export default function startGame() {
   ["currentLine", "currentRound", "currentLevel"].forEach((data) => {
     resultBlock.dataset[data] = "0";
   });
+  createHintBlock();
 
   addEventListenersForGame(game, dataBlock, resultBlock);
 }
