@@ -1,5 +1,6 @@
 import level from "../assets/wordCollections/wordCollectionLevel1";
 import createPuzzles from "../utils/createPuzzles";
+import setHintInMarkup from "../utils/setHintInMarkup";
 import getElementsBtns from "./getElementsBtns";
 import getElementsResultBlock from "./getElementsResultBlock";
 import readDataSetResultBlock from "./readDataSetResultBlock";
@@ -13,8 +14,10 @@ export default function changeLine() {
   resultBlock.dataset.currentLine = Number(currentLine).toString();
 
   const currentRound: number = Number(readDataSetResultBlock("currentRound"));
-  const { textExample } = level.rounds[currentRound].words[currentLine];
+  const { textExample, textExampleTranslate } =
+    level.rounds[currentRound].words[currentLine];
   console.log(textExample);
+  setHintInMarkup(textExampleTranslate);
   const imgWords: string[] = textExample.split(" ");
   createPuzzles(imgWords);
   const { continueBtn, checkBtn, autoCompleteBtn } = getElementsBtns();

@@ -11,9 +11,9 @@ export default function renderGame(): HTMLElement {
   ]);
   const dataBlock = createElement("div", ["block", "data-block"]);
   const resultBlock = createElement("div", ["block", "result-block"]);
-
+  const resultBlockHint = createElement("p", ["result-block__hint"]);
   dataBlockWrap.append(dataBlock);
-  resultBlockWrap.append(resultBlock);
+  resultBlockWrap.append(resultBlockHint, resultBlock);
   game.append(resultBlockWrap, dataBlockWrap);
   body.append(game);
   return game;

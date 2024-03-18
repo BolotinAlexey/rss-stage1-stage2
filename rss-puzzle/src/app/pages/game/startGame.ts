@@ -6,6 +6,7 @@ import createLines from "../../utils/createLines";
 import createPuzzles from "../../utils/createPuzzles";
 import "./style.scss";
 import addEventListenersForGame from "../../utils/addEventListenersForGame";
+import setHintInMarkup from "../../utils/setHintInMarkup";
 
 export default function startGame() {
   hideWelcomePage();
@@ -16,12 +17,13 @@ export default function startGame() {
   const { imageSrc } = level.rounds[0].levelData;
 
   resultBlock.style.backgroundImage = `url("https://raw.githubusercontent.com/rolling-scopes-school/rss-puzzle-data/main/images/${imageSrc}")`;
-  const { textExample } = level.rounds[0].words[0];
+  const { textExample, textExampleTranslate } = level.rounds[0].words[0];
   console.log(textExample);
 
   const imgWords: string[] = textExample.split(" ");
   createLines(resultBlock);
   createPuzzles(imgWords);
+  setHintInMarkup(textExampleTranslate);
   ["currentLine", "currentRound", "currentLevel"].forEach((data) => {
     resultBlock.dataset[data] = "0";
   });
