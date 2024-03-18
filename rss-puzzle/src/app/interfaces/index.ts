@@ -33,3 +33,8 @@ export interface Level {
   rounds: Rounds[];
   roundsCount: number;
 }
+
+export interface CheckBox {
+  checkBoxWrap: HTMLElement;
+  checkBox: HTMLInputElement;
+}

@@ -8,6 +8,11 @@
   --error-color: 216, 26, 9;
   --bg-block: #eee;
   --padBlock: 1rem;
+  --lampHintOpacity: 1;
+}
+
+:root:has(.game__hint-lamp:checked:checked) {
+  --lampHintOpacity: 0;
 }
 
 * {
