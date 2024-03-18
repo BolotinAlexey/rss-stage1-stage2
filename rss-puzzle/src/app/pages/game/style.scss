@@ -53,6 +53,10 @@
   font:
     100 1.1rem/1 "Lobster",
     sans-serif;
+  transition: all 0.3s linear;
+  // opacity: var(--lampHintOpacity);
+  transform: translateY(calc(var(--lampHintOpacity) * 3rem));
+  z-index: -10;
 }
 
 .data-block {
@@ -148,7 +152,12 @@
   display: flex;
 }
 .game__hint-wrap {
-  width: 2rem;
+  width: 2.5rem;
+  transition: transform 0.3s linear;
+  &:hover {
+    animation: shake-rotate infinite 1s linear;
+    cursor: pointer;
+  }
 }
 .game__hint {
   display: none;
@@ -156,7 +165,8 @@
     fill: rgb(var(--success-color));
   }
 }
-
-.hint-svg {
-  fill: currentColor;
+.game__hint {
+  &:not(:checked) ~ .hint-svg {
+    fill: rgb(var(--error-color));
+  }
 }

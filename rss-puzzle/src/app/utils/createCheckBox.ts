@@ -2,7 +2,7 @@ import { CheckBox } from "../interfaces/index";
 import { createElement } from "./supFunctions";
 
 export default function createCheckBox(nameInput: string): CheckBox {
-  const checkBoxWrap = createElement("div", [
+  const checkBoxWrap = createElement("label", [
     "game__hint-wrap",
     `game__hint-wrap-${nameInput}`,
   ]);
