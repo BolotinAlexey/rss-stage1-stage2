@@ -170,3 +170,6 @@
     fill: rgb(var(--error-color));
   }
 }
+.result-block__hint.show-hint {
+  transform: translateY(0);
+}
