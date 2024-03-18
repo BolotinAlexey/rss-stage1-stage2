@@ -173,7 +173,7 @@
 .result-block__hint.show-hint {
   transform: translateY(0);
 }
-.button-value {
+.button-volume {
   position: absolute;
   width: 3rem;
   right: 0;
@@ -186,9 +186,13 @@
     color: var(--error-color);
   }
 }
-.button-value.show-hint {
+.button-volume.show-hint {
   transform: translateY(0);
 }
 .volume-svg {
   fill: currentColor;
+}
+.animation-volume {
+  animation: shake-rotate 1s infinite linear;
+  color: red;
 }

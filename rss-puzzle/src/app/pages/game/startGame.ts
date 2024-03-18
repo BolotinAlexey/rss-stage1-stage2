@@ -7,8 +7,6 @@ import createPuzzles from "../../utils/createPuzzles";
 import "./style.scss";
 import addEventListenersForGame from "../../utils/addEventListenersForGame";
 import setHintInMarkup from "../../utils/setHintInMarkup";
-import createHintBlock from "../../utils/createHintBlock";
-import pronounceSentence from "../../services/pronounceSentence";
 
 export default function startGame() {
   hideWelcomePage();
@@ -21,9 +19,7 @@ export default function startGame() {
   const { textExample, textExampleTranslate, audioExample } =
     level.rounds[0].words[0];
   console.log(textExample);
-  const audio = new Audio(
-    `https://github.com/rolling-scopes-school/rss-puzzle-data/raw/main/${audioExample}`,
-  );
+  const audio = new Audio();
 
   const imgWords: string[] = textExample.split(" ");
   createLines(resultBlock);
@@ -32,8 +28,7 @@ export default function startGame() {
   ["currentLine", "currentRound", "currentLevel"].forEach((data) => {
     resultBlock.dataset[data] = "0";
   });
-  const bindpronounceSentence = pronounceSentence.bind(null, audio);
-  const volumeBtn = createHintBlock();
-  volumeBtn.addEventListener("click", bindpronounceSentence);
-  addEventListenersForGame(game, dataBlock, resultBlock);
+  resultBlock.dataset.audioSrc = audioExample;
+
+  addEventListenersForGame(game, dataBlock, resultBlock, audio);
 }
