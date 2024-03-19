@@ -4,8 +4,10 @@ import moveFromDataBlock from "../services/moveFromDataBlock";
 import moveFromResultBlock from "../services/moveFromResultBlock";
 import onContinueGame from "../services/onContinueGame";
 import pronounceSentence from "../services/pronounceSentence";
+import recordToLS from "../services/recordToLS";
 import createButtons from "./createButtons";
 import createHintBlock from "./createHintBlock";
+import getInputsElements from "./getInputsElements";
 import resizeListener from "./resizeListener";
 
 export default function addEventListenersForGame(
@@ -25,4 +27,8 @@ export default function addEventListenersForGame(
   const bindpronounceSentence = pronounceSentence.bind(null, audio);
   const { volume } = createHintBlock();
   volume.addEventListener("click", bindpronounceSentence);
+
+  const { lamp, sound } = getInputsElements();
+  lamp.addEventListener("change", recordToLS);
+  sound.addEventListener("change", recordToLS);
 }

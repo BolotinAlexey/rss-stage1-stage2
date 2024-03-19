@@ -1,5 +1,6 @@
 import { getElementDocument } from "../utils/supFunctions";
 import ApiLS from "./apiLocalStorage";
+import ApiLSHints from "./apiLocalStorageHints";
 
 export default function logout() {
   const apiLS = new ApiLS();
@@ -13,6 +14,11 @@ export default function logout() {
   if (!login.classList.contains("show")) login.classList.add("show");
   if (welcome.classList.contains("show")) welcome.classList.remove("show");
   if (bgImg.classList.contains("show")) bgImg.classList.remove("show");
-  const game = getElementDocument(".game");
-  game.remove();
+
+  const game: HTMLElement | null = document.querySelector(".game");
+  if (game) game.remove();
+  const apiHints = new ApiLSHints();
+  apiHints.delHints();
+  const hintsWrap: HTMLElement | null = document.querySelector(".hint-block");
+  if (hintsWrap) hintsWrap.remove();
 }

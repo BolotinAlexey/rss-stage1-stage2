@@ -1,11 +1,9 @@
 export type User = Required<Record<"name" | "surname", "string">>;
-
 export interface Login {
   form: HTMLFormElement;
   nameInput: HTMLInputElement;
   surnameInput: HTMLInputElement;
 }
-
 export interface LevelData {
   id: string;
   name: string;
@@ -14,7 +12,6 @@ export interface LevelData {
   author: string;
   year: string;
 }
-
 export interface Words {
   audioExample: string;
   textExample: string;
@@ -23,18 +20,19 @@ export interface Words {
   word: string;
   wordTranslate: string;
 }
-
 export interface Rounds {
   levelData: LevelData;
   words: Words[];
 }
-
 export interface Level {
   rounds: Rounds[];
   roundsCount: number;
 }
-
 export interface CheckBox {
   checkBoxWrap: HTMLElement;
   checkBox: HTMLInputElement;
+}
+export interface Hints {
+  sound?: boolean;
+  lamp?: boolean;
 }
