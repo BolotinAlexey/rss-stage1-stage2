@@ -1,8 +1,8 @@
 import { getElementDocument } from "./supFunctions";
 
 export default function setHintInMarkup(hint: string) {
-  const hintEl: HTMLParagraphElement = <HTMLParagraphElement>(
+  const hintElSentence: HTMLParagraphElement = <HTMLParagraphElement>(
     getElementDocument(".result-block__hint")
   );
-  hintEl.textContent = hint;
+  hintElSentence.textContent = hint;
 }

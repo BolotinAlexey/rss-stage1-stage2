@@ -6,9 +6,12 @@ import readDataSetResultBlock from "./readDataSetResultBlock";
 export default function onContinueGame() {
   const nextLine: number = Number(readDataSetResultBlock("currentLine"));
   const hintSentence = getElementDocument(".result-block__hint");
+  const hintVolume = getElementDocument(".button-volume");
 
   if (hintSentence.classList.contains("show-hint"))
     hintSentence.classList.remove("show-hint");
+  if (hintVolume.classList.contains("show-hint"))
+    hintVolume.classList.remove("show-hint");
 
   if (nextLine === 9) changeRound();
   else changeLine();
