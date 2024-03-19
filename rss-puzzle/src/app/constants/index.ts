@@ -2,6 +2,7 @@ const ANIMATION_TIME: number = 300; // ms
 const COUNT_LINES_PER_RESULT_BLOCK: number = 10;
 const ALPHA_UPPER: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ-";
 const KEY_USER = "user-puzzle";
+const KEY_HINTS = "hints-puzzle";
 const KOEF_EXT = 1.3;
 const TIME_SHOW_USERNAME: number = 5000;
 const TABLET_BREAKPOINT_WIDTH: number = 980;
@@ -16,4 +17,5 @@ export {
   KOEF_EXT,
   TABLET_BREAKPOINT_WIDTH,
   DELAY_PRONOUNCE,
+  KEY_HINTS,
 };

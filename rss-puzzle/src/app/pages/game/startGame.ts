@@ -7,6 +7,7 @@ import createPuzzles from "../../utils/createPuzzles";
 import "./style.scss";
 import addEventListenersForGame from "../../utils/addEventListenersForGame";
 import setHintInMarkup from "../../utils/setHintInMarkup";
+import setStartHints from "../../services/setStartHints";
 
 export default function startGame() {
   hideWelcomePage();
@@ -31,4 +32,6 @@ export default function startGame() {
   resultBlock.dataset.audioSrc = audioExample;
 
   addEventListenersForGame(game, dataBlock, resultBlock, audio);
+
+  setStartHints();
 }
