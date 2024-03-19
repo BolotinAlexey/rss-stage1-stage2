@@ -23,6 +23,6 @@ export default function addEventListenersForGame(
   autoCompleteBtn.addEventListener("click", autoCompleteSentence);
   resizeListener();
   const bindpronounceSentence = pronounceSentence.bind(null, audio);
-  const volumeBtn = createHintBlock();
-  volumeBtn.addEventListener("click", bindpronounceSentence);
+  const { volume } = createHintBlock();
+  volume.addEventListener("click", bindpronounceSentence);
 }
