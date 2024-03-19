@@ -14,7 +14,7 @@ export default function autoCompleteSentence() {
   const currentLineEl = getCurrentLineElement();
   resetCheckStyles(currentLineEl);
 
-  Object.values(puzzles)
+  const sortEl: HTMLElement[] = Object.values(puzzles)
     .sort((a: Node, b: Node) => {
       if (!(a instanceof HTMLElement) || !(b instanceof HTMLElement))
         throw new Error(`${a} or ${b} isn't HTMLElement`);
@@ -22,13 +22,16 @@ export default function autoCompleteSentence() {
         throw new Error(`${a} dataset.id or ${b} dataset.id undefined`);
       return Number(a.dataset.id) - Number(b.dataset.id);
     })
-    .forEach((el: Node) => {
+    .map((el: Node) => {
       if (!(el instanceof HTMLElement))
         throw new Error(`${el} isn't HTMLElement`);
       const fakeEl = el;
       fakeEl.style.flexGrow = "1";
-      currentLineEl.append(el);
+      fakeEl.style.order = "0";
+      return fakeEl;
     });
+  currentLineEl.innerHTML = "";
+  currentLineEl.append(...sortEl);
   dataBlock.innerHTML = "";
   showWin();
 }
