@@ -9,10 +9,14 @@
   --bg-block: #eee;
   --padBlock: 1rem;
   --lampHintOpacity: 1;
+  --soundHintOpacity: 1;
 }
 
-:root:has(.game__hint-lamp:checked:checked) {
+:root:has(.game__hint-lamp:checked) {
   --lampHintOpacity: 0;
+}
+:root:has(.game__hint-sound:checked) {
+  --soundHintOpacity: 0;
 }
 
 * {

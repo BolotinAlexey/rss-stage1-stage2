@@ -183,12 +183,19 @@
   background-color: transparent;
   transition: all 0.3s linear;
   color: var(--main-color);
+
+  transition: all 0.3s linear;
+  // opacity: var(--soundHintOpacity);
+  transform: translateY(calc(var(--soundHintOpacity) * 3rem));
+  z-index: (calc(var(--soundHintOpacity) * -10));
+
   &:hover {
     color: var(--error-color);
   }
 }
 .button-volume.show-hint {
   transform: translateY(0);
+  z-index: 10;
 }
 .volume-svg {
   fill: currentColor;
