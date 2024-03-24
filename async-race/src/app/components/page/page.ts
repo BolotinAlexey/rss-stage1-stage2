@@ -1,4 +1,4 @@
-import setPageTitle from "../../utils/setPageTitle";
+import commonPageGenerate from "../../utils/commonPageGenerate";
 import View from "../../views/view";
 import "./style.scss";
 
@@ -17,7 +17,7 @@ export default abstract class Page extends View {
     });
     this.namePage = namePage;
     this.getHTMLElement().classList.add(`page__${this.namePage}`);
-    setPageTitle(this);
+    commonPageGenerate(this);
   }
 
   setNum(num: number) {

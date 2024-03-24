@@ -1,8 +1,8 @@
 type DataWinners = Record<"id" | "time" | "wins", number>;
-interface IDataGarage {
+interface ICar {
   id: number;
   color: string;
   name: string;
 }
 
-export { DataWinners, IDataGarage };
+export { DataWinners, ICar };
