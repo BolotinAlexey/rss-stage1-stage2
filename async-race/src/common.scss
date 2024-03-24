@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lobster&family=Luckiest+Guy&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --main-color: #eee;
+  --success-color: 7, 246, 35;
+  --error-color: 216, 26, 9;
+  --bg-color: #111;
+  --padBlock: 1rem;
+
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* .container {
+  max-width: calc(var(--tablet) + 2 * var(--padBlock));
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+} */
+
+.button {
+  font-family: "Luckiest Guy";
+  border-radius: 2rem;
+  transition: all 0.5s linear;
+  border: 1px solid currentColor;
+  &:hover:not(:disabled) {
+    cursor: pointer;
+    color: #fff;
+    background-color: rgba(var(--success-color), 0.3);
+  }
+}
+
+/* Animation */
+
+@keyframes shake-rotate {
+  15% {
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  65% {
+    transform: rotate(5deg);
+  }
+  85% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

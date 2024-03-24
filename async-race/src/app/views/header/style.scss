@@ -1,0 +1,14 @@
+@import url("../../../common.scss");
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--main-color);
+  transition: transform 0.5s linear;
+  z-index: 20;
+  color: var(--main-color);
+}

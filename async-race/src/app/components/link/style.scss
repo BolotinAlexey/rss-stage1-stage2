@@ -1,0 +1,32 @@
+@import url(../../../common.scss);
+
+.link{
+  position: relative;
+  margin-left: 2rem;
+  padding: 0.2rem .5rem;
+    font-size: 1.5rem;
+    font-family: "Philosopher", sans-serif;
+
+    &:hover{
+      cursor: pointer;
+    }
+    
+    &::after{
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      right: 50%;
+      height: 1px;
+      background-color: currentColor;
+          transition: all .25s linear;
+    }
+    &:hover::after{
+      content: "";
+      left: 0;
+      right: 0;
+    }
+
+    &.active{
+   border: 1px solid currentColor;
+    }
+}
