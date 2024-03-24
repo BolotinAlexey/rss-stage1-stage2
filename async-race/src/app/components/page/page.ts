@@ -7,6 +7,8 @@ export default abstract class Page extends View {
 
   count: number = 0;
 
+  num: number = 1;
+
   constructor(namePage: "garage" | "winners") {
     super({
       tag: "section",
@@ -16,5 +18,9 @@ export default abstract class Page extends View {
     this.namePage = namePage;
     this.getHTMLElement().classList.add(`page__${this.namePage}`);
     setPageTitle(this);
+  }
+
+  setNum(num: number) {
+    this.num = num;
   }
 }

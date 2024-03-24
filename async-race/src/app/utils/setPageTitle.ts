@@ -1,6 +1,7 @@
 import IPage from "../interfaces/IPage";
 import ApiCars from "../services/apiCars";
 import { createElement } from "../services/supFunctions";
+import setPageNum from "./setPageNum";
 
 export default async function setPageTitle(page: IPage) {
   const api = new ApiCars();
@@ -13,4 +14,5 @@ export default async function setPageTitle(page: IPage) {
     `${page.namePage} (${page.count})`,
   );
   page.getHTMLElement().append(title);
+  setPageNum(page);
 }
