@@ -12,7 +12,7 @@ export default class App {
   createView() {
     const header = new HeaderView();
     const body: HTMLElement = getElementDocument("body");
-    const main = createElement("main", ["main"], "");
+    const main = createElement("main", ["main", "container"], "");
     const winners = new Winners();
     const garage = new Garage();
     garage.getHTMLElement().classList.add("active-page");

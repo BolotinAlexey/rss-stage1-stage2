@@ -1,0 +1,14 @@
+.page {
+  display: none;
+  margin-top: 80px;
+
+  &.active-page {
+    display: block;
+  }
+}
+
+.title{
+  font-family: "Luckiest Guy";
+  font-size: 2rem;
+  color: var(--main-color);
+}

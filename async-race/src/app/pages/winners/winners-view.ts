@@ -1,12 +1,7 @@
-import View from "../../views/view";
-import "./style.scss";
+import Page from "../../components/page/page";
 
-export default class Winners extends View {
+export default class Winners extends Page {
   constructor() {
-    super({
-      tag: "section",
-      class: ["page", "page__winners"],
-      text: "",
-    });
+    super("winners");
   }
 }

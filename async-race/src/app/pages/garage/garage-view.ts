@@ -1,12 +1,7 @@
-import View from "../../views/view";
-import "./style.scss";
+import Page from "../../components/page/page";
 
-export default class Garage extends View {
+export default class Garage extends Page {
   constructor() {
-    super({
-      tag: "section",
-      class: ["page", "page__garage"],
-      text: "",
-    });
+    super("garage");
   }
 }
