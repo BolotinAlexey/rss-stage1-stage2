@@ -1,12 +1,7 @@
-import { getElementDocument } from "../../services/supFunctions";
+import selectClassName from "../../utils/routeLinkAndPage";
 
 export default function onLink(e: Event, name: string) {
-  const currentActive: HTMLElement = getElementDocument(".active");
-
-  if (currentActive) currentActive.classList.remove("active");
-
-  if (e.target && e.target instanceof HTMLElement)
-    e.target.classList.add("active");
-  console.log(name);
-  
+  ["link", "page"].forEach((entity) => {
+    if (e.target) selectClassName(entity, name);
+  });
 }
