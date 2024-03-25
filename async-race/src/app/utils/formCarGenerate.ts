@@ -16,9 +16,7 @@ export default function formCarGenerate(action: Action, page: IPage) {
   const inputColor = new Input("form__input_color", "color");
   inputColor.getHTMLElement().value = "#aaaaaa";
 
-  const buttonSubmit = new Button("form__input_submit", action, (e: Event) =>
-    onSubmitCar(e, action, page),
-  );
+  const buttonSubmit = new Button("form__input_submit", action);
 
   form.append(
     inputName.getHTMLElement(),
