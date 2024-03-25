@@ -1,6 +1,5 @@
 import IPage from "../../interfaces/IPage";
 import { ICar } from "../../interfaces/responseData";
-import flagSvg from "../../markups/flagSvg";
 import ApiCars from "../../services/apiCars";
 import createCarMarkup from "../../utils/createCarMarkup";
 // // eslint-disable-next-line import/no-cycle
