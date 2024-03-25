@@ -1,0 +1,19 @@
+@import url("../../../common.scss");
+
+.track{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  order: 1;
+}
+
+.road{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: dashed 2px var(--main-color);
+}
+
+.flag-svg{
+  margin-right: 100px;
+}

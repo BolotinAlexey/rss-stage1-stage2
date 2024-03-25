@@ -1,9 +1,10 @@
 .page {
   display: none;
   margin-top: 80px;
+  flex-direction: column;
 
   &.active-page {
-    display: block;
+    display: flex;
   }
 }
 

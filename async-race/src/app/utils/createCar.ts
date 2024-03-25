@@ -7,13 +7,10 @@ export default async function createCar(
   page: IPage,
 ) {
   const apiCars = new ApiCars();
-  const car = await apiCars.createCar({ name, color });
-  console.log(car);
+  await apiCars.createCar({ name, color });
+  // const car = await apiCars.createCar({ name, color });
   const fakePage = page;
   if ("setCars" in fakePage) {
     fakePage.setCars = await apiCars.getCars();
   }
-  // if ("refreshCars" in fakePage && refreshCars typeof function) {
-  //   fakePage.refreshCars();
-  // }
 }

@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-cycle
-import Garage from "./garage-view";
+import Page from "../../components/page/page";
 
-export default async function refreshCars(garage: Garage) {
+export default async function refreshCarsTitles(garage: Page) {
   const page: HTMLElement = garage.getHTMLElement();
   const title = page.querySelector(".title");
   if (title?.textContent)

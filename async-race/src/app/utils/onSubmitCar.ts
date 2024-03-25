@@ -6,7 +6,7 @@ export default function onSubmitCar(e: Event, action: Action, page: IPage) {
   e.preventDefault();
   const { target } = e;
   console.log(target);
-  
+
   if (!(target instanceof HTMLFormElement))
     throw new Error("form isn't HTMLFormElement type");
   if (
