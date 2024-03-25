@@ -1,0 +1,14 @@
+@import url("../../../common.scss");
+
+.button {
+  padding: 0.3rem .5rem;
+  font-family: "Luckiest Guy";
+  border-radius: 2rem;
+  transition: all 0.5s linear;
+  border: 1px solid currentColor;
+  &:hover:not(:disabled) {
+    cursor: pointer;
+    color: #fff;
+    background-color: rgba(var(--success-color), 0.3);
+  }
+}

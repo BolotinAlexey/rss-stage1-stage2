@@ -1,4 +1,5 @@
 import View from "../../views/view";
+import "./style.scss";
 
 export default class Button extends View {
   constructor(cls: string, txt: string, callback: (e: Event) => void) {

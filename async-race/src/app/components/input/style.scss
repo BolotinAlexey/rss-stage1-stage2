@@ -1,0 +1,14 @@
+.form{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.input{
+    min-width: 50px;
+}
+.form__input_name{
+  padding: .3rem .5rem;
+  min-width: 250px;
+}
