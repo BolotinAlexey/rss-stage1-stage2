@@ -13,4 +13,20 @@ export default class Car {
     this.color = prop.color;
     this.name = prop.name;
   }
+
+  // onSelect() {
+  //   console.log(this.id);
+  // }
+
+  // onRemove() {
+  //   console.log(this.id);
+  // }
+
+  // onStart() {
+  //   console.log(this.id);
+  // }
+
+  // onStop() {
+  //   console.log(this.id);
+  // }
 }
