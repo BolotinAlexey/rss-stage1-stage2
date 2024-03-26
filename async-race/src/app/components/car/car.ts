@@ -1,5 +1,4 @@
 import { ICar } from "../../interfaces/responseData";
-import createCarMarkup from "../../utils/createCarMarkup";
 import "./style.scss";
 
 export default class Car {
@@ -13,6 +12,5 @@ export default class Car {
     this.id = prop.id;
     this.color = prop.color;
     this.name = prop.name;
-    // createCarMarkup(this);
   }
 }

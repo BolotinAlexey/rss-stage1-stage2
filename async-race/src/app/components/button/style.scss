@@ -1,8 +1,9 @@
 @import url("../../../common.scss");
 
 .button {
-  padding: 0.3rem .5rem;
+  padding: 0.5rem 1rem;
   font-family: "Luckiest Guy";
+  font-size: 1rem;
   border-radius: 2rem;
   transition: all 0.5s linear;
   border: 1px solid currentColor;

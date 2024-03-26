@@ -11,6 +11,8 @@ export default class Track extends View {
   // garage: Garage;
   cars: ICar[] = [];
 
+  page: IPage;
+
   constructor(page: IPage) {
     super({ tag: "div", class: ["track"], text: "" });
     // if (!(page instanceof Garage))
@@ -19,16 +21,20 @@ export default class Track extends View {
     // page.getCars.forEach((car: ICar) => {
     //   console.log(car);
     // });
+    this.page = page;
     this.loadCars();
   }
 
   async loadCars() {
     const apiCars = new ApiCars();
-    this.cars = await apiCars.getCars();
+    this.cars = await apiCars.getCars(this.page.num);
     this.refreshCars();
   }
 
   async refreshCars() {
+    this.getHTMLElement().innerHTML = "";
+    console.log(this.cars);
+
     this.cars.forEach((car: ICar) => {
       const road = createCarMarkup(car);
       this.getHTMLElement().append(road);

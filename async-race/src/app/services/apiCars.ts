@@ -4,8 +4,10 @@ import { ICar } from "../interfaces/responseData";
 export default class ApiCars {
   address: string = "http://127.0.0.1:3000";
 
-  async getCars(): Promise<ICar[]> {
-    const res: Response = await fetch(`${this.address}/garage`);
+  async getCars(num: number = 1): Promise<ICar[]> {
+    const res: Response = await fetch(
+      `${this.address}/garage?_page=${num}&_limit=7`,
+    );
     const content: ICar[] = await res.json();
     return content;
   }

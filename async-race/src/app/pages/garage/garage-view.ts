@@ -2,7 +2,9 @@ import Page from "../../components/page/page";
 import Track from "../../components/track/track";
 import { ICar } from "../../interfaces/responseData";
 import ApiCars from "../../services/apiCars";
-import refreshCarsTitles from "./refreshCars";
+import createPrevNext from "../../utils/createPrevNext";
+import refreshCarsTitles from "../../utils/refreshCars";
+import "./style.scss";
 
 export default class Garage extends Page {
   private cars: ICar[] = [];
@@ -15,6 +17,7 @@ export default class Garage extends Page {
     super("garage");
     this.track = new Track(this);
     this.getHTMLElement().append(this.track.getHTMLElement());
+    createPrevNext(this);
   }
 
   public set setCars(v: ICar[]) {

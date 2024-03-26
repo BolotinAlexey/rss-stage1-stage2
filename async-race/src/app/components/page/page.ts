@@ -1,4 +1,5 @@
 import commonPageGenerate from "../../utils/commonPageGenerate";
+import refreshCarsTitles from "../../utils/refreshCars";
 import View from "../../views/view";
 import "./style.scss";
 
@@ -20,7 +21,12 @@ export default abstract class Page extends View {
     commonPageGenerate(this);
   }
 
-  setNum(num: number) {
+  public set setNum(num: number) {
     this.num = num;
+    refreshCarsTitles(this);
+  }
+
+  public get getNum(): number {
+    return this.num;
   }
 }
