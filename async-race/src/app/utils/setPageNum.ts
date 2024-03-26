@@ -7,5 +7,5 @@ export default function setPageNum(page: IPage) {
     ["page-num", `${page.namePage}__page-num`],
     `Page: #${page.num}`,
   );
-  page.getHTMLElement().append(title);
+  return title;
 }
