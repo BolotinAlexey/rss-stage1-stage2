@@ -15,8 +15,8 @@ export default class Garage extends Page {
     this.getHTMLElement().append(this.track.getHTMLElement());
   }
 
-  public set setCars(v: ICar[]) {
-    this.cars = v;
+  public set setCars(cars: ICar[]) {
+    this.cars = cars;
     this.count = this.cars.length;
     refreshTitles(this);
   }

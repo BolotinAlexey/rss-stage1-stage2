@@ -1,5 +1,4 @@
 import IPage from "../../interfaces/IPage";
-import ApiCars from "../../services/apiCars";
 import commonPageGenerate from "../../utils/commonPageGenerate";
 import refreshTitles from "../../utils/refreshTitles";
 import View from "../../views/view";
@@ -11,8 +10,6 @@ export default abstract class Page extends View implements IPage {
   count: number = 0;
 
   num: number = 1;
-
-  apiCars = new ApiCars();
 
   constructor(namePage: "garage" | "winners") {
     super({
@@ -31,6 +28,15 @@ export default abstract class Page extends View implements IPage {
   }
 
   public get getNum(): number {
+    return this.num;
+  }
+
+  // public set setCount(num: number) {
+  //   this.num = num;
+  //   refreshTitles(this);
+  // }
+
+  public get getCount(): number {
     return this.num;
   }
 }

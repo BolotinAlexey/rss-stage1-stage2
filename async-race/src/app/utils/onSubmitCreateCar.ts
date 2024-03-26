@@ -2,10 +2,13 @@ import IPage from "../interfaces/IPage";
 import Action from "../interfaces/action";
 import createCar from "./createCar";
 
-export default function onSubmitCar(e: Event, action: Action, page: IPage) {
+export default function onSubmitCreateCar(
+  e: Event,
+  action: Action,
+  page: IPage,
+) {
   e.preventDefault();
   const { target } = e;
-  console.log(target);
 
   if (!(target instanceof HTMLFormElement))
     throw new Error("form isn't HTMLFormElement type");

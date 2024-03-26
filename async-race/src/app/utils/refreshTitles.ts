@@ -7,5 +7,5 @@ export default async function refreshTitles(page: Page) {
   if (title?.textContent)
     title.textContent = `${page.namePage} (${page.count})`;
   const num = pageHtml.querySelector(".page-num");
-  if (num?.textContent) num.textContent = `Page: #${page.num}`;
+  if (num?.textContent) num.textContent = `Page: #${page.getNum}`;
 }

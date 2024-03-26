@@ -1,26 +1,30 @@
+import { ADDRESS, CARS_PER_PAGE } from "../constants/index";
 import DataCar from "../interfaces/dataCar";
-import DataWinner from "../interfaces/dataWinner";
 import { ICar } from "../interfaces/responseData";
 
 export default class ApiCars {
-  address: string = "http://127.0.0.1:3000";
-
-  async getCars(num: number = 1): Promise<ICar[]> {
+  static async getCars(num: number = 1): Promise<ICar[]> {
     const res: Response = await fetch(
-      `${this.address}/garage?_page=${num}&_limit=7`,
+      `${ADDRESS}/garage?_page=${num}&_limit=${CARS_PER_PAGE}`,
     );
     const content: ICar[] = await res.json();
     return content;
   }
 
-  async getCount(namePage: "garage" | "winners") {
-    const res: Response = await fetch(`${this.address}/${namePage}`);
+  static async getAllCars(): Promise<ICar[]> {
+    const res: Response = await fetch(`${ADDRESS}/garage`);
+    const content: ICar[] = await res.json();
+    return content;
+  }
+
+  static async getCount(namePage: "garage" | "winners") {
+    const res: Response = await fetch(`${ADDRESS}/${namePage}`);
     const content = await res.json();
     return content.length ? content.length : 0;
   }
 
-  async createCar(dataCar: DataCar) {
-    const res: Response = await fetch(`${this.address}/garage`, {
+  static async createCar(dataCar: DataCar) {
+    const res: Response = await fetch(`${ADDRESS}/garage`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,14 +34,10 @@ export default class ApiCars {
     return res.json();
   }
 
-  async createWinner(dataWinner: DataWinner) {
-    const res: Response = await fetch(`${this.address}/winner`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dataWinner),
+  static async removeCar(id: number) {
+    const res: Response = await fetch(`${ADDRESS}/garage/${id}`, {
+      method: "DELETE",
     });
-    return res.json();
+    console.log(res.ok);
   }
 }

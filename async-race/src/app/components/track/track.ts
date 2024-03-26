@@ -1,26 +1,25 @@
-import IPage from "../../interfaces/IPage";
 import { ICar } from "../../interfaces/responseData";
 import ApiCars from "../../services/apiCars";
 import createCarMarkup from "../../utils/createCarMarkup";
 // // eslint-disable-next-line import/no-cycle
 // import { Garage } from "../../pages/index";
 import View from "../../views/view";
+import Page from "../page/page";
 import "./style.scss";
 
 export default class Track extends View {
   cars: ICar[] = [];
 
-  page: IPage;
+  page: Page;
 
-  constructor(page: IPage) {
+  constructor(page: Page) {
     super({ tag: "div", class: ["track"], text: "" });
     this.page = page;
     this.loadCars();
   }
 
   async loadCars() {
-    const apiCars = new ApiCars();
-    this.cars = await apiCars.getCars(this.page.num);
+    this.cars = await ApiCars.getCars(this.page.num);
     this.refreshCars();
   }
 
@@ -28,7 +27,7 @@ export default class Track extends View {
     this.getHTMLElement().innerHTML = "";
 
     this.cars.forEach((car: ICar) => {
-      const road = createCarMarkup(car);
+      const road = createCarMarkup(car, this);
       this.getHTMLElement().append(road);
     });
   }

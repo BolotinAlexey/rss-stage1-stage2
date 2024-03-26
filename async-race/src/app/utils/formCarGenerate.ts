@@ -3,7 +3,7 @@ import Input from "../components/input/input";
 import IPage from "../interfaces/IPage";
 import Action from "../interfaces/action";
 import { createElement } from "../services/supFunctions";
-import onSubmitCar from "./onSubmitCar";
+import onSubmitCreateCar from "./onSubmitCreateCar";
 
 export default function formCarGenerate(action: Action, page: IPage) {
   const form = createElement<HTMLFormElement>("form", [
@@ -24,5 +24,7 @@ export default function formCarGenerate(action: Action, page: IPage) {
     buttonSubmit.getHTMLElement(),
   );
   page.getHTMLElement().append(form);
-  form.addEventListener("submit", (e: Event) => onSubmitCar(e, action, page));
+  form.addEventListener("submit", (e: Event) =>
+    onSubmitCreateCar(e, action, page),
+  );
 }
