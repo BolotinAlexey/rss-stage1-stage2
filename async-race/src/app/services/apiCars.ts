@@ -1,4 +1,5 @@
 import DataCar from "../interfaces/dataCar";
+import DataWinner from "../interfaces/dataWinner";
 import { ICar } from "../interfaces/responseData";
 
 export default class ApiCars {
@@ -25,6 +26,17 @@ export default class ApiCars {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(dataCar),
+    });
+    return res.json();
+  }
+
+  async createWinner(dataWinner: DataWinner) {
+    const res: Response = await fetch(`${this.address}/winner`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataWinner),
     });
     return res.json();
   }

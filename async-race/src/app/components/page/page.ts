@@ -1,9 +1,10 @@
+import IPage from "../../interfaces/IPage";
 import commonPageGenerate from "../../utils/commonPageGenerate";
-import refreshCarsTitles from "../../utils/refreshCars";
+import refreshTitles from "../../utils/refreshTitles";
 import View from "../../views/view";
 import "./style.scss";
 
-export default abstract class Page extends View {
+export default abstract class Page extends View implements IPage {
   namePage: "garage" | "winners";
 
   count: number = 0;
@@ -23,7 +24,7 @@ export default abstract class Page extends View {
 
   public set setNum(num: number) {
     this.num = num;
-    refreshCarsTitles(this);
+    refreshTitles(this);
   }
 
   public get getNum(): number {

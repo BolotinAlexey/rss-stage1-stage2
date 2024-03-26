@@ -3,7 +3,7 @@ import Track from "../../components/track/track";
 import { ICar } from "../../interfaces/responseData";
 import ApiCars from "../../services/apiCars";
 import createPrevNext from "../../utils/createPrevNext";
-import refreshCarsTitles from "../../utils/refreshCars";
+import refreshTitles from "../../utils/refreshTitles";
 import "./style.scss";
 
 export default class Garage extends Page {
@@ -23,7 +23,7 @@ export default class Garage extends Page {
   public set setCars(v: ICar[]) {
     this.cars = v;
     this.count = this.cars.length;
-    refreshCarsTitles(this);
+    refreshTitles(this);
   }
 
   public get getCars(): ICar[] {

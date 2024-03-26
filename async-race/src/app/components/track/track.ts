@@ -15,12 +15,6 @@ export default class Track extends View {
 
   constructor(page: IPage) {
     super({ tag: "div", class: ["track"], text: "" });
-    // if (!(page instanceof Garage))
-    //   throw new Error("'Page' isn't instanceof 'Garage'");
-    // this.garage = page;
-    // page.getCars.forEach((car: ICar) => {
-    //   console.log(car);
-    // });
     this.page = page;
     this.loadCars();
   }
@@ -33,7 +27,6 @@ export default class Track extends View {
 
   async refreshCars() {
     this.getHTMLElement().innerHTML = "";
-    console.log(this.cars);
 
     this.cars.forEach((car: ICar) => {
       const road = createCarMarkup(car);
