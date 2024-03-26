@@ -7,6 +7,29 @@
   order: 1;
 }
 
+.road-wrap{
+  position: relative;
+}
+
+.car-title{
+  color: var(--main-color);
+  font:
+      400 2rem/1 "Dancing Script",
+      cursive;
+}
+
+.btns-car-wrap{
+  position: absolute;
+  right: 150px;
+  top: 3px;
+  display: flex;
+  gap: 1rem;
+
+  & > .button{
+    padding: 0.3rem .5rem .2rem;
+  }
+}
+
 .road {
   display: flex;
   align-items: center;

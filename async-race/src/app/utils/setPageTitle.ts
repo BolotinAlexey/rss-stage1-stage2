@@ -15,6 +15,6 @@ export default async function setPageTitle(page: IPage) {
     ["title", `${page.namePage}__title`],
     `${page.namePage} (${page.count})`,
   );
-  titleWrap.append(title, setPageNum(page))
+  titleWrap.append(title, setPageNum(page));
   page.getHTMLElement().append(titleWrap);
 }

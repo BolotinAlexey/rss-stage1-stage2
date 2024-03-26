@@ -8,7 +8,6 @@ import View from "../../views/view";
 import "./style.scss";
 
 export default class Track extends View {
-  // garage: Garage;
   cars: ICar[] = [];
 
   page: IPage;
