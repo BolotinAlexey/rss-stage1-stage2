@@ -2,6 +2,7 @@ import Page from "../../components/page/page";
 import Track from "../../components/track/track";
 import { ICar } from "../../interfaces/responseData";
 import StoreTrack from "../../store/track";
+import createRaceResetGenerateBtns from "../../utils/createRaceResetGenerateBtns";
 import refreshTitles from "../../utils/refreshTitles";
 import "./style.scss";
 
@@ -15,6 +16,7 @@ export default class Garage extends Page {
     StoreTrack.setTrack = new Track(this);
     const tr = StoreTrack.getTrack;
     if (tr) this.getHTMLElement().append(tr.getHTMLElement());
+    createRaceResetGenerateBtns(this);
   }
 
   public set setCars(cars: ICar[]) {

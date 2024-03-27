@@ -18,7 +18,7 @@ export default function createCarMarkup(car: ICar, track: ITrack) {
     "start",
     "stop",
   ].map((action: string) => {
-    const btn = new Button(action, action, (e: Event) =>
+    const btn = new Button(`button-${action}`, action, (e: Event) =>
       actionBtnGenerate(e, car, track),
     );
     btn.getHTMLElement().id = action;
