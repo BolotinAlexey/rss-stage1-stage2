@@ -1,12 +1,16 @@
 import { ICar } from "../../interfaces/responseData";
 import "./style.scss";
 
-export default class Car {
+export default class Car implements ICar {
   id: number;
 
   color: string;
 
   name: string;
+
+  idFrame: number | null = null;
+
+  html?: HTMLElement | null = null;
 
   constructor(prop: ICar) {
     this.id = prop.id;
@@ -14,19 +18,11 @@ export default class Car {
     this.name = prop.name;
   }
 
-  // onSelect() {
-  //   console.log(this.id);
+  // public set setHTML(v : HTMLElement) {
+  //   this.carHTML = v;
   // }
 
-  // onRemove() {
-  //   console.log(this.id);
-  // }
-
-  // onStart() {
-  //   console.log(this.id);
-  // }
-
-  // onStop() {
-  //   console.log(this.id);
+  // public get getHTML(): HTMLElement {
+  //   return this.carHTML;
   // }
 }

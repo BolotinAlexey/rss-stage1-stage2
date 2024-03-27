@@ -3,7 +3,6 @@ import ITrack from "../interfaces/track";
 import onRemoveCar from "./onRemoveCar";
 import onSelectCar from "./onSelectCar";
 import onStartStopCar from "./onStartStopCar";
-import onStopCar from "./onStopCar";
 
 export default function actionBtnGenerate(e: Event, car: ICar, track: ITrack) {
   const { target } = e;

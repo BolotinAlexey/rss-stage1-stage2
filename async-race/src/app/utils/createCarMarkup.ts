@@ -11,6 +11,7 @@ export default function createCarMarkup(car: ICar, track: ITrack) {
   const btnsWrap: HTMLElement = createElement("div", ["btns-car-wrap"]);
   const road: HTMLElement = createElement("div", ["road"]);
   const carSpan: HTMLElement = createElement("span", ["road__car"]);
+  car.html = carSpan;
 
   const arrBtns: HTMLButtonElement[] = [
     "select",

@@ -2,6 +2,7 @@ import { ResponseEngine, StatusEngine } from "../interfaces/engine";
 import { ICar } from "../interfaces/responseData";
 import ITrack from "../interfaces/track";
 import ApiCars from "../services/apiCars";
+import startAnimation from "./startAnimation";
 
 export default async function onStartStopCar(
   car: ICar,
@@ -13,5 +14,6 @@ export default async function onStartStopCar(
     car,
     action,
   );
-  console.log(car, track, dataEngine);
+  if (!dataEngine) return;
+  car.idFrame = startAnimation(car, dataEngine.distance / dataEngine.velocity);
 }

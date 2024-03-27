@@ -3,6 +3,8 @@ interface ICar {
   id: number;
   color: string;
   name: string;
+  html?: HTMLElement | null;
+  idFrame?: number | null;
 }
 
 export { DataWinners, ICar };
