@@ -1,8 +1,10 @@
+import Track from "../components/track/track";
 import IPage from "../interfaces/IPage";
 import Action from "../interfaces/action";
 import { ICar } from "../interfaces/responseData";
 import ApiCars from "../services/apiCars";
 import StoreCars from "../store/cars";
+import StoreTrack from "../store/track";
 import createCar from "./createCar";
 // import updateCar from "./updateCar";
 
@@ -33,5 +35,7 @@ export default async function onSubmitCreateCar(
       name: name.value,
       color: color.value,
     });
+    const tr: Track | null = StoreTrack.getTrack;
+    if (tr) tr.loadCars();
   }
 }
