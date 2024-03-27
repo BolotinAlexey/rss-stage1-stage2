@@ -9,6 +9,8 @@ export default class Garage extends Page {
 
   track: Track;
 
+  car: ICar | null = null;
+
   constructor() {
     super("garage");
     this.track = new Track(this);
@@ -29,5 +31,14 @@ export default class Garage extends Page {
     this.num = num;
     refreshTitles(this);
     this.track.loadCars();
+  }
+
+  public set setCar(car: ICar) {
+    this.car = car;
+    this.track.loadCars();
+  }
+
+  public get getCar(): ICar | null {
+    return this.car;
   }
 }

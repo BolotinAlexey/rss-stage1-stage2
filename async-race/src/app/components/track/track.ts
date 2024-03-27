@@ -8,6 +8,8 @@ import Page from "../page/page";
 import "./style.scss";
 
 export default class Track extends View {
+  static track: Track | null = null;
+
   cars: ICar[] = [];
 
   page: Page;
@@ -30,5 +32,13 @@ export default class Track extends View {
       const road = createCarMarkup(car, this);
       this.getHTMLElement().append(road);
     });
+  }
+
+  static set setTrack(track: Track) {
+    this.track = track;
+  }
+
+  public static get getTrack(): Track | null {
+    return this.track;
   }
 }

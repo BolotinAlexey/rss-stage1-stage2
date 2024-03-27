@@ -38,6 +38,19 @@ export default class ApiCars {
     const res: Response = await fetch(`${ADDRESS}/garage/${id}`, {
       method: "DELETE",
     });
-    console.log(res.ok);
+    console.log(`remove: ${res.ok}`);
+  }
+
+  static async updateCar(car: ICar | null) {
+    if (!car) return;
+    const res: Response = await fetch(`${ADDRESS}/garage/${car.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name: car.name, color: car.color }),
+    });
+
+    console.log(`update: ${res.ok}`);
   }
 }

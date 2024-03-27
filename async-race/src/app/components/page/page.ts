@@ -37,6 +37,6 @@ export default abstract class Page extends View implements IPage {
   // }
 
   public get getCount(): number {
-    return this.num;
+    return this.count;
   }
 }

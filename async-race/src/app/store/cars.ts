@@ -1,28 +1,14 @@
-// import DataCar from "../interfaces/dataCar";
-// import { ICar } from "../interfaces/responseData";
-// // eslint-disable-next-line import/no-cycle
-// import { Garage } from "../pages/index";
-// import ApiCars from "../services/apiCars";
+import { ICar } from "../interfaces/responseData";
 
-// export default class StoreCars {
-//   apiCars = new ApiCars();
+export default class StoreCars {
+  static car: ICar | null = null;
 
-//   garage: Garage;
+  public static set setCar(car: ICar) {
+    this.car = car;
+    // this.track.loadCars();
+  }
 
-//   cars: ICar[] = [];
-
-//   constructor() {
-//     this.getCars();
-//   }
-
-//   async getCars() {
-//     this.cars = await this.apiCars.getCars();
-//     if (!this.cars) this.cars = [];
-//   }
-
-//   async setCar({ name, color }: DataCar) {
-//     const car = await this.apiCars.createCar({ name, color });
-//     this.cars = await this.apiCars.getCars();
-//     this.garage.cars = this.cars;
-//   }
-// }
+  public static get getCar(): ICar | null {
+    return this.car;
+  }
+}
