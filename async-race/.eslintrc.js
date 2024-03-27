@@ -21,5 +21,7 @@ module.exports = {
       },
     },
   ],
-  rules: {},
+  rules: {
+     "no-bitwise": "allow"
+  },
 };
