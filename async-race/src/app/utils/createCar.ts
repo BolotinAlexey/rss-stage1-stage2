@@ -1,5 +1,5 @@
-import Track from "../components/track/track";
 import IPage from "../interfaces/IPage";
+import ITrack from "../interfaces/track";
 import ApiCars from "../services/apiCars";
 import StoreTrack from "../store/track";
 
@@ -14,6 +14,6 @@ export default async function createCar(
   if ("setCars" in fakePage) {
     fakePage.setCars = await ApiCars.getAllCars();
   }
-  const tr: Track | null = StoreTrack.getTrack;
+  const tr: ITrack | null = StoreTrack.getTrack;
   if (tr) tr.loadCars();
 }

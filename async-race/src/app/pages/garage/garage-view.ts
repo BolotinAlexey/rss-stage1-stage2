@@ -8,8 +8,6 @@ import "./style.scss";
 export default class Garage extends Page {
   private cars: ICar[] = [];
 
-  // track: Track;
-
   car: ICar | null = null;
 
   constructor() {

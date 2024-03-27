@@ -1,12 +1,12 @@
 import Button from "../components/button/button";
-import Track from "../components/track/track";
 import { ICar } from "../interfaces/responseData";
+import ITrack from "../interfaces/track";
 import carSvg from "../markups/carSvg";
 import flagSvg from "../markups/flagSvg";
 import { createElement } from "../services/supFunctions";
 import actionBtnGenerate from "./actionBtnGenerate";
 
-export default function createCarMarkup(car: ICar, track: Track) {
+export default function createCarMarkup(car: ICar, track: ITrack) {
   const roadWrap: HTMLElement = createElement("div", ["road-wrap"]);
   const btnsWrap: HTMLElement = createElement("div", ["btns-car-wrap"]);
   const road: HTMLElement = createElement("div", ["road"]);

@@ -1,9 +1,8 @@
-import Track from "../components/track/track";
 import { ICar } from "../interfaces/responseData";
 import { getElementDocument } from "../services/supFunctions";
 import StoreCars from "../store/cars";
 
-export default function onSelectCar(car: ICar, track: Track) {
+export default function onSelectCar(car: ICar) {
   StoreCars.setCar = car;
   const formUpdate = getElementDocument<HTMLFormElement>(".page__form_update");
   if (!(formUpdate[0] instanceof HTMLInputElement))

@@ -1,18 +1,18 @@
-import Track from "../components/track/track";
 import { ICar } from "../interfaces/responseData";
+import ITrack from "../interfaces/track";
 import onRemoveCar from "./onRemoveCar";
 import onSelectCar from "./onSelectCar";
 import onStartCar from "./onStartCar";
 import onStopCar from "./onStopCar";
 
-export default function actionBtnGenerate(e: Event, car: ICar, track: Track) {
+export default function actionBtnGenerate(e: Event, car: ICar, track: ITrack) {
   const { target } = e;
   if (!(target instanceof HTMLButtonElement))
     throw new Error(`${target} isn't HTMLButtonElement`);
   const idBtn = target.id;
   switch (idBtn) {
     case "select":
-      onSelectCar(car, track);
+      onSelectCar(car);
       break;
 
     case "remove":
