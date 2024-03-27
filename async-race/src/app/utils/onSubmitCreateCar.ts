@@ -1,12 +1,10 @@
 import Track from "../components/track/track";
 import IPage from "../interfaces/IPage";
 import Action from "../interfaces/action";
-import { ICar } from "../interfaces/responseData";
 import ApiCars from "../services/apiCars";
 import StoreCars from "../store/cars";
 import StoreTrack from "../store/track";
 import createCar from "./createCar";
-// import updateCar from "./updateCar";
 
 export default async function onSubmitCreateCar(
   e: Event,
@@ -27,7 +25,10 @@ export default async function onSubmitCreateCar(
     throw new Error("isn't instanceof HTMLInputElement");
 
   const [name, color] = Object(target.elements);
-  if (action === "create") createCar(name.value, color.value, page);
+  if (action === "create" && target.elements[0].value) {
+    createCar(name.value, color.value, page);
+    target.reset();
+  }
 
   if (action === "update" && StoreCars.getCar) {
     await ApiCars.updateCar({
@@ -37,5 +38,13 @@ export default async function onSubmitCreateCar(
     });
     const tr: Track | null = StoreTrack.getTrack;
     if (tr) tr.loadCars();
+    target.reset();
+
+    Object.values(target).forEach(
+      (el: HTMLInputElement | HTMLButtonElement) => {
+        const fakeEl = el;
+        fakeEl.disabled = true;
+      },
+    );
   }
 }

@@ -27,4 +27,10 @@ export default function formCarGenerate(action: Action, page: IPage) {
   form.addEventListener("submit", (e: Event) =>
     onSubmitCreateCar(e, action, page),
   );
+  if (action === "update") {
+    Object.values(form).forEach((el: HTMLInputElement | HTMLButtonElement) => {
+      const fakeEl = el;
+      fakeEl.disabled = true;
+    });
+  }
 }
