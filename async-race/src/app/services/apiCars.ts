@@ -1,5 +1,6 @@
 import { ADDRESS, CARS_PER_PAGE } from "../constants/index";
 import DataCar from "../interfaces/dataCar";
+import { ResponseEngine, StatusEngine } from "../interfaces/engine";
 import { ICar } from "../interfaces/responseData";
 
 export default class ApiCars {
@@ -52,5 +53,20 @@ export default class ApiCars {
     });
 
     console.log(`update: ${res.ok}`);
+  }
+
+  static async startStopCar(
+    car: ICar | null,
+    status: StatusEngine,
+  ): Promise<ResponseEngine | void> {
+    if (!car) return;
+    const res: Response = await fetch(
+      `${ADDRESS}/engine?id=${car.id}&status=${status}`,
+      {
+        method: "PATCH",
+      },
+    );
+    console.log(`${status}: ${res.ok}`);
+    return res.json();
   }
 }

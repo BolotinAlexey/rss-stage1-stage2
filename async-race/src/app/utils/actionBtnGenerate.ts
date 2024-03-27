@@ -2,7 +2,7 @@ import { ICar } from "../interfaces/responseData";
 import ITrack from "../interfaces/track";
 import onRemoveCar from "./onRemoveCar";
 import onSelectCar from "./onSelectCar";
-import onStartCar from "./onStartCar";
+import onStartStopCar from "./onStartStopCar";
 import onStopCar from "./onStopCar";
 
 export default function actionBtnGenerate(e: Event, car: ICar, track: ITrack) {
@@ -19,12 +19,8 @@ export default function actionBtnGenerate(e: Event, car: ICar, track: ITrack) {
       onRemoveCar(car, track);
       break;
 
-    case "start":
-      onStartCar(car, track);
-      break;
-
-    case "stop":
-      onStopCar(car, track);
+    case "start" || "stop":
+      onStartStopCar(car, track, idBtn);
       break;
 
     default:
