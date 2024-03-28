@@ -22,6 +22,7 @@ export default function createCarMarkup(car: ICar, track: ITrack) {
     const btn = new Button(`button-${action}`, action, (e: Event) =>
       actionBtnGenerate(e, car, track),
     );
+    if (action === "stop") btn.getHTMLElement().disabled = true;
     btn.getHTMLElement().id = action;
     return btn.getHTMLElement();
   });

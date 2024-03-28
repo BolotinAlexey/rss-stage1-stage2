@@ -13,3 +13,8 @@
     background-color: rgba(var(--success-color), 0.3);
   }
 }
+
+.disabled {
+  position: absolute;
+  z-index: -10;
+}

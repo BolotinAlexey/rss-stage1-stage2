@@ -19,11 +19,11 @@ export default function actionBtnGenerate(e: Event, car: ICar, track: ITrack) {
       break;
 
     case "start":
-      onStartStopCar(car, track, idBtn);
+      onStartStopCar(car, track, idBtn, target);
       break;
 
     case "stop":
-      onStartStopCar(car, track, idBtn);
+      onStartStopCar(car, track, idBtn, target);
       break;
 
     default:
