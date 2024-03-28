@@ -15,5 +15,14 @@ export default async function onStartStopCar(
     action,
   );
   if (!dataEngine) return;
-  car.idFrame = startAnimation(car, dataEngine.distance / dataEngine.velocity);
+  startAnimation(car, dataEngine.distance / dataEngine.velocity);
+  const statusCode = await ApiCars.driveCar(car);
+  if (statusCode === 500 && car.idFrame) {
+    cancelAnimationFrame(car.idFrame);
+    car.idFrame = null;
+    if (!car.html?.classList.contains("crash"))
+      car.html?.classList.add("crash");
+    if (car.html?.style.transform)
+      car.html.style.transform = car.html.style.transform + " rotate(180deg)";
+  }
 }

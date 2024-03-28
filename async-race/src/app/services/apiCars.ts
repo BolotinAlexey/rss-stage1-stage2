@@ -69,4 +69,20 @@ export default class ApiCars {
     console.log(`${status}: ${res.ok}`);
     return res.json();
   }
+
+  static async driveCar(car: ICar | null): Promise<number | void> {
+    if (!car) return;
+    let res: Response | null = null;
+    try {
+      res = await fetch(`${ADDRESS}/engine?id=${car.id}&status=drive`, {
+        method: "PATCH",
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      return !!res ? res.status : undefined;
+    }
+
+    // return res.json();
+  }
 }

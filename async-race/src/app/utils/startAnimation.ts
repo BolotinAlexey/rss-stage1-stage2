@@ -1,15 +1,12 @@
 import { CAR_OFFSET, FRAME_FREQUENCY } from "../constants/index";
 import { ICar } from "../interfaces/responseData";
 
-export default function startAnimation(
-  car: ICar,
-  duration: number,
-): number | null {
-  if (!car.html) return null;
+export default function startAnimation(car: ICar, duration: number) {
+  if (!car.html) return;
   const w: number = window.innerWidth - CAR_OFFSET;
-  const delta: number = (w * 1000 * FRAME_FREQUENCY) / duration;
+  const delta: number = (w * 280 * FRAME_FREQUENCY) / duration;
   let distance: number = 0;
-  return requestAnimationFrame(step);
+  car.idFrame = requestAnimationFrame(step);
 
   function step() {
     distance += delta;
@@ -20,6 +17,6 @@ export default function startAnimation(
       return;
     }
 
-    requestAnimationFrame(step);
+    car.idFrame = requestAnimationFrame(step);
   }
 }
