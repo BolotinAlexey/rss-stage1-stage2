@@ -82,7 +82,5 @@ export default class ApiCars {
     } finally {
       return !!res ? res.status : undefined;
     }
-
-    // return res.json();
   }
 }

@@ -1,5 +1,7 @@
 .road__car {
-  transition: rotate 0.25s linear;
+  position: relative;
+  bottom: 10px;
+  transition: transform 2.5s linear;
 }
 
 .crash {

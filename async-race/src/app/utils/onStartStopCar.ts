@@ -2,6 +2,8 @@ import { ResponseEngine, StatusEngine } from "../interfaces/engine";
 import { ICar } from "../interfaces/responseData";
 import ITrack from "../interfaces/track";
 import ApiCars from "../services/apiCars";
+import onStartCar from "./onStartCar";
+import onStopCar from "./onStopCar";
 import startAnimation from "./startAnimation";
 
 export default async function onStartStopCar(
@@ -14,15 +16,8 @@ export default async function onStartStopCar(
     car,
     action,
   );
+
   if (!dataEngine) return;
-  startAnimation(car, dataEngine.distance / dataEngine.velocity);
-  const statusCode = await ApiCars.driveCar(car);
-  if (statusCode === 500 && car.idFrame) {
-    cancelAnimationFrame(car.idFrame);
-    car.idFrame = null;
-    if (!car.html?.classList.contains("crash"))
-      car.html?.classList.add("crash");
-    if (car.html?.style.transform)
-      car.html.style.transform = car.html.style.transform + " rotate(180deg)";
-  }
+  if (action === "started") onStartCar(car, dataEngine);
+  else onStopCar(car, dataEngine);
 }

@@ -18,7 +18,11 @@ export default function actionBtnGenerate(e: Event, car: ICar, track: ITrack) {
       onRemoveCar(car, track);
       break;
 
-    case "start" || "stop":
+    case "start":
+      onStartStopCar(car, track, idBtn);
+      break;
+
+    case "stop":
       onStartStopCar(car, track, idBtn);
       break;
 

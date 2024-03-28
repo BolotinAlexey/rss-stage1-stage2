@@ -55,6 +55,16 @@
   border-bottom: dashed 2px var(--main-color);
 }
 
+.road__car {
+  position: relative;
+  top: 10px;
+  transition: transform 0.5s linear;
+}
+
+// .crash {
+//   rotate: 180deg;
+// }
+
 .flag-svg {
   margin-right: 100px;
 }
