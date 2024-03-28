@@ -1,6 +1,8 @@
 import IPage from "../interfaces/IPage";
 import RaceResetGenerate from "../interfaces/raceResetGenerate";
 import onGenerate from "./onGenerate";
+import onRace from "./onRace";
+import onReset from "./onReset";
 
 export default function onRaceResetGenerate(
   e: Event,
@@ -10,6 +12,12 @@ export default function onRaceResetGenerate(
   switch (name) {
     case "generate":
       onGenerate(page);
+      break;
+    case "race":
+      onRace(e, page);
+      break;
+    case "generate":
+      onReset(e, page);
       break;
 
     default:

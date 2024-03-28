@@ -10,15 +10,17 @@ export default async function onStartStopCar(
   car: ICar,
   track: ITrack,
   btn: "start" | "stop",
-  target: HTMLButtonElement,
+  target?: HTMLButtonElement,
 ) {
   const action: StatusEngine = btn === "start" ? "started" : "stopped";
 
-  const currentDisabled =
-    target.parentElement?.querySelector("button:disabled");
-  if (currentDisabled && currentDisabled instanceof HTMLButtonElement)
-    currentDisabled.disabled = false;
-  target.disabled = true;
+  if (target) {
+    const currentDisabled =
+      target.parentElement?.querySelector("button:disabled");
+    if (currentDisabled && currentDisabled instanceof HTMLButtonElement)
+      currentDisabled.disabled = false;
+    target.disabled = true;
+  }
 
   const dataEngine: ResponseEngine | void = await ApiCars.startStopCar(
     car,
@@ -26,7 +28,11 @@ export default async function onStartStopCar(
   );
 
   if (!dataEngine) return;
-
-  if (action === "started") onStartCar(car, dataEngine);
-  else onStopCar(car, dataEngine);
+  const time: number = dataEngine.distance / dataEngine.velocity;
+  let statusCode: number | void = undefined;
+  if (action === "started") statusCode = await onStartCar(car, time);
+  else onStopCar(car);
+  if (statusCode === 200) {
+    return Promise.resolve({ time, car });
+  } else return Promise.reject();
 }

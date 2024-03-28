@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["es2022", "dom", "dom.iterable"],
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "module": "es6",
