@@ -1,3 +1,5 @@
 type DataWinner = Record<"id" | "wins" | "time", number>;
 
-export default DataWinner;
+type DataWinnerRequire = Omit<DataWinner, "id">;
+
+export { DataWinner, DataWinnerRequire };

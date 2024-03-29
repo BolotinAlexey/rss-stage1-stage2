@@ -1,15 +1,15 @@
 import { ADDRESS, CARS_PER_WINNERS_PAGE } from "../constants/index";
-import DataWinner from "../interfaces/dataWinner";
+import { DataWinner } from "../interfaces/dataWinner";
 import Sort from "../interfaces/sort";
 
 export default class ApiWinners {
   static async getWinners(
     num: number = 1,
     sort: Sort = "id",
-    isAsc: boolean = true,
+    order: "ASC" | "DESC" = "ASC",
   ): Promise<DataWinner[]> {
     const res: Response = await fetch(
-      `${ADDRESS}/winners?_page=${num}&_limit=${CARS_PER_WINNERS_PAGE}`,
+      `${ADDRESS}/winners?_page=${num}&_limit=${CARS_PER_WINNERS_PAGE}&_sort=${sort}&_order=${order}`,
     );
     const content: DataWinner[] = await res.json();
     return content;
@@ -17,7 +17,7 @@ export default class ApiWinners {
 
   static async getAllWinners(): Promise<DataWinner[]> {
     const res: Response = await fetch(`${ADDRESS}/winners`);
-    const content: ICar[] = await res.json();
+    const content: DataWinner[] = await res.json();
     return content;
   }
 
@@ -28,32 +28,32 @@ export default class ApiWinners {
   }
 
   static async removeWinner(id: number) {
-    const res: Response = await fetch(`${ADDRESS}/garage/${id}`, {
+    const res: Response = await fetch(`${ADDRESS}/winners/${id}`, {
       method: "DELETE",
     });
     console.log(`remove: ${res.ok}`);
   }
 
-  static async updateWinner(car: ICar | null) {
-    if (!car) return;
-    const res: Response = await fetch(`${ADDRESS}/garage/${car.id}`, {
+  static async updateWinner(winner: DataWinner | null) {
+    if (!winner) return;
+    const res: Response = await fetch(`${ADDRESS}/winner/${winner.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name: car.name, color: car.color }),
+      body: JSON.stringify({ wins: winner.wins, time: winner.time }),
     });
 
     console.log(`update: ${res.ok}`);
   }
 
-  async createWinner(dataWinner: DataWinner) {
+  async createWinner(winner: DataWinner) {
     const res: Response = await fetch(`${ADDRESS}/winner`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(dataWinner),
+      body: JSON.stringify(winner),
     });
     return res.json();
   }

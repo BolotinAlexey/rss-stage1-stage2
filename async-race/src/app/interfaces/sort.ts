@@ -1,3 +1,3 @@
-type Sort = Record<"id" | "wins" | "time", string>;
+type Sort = "id" | "wins" | "time";
 
 export default Sort;
