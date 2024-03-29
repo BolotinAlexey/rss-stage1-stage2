@@ -38,7 +38,6 @@ export default async function onStartStopCar(
   if (statusCode === 200) {
     return Promise.resolve({ time, car });
   } else {
-    console.log("reject");
     return Promise.reject("crash");
   }
 }

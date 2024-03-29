@@ -78,7 +78,7 @@ export default class ApiCars {
         method: "PATCH",
       });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     } finally {
       return !!res ? res.status : undefined;
     }

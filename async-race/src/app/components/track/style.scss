@@ -94,4 +94,10 @@
   color: rgb(255, 0, 255);
   -webkit-text-stroke: 3px rgb(221, 255, 0);
   text-align: center;
+  transition: opacity linear 1s;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+  }
 }
