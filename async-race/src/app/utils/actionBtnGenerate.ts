@@ -4,7 +4,11 @@ import onRemoveCar from "./onRemoveCar";
 import onSelectCar from "./onSelectCar";
 import onStartStopCar from "./onStartStopCar";
 
-export default function actionBtnGenerate(e: Event, car: ICar, track: ITrack) {
+export default async function actionBtnGenerate(
+  e: Event,
+  car: ICar,
+  track: ITrack,
+) {
   const { target } = e;
   if (!(target instanceof HTMLButtonElement))
     throw new Error(`${target} isn't HTMLButtonElement`);
@@ -19,7 +23,11 @@ export default function actionBtnGenerate(e: Event, car: ICar, track: ITrack) {
       break;
 
     case "start":
-      onStartStopCar(car, track, idBtn, target);
+      try {
+        await onStartStopCar(car, track, idBtn, target);
+      } catch (error) {
+        console.log(`Crash drive ${car.name}!!!`);
+      }
       break;
 
     case "stop":

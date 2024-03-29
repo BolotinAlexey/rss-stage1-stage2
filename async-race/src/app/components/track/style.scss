@@ -83,3 +83,15 @@
 .flag-svg {
   margin-right: 100px;
 }
+
+.winner-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Luckiest Guy";
+  font-size: 3.5rem;
+  color: rgb(255, 0, 255);
+  -webkit-text-stroke: 3px rgb(221, 255, 0);
+  text-align: center;
+}

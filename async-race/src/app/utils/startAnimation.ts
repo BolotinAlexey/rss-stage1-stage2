@@ -4,7 +4,7 @@ import { ICar } from "../interfaces/responseData";
 export default function startAnimation(car: ICar, duration: number) {
   if (!car.html) return;
   const w: number = window.innerWidth - CAR_OFFSET;
-  const delta: number = (w * 280 * FRAME_FREQUENCY) / duration;
+  const delta: number = (w * FRAME_FREQUENCY) / duration;
   let distance: number = 0;
   car.idFrame = requestAnimationFrame(step);
 

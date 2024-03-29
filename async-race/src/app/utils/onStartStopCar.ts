@@ -31,8 +31,14 @@ export default async function onStartStopCar(
   const time: number = dataEngine.distance / dataEngine.velocity;
   let statusCode: number | void = undefined;
   if (action === "started") statusCode = await onStartCar(car, time);
-  else onStopCar(car);
+  else {
+    onStopCar(car);
+    return;
+  }
   if (statusCode === 200) {
     return Promise.resolve({ time, car });
-  } else return Promise.reject();
+  } else {
+    console.log("reject");
+    return Promise.reject("crash");
+  }
 }
