@@ -1,4 +1,5 @@
 const CARS_PER_PAGE: number = 7;
+const CARS_PER_WINNERS_PAGE: number = 10;
 const ADDRESS: string = "http://127.0.0.1:3000";
 const NUMBER_CARS_GENERATE = 100;
 const FRAME_FREQUENCY = (60 * 300) / 1000;
@@ -8,6 +9,7 @@ const TIME_SHOW_WINNER_OPCITY = 1000;
 
 export {
   CARS_PER_PAGE,
+  CARS_PER_WINNERS_PAGE,
   ADDRESS,
   NUMBER_CARS_GENERATE,
   FRAME_FREQUENCY,

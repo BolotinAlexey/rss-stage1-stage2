@@ -1,7 +1,7 @@
 import { NUMBER_CARS_GENERATE } from "../constants/index";
 import IPage from "../interfaces/IPage";
 import DataCar from "../interfaces/dataCar";
-import { ICar } from "../interfaces/responseData";
+import { ICar } from "../interfaces/responseDataCar";
 import ITrack from "../interfaces/track";
 import ApiCars from "../services/apiCars";
 import StoreTrack from "../store/track";

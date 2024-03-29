@@ -1,7 +1,7 @@
 import { ADDRESS, CARS_PER_PAGE } from "../constants/index";
 import DataCar from "../interfaces/dataCar";
 import { ResponseEngine, StatusEngine } from "../interfaces/engine";
-import { ICar } from "../interfaces/responseData";
+import { ICar } from "../interfaces/responseDataCar";
 
 export default class ApiCars {
   static async getCars(num: number = 1): Promise<ICar[]> {

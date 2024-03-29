@@ -1,4 +1,4 @@
-import { ICar } from "../interfaces/responseData";
+import { ICar } from "../interfaces/responseDataCar";
 import StoreTrack from "./track";
 
 export default class StoreCars {

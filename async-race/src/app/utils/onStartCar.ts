@@ -1,5 +1,5 @@
 import { ResponseEngine } from "../interfaces/engine";
-import { ICar } from "../interfaces/responseData";
+import { ICar } from "../interfaces/responseDataCar";
 import ApiCars from "../services/apiCars";
 import startAnimation from "./startAnimation";
 

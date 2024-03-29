@@ -1,4 +1,4 @@
-import { ICar } from "../../interfaces/responseData";
+import { ICar } from "../../interfaces/responseDataCar";
 import "./style.scss";
 
 export default class Car implements ICar {

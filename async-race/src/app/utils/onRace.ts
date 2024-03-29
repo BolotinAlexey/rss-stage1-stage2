@@ -1,7 +1,7 @@
 import Track from "../components/track/track";
 import IPage from "../interfaces/IPage";
 import RaceResetGenerate from "../interfaces/raceResetGenerate";
-import { ICar } from "../interfaces/responseData";
+import { ICar } from "../interfaces/responseDataCar";
 import ITrack from "../interfaces/track";
 import StoreTrack from "../store/track";
 import onStartStopCar from "./onStartStopCar";

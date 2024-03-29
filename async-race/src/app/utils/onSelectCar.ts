@@ -1,4 +1,4 @@
-import { ICar } from "../interfaces/responseData";
+import { ICar } from "../interfaces/responseDataCar";
 import { getElementDocument } from "../services/supFunctions";
 import StoreCars from "../store/cars";
 

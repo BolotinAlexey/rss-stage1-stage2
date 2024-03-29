@@ -1,5 +1,5 @@
 import Button from "../components/button/button";
-import { ICar } from "../interfaces/responseData";
+import { ICar } from "../interfaces/responseDataCar";
 import ITrack from "../interfaces/track";
 import carSvg from "../markups/carSvg";
 import flagSvg from "../markups/flagSvg";

@@ -1,4 +1,4 @@
-import { ICar } from "../interfaces/responseData";
+import { ICar } from "../interfaces/responseDataCar";
 import ITrack from "../interfaces/track";
 import ApiCars from "../services/apiCars";
 

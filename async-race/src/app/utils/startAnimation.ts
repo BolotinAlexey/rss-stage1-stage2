@@ -1,5 +1,5 @@
 import { CAR_OFFSET, FRAME_FREQUENCY } from "../constants/index";
-import { ICar } from "../interfaces/responseData";
+import { ICar } from "../interfaces/responseDataCar";
 
 export default function startAnimation(car: ICar, duration: number) {
   if (!car.html) return;

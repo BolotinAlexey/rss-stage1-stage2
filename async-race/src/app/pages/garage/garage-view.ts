@@ -1,6 +1,6 @@
 import Page from "../../components/page/page";
 import Track from "../../components/track/track";
-import { ICar } from "../../interfaces/responseData";
+import { ICar } from "../../interfaces/responseDataCar";
 import StoreTrack from "../../store/track";
 import createRaceResetGenerateBtns from "../../utils/createRaceResetGenerateBtns";
 import refreshTitles from "../../utils/refreshTitles";
