@@ -1,8 +1,6 @@
-import Track from "../components/track/track";
-import IPage from "../interfaces/IPage";
 import { DataWinner } from "../interfaces/dataWinner";
-import RaceResetGenerate from "../interfaces/raceResetGenerate";
 import { ICar } from "../interfaces/responseDataCar";
+// eslint-disable-next-line import/no-cycle
 import ITrack from "../interfaces/track";
 import ApiWinners from "../services/apiWinners";
 import StoreTrack from "../store/track";
@@ -20,14 +18,13 @@ export default async function onRace() {
 
   try {
     winner = await Promise.any(
-      track.cars.map((car) => {
+      track.cars.map((car: ICar) => {
         setCarBtnsDisabled(car.html, true);
         let promise;
         try {
           promise = onStartStopCar(car, track, "start");
         } catch (error) {
           console.log("There is'nt winner");
-          return;
         }
         return promise;
       }),
@@ -41,8 +38,6 @@ export default async function onRace() {
     let apiWinner: DataWinner | undefined;
     try {
       apiWinner = await ApiWinners.getWinner(winner.car.id);
-      console.log(apiWinner);
-
       if (apiWinner) {
         await ApiWinners.updateWinner({
           time: Math.min(apiWinner.time, winner.time),

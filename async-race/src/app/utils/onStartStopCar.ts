@@ -1,8 +1,9 @@
+/* eslint-disable consistent-return */
 import { ResponseEngine, StatusEngine } from "../interfaces/engine";
 import { ICar } from "../interfaces/responseDataCar";
+// eslint-disable-next-line import/no-cycle
 import ITrack from "../interfaces/track";
 import ApiCars from "../services/apiCars";
-import { getElementDocument } from "../services/supFunctions";
 import onStartCar from "./onStartCar";
 import onStopCar from "./onStopCar";
 
@@ -11,7 +12,7 @@ export default async function onStartStopCar(
   track: ITrack,
   btn: "start" | "stop",
   target?: HTMLButtonElement,
-) {
+): Promise<{ time: number; car: ICar } | undefined> {
   const action: StatusEngine = btn === "start" ? "started" : "stopped";
 
   if (target) {
@@ -19,7 +20,8 @@ export default async function onStartStopCar(
       target.parentElement?.querySelector("button:disabled");
     if (currentDisabled && currentDisabled instanceof HTMLButtonElement)
       currentDisabled.disabled = false;
-    target.disabled = true;
+    const fakeTarget = target;
+    fakeTarget.disabled = true;
   }
 
   const dataEngine: ResponseEngine | void = await ApiCars.startStopCar(
@@ -29,15 +31,14 @@ export default async function onStartStopCar(
 
   if (!dataEngine) return;
   const time: number = dataEngine.distance / dataEngine.velocity;
-  let statusCode: number | void = undefined;
+  let statusCode: number | void;
   if (action === "started") statusCode = await onStartCar(car, time);
   else {
     onStopCar(car);
     return;
   }
   if (statusCode === 200) {
-    return Promise.resolve({ time, car });
-  } else {
-    return Promise.reject("crash");
+    return { time, car };
   }
+  return Promise.reject();
 }

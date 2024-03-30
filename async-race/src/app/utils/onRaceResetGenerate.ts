@@ -1,5 +1,6 @@
 import IPage from "../interfaces/IPage";
 import RaceResetGenerate from "../interfaces/raceResetGenerate";
+// eslint-disable-next-line import/no-cycle
 import onGenerate from "./onGenerate";
 import onRace from "./onRace";
 import onReset from "./onReset";
