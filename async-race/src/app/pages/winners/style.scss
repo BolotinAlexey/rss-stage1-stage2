@@ -1,0 +1,9 @@
+@import url(../../../common.scss);
+.table {
+}
+
+.table__td {
+  padding: 0.5rem 1rem;
+  color: var(--main-color);
+  width: fit-content;
+}

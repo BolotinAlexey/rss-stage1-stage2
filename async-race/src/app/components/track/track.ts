@@ -24,9 +24,6 @@ export default class Track extends View implements ITrack {
     if (!this.cars.length && this.page.num > 1) {
       if (StoreTrack.getTrack && StoreTrack.getTrack.page instanceof Page)
         StoreTrack.getTrack.page.setNum = this.page.num - 1;
-      // Gar
-      // this.page.num = this.page.num - 1;
-      // this.loadCars();
     }
     this.refreshCars();
   }

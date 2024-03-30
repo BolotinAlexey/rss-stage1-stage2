@@ -83,4 +83,10 @@ export default class ApiCars {
       return !!res ? res.status : undefined;
     }
   }
+
+  static async getCar(id: number): Promise<ICar | undefined> {
+    const res: Response = await fetch(`${ADDRESS}/garage/${id}`);
+    console.log(`getCar: ${res.ok}`);
+    return res.json();
+  }
 }
