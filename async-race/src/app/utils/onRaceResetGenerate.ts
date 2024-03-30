@@ -14,7 +14,7 @@ export default function onRaceResetGenerate(
       onGenerate(page);
       break;
     case "race":
-      onRace(e, page);
+      onRace();
       break;
     case "reset":
       onReset(e, page);
