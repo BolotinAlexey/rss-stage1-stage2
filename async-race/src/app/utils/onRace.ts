@@ -1,9 +1,10 @@
-import { DataWinner } from "../interfaces/dataWinner";
 import { ICar } from "../interfaces/responseDataCar";
 // eslint-disable-next-line import/no-cycle
 import ITrack from "../interfaces/track";
 import ApiWinners from "../services/apiWinners";
 import StoreTrack from "../store/track";
+import StoreWinners from "../store/winners";
+import createOrUpdateWinner from "./createOrUpdateWinner";
 import onStartStopCar from "./onStartStopCar";
 import setCarBtnsDisabled from "./setCarBtnsDisabled";
 import setTrackBtnsDisabled from "./setTrackBtnsDisabled";
@@ -35,22 +36,7 @@ export default async function onRace() {
 
   if (winner) {
     showWinner(winner.car.name);
-    let apiWinner: DataWinner | undefined;
-    try {
-      apiWinner = await ApiWinners.getWinner(winner.car.id);
-      if (apiWinner) {
-        await ApiWinners.updateWinner({
-          time: Math.min(apiWinner.time, winner.time),
-          wins: apiWinner.wins + 1,
-          id: winner.car.id,
-        });
-      }
-    } catch (error) {
-      await ApiWinners.createWinner({
-        id: winner.car.id,
-        wins: 1,
-        time: winner.time,
-      });
-    }
+    await createOrUpdateWinner(winner);
+    StoreWinners.getTable?.loadWinners();
   } else showWinner("nobody");
 }
