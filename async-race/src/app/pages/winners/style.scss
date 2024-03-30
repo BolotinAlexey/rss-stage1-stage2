@@ -16,13 +16,15 @@
   color: var(--main-color);
   font-family: "Philosopher", sans-serif;
   text-align: center;
+  text-wrap: nowrap;
 
   &_name {
     font-family: "Dancing Script", cursive;
   }
 }
+
 .table__td_car {
-  padding: 0;
+  padding: 0 1rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -30,5 +32,35 @@
   .table__th {
     padding: 0.3rem 0.7rem;
     font-size: 1rem;
+  }
+}
+
+.button.table__arrow {
+  display: inline;
+  border: none;
+  background-color: transparent;
+  color: var(--main-color);
+
+  &:hover {
+    background-color: transparent;
+    animation: skewY 1s linear infinite;
+  }
+}
+
+@keyframes skewY {
+  0% {
+    transform: skewY(0);
+  }
+  25% {
+    transform: skewY(30deg);
+  }
+  50% {
+    transform: skewY(0);
+  }
+  75% {
+    transform: skewY(-30deg);
+  }
+  100% {
+    transform: skewY(0);
   }
 }

@@ -1,4 +1,5 @@
 import { createElement } from "../services/supFunctions";
+import createArrowBtn from "./createArrowBtn";
 
 export default function createThead(table: HTMLTableElement) {
   const thead = createElement<HTMLTableSectionElement>("thead", [
@@ -13,6 +14,8 @@ export default function createThead(table: HTMLTableElement) {
       ["table__th", `table__td_${name.toLowerCase()}`],
       name,
     );
+    if (name === "Wins" || name === "Best_time")
+      th.append(createArrowBtn(name));
     return th;
   });
 
