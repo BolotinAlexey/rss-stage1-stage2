@@ -22,8 +22,8 @@ export default class Table extends View {
   async loadWinners() {
     this.winners = await ApiWinners.getWinners(this.page.num);
     if (!this.winners.length && this.page.num > 1) {
-      // if (StoreWinners.getWinners && StoreWinners.getWinners.table instanceof Table)
-      // StoreWinners.getTable?.page.setNum = this.page.num - 1;
+      if (StoreWinners.getTable && StoreWinners.getTable.page instanceof Page)
+        StoreWinners.getTable.page.setNum = this.page.num - 1;
     }
     this.refreshWinners();
   }
@@ -32,8 +32,9 @@ export default class Table extends View {
     this.getHTMLElement().innerHTML = "";
     createThead(this.getHTMLElement());
 
-    this.winners.forEach((winner: DataWinner) => {
-      const row = createWinnerMarkup(winner, this);
+    this.winners.forEach((winner: DataWinner, i: number) => {
+      const index = (this.page.getNum - 1) * 10 + i;
+      const row = createWinnerMarkup(winner, this, index);
       this.getHTMLElement().append(row);
     });
   }

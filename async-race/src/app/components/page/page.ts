@@ -31,11 +31,6 @@ export default abstract class Page extends View implements IPage {
     return this.num;
   }
 
-  // public set setCount(num: number) {
-  //   this.num = num;
-  //   refreshTitles(this);
-  // }
-
   public get getCount(): number {
     return this.count;
   }

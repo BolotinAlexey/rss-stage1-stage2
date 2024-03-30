@@ -6,12 +6,12 @@ import { createElement } from "../../services/supFunctions";
 import View from "../../views/view";
 
 export default class Row extends View {
-  constructor(winner: DataWinner) {
+  constructor(winner: DataWinner, i: number) {
     super({ tag: "tr", class: ["table__tr"], text: "" });
-    this.createRowMarkup(winner);
+    this.createRowMarkup(winner, i);
   }
 
-  public async createRowMarkup(winner: DataWinner) {
+  public async createRowMarkup(winner: DataWinner, i: number) {
     const car: ICar | undefined = await ApiCars.getCar(winner.id);
     if (!car) return;
     const carSpan: HTMLElement = createElement("div", [
@@ -32,8 +32,13 @@ export default class Row extends View {
       ["table__td", `table__td_wins`],
       winner.time.toString(),
     );
+    const index = createElement(
+      "td",
+      ["table__td", `table__td_number`],
+      (i + 1).toString(),
+    );
 
-    this.getHTMLElement().append(carSpan, name, wins, time);
+    this.getHTMLElement().append(index, carSpan, name, wins, time);
   }
 
   public getHTMLElement(): HTMLTableRowElement {

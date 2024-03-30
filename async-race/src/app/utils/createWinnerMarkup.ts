@@ -5,7 +5,8 @@ import { DataWinner } from "../interfaces/dataWinner";
 export default function createWinnerMarkup(
   winner: DataWinner,
   table: Table,
+  i: number,
 ): HTMLTableRowElement {
-  const row = new Row(winner);
+  const row = new Row(winner, i);
   return row.getHTMLElement();
 }

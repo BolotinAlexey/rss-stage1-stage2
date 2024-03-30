@@ -38,7 +38,7 @@ export default async function onStartStopCar(
     return;
   }
   if (statusCode === 200) {
-    return { time, car };
+    return { time: +(time / 1000).toFixed(2), car };
   }
   return Promise.reject();
 }

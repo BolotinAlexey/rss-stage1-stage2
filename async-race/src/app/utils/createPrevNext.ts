@@ -1,4 +1,5 @@
 import Button from "../components/button/button";
+// eslint-disable-next-line import/no-cycle
 import Page from "../components/page/page";
 import { createElement } from "../services/supFunctions";
 
@@ -12,16 +13,6 @@ export default function createPrevNext(context: Page) {
     });
     return btn;
   });
-
-  // const prev = new Button("prev", "prev", () => {
-  //   const fakePage: Page = context;
-  //   fakePage.setNum = fakePage.getNum - 1;
-  // });
-
-  // const next = new Button("prev", "prev", () => {
-  //   const fakePage: Page = context;
-  //   fakePage.setNum = fakePage.getNum + 1;
-  // });
 
   const btnWrap = createElement("div", ["btns-wrap"]);
   btnWrap.append(prev.getHTMLElement(), next.getHTMLElement());

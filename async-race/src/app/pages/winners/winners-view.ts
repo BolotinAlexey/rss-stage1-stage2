@@ -1,6 +1,7 @@
 import Page from "../../components/page/page";
 import Table from "../../components/table/table";
 import StoreWinners from "../../store/winners";
+import refreshTitles from "../../utils/refreshTitles";
 import "./style.scss";
 
 export default class Winners extends Page {
@@ -11,5 +12,16 @@ export default class Winners extends Page {
     StoreWinners.setTable = new Table(this);
     const table = StoreWinners.getTable;
     if (table) this.getHTMLElement().append(table.getHTMLElement());
+  }
+
+  public set setNum(num: number) {
+    this.num = num;
+    refreshTitles(this);
+    const table: Table | null = StoreWinners.getTable;
+    if (table) table.loadWinners();
+  }
+
+  public get getNum(): number {
+    return this.num;
   }
 }

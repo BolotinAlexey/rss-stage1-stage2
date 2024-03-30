@@ -1,7 +1,6 @@
+/* eslint-disable import/no-cycle */
 import { ICar } from "../interfaces/responseDataCar";
-// eslint-disable-next-line import/no-cycle
 import ITrack from "../interfaces/track";
-import ApiWinners from "../services/apiWinners";
 import StoreTrack from "../store/track";
 import StoreWinners from "../store/winners";
 import createOrUpdateWinner from "./createOrUpdateWinner";
