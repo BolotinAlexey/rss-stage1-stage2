@@ -1,5 +1,6 @@
 import { DataWinner } from "../../interfaces/dataWinner";
 import ApiWinners from "../../services/apiWinners";
+import createThead from "../../utils/createThead";
 import createWinnerMarkup from "../../utils/createWinnerMarkup";
 import View from "../../views/view";
 import Page from "../page/page";
@@ -27,10 +28,17 @@ export default class Table extends View {
 
   async refreshWinners() {
     this.getHTMLElement().innerHTML = "";
+    createThead(this.getHTMLElement());
 
     this.winners.forEach((winner: DataWinner) => {
       const row = createWinnerMarkup(winner, this);
       this.getHTMLElement().append(row);
     });
+  }
+
+  public getHTMLElement(): HTMLTableElement {
+    if (!(this.element instanceof HTMLTableElement))
+      throw new Error(`${this.element} isn't HTMLTableElement`);
+    return this.element;
   }
 }

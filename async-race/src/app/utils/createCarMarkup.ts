@@ -1,5 +1,6 @@
 import Button from "../components/button/button";
 import { ICar } from "../interfaces/responseDataCar";
+// eslint-disable-next-line import/no-cycle
 import ITrack from "../interfaces/track";
 import carSvg from "../markups/carSvg";
 import flagSvg from "../markups/flagSvg";
@@ -11,7 +12,8 @@ export default function createCarMarkup(car: ICar, track: ITrack) {
   const btnsWrap: HTMLElement = createElement("div", ["btns-car-wrap"]);
   const road: HTMLElement = createElement("div", ["road"]);
   const carSpan: HTMLElement = createElement("span", ["road__car"]);
-  car.html = carSpan;
+  const fakeCar = car;
+  fakeCar.html = carSpan;
 
   const arrBtns: HTMLButtonElement[] = [
     "select",

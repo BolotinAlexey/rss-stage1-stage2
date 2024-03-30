@@ -1,5 +1,6 @@
 import { DataWinner } from "../../interfaces/dataWinner";
 import { ICar } from "../../interfaces/responseDataCar";
+import carSvg from "../../markups/carSvg";
 import ApiCars from "../../services/apiCars";
 import { createElement } from "../../services/supFunctions";
 import View from "../../views/view";
@@ -13,6 +14,13 @@ export default class Row extends View {
   public async createRowMarkup(winner: DataWinner) {
     const car: ICar | undefined = await ApiCars.getCar(winner.id);
     if (!car) return;
+    const carSpan: HTMLElement = createElement("div", [
+      "table__td",
+      `table__td_car`,
+    ]);
+    carSpan.insertAdjacentHTML("afterbegin", carSvg());
+    carSpan.style.color = car.color;
+
     const name = createElement("td", ["table__td", `table__td_name`], car.name);
     const wins = createElement(
       "td",
@@ -25,7 +33,7 @@ export default class Row extends View {
       winner.time.toString(),
     );
 
-    this.getHTMLElement().append(name, wins, time);
+    this.getHTMLElement().append(carSpan, name, wins, time);
   }
 
   public getHTMLElement(): HTMLTableRowElement {
