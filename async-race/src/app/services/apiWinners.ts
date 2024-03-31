@@ -1,15 +1,11 @@
 import { ADDRESS, CARS_PER_WINNERS_PAGE } from "../constants/index";
 import { DataWinner } from "../interfaces/dataWinner";
-import Sort from "../interfaces/sort";
+import StoreTable from "../store/table";
 
 export default class ApiWinners {
-  static async getWinners(
-    num: number = 1,
-    sort: Sort = "id",
-    order: "ASC" | "DESC" = "ASC",
-  ): Promise<DataWinner[]> {
+  static async getWinners(num: number = 1): Promise<DataWinner[]> {
     const res: Response = await fetch(
-      `${ADDRESS}/winners?_page=${num}&_limit=${CARS_PER_WINNERS_PAGE}&_sort=${sort}&_order=${order}`,
+      `${ADDRESS}/winners?_page=${num}&_limit=${CARS_PER_WINNERS_PAGE}&_sort=${StoreTable.sort}&_order=${StoreTable.order}`,
     );
     const content: DataWinner[] = await res.json();
     return content;
@@ -69,7 +65,5 @@ export default class ApiWinners {
       body: JSON.stringify(winner),
     });
     console.log(await res.json());
-
-    // return res.json();
   }
 }

@@ -1,4 +1,5 @@
 import { DataWinner } from "../../interfaces/dataWinner";
+import Sort from "../../interfaces/sort";
 import { Winners } from "../../pages/index";
 import ApiWinners from "../../services/apiWinners";
 import StoreWinners from "../../store/winners";
