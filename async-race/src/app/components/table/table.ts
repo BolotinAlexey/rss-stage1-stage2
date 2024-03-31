@@ -5,6 +5,7 @@ import ApiWinners from "../../services/apiWinners";
 import StoreWinners from "../../store/winners";
 import createThead from "../../utils/createThead";
 import createWinnerMarkup from "../../utils/createWinnerMarkup";
+import refreshTitles from "../../utils/refreshTitles";
 import View from "../../views/view";
 import Page from "../page/page";
 
@@ -38,6 +39,8 @@ export default class Table extends View {
       const row = createWinnerMarkup(winner, this, index);
       this.getHTMLElement().append(row);
     });
+    this.page.count = await ApiWinners.getCount("winners");
+    refreshTitles(this.page);
   }
 
   public getHTMLElement(): HTMLTableElement {

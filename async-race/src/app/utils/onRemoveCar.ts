@@ -3,6 +3,7 @@ import { ICar } from "../interfaces/responseDataCar";
 import ITrack from "../interfaces/track";
 import ApiCars from "../services/apiCars";
 import ApiWinners from "../services/apiWinners";
+// eslint-disable-next-line import/no-cycle
 import StoreWinners from "../store/winners";
 
 export default async function onRemoveCar(car: ICar, track: ITrack) {
