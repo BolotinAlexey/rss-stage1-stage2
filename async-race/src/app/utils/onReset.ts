@@ -1,13 +1,11 @@
-import IPage from "../interfaces/IPage";
-import RaceResetGenerate from "../interfaces/raceResetGenerate";
-import { ICar } from "../interfaces/responseDataCar";
+/* eslint-disable consistent-return */
 import ITrack from "../interfaces/track";
 import StoreTrack from "../store/track";
 import onStartStopCar from "./onStartStopCar";
 import setCarBtnsDisabled from "./setCarBtnsDisabled";
 import setTrackBtnsDisabled from "./setTrackBtnsDisabled";
 
-export default async function onReset(e: Event, page: IPage) {
+export default async function onReset() {
   const track: ITrack | null = StoreTrack.getTrack;
   if (!track) return;
 
@@ -27,5 +25,7 @@ export default async function onReset(e: Event, page: IPage) {
         return promise;
       }),
     );
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }

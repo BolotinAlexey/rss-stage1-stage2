@@ -15,14 +15,4 @@ export default class StoreCars {
   public static get getCar(): ICar | null {
     return this.car;
   }
-
-  //   public static set setCars(cars: ICar[]) {
-  //   this.cars = cars;
-  //   this.count = this.cars.length;
-  //   refreshTitles(this);
-  // }
-
-  // public static get getCars(): ICar[] {
-  //   return this.cars;
-  // }
 }

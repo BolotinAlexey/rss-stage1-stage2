@@ -1,5 +1,4 @@
 import Button from "../components/button/button";
-// eslint-disable-next-line import/no-cycle
 import Table from "../components/table/table";
 import arrowSvg from "../markups/arrowSvg";
 import StoreTable from "../store/table";

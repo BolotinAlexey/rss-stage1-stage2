@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 import ITrack from "../interfaces/track";
 
 export default class StoreTrack {

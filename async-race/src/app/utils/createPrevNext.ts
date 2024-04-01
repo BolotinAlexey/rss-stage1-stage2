@@ -1,5 +1,4 @@
 import Button from "../components/button/button";
-// eslint-disable-next-line import/no-cycle
 import Page from "../components/page/page";
 import { createElement } from "../services/supFunctions";
 

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { ICar } from "../interfaces/responseDataCar";
 import ITrack from "../interfaces/track";
 import StoreTrack from "../store/track";

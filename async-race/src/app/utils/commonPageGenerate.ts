@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 import Page from "../components/page/page";
 import createPrevNext from "./createPrevNext";
 import formCarGenerate from "./formCarGenerate";

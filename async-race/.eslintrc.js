@@ -23,5 +23,6 @@ module.exports = {
   ],
   rules: {
     "no-bitwise": 1,
+    "import/no-cycle": "off",
   },
 };

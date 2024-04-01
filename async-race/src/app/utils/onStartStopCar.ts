@@ -1,7 +1,6 @@
 /* eslint-disable consistent-return */
 import { ResponseEngine, StatusEngine } from "../interfaces/engine";
 import { ICar } from "../interfaces/responseDataCar";
-// eslint-disable-next-line import/no-cycle
 import ITrack from "../interfaces/track";
 import ApiCars from "../services/apiCars";
 import onStartCar from "./onStartCar";

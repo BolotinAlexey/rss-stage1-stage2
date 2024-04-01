@@ -1,6 +1,5 @@
 import Button from "../components/button/button";
 import { ICar } from "../interfaces/responseDataCar";
-// eslint-disable-next-line import/no-cycle
 import ITrack from "../interfaces/track";
 import carSvg from "../markups/carSvg";
 import flagSvg from "../markups/flagSvg";
