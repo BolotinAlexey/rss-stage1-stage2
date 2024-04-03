@@ -1,10 +1,13 @@
 import ITrack from "../interfaces/track";
+import { getElementDocument } from "../services/supFunctions";
 
 export default function disabledOrEnabledRemoveAndSelectBtns(
   track: ITrack | null,
   isRace: boolean,
 ) {
   if (!track) return;
+  const generate = getElementDocument(".button-generate");
+  if (generate instanceof HTMLButtonElement) generate.disabled = isRace;
   const removes = track?.getHTMLElement().querySelectorAll(".button-remove");
   const selects = track?.getHTMLElement().querySelectorAll(".button-select");
   const stops = track?.getHTMLElement().querySelectorAll(".button-stop");
