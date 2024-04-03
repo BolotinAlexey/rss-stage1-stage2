@@ -1,6 +1,5 @@
 import { ICar } from "../../interfaces/responseDataCar";
 import ITrack from "../../interfaces/track";
-import { Garage } from "../../pages/index";
 import ApiCars from "../../services/apiCars";
 import StoreTrack from "../../store/track";
 import createCarMarkup from "../../utils/createCarMarkup";
