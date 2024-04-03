@@ -4,6 +4,7 @@ import ITrack from "../interfaces/track";
 import ApiCars from "../services/apiCars";
 import StoreCars from "../store/cars";
 import StoreTrack from "../store/track";
+import StoreWinners from "../store/winners";
 import createCar from "./createCar";
 
 export default async function onSubmitCreateCar(
@@ -37,7 +38,9 @@ export default async function onSubmitCreateCar(
       color: color.value,
     });
     const tr: ITrack | null = StoreTrack.getTrack;
-    if (tr) tr.loadCars();
+    if (tr) await tr.loadCars();
+    const table = StoreWinners.getTable;
+    table?.loadWinners();
     target.reset();
 
     Object.values(target).forEach(
