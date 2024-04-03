@@ -1,5 +1,6 @@
 import IPage from "../interfaces/IPage";
 import RaceResetGenerate from "../interfaces/raceResetGenerate";
+// import StoreCars from "../store/cars";
 import StoreTrack from "../store/track";
 import onGenerate from "./onGenerate";
 import onRace from "./onRace";
@@ -21,6 +22,8 @@ export default function onRaceResetGenerate(
     case "reset":
       onReset();
       StoreTrack.setIsRace = false;
+      // StoreCars.controller.abort();
+      // StoreCars.controller = new AbortController();
       break;
 
     default:

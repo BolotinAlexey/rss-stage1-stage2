@@ -4,6 +4,8 @@ import StoreTrack from "./track";
 export default class StoreCars {
   static car: ICar | null = null;
 
+  static controller = new AbortController();
+
   // static cars: ICar[] | [] = null;
 
   public static set setCar(car: ICar) {

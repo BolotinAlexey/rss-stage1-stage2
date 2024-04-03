@@ -1,7 +1,9 @@
+/* eslint-disable no-unsafe-finally */
 import { ADDRESS, CARS_PER_PAGE } from "../constants/index";
 import DataCar from "../interfaces/dataCar";
 import { ResponseEngine, StatusEngine } from "../interfaces/engine";
 import { ICar } from "../interfaces/responseDataCar";
+import StoreCars from "../store/cars";
 
 export default class ApiCars {
   static async getCars(num: number = 1): Promise<ICar[]> {
@@ -64,9 +66,11 @@ export default class ApiCars {
       `${ADDRESS}/engine?id=${car.id}&status=${status}`,
       {
         method: "PATCH",
+        signal: StoreCars.controller.signal,
       },
     );
     console.log(`${status}: ${res.ok}`);
+    // eslint-disable-next-line consistent-return
     return res.json();
   }
 
@@ -75,12 +79,14 @@ export default class ApiCars {
     let res: Response | null = null;
     try {
       res = await fetch(`${ADDRESS}/engine?id=${car.id}&status=drive`, {
+        signal: StoreCars.controller.signal,
         method: "PATCH",
       });
     } catch (error) {
       // console.log(error);
     } finally {
-      return !!res ? res.status : undefined;
+      // eslint-disable-next-line consistent-return
+      return res ? res.status : undefined;
     }
   }
 
