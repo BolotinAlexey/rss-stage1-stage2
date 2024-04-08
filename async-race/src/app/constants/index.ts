@@ -6,6 +6,15 @@ const FRAME_FREQUENCY = (60 * 300) / 1000;
 const CAR_OFFSET = 120;
 const TIME_SHOW_WINNER = 4000;
 const TIME_SHOW_WINNER_OPCITY = 1000;
+const MAX_COLOR_NUMBER = 0xffffff;
+const MS_IN_SEC = 1000;
+enum StatusCode {
+  OK = 200,
+  BAD_REQUEST = 400,
+  NOT_FOUND = 404,
+  TOO_MANY_REQUESTS = 429,
+  INTERNAL_SERVER_ERROR = 500,
+}
 
 export {
   CARS_PER_PAGE,
@@ -16,4 +25,7 @@ export {
   CAR_OFFSET,
   TIME_SHOW_WINNER,
   TIME_SHOW_WINNER_OPCITY,
+  MAX_COLOR_NUMBER,
+  MS_IN_SEC,
+  StatusCode,
 };

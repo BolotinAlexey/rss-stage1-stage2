@@ -6,8 +6,6 @@ export default class StoreCars {
 
   static controller = new AbortController();
 
-  // static cars: ICar[] | [] = null;
-
   public static set setCar(car: ICar) {
     this.car = car;
     const track = StoreTrack.getTrack;

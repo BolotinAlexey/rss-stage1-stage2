@@ -1,4 +1,4 @@
-import { ADDRESS, CARS_PER_WINNERS_PAGE } from "../constants/index";
+import { ADDRESS, CARS_PER_WINNERS_PAGE, StatusCode } from "../constants/index";
 import { DataWinner } from "../interfaces/dataWinner";
 import StoreTable from "../store/table";
 
@@ -33,7 +33,7 @@ export default class ApiWinners {
     }
     console.log(`getWinner: ${res.ok}`);
     const content: DataWinner = await res.json();
-    return res.status === 200 ? content : Promise.reject();
+    return res.status === StatusCode.OK ? content : Promise.reject();
   }
 
   static async removeWinner(id: number) {

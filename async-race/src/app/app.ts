@@ -4,12 +4,7 @@ import { createElement, getElementDocument } from "./services/supFunctions";
 import HeaderView from "./views/header/header-view";
 
 export default class App {
-  constructor() {
-    this.createView();
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  createView() {
+  static createView() {
     const header = new HeaderView();
     const body: HTMLElement = getElementDocument("body");
     const main = createElement("main", ["main", "container"], "");

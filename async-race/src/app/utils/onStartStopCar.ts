@@ -1,4 +1,4 @@
-/* eslint-disable consistent-return */
+import { MS_IN_SEC, StatusCode } from "../constants/index";
 import { ResponseEngine, StatusEngine } from "../interfaces/engine";
 import { ICar } from "../interfaces/responseDataCar";
 import ITrack from "../interfaces/track";
@@ -22,22 +22,24 @@ export default async function onStartStopCar(
     const fakeTarget = target;
     fakeTarget.disabled = true;
   }
+  let dataEngine: ResponseEngine | void;
+  try {
+    dataEngine = await ApiCars.startStopCar(car, action);
+  } catch (error) {
+    console.log("An error occurred while starting/stopping the car:", error);
+    dataEngine = undefined;
+  }
 
-  const dataEngine: ResponseEngine | void = await ApiCars.startStopCar(
-    car,
-    action,
-  );
-
-  if (!dataEngine) return;
+  if (!dataEngine) return undefined;
   const time: number = dataEngine.distance / dataEngine.velocity;
-  let statusCode: number | void;
+  let statusCode: StatusCode | null;
   if (action === "started") statusCode = await onStartCar(car, time);
   else {
     onStopCar(car);
-    return;
+    return undefined;
   }
-  if (statusCode === 200) {
-    return { time: +(time / 1000).toFixed(2), car };
+  if (statusCode === StatusCode.OK) {
+    return { time: +(time / MS_IN_SEC).toFixed(2), car };
   }
   return Promise.reject();
 }

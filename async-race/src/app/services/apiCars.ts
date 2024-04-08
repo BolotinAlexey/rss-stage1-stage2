@@ -1,5 +1,5 @@
 /* eslint-disable no-unsafe-finally */
-import { ADDRESS, CARS_PER_PAGE } from "../constants/index";
+import { ADDRESS, CARS_PER_PAGE, StatusCode } from "../constants/index";
 import DataCar from "../interfaces/dataCar";
 import { ResponseEngine, StatusEngine } from "../interfaces/engine";
 import { ICar } from "../interfaces/responseDataCar";
@@ -61,21 +61,25 @@ export default class ApiCars {
     car: ICar | null,
     status: StatusEngine,
   ): Promise<ResponseEngine | void> {
-    if (!car) return;
-    const res: Response = await fetch(
-      `${ADDRESS}/engine?id=${car.id}&status=${status}`,
-      {
-        method: "PATCH",
-        signal: StoreCars.controller.signal,
-      },
-    );
-    console.log(`${status}: ${res.ok}`);
-    // eslint-disable-next-line consistent-return
-    return res.json();
+    try {
+      if (!car) throw new Error("Car don't exist");
+      const res: Response = await fetch(
+        `${ADDRESS}/engine?id=${car.id}&status=${status}`,
+        {
+          method: "PATCH",
+          signal: StoreCars.controller.signal,
+        },
+      );
+      console.log(`${status}: ${res.ok}`);
+      return await res.json();
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   }
 
-  static async driveCar(car: ICar | null): Promise<number | void> {
-    if (!car) return;
+  static async driveCar(car: ICar | null): Promise<StatusCode | null> {
+    if (!car) return null;
     let res: Response | null = null;
     try {
       res = await fetch(`${ADDRESS}/engine?id=${car.id}&status=drive`, {
@@ -83,10 +87,10 @@ export default class ApiCars {
         method: "PATCH",
       });
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     } finally {
-      // eslint-disable-next-line consistent-return
-      return res ? res.status : undefined;
+      if (!res || typeof res.status !== "number") return null;
+      return res.status;
     }
   }
 

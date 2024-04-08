@@ -1,8 +1,7 @@
-import { ResponseEngine } from "../interfaces/engine";
 import { ICar } from "../interfaces/responseDataCar";
-import ITrack from "../interfaces/track";
 
 export default function onStopCar(car: ICar) {
+  const fakeCar = car;
   if (car.idFrame) cancelAnimationFrame(car.idFrame);
-  if (car.html?.style.transform) car.html.style.transform = "";
+  if (fakeCar.html?.style.transform) fakeCar.html.style.transform = "";
 }

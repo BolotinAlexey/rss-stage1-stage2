@@ -16,12 +16,4 @@ export default class StoreTable {
   public static get getSort(): Sort | null {
     return this.sort;
   }
-
-  // static set setTable(table: Table) {
-  //   this.table = table;
-  // }
-
-  // public static get getTable(): Table | null {
-  //   return this.table;
-  // }
 }

@@ -17,12 +17,4 @@ export default class Car implements ICar {
     this.color = prop.color;
     this.name = prop.name;
   }
-
-  // public set setHTML(v : HTMLElement) {
-  //   this.carHTML = v;
-  // }
-
-  // public get getHTML(): HTMLElement {
-  //   return this.carHTML;
-  // }
 }
