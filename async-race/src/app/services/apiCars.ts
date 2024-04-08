@@ -29,11 +29,11 @@ export default class ApiCars {
     }
   }
 
-  static async getCount(namePage: "garage" | "winners") {
+  static async getCount(namePage: "garage" | "winners"): Promise<number> {
     try {
       const res: Response = await fetch(`${ADDRESS}/${namePage}`);
       const content = await res.json();
-      return content.length ? content.length : 0;
+      return content.length;
     } catch (error) {
       console.log(error);
       return 0;
@@ -56,7 +56,7 @@ export default class ApiCars {
     }
   }
 
-  static async removeCar(id: number) {
+  static async removeCar(id: number): Promise<void> {
     try {
       const res: Response = await fetch(`${ADDRESS}/garage/${id}`, {
         method: "DELETE",

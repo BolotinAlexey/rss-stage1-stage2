@@ -22,11 +22,11 @@ export default class ApiWinners {
     }
   }
 
-  static async getCount(namePage: "garage" | "winners") {
+  static async getCount(namePage: "garage" | "winners"): Promise<number> {
     try {
       const res: Response = await fetch(`${ADDRESS}/${namePage}`);
       const content = await res.json();
-      return content.length ? content.length : 0;
+      return content.length;
     } catch (error) {
       console.log(error);
       return 0;
@@ -46,7 +46,7 @@ export default class ApiWinners {
     return res.status === StatusCode.OK ? content : Promise.reject();
   }
 
-  static async removeWinner(id: number) {
+  static async removeWinner(id: number): Promise<void> {
     try {
       const res: Response = await fetch(`${ADDRESS}/winners/${id}`, {
         method: "DELETE",
@@ -57,7 +57,7 @@ export default class ApiWinners {
     }
   }
 
-  static async updateWinner(winner: DataWinner | null) {
+  static async updateWinner(winner: DataWinner | null): Promise<void> {
     try {
       if (!winner) return;
       const res: Response = await fetch(`${ADDRESS}/winners/${winner.id}`, {
@@ -73,7 +73,7 @@ export default class ApiWinners {
     }
   }
 
-  static async createWinner(winner: DataWinner) {
+  static async createWinner(winner: DataWinner): Promise<void> {
     try {
       const res: Response = await fetch(`${ADDRESS}/winners`, {
         method: "POST",

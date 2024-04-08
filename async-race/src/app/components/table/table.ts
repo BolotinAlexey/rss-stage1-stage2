@@ -1,3 +1,4 @@
+import { CARS_PER_WINNERS_PAGE } from "../../constants/index";
 import { DataWinner } from "../../interfaces/dataWinner";
 import ApiWinners from "../../services/apiWinners";
 import StoreWinners from "../../store/winners";
@@ -32,7 +33,7 @@ export default class Table extends View {
     createThead(this.getHTMLElement());
 
     this.winners.forEach((winner: DataWinner, i: number) => {
-      const index = (this.page.getNum - 1) * 10 + i;
+      const index = (this.page.getNum - 1) * CARS_PER_WINNERS_PAGE + i;
       const row = createWinnerMarkup(winner, this, index);
       this.getHTMLElement().append(row);
     });

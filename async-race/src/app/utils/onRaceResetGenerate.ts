@@ -21,8 +21,6 @@ export default function onRaceResetGenerate(
     case "reset":
       onReset();
       StoreTrack.setIsRace = false;
-      // StoreCars.controller.abort();
-      // StoreCars.controller = new AbortController();
       break;
 
     default:
