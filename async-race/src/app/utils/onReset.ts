@@ -1,11 +1,11 @@
-/* eslint-disable consistent-return */
+import { ICar } from "../interfaces/responseDataCar";
 import ITrack from "../interfaces/track";
 import StoreTrack from "../store/track";
 import onStartStopCar from "./onStartStopCar";
 import setCarBtnsDisabled from "./setCarBtnsDisabled";
 import setTrackBtnsDisabled from "./setTrackBtnsDisabled";
 
-export default async function onReset() {
+export default async function onReset(): Promise<void> {
   const track: ITrack | null = StoreTrack.getTrack;
   if (!track) return;
 
@@ -15,13 +15,8 @@ export default async function onReset() {
     await Promise.allSettled(
       track.cars.map((car) => {
         setCarBtnsDisabled(car.html, false);
-        let promise;
-        try {
-          promise = onStartStopCar(car, track, "stop");
-        } catch (error) {
-          console.log(error);
-          return;
-        }
+        const promise: Promise<{ time: number; car: ICar } | undefined> =
+          onStartStopCar(car, track, "stop");
         return promise;
       }),
     );

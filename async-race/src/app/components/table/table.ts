@@ -1,4 +1,3 @@
-/* eslint-disable no-constructor-return */
 import { DataWinner } from "../../interfaces/dataWinner";
 import ApiWinners from "../../services/apiWinners";
 import StoreWinners from "../../store/winners";
@@ -17,7 +16,6 @@ export default class Table extends View {
     super({ tag: "table", class: ["table"], text: "" });
     this.page = page;
     this.loadWinners();
-    return this;
   }
 
   async loadWinners() {

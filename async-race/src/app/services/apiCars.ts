@@ -1,4 +1,3 @@
-/* eslint-disable no-unsafe-finally */
 import { ADDRESS, CARS_PER_PAGE, StatusCode } from "../constants/index";
 import DataCar from "../interfaces/dataCar";
 import { ResponseEngine, StatusEngine } from "../interfaces/engine";
@@ -80,17 +79,19 @@ export default class ApiCars {
 
   static async driveCar(car: ICar | null): Promise<StatusCode | null> {
     if (!car) return null;
-    let res: Response | null = null;
     try {
-      res = await fetch(`${ADDRESS}/engine?id=${car.id}&status=drive`, {
-        signal: StoreCars.controller.signal,
-        method: "PATCH",
-      });
-    } catch (error) {
-      console.log(error);
-    } finally {
+      const res: Response = await fetch(
+        `${ADDRESS}/engine?id=${car.id}&status=drive`,
+        {
+          signal: StoreCars.controller.signal,
+          method: "PATCH",
+        },
+      );
       if (!res || typeof res.status !== "number") return null;
       return res.status;
+    } catch (error) {
+      console.log(error);
+      return null;
     }
   }
 
