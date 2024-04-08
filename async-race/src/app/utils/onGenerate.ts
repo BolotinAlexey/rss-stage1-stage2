@@ -8,10 +8,11 @@ import StoreTrack from "../store/track";
 import carGenerator from "./carGenerator";
 
 export default async function onGenerate(page: IPage) {
-  const carPromises: Promise<ICar>[] = [];
+  const carPromises: Promise<ICar | null>[] = [];
   for (let i = 0; i < NUMBER_CARS_GENERATE; i += 1) {
-    const car: DataCar = carGenerator();
-    carPromises.push(ApiCars.createCar(car));
+    const dataCar: DataCar = carGenerator();
+    const car: Promise<ICar | null> = ApiCars.createCar(dataCar);
+    if (car !== null) carPromises.push(car);
   }
   await Promise.all(carPromises);
 

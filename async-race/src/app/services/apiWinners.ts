@@ -12,15 +12,25 @@ export default class ApiWinners {
   }
 
   static async getAllWinners(): Promise<DataWinner[]> {
-    const res: Response = await fetch(`${ADDRESS}/winners`);
-    const content: DataWinner[] = await res.json();
-    return content;
+    try {
+      const res: Response = await fetch(`${ADDRESS}/winners`);
+      const content: DataWinner[] = await res.json();
+      return content;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
   }
 
   static async getCount(namePage: "garage" | "winners") {
-    const res: Response = await fetch(`${ADDRESS}/${namePage}`);
-    const content = await res.json();
-    return content.length ? content.length : 0;
+    try {
+      const res: Response = await fetch(`${ADDRESS}/${namePage}`);
+      const content = await res.json();
+      return content.length ? content.length : 0;
+    } catch (error) {
+      console.log(error);
+      return 0;
+    }
   }
 
   static async getWinner(id: number): Promise<DataWinner | undefined> {
@@ -37,33 +47,44 @@ export default class ApiWinners {
   }
 
   static async removeWinner(id: number) {
-    const res: Response = await fetch(`${ADDRESS}/winners/${id}`, {
-      method: "DELETE",
-    });
-    console.log(`remove: ${res.ok}`);
+    try {
+      const res: Response = await fetch(`${ADDRESS}/winners/${id}`, {
+        method: "DELETE",
+      });
+      console.log(`remove: ${res.ok}`);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   static async updateWinner(winner: DataWinner | null) {
-    if (!winner) return;
-    const res: Response = await fetch(`${ADDRESS}/winners/${winner.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ wins: winner.wins, time: winner.time }),
-    });
-
-    console.log(`updateWinner: ${res.ok}`);
+    try {
+      if (!winner) return;
+      const res: Response = await fetch(`${ADDRESS}/winners/${winner.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ wins: winner.wins, time: winner.time }),
+      });
+      console.log(`updateWinner: ${res.ok}`);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   static async createWinner(winner: DataWinner) {
-    const res: Response = await fetch(`${ADDRESS}/winners`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(winner),
-    });
-    console.log(await res.json());
+    try {
+      const res: Response = await fetch(`${ADDRESS}/winners`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(winner),
+      });
+      console.log("create winner: ", res.ok);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
