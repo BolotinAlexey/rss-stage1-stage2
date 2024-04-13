@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true,
+    "strict": true
+  },
+  "files": ["src/index.ts"],
+  "include": [
+    "src/**/*.ts" // adjust the pattern based on your project structure
+  ]
+}
