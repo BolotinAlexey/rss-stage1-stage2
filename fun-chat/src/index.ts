@@ -1,4 +1,4 @@
-import App from './app/app';
-import './style.css';
+import App from "./app/app";
+import "./style.css";
 
 App.createView();

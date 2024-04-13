@@ -1,4 +1,4 @@
-import { createElement } from '../utils/supFunctions';
+import { createElement } from "../utils/supFunctions";
 
 export default abstract class View {
   tag: string;

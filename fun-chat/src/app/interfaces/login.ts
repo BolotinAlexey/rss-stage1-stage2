@@ -1,5 +1,5 @@
 export default interface Login {
-  form : HTMLFormElement;
+  form: HTMLFormElement;
   nameInput: HTMLInputElement;
   passwordInput: HTMLInputElement;
 }

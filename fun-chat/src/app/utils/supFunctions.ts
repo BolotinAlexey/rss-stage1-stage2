@@ -7,7 +7,10 @@ export function assertIsDefined<T>(value: T): asserts value is NonNullable<T> {
   }
 }
 
-export function getElement<T extends HTMLElement>(parent: HTMLElement, selector: string): T {
+export function getElement<T extends HTMLElement>(
+  parent: HTMLElement,
+  selector: string,
+): T {
   const el: T | null = parent.querySelector<T>(selector);
   assertIsDefined(el);
   return el;
@@ -18,9 +21,13 @@ export function getElementDocument<T extends HTMLElement>(selector: string): T {
   return el;
 }
 
-export function createElement<T extends HTMLElement>(tag: string, cls?: string[], content?: string): T {
+export function createElement<T extends HTMLElement>(
+  tag: string,
+  cls?: string[],
+  content?: string,
+): T {
   const el: HTMLElement = document.createElement(tag);
-  el.innerHTML = content || '';
+  el.innerHTML = content || "";
   if (cls) el.classList.add(...cls);
   return <T>el;
 }

@@ -1,18 +1,26 @@
-import Login from '../interfaces/login';
-import createFormElements from './login/createFormElements';
+import Login from "../interfaces/login";
+import createFormElements from "./login/createFormElements";
 
 export default function createForm(): Login {
-  const { form, nameLabel, passwordLabel, nameSpan, passwordSpan, nameInput, passwordInput, submitBtn } =
-    createFormElements();
-  submitBtn.type = 'submit';
+  const {
+    form,
+    nameLabel,
+    passwordLabel,
+    nameSpan,
+    passwordSpan,
+    nameInput,
+    passwordInput,
+    submitBtn,
+  } = createFormElements();
+  submitBtn.type = "submit";
   submitBtn.disabled = true;
-  nameInput.placeholder = 'Enter your name';
-  passwordInput.placeholder = 'Enter your surname';
+  nameInput.placeholder = "Enter your name";
+  passwordInput.placeholder = "Enter your surname";
   nameInput.required = true;
   passwordInput.required = true;
-  nameInput.name = 'name';
-  passwordInput.name = 'password';
-  passwordInput.type = 'password';
+  nameInput.name = "name";
+  passwordInput.name = "password";
+  passwordInput.type = "password";
 
   nameLabel.append(nameInput, nameSpan);
   passwordLabel.append(passwordInput, passwordSpan);
