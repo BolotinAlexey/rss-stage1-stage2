@@ -1,0 +1,82 @@
+@import url(../../../style.css);
+
+.login {
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  transform: translateY(-100vh);
+  transition: all 0.5s linear;
+
+  &.active-page {
+    transform: translateY(0);
+    height: calc(100vh - 100px);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4rem;
+    width: 500px;
+  }
+
+  &__label {
+    position: relative;
+  }
+
+  &__input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 2.5rem;
+    font-family: 'Philosopher', sans-serif;
+    font-style: italic;
+    border: 2px solid currentColor;
+    border-radius: 0.7rem;
+    transition: all 0.5s linear;
+    &::placeholder {
+      font: 100 2rem 'Dancing Script' cursive;
+      color: var(--main-color);
+    }
+    &.correct {
+      border-color: rgb(var(--success-color));
+      background-color: rgba(var(--success-color), 0.2);
+    }
+    &.wrong {
+      border-color: rgb(var(--error-color));
+      background-color: rgba(var(--error-color), 0.2);
+    }
+
+    &-submit {
+      padding-top: 22px;
+      font-family: 'Luckiest Guy';
+      border-radius: 2rem;
+      background-color: rgb(var(--error-color));
+      color: #fff;
+      transition: background-color 0.5s linear;
+      &:not(:disabled) {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__span {
+    position: absolute;
+    bottom: -1.5rem;
+    left: 0;
+    color: rgb(var(--error-color));
+    font-size: 1.4rem;
+  }
+}
+
+.login__input-submit:enabled {
+  background-color: rgb(var(--success-color));
+}
+
+.page__title {
+  font-size: 3rem;
+  font-family: 'Luckiest Guy';
+}

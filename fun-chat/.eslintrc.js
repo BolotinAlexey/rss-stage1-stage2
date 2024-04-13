@@ -5,6 +5,7 @@ module.exports = {
     es2021: true,
   },
   parser: '@typescript-eslint/parser',
+  noInlineConfig: true,
   plugins: ['@typescript-eslint', 'prettier', 'import'],
   extends: [
     'eslint-config-airbnb-base',
@@ -24,7 +25,5 @@ module.exports = {
     },
   ],
   rules: {
-    'no-bitwise': 1,
-    'import/no-cycle': 'off',
   },
 };

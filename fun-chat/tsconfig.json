@@ -10,6 +10,7 @@
   },
   "files": ["src/index.ts"],
   "include": [
-    "src/**/*.ts" // adjust the pattern based on your project structure
+    "src/**/*.ts", // adjust the pattern based on your project structure
+    "src/app/pages/chat"
   ]
 }
