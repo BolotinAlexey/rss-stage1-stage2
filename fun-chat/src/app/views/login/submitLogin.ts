@@ -1,5 +1,5 @@
 import { User } from "../../interfaces/user";
-import showChat from "../chat/showChat";
+import showChat from "../../pages/chat/showChat";
 import isValidUser from "./isValidUser";
 
 export default function submitLogin(e: Event) {

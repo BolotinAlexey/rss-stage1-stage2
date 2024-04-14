@@ -1,5 +1,5 @@
-import Login from "../interfaces/login";
-import createFormElements from "./login/createFormElements";
+import Login from "../../interfaces/login";
+import createFormElements from "./createFormElements";
 
 export default function createForm(): Login {
   const {

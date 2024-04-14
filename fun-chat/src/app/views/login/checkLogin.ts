@@ -1,5 +1,5 @@
-import isCheckInput from "./isCheckIput";
 import { getElementDocument } from "../../utils/supFunctions";
+import isCheckInput from "./isCheckIput";
 
 export default function checkLogin(e: Event): void {
   const el: EventTarget | null = e.target;
