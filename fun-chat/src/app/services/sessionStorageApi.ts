@@ -10,4 +10,8 @@ export default class SessionStorageAPI {
   static setUser(user: User) {
     sessionStorage.setItem("user", JSON.stringify(user));
   }
+
+  static removeUser() {
+    sessionStorage.removeItem("user");
+  }
 }

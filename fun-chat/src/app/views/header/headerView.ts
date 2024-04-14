@@ -1,8 +1,9 @@
 import View from "../views";
+import createNav from "./createNav";
 import "./style.scss";
 
 export default class HeaderView extends View {
-  // nav: HTMLElement;
+  nav: HTMLElement;
 
   // links: HTMLElement[];
 
@@ -12,7 +13,7 @@ export default class HeaderView extends View {
       class: ["header"],
       text: "",
     });
-    // this.nav = createNav(this.element);
+    this.nav = createNav(this.element);
     // this.links = createLinks(this.nav);
   }
 }

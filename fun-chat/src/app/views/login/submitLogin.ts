@@ -1,6 +1,6 @@
 import { User } from "../../interfaces/user";
-import showChat from "../../pages/chat/showChat";
 import isValidUser from "./isValidUser";
+import saveUser from "./saveUser";
 
 export default function submitLogin(e: Event) {
   e.preventDefault();
@@ -17,8 +17,6 @@ export default function submitLogin(e: Event) {
   if (!isValidUser(userObj)) {
     return;
   }
-  // apiUser.setUser(userObj);
-  // updateHeader(userObj);
 
   e.currentTarget.reset();
   ["name", "password", "submit"].forEach((subclass) => {
@@ -27,5 +25,5 @@ export default function submitLogin(e: Event) {
       el.classList.remove("correct");
     if (el instanceof HTMLButtonElement && !el.disabled) el.disabled = true;
   });
-  showChat(userObj);
+  saveUser(userObj);
 }
