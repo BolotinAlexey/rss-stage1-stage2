@@ -8,13 +8,13 @@ export default function createHeader(user: User | null): HTMLElement {
   const logo: HTMLParagraphElement = createElement(
     "p",
     ["header__logo"],
-    "RSS Puzzle",
+    "FUN Chat",
   );
   const logoutWrap: HTMLDivElement = createElement("div", ["logout"]);
   const userName: HTMLSpanElement = createElement("span", ["logout__user"]);
   const logoutBtn: HTMLButtonElement = createElement("button", ["logout__btn"]);
   const logoutTxt: HTMLSpanElement = createElement("span", ["logout__txt"]);
-  userName.textContent = user ? Object.values(user).join(" ") : "";
+  userName.textContent = user ? `User: ${user.name}` : "";
 
   logoutTxt.textContent = "Logout";
   logoutBtn.append(logoutTxt);

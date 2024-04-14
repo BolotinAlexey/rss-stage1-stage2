@@ -1,6 +1,6 @@
 import { BASE_URL } from "../../constants/index";
+import chatPage from "../../pages/chat/index";
 import loginPage from "../../pages/login/index";
-import RouteStore from "../../store/routeStore/index";
 import routePaths from "./routhePaths";
 
 export default function onLocation() {
@@ -14,8 +14,11 @@ export default function onLocation() {
 
   switch (path) {
     case "/auth":
-      RouteStore.setPage = path;
       loginPage();
+      break;
+
+    case "/chat":
+      chatPage(null);
       break;
 
     default:

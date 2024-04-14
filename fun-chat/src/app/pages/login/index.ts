@@ -1,8 +1,8 @@
 import { createElement, getElementDocument } from "../../utils/supFunctions";
 import LoginView from "../../views/login/index";
 
-export default async function loginPage() {
-  const body: HTMLElement = getElementDocument("body");
+const body: HTMLElement = getElementDocument("body");
+export default function loginPage() {
   body.innerHTML = "";
   const main = createElement("main", ["main", "container"], "");
   const login = new LoginView();

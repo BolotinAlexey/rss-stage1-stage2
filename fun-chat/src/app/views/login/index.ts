@@ -25,6 +25,4 @@ export default class LoginView extends View {
     passwordInput.addEventListener("input", checkLogin);
     form.addEventListener("submit", submitLogin);
   }
-
-  // return container;
 }

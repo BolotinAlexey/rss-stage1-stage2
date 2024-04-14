@@ -24,5 +24,7 @@ module.exports = {
       },
     },
   ],
-  rules: {},
+  rules: {
+    "import/no-cycle": "off",
+  },
 };

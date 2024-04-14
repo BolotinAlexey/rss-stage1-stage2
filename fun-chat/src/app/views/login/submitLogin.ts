@@ -1,4 +1,6 @@
 import { User } from "../../interfaces/user";
+import chatPage from "../../pages/chat/index";
+import RouteStore from "../../store/routeStore/index";
 import isValidUser from "./isValidUser";
 import saveUser from "./saveUser";
 
@@ -26,4 +28,6 @@ export default function submitLogin(e: Event) {
     if (el instanceof HTMLButtonElement && !el.disabled) el.disabled = true;
   });
   saveUser(userObj);
+  RouteStore.setPage = "/chat";
+  chatPage(userObj);
 }
