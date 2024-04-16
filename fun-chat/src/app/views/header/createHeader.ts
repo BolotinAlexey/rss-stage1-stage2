@@ -2,9 +2,10 @@ import { User } from "../../interfaces/user";
 import logoutSvg from "../../markups/svg/logoutSvg";
 import logout from "../../utils/logout";
 import { createElement } from "../../utils/supFunctions";
+import HeaderView from "./headerView/headerView";
 
 export default function createHeader(user: User | null): HTMLElement {
-  const header: HTMLElement = createElement("header", ["header"]);
+  const header = new HeaderView();
   const logo: HTMLParagraphElement = createElement(
     "p",
     ["header__logo"],
@@ -21,6 +22,6 @@ export default function createHeader(user: User | null): HTMLElement {
   logoutBtn.insertAdjacentHTML("beforeend", logoutSvg());
   logoutBtn.addEventListener("click", logout);
   logoutWrap.append(userName, logoutBtn);
-  header.append(logo, logoutWrap);
-  return header;
+  header.getHTMLElement().append(logo, logoutWrap);
+  return header.getHTMLElement();
 }

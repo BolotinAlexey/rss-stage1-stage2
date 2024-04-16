@@ -1,5 +1,5 @@
-import View from "../views";
-import createNav from "./createNav";
+import View from "../../views";
+import createNav from "../createNav";
 import "./style.scss";
 
 export default class HeaderView extends View {

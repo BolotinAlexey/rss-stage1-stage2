@@ -14,6 +14,7 @@ export default class RouteStore {
     this.path = path;
     window.history.pushState({}, "", path);
     this.choosePage(path);
+    console.log(path);
   }
 
   private static choosePage(path: string) {

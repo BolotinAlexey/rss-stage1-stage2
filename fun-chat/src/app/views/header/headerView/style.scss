@@ -1,0 +1,63 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--main-color);
+  // transition: transform 0.5s linear;
+  z-index: 20;
+
+  &__logo {
+    margin-top: 10px;
+    padding-right: 10px;
+    font:
+      400 2rem/1 "Luckiest Guy",
+      cursive;
+  }
+}
+
+.logout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+
+  &__user {
+    font:
+      400 2rem/1 "Dancing Script",
+      cursive;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 5px 15px;
+    background-color: transparent;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-right: none;
+    font:
+      400 2rem/1 "Philosopher",
+      sans-serif;
+    transition: color 0.5s linear;
+    &:hover {
+      cursor: pointer;
+      color: rgb(var(--error-color));
+    }
+  }
+  &__svg {
+    width: 2rem;
+    transform: translateX(-5px);
+  }
+}
+.arrow-logout {
+  transform: translateX(-4px);
+  transition: transform 0.5s linear;
+}
+
+.logout__btn:hover .arrow-logout {
+  transform: translateX(1px);
+}

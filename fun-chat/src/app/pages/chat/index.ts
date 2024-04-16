@@ -7,7 +7,7 @@ import createHeader from "../../views/header/createHeader";
 const body = getElementDocument("body");
 export default function chatPage(user: User | null) {
   if (!user) {
-    RouteStore.setPage = "/auth";
+    RouteStore.setPage = "/chat";
     return;
   }
   const chatView = new Chat(user);
