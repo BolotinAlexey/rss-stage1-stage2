@@ -1,4 +1,5 @@
 import { User } from "../../interfaces/user";
+import generateFooter from "../../markups/footer";
 import RouteStore from "../../store/routeStore/index";
 import { getElementDocument } from "../../utils/supFunctions";
 import Chat from "../../views/chat/chatView";
@@ -15,4 +16,5 @@ export default function chatPage(user: User | null) {
   const headerHtml: HTMLElement = createHeader(user);
   chatView.getHTMLElement().append(headerHtml);
   body.append(chatView.getHTMLElement());
+  body.insertAdjacentHTML("beforeend", generateFooter());
 }
