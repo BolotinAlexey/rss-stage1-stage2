@@ -19,7 +19,7 @@ module.exports = {
     {
       files: ["*.ts"],
       parserOptions: {
-        project: "./tsconfig.json", // Specify the path to your tsconfig.json file
+        project: "./tsconfig.json",
         tsconfigRootDir: __dirname,
       },
     },
