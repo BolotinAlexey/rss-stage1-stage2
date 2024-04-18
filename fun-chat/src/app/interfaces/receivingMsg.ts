@@ -1,4 +1,4 @@
-export interface ReceiveMessage {
+export interface ReceiveMsg {
   id: null;
   type: "MSG_SEND";
   payload: {

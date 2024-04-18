@@ -1,6 +1,6 @@
 import { User } from "./user";
 
-export interface UserLogout {
+export interface UserLogoutReq {
   id: string;
   type: "USER_LOGOUT";
   payload: {
@@ -8,7 +8,7 @@ export interface UserLogout {
   };
 }
 
-export interface UserResponseLogout {
+export interface UserLogoutRes {
   id: string;
   type: "USER_LOGOUT";
   payload: {
@@ -16,17 +16,5 @@ export interface UserResponseLogout {
       login: string;
       isLogined: boolean;
     };
-  };
-}
-
-export interface UserResponseLogoutError {
-  id: string;
-  type: "ERROR";
-  payload: {
-    error:
-      | "incorrect password"
-      | "there is no user with this login"
-      | "the user was not authorized"
-      | "a user with this login is already authorized";
   };
 }

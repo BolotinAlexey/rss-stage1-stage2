@@ -1,4 +1,4 @@
-export interface SendMessageUser {
+export interface SendMsgUser {
   id: string;
   type: "MSG_SEND";
   payload: {
@@ -8,7 +8,7 @@ export interface SendMessageUser {
     };
   };
 }
-export interface SendMessageUserRequest {
+export interface SendMsgUserRequest {
   id: string;
   type: "MSG_SEND";
   payload: {
@@ -24,15 +24,5 @@ export interface SendMessageUserRequest {
         isEdited: boolean;
       };
     };
-  };
-}
-export interface SendMessageUserRequestError {
-  id: string;
-  type: "ERROR";
-  payload: {
-    error:
-      | "sender and recipient logins are the same"
-      | "the user with the specified login does not exist"
-      | "user not registered or not logged";
   };
 }
