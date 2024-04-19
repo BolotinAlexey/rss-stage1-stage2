@@ -1,5 +1,5 @@
 export default class WSStore {
-  private static ws: WebSocket | null = null;
+  public static ws: WebSocket | null = null;
 
   public static get getWS(): WebSocket | null {
     return this.ws;
