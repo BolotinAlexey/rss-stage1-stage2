@@ -6,7 +6,8 @@ import onLocation from "./components/router/onLocation";
 export default class App {
   static createView() {
     window.addEventListener("load", onLocation);
-    window.addEventListener("popstate", () => onLocation);
+    window.addEventListener("hashchange", onLocation);
+    // window.addEventListener("popstate", () => onLocation);
     // const header = new HeaderView();
     // const body: HTMLElement = getElementDocument("body");
     // const main = createElement("main", ["main", "container"], "");

@@ -3,6 +3,6 @@ import SessionStorageAPI from "../../services/sessionStorageApi";
 import UserStore from "../../store/userStore/index";
 
 export default function saveUser(user: User) {
-  SessionStorageAPI.setUser(user);
+  SessionStorageAPI.setUser = user;
   UserStore.setUser = user;
 }
