@@ -18,7 +18,7 @@ export default function createForm(): Login {
   passwordInput.placeholder = "Enter your surname";
   nameInput.required = true;
   passwordInput.required = true;
-  nameInput.name = "name";
+  nameInput.name = "login";
   passwordInput.name = "password";
   passwordInput.type = "password";
 

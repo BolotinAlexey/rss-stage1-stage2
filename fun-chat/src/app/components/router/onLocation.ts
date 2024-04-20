@@ -12,7 +12,7 @@ export default function onLocation() {
   let path = hash || "/auth";
   // const fullPath: string = window.location.pathname;
   // let path: string = fullPath.replace(BASE_URL, "");
-  if (!routePaths.includes(path)) path = changeRoutePath();
+  if (!routePaths.includes(path) || path === "/chat") path = changeRoutePath();
   // if (path === "/") path = `#auth`;
   window.history.pushState({}, "", `#${path}`);
   console.log(`${path}<--`);

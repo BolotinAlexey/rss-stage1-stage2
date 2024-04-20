@@ -1,1 +1,1 @@
-export type User = Required<Record<"name" | "password", "string">>;
+export type User = Required<Record<"login" | "password", "string">>;

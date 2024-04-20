@@ -1,7 +1,7 @@
 import { User } from "../../interfaces/user";
 import View from "../views";
 import "./footer.scss";
-import "./style.sass";
+import "./style.scss";
 
 export default class Chat extends View {
   user: User | null = null;

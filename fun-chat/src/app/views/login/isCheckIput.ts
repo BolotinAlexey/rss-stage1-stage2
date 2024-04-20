@@ -2,7 +2,7 @@ import { ALPHA_UPPER, NUMBERS } from "../../constants/index";
 
 export default function isCheckInput(el: HTMLInputElement): boolean {
   const val: string = el.value;
-  if (el.classList.contains("login__input-name")) {
+  if (el.classList.contains("login__input-login")) {
     if (val.length < 4)
       throw new Error("The letters number of name must be more then 4");
     if (

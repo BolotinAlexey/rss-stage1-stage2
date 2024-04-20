@@ -5,7 +5,7 @@ export default function createFormElements() {
 
   const nameLabel = createElement<HTMLElement>("label", [
     "login__label",
-    "login__label-name",
+    "login__label-login",
   ]);
   const passwordLabel = createElement<HTMLElement>("label", [
     "login__label",
@@ -16,7 +16,7 @@ export default function createFormElements() {
   const passwordSpan = createElement<HTMLElement>("span", ["login__span"]);
   const nameInput = createElement<HTMLInputElement>("input", [
     "login__input",
-    "login__input-name",
+    "login__input-login",
   ]);
 
   const passwordInput = createElement<HTMLInputElement>("input", [
