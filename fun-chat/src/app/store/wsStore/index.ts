@@ -1,5 +1,3 @@
-import routeWsMessage from "../../utils/routeWsMessage";
-
 export default class WSStore {
   public static ws: WebSocket | null = null;
 

@@ -1,5 +1,7 @@
 import { User } from "../../interfaces/user";
 import logoutSvg from "../../markups/svg/logoutSvg";
+import SessionStorageAPI from "../../services/sessionStorageApi";
+import WSApi from "../../services/wsApi";
 import logout from "../../utils/logout";
 import { createElement } from "../../utils/supFunctions";
 import HeaderView from "./headerView/headerView";
@@ -20,7 +22,13 @@ export default function createHeader(user: User | null): HTMLElement {
   logoutTxt.textContent = "Logout";
   logoutBtn.append(logoutTxt);
   logoutBtn.insertAdjacentHTML("beforeend", logoutSvg());
-  logoutBtn.addEventListener("click", logout);
+  logoutBtn.addEventListener("click", () => {
+    if (!SessionStorageAPI.getUser) {
+      logout();
+      return;
+    }
+    WSApi.logoutUser(SessionStorageAPI.getUser);
+  });
   logoutWrap.append(userName, logoutBtn);
   header.getHTMLElement().append(logo, logoutWrap);
   return header.getHTMLElement();

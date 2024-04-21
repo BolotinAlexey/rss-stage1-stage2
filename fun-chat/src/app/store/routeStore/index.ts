@@ -23,7 +23,7 @@ export default class RouteStore {
         break;
 
       case "/chat":
-        chatPage(null);
+        chatPage();
         break;
 
       default:

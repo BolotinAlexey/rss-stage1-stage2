@@ -11,16 +11,13 @@ export default class UsersStore {
 
   public static get getActiveUsers() {
     const currentUser = SessionStorageAPI.getUser?.login;
-    console.log(`${currentUser}<--`);
     const users = this.word
       ? this.usersActive.filter((user: UserResponse) =>
           user.login.includes(this.word),
         )
       : this.usersActive;
-    console.log(users);
 
     return users.filter((user) => {
-      console.log(currentUser, user.login);
       return user.login !== currentUser;
     });
   }

@@ -12,22 +12,18 @@ import createUsersSection from "../../views/chat/createUsersSection";
 import createHeader from "../../views/header/createHeader";
 
 const body = getElementDocument("body");
-export default function chatPage(user: User | null) {
-  let fakeUser: User | null = user;
-  if (!user) {
-    fakeUser = SessionStorageAPI.getUser;
-  }
-  if (!fakeUser) return;
+export default function chatPage() {
+  const user: User | null = SessionStorageAPI.getUser;
+  if (!user) return;
 
-  const chatView = new Chat(fakeUser);
-  WSStore.setWS = new WebSocket(API_URL);
+  const chatView = new Chat(user);
 
   if (WSStore.getWS)
     WSStore.getWS.addEventListener("open", () => {
-      WSApi.authUser(fakeUser);
+      WSApi.authUser(user);
       window.history.pushState({}, "", `#/chat`);
       body.innerHTML = "";
-      const headerHtml: HTMLElement = createHeader(fakeUser);
+      const headerHtml: HTMLElement = createHeader(user);
       body.append(headerHtml);
       chatView.getHTMLElement().append(createUsersSection());
       body.append(chatView.getHTMLElement());

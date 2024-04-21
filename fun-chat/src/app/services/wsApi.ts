@@ -10,6 +10,20 @@ export default class WSApi {
     }
   }
 
+  public static logoutUser(user: User) {
+    if (WSStore.getWS) {
+      WSStore.getWS.send(
+        JSON.stringify({
+          id: "1",
+          type: "USER_LOGOUT",
+          payload: {
+            user,
+          },
+        }),
+      );
+    }
+  }
+
   public static usersActive() {
     const usersActiveId: number = Math.floor(
       Math.random() * Number.MAX_SAFE_INTEGER,
