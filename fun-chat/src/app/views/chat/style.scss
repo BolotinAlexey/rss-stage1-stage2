@@ -1,3 +1,41 @@
+@import url(../../../style.css);
+
 .users {
   margin-top: 5rem;
+  width: max-content;
+}
+
+.users__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 0.5rem 2rem;
+
+  &-active {
+    background-color: rgba(var(--success-color), 0.1);
+  }
+  &-passive {
+    background-color: rgba(var(--error-color), 0.1);
+  }
+}
+
+.users__item {
+  position: relative;
+}
+
+.users__item::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.user-active::before {
+  background-color: rgb(var(--success-color));
+}
+.user-passive::before {
+  background-color: rgb(var(--error-color));
 }

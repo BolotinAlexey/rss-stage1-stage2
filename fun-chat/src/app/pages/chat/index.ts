@@ -33,6 +33,7 @@ export default function chatPage(user: User | null) {
       body.append(chatView.getHTMLElement());
       body.insertAdjacentHTML("beforeend", generateFooter());
       WSApi.usersActive();
+      WSApi.usersPassive();
       onSearchUser();
       WSStore.getWS?.addEventListener("message", routeWsMessage);
     });

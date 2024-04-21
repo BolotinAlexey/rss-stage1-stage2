@@ -24,4 +24,19 @@ export default class WSApi {
       );
     }
   }
+
+  public static usersPassive() {
+    const usersActiveId: number = Math.floor(
+      Math.random() * Number.MAX_SAFE_INTEGER,
+    );
+    if (WSStore.getWS) {
+      WSStore.getWS.send(
+        JSON.stringify({
+          id: usersActiveId.toString(),
+          type: "USER_INACTIVE",
+          payload: null,
+        }),
+      );
+    }
+  }
 }

@@ -5,9 +5,11 @@ export default function createUsersSection(): HTMLElement {
   const section: HTMLElement = createElement("section", ["section", "users"]);
   const search: HTMLInputElement = createElement("input", ["users__search"]);
   const usersListActive: HTMLElement = createElement("ul", [
+    "users__list",
     "users__list-active",
   ]);
   const usersListPassive: HTMLElement = createElement("ul", [
+    "users__list",
     "users__list-passive",
   ]);
 
