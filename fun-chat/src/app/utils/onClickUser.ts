@@ -14,4 +14,7 @@ export default function onClickUser(e: Event, status: "active" | "inactive") {
 
   parent.innerHTML = "";
   parent.append(userHtml, statusHtml);
+
+  const input = <HTMLInputElement>getElementDocument(".messages__input");
+  input.disabled = false;
 }

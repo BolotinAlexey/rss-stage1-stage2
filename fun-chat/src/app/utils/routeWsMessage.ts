@@ -2,6 +2,7 @@ import chatPage from "../pages/chat/index";
 import WSApi from "../services/wsApi";
 import UsersStore from "../store/usersStore/index";
 import logout from "./logout";
+import reciveMessage from "./reciveMessage";
 
 export default function routeWsMessage(e: MessageEvent) {
   const data = JSON.parse(e.data);
@@ -31,6 +32,10 @@ export default function routeWsMessage(e: MessageEvent) {
     case "USER_EXTERNAL_LOGOUT":
       WSApi.usersActive();
       WSApi.usersPassive();
+      break;
+
+    case "MSG_SEND":
+      reciveMessage(data);
       break;
 
     default:

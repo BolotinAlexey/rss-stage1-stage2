@@ -1,4 +1,4 @@
-import onMessageTextarea from "../../utils/onMessageTextarea";
+import onMessageUser from "../../utils/onMessageUser";
 import { createElement } from "../../utils/supFunctions";
 
 export default function createMessagesSection(): HTMLElement {
@@ -31,7 +31,7 @@ export default function createMessagesSection(): HTMLElement {
   section.append(statusBar, messageField, form);
   form.addEventListener("submit", (e) => {
     submitBtn.disabled = true;
-    onMessageTextarea(e);
+    onMessageUser(e);
   });
   input.addEventListener("input", () => {
     submitBtn.disabled = !input.value;

@@ -3,6 +3,7 @@
 main {
   margin-top: 7rem;
   display: flex;
+  justify-content: center;
   gap: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -43,6 +44,7 @@ main {
 
 .users__item {
   position: relative;
+  cursor: pointer;
 }
 
 .users__item::before {
@@ -73,11 +75,16 @@ main {
 }
 
 .messages__status {
+  display: flex;
+  justify-content: space-between;
   height: 3rem;
-  padding: 0.5rem;
+  padding: 0.5rem 3rem;
   margin: 1rem 0;
   border: 1px solid var(--main-color);
   border-radius: 1rem;
+  font:
+    400 1.5rem / 1.2 "Philosopher",
+    sans-serif;
 }
 
 .messages__field {

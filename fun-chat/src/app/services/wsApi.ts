@@ -1,11 +1,16 @@
 import { User } from "../interfaces/user";
 import WSStore from "../store/wsStore/index";
+import randomId from "../utils/randomId";
 
 export default class WSApi {
   public static authUser(user: User) {
     if (WSStore.getWS) {
       WSStore.getWS.send(
-        JSON.stringify({ id: "1", type: "USER_LOGIN", payload: { user } }),
+        JSON.stringify({
+          id: randomId(),
+          type: "USER_LOGIN",
+          payload: { user },
+        }),
       );
     }
   }
@@ -14,7 +19,7 @@ export default class WSApi {
     if (WSStore.getWS) {
       WSStore.getWS.send(
         JSON.stringify({
-          id: "1",
+          id: randomId(),
           type: "USER_LOGOUT",
           payload: {
             user,
@@ -25,13 +30,10 @@ export default class WSApi {
   }
 
   public static usersActive() {
-    const usersActiveId: number = Math.floor(
-      Math.random() * Number.MAX_SAFE_INTEGER,
-    );
     if (WSStore.getWS) {
       WSStore.getWS.send(
         JSON.stringify({
-          id: usersActiveId.toString(),
+          id: randomId(),
           type: "USER_ACTIVE",
           payload: null,
         }),
@@ -40,15 +42,29 @@ export default class WSApi {
   }
 
   public static usersPassive() {
-    const usersActiveId: number = Math.floor(
-      Math.random() * Number.MAX_SAFE_INTEGER,
-    );
     if (WSStore.getWS) {
       WSStore.getWS.send(
         JSON.stringify({
-          id: usersActiveId.toString(),
+          id: randomId(),
           type: "USER_INACTIVE",
           payload: null,
+        }),
+      );
+    }
+  }
+
+  public static sendMessage(user: string, text: string) {
+    if (WSStore.getWS) {
+      WSStore.getWS.send(
+        JSON.stringify({
+          id: randomId(),
+          type: "MSG_SEND",
+          payload: {
+            message: {
+              to: user,
+              text,
+            },
+          },
         }),
       );
     }
