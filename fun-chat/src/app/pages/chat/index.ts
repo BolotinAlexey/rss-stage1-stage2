@@ -8,6 +8,7 @@ import onSearchUser from "../../utils/onSearchUser";
 import routeWsMessage from "../../utils/routeWsMessage";
 import { getElementDocument } from "../../utils/supFunctions";
 import Chat from "../../views/chat/chatView";
+import createMessagesSection from "../../views/chat/createMessagesSection";
 import createUsersSection from "../../views/chat/createUsersSection";
 import createHeader from "../../views/header/createHeader";
 
@@ -23,7 +24,9 @@ export default function chatPage() {
   body.innerHTML = "";
   const headerHtml: HTMLElement = createHeader(user);
   body.append(headerHtml);
-  chatView.getHTMLElement().append(createUsersSection());
+  chatView
+    .getHTMLElement()
+    .append(createUsersSection(), createMessagesSection());
   body.append(chatView.getHTMLElement());
   body.insertAdjacentHTML("beforeend", generateFooter());
   WSApi.usersActive();

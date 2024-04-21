@@ -1,3 +1,4 @@
+import onClickUser from "../../utils/onClickUser";
 import onSearchUser from "../../utils/onSearchUser";
 import { createElement } from "../../utils/supFunctions";
 
@@ -14,6 +15,8 @@ export default function createUsersSection(): HTMLElement {
   ]);
 
   section.append(search, usersListActive, usersListPassive);
+  usersListActive.addEventListener("click", (e) => onClickUser(e, "active"));
+  usersListPassive.addEventListener("click", (e) => onClickUser(e, "inactive"));
   search.addEventListener("input", onSearchUser);
 
   return section;

@@ -1,8 +1,31 @@
 @import url(../../../style.css);
 
+main {
+  margin-top: 7rem;
+  display: flex;
+  gap: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.section {
+  height: calc(100vh - 200px);
+  border: 1px solid var(--main-color);
+  border-radius: 1rem;
+}
+
+// U S E R S
 .users {
-  margin-top: 5rem;
   width: max-content;
+  overflow-y: auto;
+}
+
+.users__search {
+  margin: 1rem 0.2rem;
+  height: 1.5rem;
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
 }
 
 .users__list {
@@ -38,4 +61,52 @@
 }
 .user-passive::before {
   background-color: rgb(var(--error-color));
+}
+
+// M E S S A G E S
+
+.messages {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.messages__status {
+  height: 3rem;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border: 1px solid var(--main-color);
+  border-radius: 1rem;
+}
+
+.messages__field {
+  flex-grow: 2;
+}
+.messages__form {
+  display: flex;
+  gap: 1rem;
+}
+
+.messages__input {
+  padding: 0.5rem;
+  height: 4rem;
+  flex-grow: 2;
+  border-radius: 1rem;
+  font: 200 1.5rem / 1.1 "Lobster";
+}
+
+.messages__button {
+  padding: 1rem 0.5rem 0.5rem 1rem;
+  font: 400 2rem / 1 "Luckiest Guy";
+  letter-spacing: 0.5rem;
+  border: 1px solid var(--main-color);
+  border-radius: 1rem;
+  background-color: rgba(var(--error-color), 0.2);
+  transition: background-color 0.25s linear;
+}
+
+.messages__button:not(:disabled) {
+  cursor: pointer;
+  background-color: rgba(var(--success-color), 0.2);
 }
