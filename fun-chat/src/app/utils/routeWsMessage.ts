@@ -1,4 +1,5 @@
 import chatPage from "../pages/chat/index";
+import WSApi from "../services/wsApi";
 import UsersStore from "../store/usersStore/index";
 import logout from "./logout";
 
@@ -15,11 +16,21 @@ export default function routeWsMessage(e: MessageEvent) {
       break;
 
     case "USER_LOGIN":
-      if (data.isLogined) chatPage();
+      if (data.payload.user.isLogined) chatPage();
       break;
 
     case "USER_LOGOUT":
       if (!data.isLogined) logout();
+      break;
+
+    case "USER_EXTERNAL_LOGIN":
+      WSApi.usersActive();
+      WSApi.usersPassive();
+      break;
+
+    case "USER_EXTERNAL_LOGOUT":
+      WSApi.usersActive();
+      WSApi.usersPassive();
       break;
 
     default:

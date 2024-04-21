@@ -2,6 +2,7 @@ import { API_URL } from "../../constants/index";
 import { User } from "../../interfaces/user";
 import WSApi from "../../services/wsApi";
 import WSStore from "../../store/wsStore/index";
+import routeWsMessage from "../../utils/routeWsMessage";
 import isValidUser from "./isValidUser";
 import saveUser from "./saveUser";
 
@@ -33,5 +34,6 @@ export default function submitLogin(e: Event) {
     WSStore.getWS.addEventListener("open", () => {
       saveUser(userObj);
       WSApi.authUser(userObj);
+      WSStore.getWS?.addEventListener("message", routeWsMessage);
     });
 }

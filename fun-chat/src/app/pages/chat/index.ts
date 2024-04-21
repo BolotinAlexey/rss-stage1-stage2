@@ -14,23 +14,19 @@ import createHeader from "../../views/header/createHeader";
 const body = getElementDocument("body");
 export default function chatPage() {
   const user: User | null = SessionStorageAPI.getUser;
+  console.log(user);
+
   if (!user) return;
 
   const chatView = new Chat(user);
-
-  if (WSStore.getWS)
-    WSStore.getWS.addEventListener("open", () => {
-      WSApi.authUser(user);
-      window.history.pushState({}, "", `#/chat`);
-      body.innerHTML = "";
-      const headerHtml: HTMLElement = createHeader(user);
-      body.append(headerHtml);
-      chatView.getHTMLElement().append(createUsersSection());
-      body.append(chatView.getHTMLElement());
-      body.insertAdjacentHTML("beforeend", generateFooter());
-      WSApi.usersActive();
-      WSApi.usersPassive();
-      onSearchUser();
-      WSStore.getWS?.addEventListener("message", routeWsMessage);
-    });
+  window.history.pushState({}, "", `#/chat`);
+  body.innerHTML = "";
+  const headerHtml: HTMLElement = createHeader(user);
+  body.append(headerHtml);
+  chatView.getHTMLElement().append(createUsersSection());
+  body.append(chatView.getHTMLElement());
+  body.insertAdjacentHTML("beforeend", generateFooter());
+  WSApi.usersActive();
+  WSApi.usersPassive();
+  onSearchUser();
 }

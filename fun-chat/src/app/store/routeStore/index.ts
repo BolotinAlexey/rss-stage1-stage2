@@ -23,6 +23,7 @@ export default class RouteStore {
         break;
 
       case "/chat":
+        console.log("choosePage");
         chatPage();
         break;
 
