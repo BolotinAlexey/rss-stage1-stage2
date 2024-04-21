@@ -1,4 +1,5 @@
 import { UserResponse } from "../../interfaces/userResponse";
+import SessionStorageAPI from "../../services/sessionStorageApi";
 import renderUsers from "../../utils/renderUsers";
 
 export default class UsersStore {
@@ -9,18 +10,24 @@ export default class UsersStore {
   private static word: string = "";
 
   public static get getActiveUsers() {
-    return this.word
+    const currentUser = SessionStorageAPI.getUser?.login;
+    console.log(`${currentUser}<--`);
+    const users = this.word
       ? this.usersActive.filter((user: UserResponse) =>
           user.login.includes(this.word),
         )
       : this.usersActive;
+    console.log(users);
+
+    return users.filter((user) => {
+      console.log(currentUser, user.login);
+      return user.login !== currentUser;
+    });
   }
 
   public static set setActiveUsers(users: UserResponse[]) {
     this.usersActive = users;
-    console.log(users);
-
-    renderUsers(users, "active");
+    renderUsers(this.getActiveUsers, "active");
   }
 
   public static get getPassiveUsers() {
@@ -33,7 +40,7 @@ export default class UsersStore {
 
   public static set setPassiveUsers(users: UserResponse[]) {
     this.usersPassive = users;
-    renderUsers(users, "passive");
+    renderUsers(this.getPassiveUsers, "passive");
   }
 
   public static set setWord(word: string) {
