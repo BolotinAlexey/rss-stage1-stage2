@@ -21,11 +21,9 @@ export default function chatPage(user: User | null) {
 
   const chatView = new Chat(fakeUser);
   WSStore.setWS = new WebSocket(API_URL);
-  console.log(WSStore.getWS);
 
   if (WSStore.getWS)
     WSStore.getWS.addEventListener("open", () => {
-      console.log("open");
       WSApi.authUser(fakeUser);
       window.history.pushState({}, "", `#/chat`);
       body.innerHTML = "";

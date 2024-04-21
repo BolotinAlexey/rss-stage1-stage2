@@ -8,14 +8,12 @@ export default function onLocation() {
   // const path: string = window.location.pathname;
   // const body = getElementDocument("body");
   const hash = window.location.hash.slice(1);
-  console.log(hash);
   let path = hash || "/auth";
   // const fullPath: string = window.location.pathname;
   // let path: string = fullPath.replace(BASE_URL, "");
   if (!routePaths.includes(path) || path === "/chat") path = changeRoutePath();
   // if (path === "/") path = `#auth`;
   window.history.pushState({}, "", `#${path}`);
-  console.log(`${path}<--`);
 
   switch (path) {
     case "/auth":

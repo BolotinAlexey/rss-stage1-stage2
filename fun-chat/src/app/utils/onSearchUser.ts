@@ -8,6 +8,6 @@ export default function onSearchUser() {
   // if (!target || !("value" in target) || typeof target.value !== "string")
   //   target.value = "";
   UsersStore.setWord = value;
-  renderUsers(UsersStore.getActiveUsers, true);
-  renderUsers(UsersStore.getPassiveUsers, false);
+  renderUsers(UsersStore.getActiveUsers, "active");
+  renderUsers(UsersStore.getPassiveUsers, "passive");
 }

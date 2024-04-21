@@ -7,5 +7,4 @@ export default function showUserName(userObj: User) {
     ["welcome__user-name"],
     `Welcome ${Object.values(userObj).join(" ")}!`,
   );
-  console.log(userName);
 }

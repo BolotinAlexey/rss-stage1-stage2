@@ -15,8 +15,6 @@ export default function submitLogin(e: Event) {
   }, {});
 
   if (!isValidUser(userObj)) {
-    console.log(userObj);
-
     return;
   }
 

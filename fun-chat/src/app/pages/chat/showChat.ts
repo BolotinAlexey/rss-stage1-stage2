@@ -4,7 +4,6 @@ export default function showChat(userObj: User) {
   // const welcomePage = document.querySelector(".welcome");
   // const header = document.querySelector(".header");
   // const bgImg = document.querySelector(".bg-image-welcome");
-
   // if (welcomePage) {
   //   welcomePage.classList.add("show");
   // }
@@ -14,7 +13,5 @@ export default function showChat(userObj: User) {
   // const loginPage = document.querySelector(".login");
   // if (loginPage && loginPage.classList.contains("show"))
   //   loginPage.classList.remove("show");
-
   // showUserName(userObj);
-  console.log(userObj);
 }
