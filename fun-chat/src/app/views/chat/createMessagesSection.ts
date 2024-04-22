@@ -1,4 +1,5 @@
 import onMessageUser from "../../utils/onMessageUser";
+import resetUnreadingStatus from "../../utils/resetUnreadingStatus";
 import { createElement } from "../../utils/supFunctions";
 
 export default function createMessagesSection(): HTMLElement {
@@ -8,6 +9,7 @@ export default function createMessagesSection(): HTMLElement {
   ]);
   const statusBar: HTMLElement = createElement("div", ["messages__status"]);
   const messageField: HTMLElement = createElement("div", ["messages__field"]);
+  messageField.addEventListener("scroll", resetUnreadingStatus);
   const form = createElement<HTMLFormElement>("form", ["messages__form"]);
   const input: HTMLInputElement = createElement<HTMLInputElement>("input", [
     "messages__input",

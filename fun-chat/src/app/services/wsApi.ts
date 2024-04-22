@@ -85,4 +85,20 @@ export default class WSApi {
       );
     }
   }
+
+  public static changeIsReadingStatus(idMessage: string) {
+    if (WSStore.getWS) {
+      WSStore.getWS.send(
+        JSON.stringify({
+          id: randomId(),
+          type: "MSG_READ",
+          payload: {
+            message: {
+              id: idMessage,
+            },
+          },
+        }),
+      );
+    }
+  }
 }
