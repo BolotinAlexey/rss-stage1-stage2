@@ -4,6 +4,7 @@ import UsersStore from "../store/usersStore/index";
 
 export default function reciveMessagesFromUser(messages: IMessage[]) {
   const currentUser = SessionStorageAPI.getUser?.login;
+  if (!messages[0]) return;
   const otherUser = [messages[0].from, messages[0].to].find(
     (user) => user !== currentUser,
   );

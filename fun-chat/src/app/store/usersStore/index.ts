@@ -1,5 +1,6 @@
 import { UserResponse } from "../../interfaces/userResponse";
 import SessionStorageAPI from "../../services/sessionStorageApi";
+import WSApi from "../../services/wsApi";
 import renderUsers from "../../utils/renderUsers";
 
 export default class UsersStore {
@@ -24,6 +25,7 @@ export default class UsersStore {
 
   public static set setActiveUsers(users: UserResponse[]) {
     this.usersActive = users;
+    users.forEach(({ login }) => WSApi.sendRequestMessages(login));
     renderUsers(this.getActiveUsers, "active");
   }
 
@@ -37,6 +39,7 @@ export default class UsersStore {
 
   public static set setPassiveUsers(users: UserResponse[]) {
     this.usersPassive = users;
+    users.forEach(({ login }) => WSApi.sendRequestMessages(login));
     renderUsers(this.getPassiveUsers, "passive");
   }
 
