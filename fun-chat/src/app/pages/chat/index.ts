@@ -1,4 +1,3 @@
-import { API_URL } from "../../constants/index";
 import { User } from "../../interfaces/user";
 import generateFooter from "../../markups/footer";
 import SessionStorageAPI from "../../services/sessionStorageApi";
@@ -13,7 +12,6 @@ import createHeader from "../../views/header/createHeader";
 const body = getElementDocument("body");
 export default function chatPage() {
   const user: User | null = SessionStorageAPI.getUser;
-  console.log(user);
 
   if (!user) return;
 
