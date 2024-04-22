@@ -2,10 +2,16 @@ import { IMessage } from "../interfaces/message";
 import SessionStorageAPI from "../services/sessionStorageApi";
 import UsersStore from "../store/usersStore/index";
 import renderMessagesField from "./renderMessagesField";
+import { getElementDocument } from "./supFunctions";
 
 export default function reciveMessagesFromUser(messages: IMessage[]) {
   const currentUser = SessionStorageAPI.getUser?.login;
-  if (!messages[0]) return;
+  const field = getElementDocument(".messages__field");
+  const userInStatusField = document.querySelector(".message__status-user");
+  if (!userInStatusField || !messages[0]) {
+    field.innerHTML = "";
+    return;
+  }
   const otherUser = [messages[0].from, messages[0].to].find(
     (user) => user !== currentUser,
   );

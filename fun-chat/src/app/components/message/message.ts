@@ -40,7 +40,7 @@ export default class Message extends View {
       new Date(datetime).toLocaleString(),
     );
 
-    let bottom: HTMLElement = createElement("div", [`message__bottom`]);
+    const bottom: HTMLElement = createElement("div", [`message__bottom`]);
 
     let statusSending = isDelivered ? "delivered" : "sended";
     statusSending = isReaded ? "readed" : statusSending;
@@ -62,22 +62,3 @@ export default class Message extends View {
     this.getHTMLElement().append(top, textHtml, bottom);
   }
 }
-
-// {
-//   id: string,
-//   type: "MSG_SEND",
-//   payload: {
-//     message: {
-//       id: string,
-//       from: string,
-//       to: string,
-//       text: string,
-//       datetime: number,
-//       status: {
-//         isDelivered: boolean,
-//         isReaded: boolean,
-//         isEdited: boolean,
-//       }
-//     }
-//   }
-// }

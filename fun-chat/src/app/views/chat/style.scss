@@ -122,6 +122,12 @@ main {
   background-color: rgba(var(--error-color), 0.1);
 }
 
+.message__top,
+.messages__button {
+  display: flex;
+  gap: 2rem;
+}
+
 .messages__form {
   display: flex;
   gap: 1rem;
