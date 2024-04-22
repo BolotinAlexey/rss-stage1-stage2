@@ -1,6 +1,7 @@
 import chatPage from "../pages/chat/index";
 import WSApi from "../services/wsApi";
 import UsersStore from "../store/usersStore/index";
+import existUser from "./existUser";
 import logout from "./logout";
 import reciveMessage from "./reciveMessage";
 import reciveMessagesFromUser from "./reciveMessagesFromUser";
@@ -41,6 +42,12 @@ export default function routeWsMessage(e: MessageEvent) {
 
     case "MSG_FROM_USER":
       reciveMessagesFromUser(data.payload.messages);
+      break;
+
+    case "MSG_READ":
+      WSApi.usersActive();
+      WSApi.usersPassive();
+      if (existUser()) WSApi.sendRequestMessages(existUser());
       break;
 
     default:

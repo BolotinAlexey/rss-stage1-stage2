@@ -10,6 +10,7 @@ export default function createMessagesSection(): HTMLElement {
   const statusBar: HTMLElement = createElement("div", ["messages__status"]);
   const messageField: HTMLElement = createElement("div", ["messages__field"]);
   messageField.addEventListener("scroll", resetUnreadingStatus);
+  messageField.addEventListener("click", resetUnreadingStatus);
   const form = createElement<HTMLFormElement>("form", ["messages__form"]);
   const input: HTMLInputElement = createElement<HTMLInputElement>("input", [
     "messages__input",
@@ -29,6 +30,7 @@ export default function createMessagesSection(): HTMLElement {
   form.addEventListener("submit", (e) => {
     submitBtn.disabled = true;
     onMessageUser(e);
+    resetUnreadingStatus();
   });
   input.addEventListener("input", () => {
     submitBtn.disabled = !input.value;
