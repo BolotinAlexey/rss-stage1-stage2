@@ -103,7 +103,25 @@ main {
 
 .messages__field {
   flex-grow: 2;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
+
+.message {
+  width: max-content;
+  padding: 1rem 0.5rem;
+  background-color: rgba(var(--success-color), 0.1);
+  border-radius: 1rem;
+}
+
+.right-message {
+  align-self: flex-end;
+  margin-right: 1rem;
+  background-color: rgba(var(--error-color), 0.1);
+}
+
 .messages__form {
   display: flex;
   gap: 1rem;

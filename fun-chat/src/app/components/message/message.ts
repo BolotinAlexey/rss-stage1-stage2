@@ -1,40 +1,65 @@
 import { IMessage } from "../../interfaces/message";
-import { SendMsgUserRequest } from "../../interfaces/sendMsg";
+import SessionStorageAPI from "../../services/sessionStorageApi";
 import { createElement } from "../../utils/supFunctions";
 import View from "../../views/views";
 import "./style.scss";
 
 export default class Message extends View {
-  id: string | null;
-
   message: IMessage;
 
-  constructor(data: SendMsgUserRequest) {
+  constructor(message: IMessage) {
     super({ tag: "div", class: ["message"], text: "" });
-    this.id = data.id;
-    this.message = data.payload.message;
+    this.message = message;
+    this.createMessage();
   }
 
   createMessage() {
-    if (this.id === null) this.message.to = "you";
-    else this.message.from = "you";
-    const { id, from, to, text, datetime } = this.message;
+    const currentUser = SessionStorageAPI.getUser?.login;
+    if (!currentUser) return;
+    if (this.message.from === currentUser) {
+      this.message.from = "you";
+      this.getHTMLElement().classList.add("right-message");
+    } else this.getHTMLElement().classList.add("left-message");
+    const {
+      from,
+      text,
+      datetime,
+      status: { isDelivered, isEdited, isReaded },
+    } = this.message;
+
     const fromHtml: HTMLElement = createElement(
       "span",
       [`message__from`],
       from,
     );
-    const toHtml: HTMLElement = createElement("span", [`message__to`], to);
-    const textHtml: HTMLElement = createElement(
-      "span",
-      [`message__text`],
-      text,
-    );
+    const top: HTMLElement = createElement("div", [`message__top`]);
+    const textHtml: HTMLElement = createElement("div", [`message__text`], text);
     const dateHtml: HTMLElement = createElement(
       "span",
       [`message__date`],
-      datetime.toString(),
+      new Date(datetime).toLocaleString(),
     );
+
+    let bottom: HTMLElement = createElement("div", [`message__bottom`]);
+
+    let statusSending = isDelivered ? "delivered" : "sended";
+    statusSending = isReaded ? "readed" : statusSending;
+    const statusSendingHtml = createElement(
+      "span",
+      ["message__status-sending"],
+      statusSending,
+    );
+    const statusEditngHtml = createElement(
+      "span",
+      ["message__status-editing"],
+      isEdited ? "edited" : " ",
+    );
+
+    if (this.message.from === "you")
+      bottom.append(statusEditngHtml, statusSendingHtml);
+
+    top.append(fromHtml, dateHtml);
+    this.getHTMLElement().append(top, textHtml, bottom);
   }
 }
 

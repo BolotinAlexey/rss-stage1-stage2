@@ -1,6 +1,7 @@
 import { IMessage } from "../interfaces/message";
 import SessionStorageAPI from "../services/sessionStorageApi";
 import UsersStore from "../store/usersStore/index";
+import renderMessagesField from "./renderMessagesField";
 
 export default function reciveMessagesFromUser(messages: IMessage[]) {
   const currentUser = SessionStorageAPI.getUser?.login;
@@ -14,4 +15,5 @@ export default function reciveMessagesFromUser(messages: IMessage[]) {
   }, 0);
   if (otherUser && unReadMsgsNumber)
     UsersStore.setUnReadMsgs(otherUser, unReadMsgsNumber);
+  renderMessagesField(messages);
 }
