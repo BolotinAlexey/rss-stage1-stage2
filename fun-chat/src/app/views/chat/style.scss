@@ -127,6 +127,11 @@ main {
   background-color: rgba(var(--error-color), 0.1);
 }
 
+.field__message-center {
+  align-self: center;
+  justify-self: center;
+}
+
 .message__top,
 .messages__button {
   display: flex;

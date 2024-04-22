@@ -24,9 +24,14 @@ export default class UsersStore {
   }
 
   public static set setActiveUsers(users: UserResponse[]) {
-    this.usersActive = users;
-    users.forEach(({ login }) => WSApi.sendRequestMessages(login));
-    renderUsers(this.getActiveUsers, "active");
+    const currentUser: string | undefined = SessionStorageAPI.getUser?.login;
+    if (currentUser) {
+      this.usersActive = users;
+      users
+        .filter((usr) => usr.login !== currentUser)
+        .forEach(({ login }) => WSApi.sendRequestMessages(login));
+      renderUsers(this.getActiveUsers, "active");
+    }
   }
 
   public static get getPassiveUsers() {
