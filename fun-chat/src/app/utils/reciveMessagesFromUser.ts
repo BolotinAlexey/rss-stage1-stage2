@@ -7,8 +7,7 @@ import { getElementDocument } from "./supFunctions";
 export default function reciveMessagesFromUser(messages: IMessage[]) {
   const currentUser = SessionStorageAPI.getUser?.login;
   const field = getElementDocument(".messages__field");
-  const userInStatusField = document.querySelector(".message__status-user");
-  if (!userInStatusField || !messages[0]) {
+  if (!messages[0]) {
     field.innerHTML = "";
     return;
   }
@@ -21,5 +20,6 @@ export default function reciveMessagesFromUser(messages: IMessage[]) {
   }, 0);
   if (otherUser && unReadMsgsNumber)
     UsersStore.setUnReadMsgs(otherUser, unReadMsgsNumber);
-  renderMessagesField(messages);
+  if (document.querySelector(".message__status-user"))
+    renderMessagesField(messages);
 }

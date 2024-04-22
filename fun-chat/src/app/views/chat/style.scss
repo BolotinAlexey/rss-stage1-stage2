@@ -102,6 +102,7 @@ main {
 }
 
 .messages__field {
+  position: relative;
   flex-grow: 2;
   overflow: auto;
   display: flex;
@@ -128,6 +129,11 @@ main {
   gap: 2rem;
 }
 
+.not-read {
+  margin: 0 auto;
+}
+
+// messages form
 .messages__form {
   display: flex;
   gap: 1rem;
