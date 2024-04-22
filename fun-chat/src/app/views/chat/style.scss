@@ -11,6 +11,7 @@ main {
 
 .section {
   height: calc(100vh - 200px);
+  min-width: 300px;
   border: 1px solid var(--main-color);
   border-radius: 1rem;
 }
@@ -22,8 +23,10 @@ main {
 }
 
 .users__search {
-  margin: 1rem 0.2rem;
-  height: 1.5rem;
+  display: block;
+  margin: 1rem auto;
+  height: 2rem;
+  width: calc(100% - 2rem);
   background-color: transparent;
   border: 1px solid var(--main-color);
   border-radius: 5px;
@@ -103,6 +106,7 @@ main {
 
 .messages__field {
   position: relative;
+  padding: 1rem;
   flex-grow: 2;
   overflow: auto;
   display: flex;
@@ -111,7 +115,7 @@ main {
 }
 
 .message {
-  width: max-content;
+  width: 70%;
   padding: 1rem 0.5rem;
   background-color: rgba(var(--success-color), 0.1);
   border-radius: 1rem;
@@ -126,7 +130,18 @@ main {
 .message__top,
 .messages__button {
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
+}
+
+.message__text {
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid var(--main-color);
+  border-radius: 1rem;
+  background-color: #adf;
+  font: 200 1.5rem / 1.1 "Lobster";
+  text-wrap: wrap;
+  overflow: auto;
 }
 
 .not-read {
@@ -145,6 +160,11 @@ main {
   flex-grow: 2;
   border-radius: 1rem;
   font: 200 1.5rem / 1.1 "Lobster";
+  &::placeholder {
+    font:
+      100 1.3rem / 1.1 "Philosopher",
+      sans-serif;
+  }
 }
 
 .messages__button {

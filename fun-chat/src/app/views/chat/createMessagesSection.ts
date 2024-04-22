@@ -7,15 +7,12 @@ export default function createMessagesSection(): HTMLElement {
     "messages",
   ]);
   const statusBar: HTMLElement = createElement("div", ["messages__status"]);
-
   const messageField: HTMLElement = createElement("div", ["messages__field"]);
-
   const form = createElement<HTMLFormElement>("form", ["messages__form"]);
-
   const input: HTMLInputElement = createElement<HTMLInputElement>("input", [
     "messages__input",
   ]);
-
+  input.placeholder = "Message..";
   const submitBtn: HTMLButtonElement = createElement<HTMLButtonElement>(
     "button",
     ["messages__button"],
@@ -25,9 +22,7 @@ export default function createMessagesSection(): HTMLElement {
   input.disabled = true;
   submitBtn.disabled = true;
   submitBtn.type = "submit";
-
   form.append(input, submitBtn);
-
   section.append(statusBar, messageField, form);
   form.addEventListener("submit", (e) => {
     submitBtn.disabled = true;
