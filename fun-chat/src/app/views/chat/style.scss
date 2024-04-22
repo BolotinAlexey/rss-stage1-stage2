@@ -45,6 +45,20 @@ main {
 .users__item {
   position: relative;
   cursor: pointer;
+  padding-bottom: 0.2rem;
+  font:
+    400 1.2rem / 1.2 "Philosopher",
+    sans-serif;
+}
+
+.un-read-messages {
+  min-width: 1.5rem;
+  position: absolute;
+  right: 0;
+  padding: 0.1rem, 0.2rem;
+  text-align: center;
+  border: 1px solid rgb(var(--error-color));
+  border-radius: 50%;
 }
 
 .users__item::before {

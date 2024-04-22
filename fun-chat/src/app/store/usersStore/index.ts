@@ -43,4 +43,19 @@ export default class UsersStore {
   public static set setWord(word: string) {
     this.word = word;
   }
+
+  public static setUnReadMsgs(login: string, unReadMsgsNumber: number) {
+    let user: UserResponse | undefined = this.getActiveUsers.find(
+      (el: UserResponse) => el.login === login,
+    );
+    if (user) {
+      user.unReadMsgs = unReadMsgsNumber;
+      renderUsers(this.getActiveUsers, "active");
+      return;
+    }
+
+    user = this.getPassiveUsers.find((el: UserResponse) => el.login === login);
+    if (user) user.unReadMsgs = unReadMsgsNumber;
+    renderUsers(this.getPassiveUsers, "passive");
+  }
 }

@@ -9,7 +9,7 @@ export interface SendMsgUser {
   };
 }
 export interface SendMsgUserRequest {
-  id: string;
+  id: string | null;
   type: "MSG_SEND";
   payload: {
     message: {

@@ -1,8 +1,8 @@
 export type StatusMessage = Required<
-  Record<"isDelivered" | "isReaded" | "isEdited", "boolean">
+  Record<"isDelivered" | "isReaded" | "isEdited", boolean>
 >;
 
-export interface Message {
+export interface IMessage {
   id: string;
   from: string;
   to: string;

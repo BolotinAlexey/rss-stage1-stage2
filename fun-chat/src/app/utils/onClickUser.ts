@@ -7,7 +7,7 @@ export default function onClickUser(e: Event, status: "active" | "inactive") {
   const userHtml = createElement(
     "span",
     ["message__status-user"],
-    target.textContent || "",
+    target.innerText.split("\n")[0] || "",
   );
   const statusHtml = createElement("span", ["message__status-status"], status);
   statusHtml.style.color = status === "active" ? "green" : "red";

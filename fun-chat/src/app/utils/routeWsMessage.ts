@@ -3,6 +3,7 @@ import WSApi from "../services/wsApi";
 import UsersStore from "../store/usersStore/index";
 import logout from "./logout";
 import reciveMessage from "./reciveMessage";
+import reciveMessagesFromUser from "./reciveMessagesFromUser";
 
 export default function routeWsMessage(e: MessageEvent) {
   const data = JSON.parse(e.data);
@@ -36,6 +37,10 @@ export default function routeWsMessage(e: MessageEvent) {
 
     case "MSG_SEND":
       reciveMessage(data);
+      break;
+
+    case "MSG_FROM_USER":
+      reciveMessagesFromUser(data.payload.messages);
       break;
 
     default:

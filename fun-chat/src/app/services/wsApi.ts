@@ -69,4 +69,20 @@ export default class WSApi {
       );
     }
   }
+
+  public static sendRequestMessages(login: string) {
+    if (WSStore.getWS) {
+      WSStore.getWS.send(
+        JSON.stringify({
+          id: randomId(),
+          type: "MSG_FROM_USER",
+          payload: {
+            user: {
+              login,
+            },
+          },
+        }),
+      );
+    }
+  }
 }
