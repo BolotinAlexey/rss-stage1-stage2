@@ -24,7 +24,6 @@ export default class AboutView extends View {
     const btn = createElement("button", ["about__button"], "Exit");
 
     btn.addEventListener("click", () => {
-      // window.history.back();
       window.history.pushState({}, "", `#chat`);
       onLocation();
     });
