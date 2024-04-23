@@ -4,18 +4,7 @@ import UsersMsgsStore from "../store/usersMsgsStore.ts/index";
 
 export default function resetUnreadingStatus() {
   const user = document.querySelector(".message__status-user");
-  if (
-    !user ||
-    !user.textContent ||
-    !document.querySelector(".not-read") ||
-    UsersMsgsStore.isScroll
-  ) {
-    console.log(
-      !user,
-      document.querySelector(".not-read"),
-      UsersMsgsStore.isScroll,
-    );
-
+  if (!user || !user.textContent || !document.querySelector(".not-read")) {
     return;
   }
   const messages: IMessage[] | undefined = UsersMsgsStore.getUserMsgs(

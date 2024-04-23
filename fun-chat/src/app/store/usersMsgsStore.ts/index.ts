@@ -5,14 +5,13 @@ export default class UsersMsgsStore {
 
   private static activeUser: string = "";
 
-  public static isScroll: boolean = false;
+  // public static isScroll: boolean = false;
 
   public static getUserMsgs(user: string) {
     return this.users.get(user);
   }
 
   public static setUserMsgs(user: string, messages: IMessage[]) {
-    console.log(user, messages);
     this.users.set(user, messages);
   }
 

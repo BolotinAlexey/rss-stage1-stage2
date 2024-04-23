@@ -11,7 +11,7 @@ export default function createMessagesSection(): HTMLElement {
   const statusBar: HTMLElement = createElement("div", ["messages__status"]);
   const messageField: HTMLElement = createElement("div", ["messages__field"]);
   messageField.addEventListener("wheel", () => {
-    if (!UsersMsgsStore.isScroll) resetUnreadingStatus();
+    resetUnreadingStatus();
   });
   messageField.addEventListener("click", resetUnreadingStatus);
   const form = createElement<HTMLFormElement>("form", ["messages__form"]);

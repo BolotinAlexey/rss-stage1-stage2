@@ -27,7 +27,6 @@ export default function renderMessagesField(
     }
     field.append(msg.getHTMLElement());
   });
-  UsersMsgsStore.isScroll = true;
   const notReadMsg = document.querySelector(".not-read");
   if (notReadMsg) {
     notReadMsg.scrollIntoView(true);
@@ -37,5 +36,4 @@ export default function renderMessagesField(
       htmlMessages[htmlMessages.length - 1].scrollIntoView(true);
     }
   }
-  UsersMsgsStore.isScroll = false;
 }
