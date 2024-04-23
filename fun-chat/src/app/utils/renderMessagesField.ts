@@ -1,7 +1,5 @@
 import Message from "../components/message/message";
-import { SCROLL_DELAY } from "../constants/index";
 import { IMessage } from "../interfaces/message";
-import UsersMsgsStore from "../store/usersMsgsStore.ts/index";
 import { createElement, getElementDocument } from "./supFunctions";
 
 export default function renderMessagesField(
@@ -19,8 +17,6 @@ export default function renderMessagesField(
       message.from === statusUser &&
       !message.status.isReaded
     ) {
-      console.log("append unread");
-
       field.append(
         createElement("div", ["not-read"], "----- Not read messages -----"),
       );

@@ -1,11 +1,6 @@
-import { API_URL } from "../constants/index";
 import SessionStorageAPI from "../services/sessionStorageApi";
-import WSApi from "../services/wsApi";
-import UserStore from "../store/userStore/index";
 import WSStore from "../store/wsStore/index";
 import createWebSocket from "./createWebSocket";
-import reconnect from "./reconnect";
-import routeWsMessage from "./routeWsMessage";
 
 export default function changeRoutePath(): string {
   const user = SessionStorageAPI.getUser;

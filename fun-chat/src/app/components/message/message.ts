@@ -1,5 +1,6 @@
 import { IMessage } from "../../interfaces/message";
 import SessionStorageAPI from "../../services/sessionStorageApi";
+import onContextMenu from "../../utils/onContextMenu";
 import { createElement } from "../../utils/supFunctions";
 import View from "../../views/views";
 import "./style.scss";
@@ -21,6 +22,7 @@ export default class Message extends View {
       this.getHTMLElement().classList.add("right-message");
     } else this.getHTMLElement().classList.add("left-message");
     const {
+      id,
       from,
       text,
       datetime,
@@ -60,5 +62,9 @@ export default class Message extends View {
 
     top.append(fromHtml, dateHtml);
     this.getHTMLElement().append(top, textHtml, bottom);
+    this.getHTMLElement().dataset.id = id;
+    this.getHTMLElement().addEventListener("contextmenu", (e) =>
+      onContextMenu(e, id),
+    );
   }
 }

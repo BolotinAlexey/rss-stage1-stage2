@@ -1,6 +1,7 @@
 import chatPage from "../pages/chat/index";
 import WSApi from "../services/wsApi";
 import UsersStore from "../store/usersStore/index";
+import deleteMessage from "./deleteMessage";
 import existUser from "./existUser";
 import logout from "./logout";
 import notify from "./notify";
@@ -53,6 +54,12 @@ export default function routeWsMessage(e: MessageEvent) {
 
     case "ERROR":
       notify(data.payload.error, true);
+      break;
+
+    case "MSG_DELETE":
+      if (data.payload.message.status.isDeleted) {
+        deleteMessage(data.payload.message.id);
+      }
       break;
 
     default:

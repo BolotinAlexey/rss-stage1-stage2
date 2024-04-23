@@ -106,4 +106,37 @@ export default class WSApi {
       );
     }
   }
+
+  public static deleteMessage(id: string) {
+    if (WSStore.getWS) {
+      WSStore.getWS.send(
+        JSON.stringify({
+          id: randomId(),
+          type: "MSG_DELETE",
+          payload: {
+            message: {
+              id,
+            },
+          },
+        }),
+      );
+    }
+  }
+
+  public static editMessage(id: string, text: string) {
+    if (WSStore.getWS) {
+      WSStore.getWS.send(
+        JSON.stringify({
+          id: randomId(),
+          type: "MSG_EDIT",
+          payload: {
+            message: {
+              id,
+              text,
+            },
+          },
+        }),
+      );
+    }
+  }
 }
