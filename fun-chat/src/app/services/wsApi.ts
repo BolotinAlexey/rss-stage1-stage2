@@ -75,6 +75,23 @@ export default class WSApi {
     }
   }
 
+  public static sendMessageEditing(id: string, text: string) {
+    if (WSStore.getWS) {
+      WSStore.getWS.send(
+        JSON.stringify({
+          id: randomId(),
+          type: "MSG_EDIT",
+          payload: {
+            message: {
+              id,
+              text,
+            },
+          },
+        }),
+      );
+    }
+  }
+
   public static sendRequestMessages(login: string) {
     if (WSStore.getWS) {
       WSStore.getWS.send(

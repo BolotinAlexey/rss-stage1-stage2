@@ -26,8 +26,11 @@ export default function onContextMenu(e: Event, id: string) {
     wrap.remove();
     WSApi.deleteMessage(id);
   });
-  del.addEventListener("click", () => {
+
+  edit.addEventListener("click", () => {
     wrap.remove();
-    onEditMessage(id);
+    const textHtml = currentTarget.querySelector(".message__text");
+    const text = textHtml?.textContent;
+    if (text) onEditMessage(id, text);
   });
 }

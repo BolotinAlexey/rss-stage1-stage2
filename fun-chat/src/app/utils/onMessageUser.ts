@@ -1,4 +1,5 @@
 import WSApi from "../services/wsApi";
+import UsersMsgsStore from "../store/usersMsgsStore.ts/index";
 import { getElementDocument } from "./supFunctions";
 
 export default function onMessageUser(e: Event) {
@@ -12,6 +13,11 @@ export default function onMessageUser(e: Event) {
   const user: string =
     getElementDocument(".message__status-user").textContent || "";
 
-  WSApi.sendMessage(user, target.elements[0].value);
+  if (UsersMsgsStore.editedId) {
+    WSApi.sendMessageEditing(UsersMsgsStore.editedId, target.elements[0].value);
+    UsersMsgsStore.editedId = null;
+  } else {
+    WSApi.sendMessage(user, target.elements[0].value);
+  }
   target.reset();
 }

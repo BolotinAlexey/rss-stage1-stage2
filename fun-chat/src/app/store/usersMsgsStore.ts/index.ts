@@ -5,6 +5,8 @@ export default class UsersMsgsStore {
 
   private static activeUser: string = "";
 
+  public static editedId: string | null = null;
+
   public static getUserMsgs(user: string) {
     return this.users.get(user);
   }
