@@ -3,6 +3,7 @@ import WSApi from "../services/wsApi";
 import UsersStore from "../store/usersStore/index";
 import existUser from "./existUser";
 import logout from "./logout";
+import notify from "./notify";
 import reciveMessage from "./reciveMessage";
 import reciveMessagesFromUser from "./reciveMessagesFromUser";
 
@@ -48,6 +49,10 @@ export default function routeWsMessage(e: MessageEvent) {
       WSApi.usersActive();
       WSApi.usersPassive();
       if (existUser()) WSApi.sendRequestMessages(existUser());
+      break;
+
+    case "ERROR":
+      notify(data.payload.error, true);
       break;
 
     default:

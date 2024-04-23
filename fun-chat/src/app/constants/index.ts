@@ -5,6 +5,7 @@ const TIME_SHOW_USERNAME: number = 5000;
 const BASE_URL = "";
 const API_URL = "ws://localhost:4000";
 const SCROLL_DELAY = 1000;
+const TIME_SHOW_MESSAGE = 5000;
 
 export {
   ALPHA_UPPER,
@@ -13,4 +14,5 @@ export {
   BASE_URL,
   API_URL,
   SCROLL_DELAY,
+  TIME_SHOW_MESSAGE,
 };
