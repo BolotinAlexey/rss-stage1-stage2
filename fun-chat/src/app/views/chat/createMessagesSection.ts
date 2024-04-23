@@ -1,3 +1,4 @@
+import UsersMsgsStore from "../../store/usersMsgsStore.ts/index";
 import onMessageUser from "../../utils/onMessageUser";
 import resetUnreadingStatus from "../../utils/resetUnreadingStatus";
 import { createElement } from "../../utils/supFunctions";
@@ -9,7 +10,9 @@ export default function createMessagesSection(): HTMLElement {
   ]);
   const statusBar: HTMLElement = createElement("div", ["messages__status"]);
   const messageField: HTMLElement = createElement("div", ["messages__field"]);
-  messageField.addEventListener("scroll", resetUnreadingStatus);
+  messageField.addEventListener("wheel", () => {
+    if (!UsersMsgsStore.isScroll) resetUnreadingStatus();
+  });
   messageField.addEventListener("click", resetUnreadingStatus);
   const form = createElement<HTMLFormElement>("form", ["messages__form"]);
   const input: HTMLInputElement = createElement<HTMLInputElement>("input", [

@@ -4,38 +4,26 @@ import { IMessage } from "../interfaces/message";
 import UsersMsgsStore from "../store/usersMsgsStore.ts/index";
 import { createElement, getElementDocument } from "./supFunctions";
 
-export default function renderMessagesField() {
-  const statusUserHtml = document.querySelector(".message__status-user");
-  let messages: IMessage[] = [];
+export default function renderMessagesField(
+  statusUser: string,
+  msgs: IMessage[],
+) {
   const field = getElementDocument(".messages__field");
+  const messages = structuredClone(msgs);
   field.innerHTML = "";
-  if (
-    statusUserHtml &&
-    statusUserHtml.textContent &&
-    UsersMsgsStore.getUserMsgs(statusUserHtml.textContent)
-  ) {
-    messages = UsersMsgsStore.getUserMsgs(
-      statusUserHtml.textContent,
-    ) as IMessage[];
-  } else {
-    return;
-  }
-
   if (!messages.length) return;
   messages.forEach((message: IMessage) => {
     const msg = new Message(message);
-    const notReadMsg: HTMLElement = createElement(
-      "div",
-      ["not-read"],
-      "----- Not read messages -----",
-    );
-    notReadMsg.id = "not-read";
     if (
       !document.querySelector(".not-read") &&
-      message.from !== "you" &&
+      message.from === statusUser &&
       !message.status.isReaded
     ) {
-      field.append(notReadMsg);
+      console.log("append unread");
+
+      field.append(
+        createElement("div", ["not-read"], "----- Not read messages -----"),
+      );
     }
     field.append(msg.getHTMLElement());
   });
@@ -49,7 +37,5 @@ export default function renderMessagesField() {
       htmlMessages[htmlMessages.length - 1].scrollIntoView(true);
     }
   }
-  setTimeout(() => {
-    UsersMsgsStore.isScroll = false;
-  }, SCROLL_DELAY);
+  UsersMsgsStore.isScroll = false;
 }

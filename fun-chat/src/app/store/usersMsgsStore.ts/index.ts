@@ -12,6 +12,7 @@ export default class UsersMsgsStore {
   }
 
   public static setUserMsgs(user: string, messages: IMessage[]) {
+    console.log(user, messages);
     this.users.set(user, messages);
   }
 

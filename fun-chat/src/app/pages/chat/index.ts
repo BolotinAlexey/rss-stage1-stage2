@@ -25,7 +25,7 @@ export default function chatPage() {
     .append(createUsersSection(), createMessagesSection());
   body.append(chatView.getHTMLElement());
   body.insertAdjacentHTML("beforeend", generateFooter());
-  WSApi.usersActive();
-  WSApi.usersPassive();
+  // WSApi.usersActive();
+  // WSApi.usersPassive();
   onSearchUser();
 }
