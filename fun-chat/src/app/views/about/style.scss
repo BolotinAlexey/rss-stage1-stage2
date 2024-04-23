@@ -1,0 +1,30 @@
+@import url(../../../style.css);
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about__describe {
+  text-align: center;
+  font:
+    400 2rem / 1 "Philosopher",
+    sans-serif;
+}
+
+.about__button {
+  padding: 1.5rem 1.5rem 1rem 2.5rem;
+  border: 1px solid var(--main-color);
+  border-radius: 1rem;
+  font-size: 2rem;
+  font-family: "Luckiest Guy";
+  letter-spacing: 1rem;
+  transition: all 0.3s linear;
+  &:hover {
+    cursor: pointer;
+    border-color: rgb(var(--success-color));
+    background-color: rgba(var(--success-color), 0.3);
+  }
+}

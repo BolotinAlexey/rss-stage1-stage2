@@ -1,7 +1,6 @@
 import { User } from "../../interfaces/user";
 import generateFooter from "../../markups/footer";
 import SessionStorageAPI from "../../services/sessionStorageApi";
-import WSApi from "../../services/wsApi";
 import onSearchUser from "../../utils/onSearchUser";
 import { getElementDocument } from "../../utils/supFunctions";
 import Chat from "../../views/chat/chatView";

@@ -18,6 +18,13 @@ export default function createHeader(user: User | null): HTMLElement {
   const logoutBtn: HTMLButtonElement = createElement("button", ["logout__btn"]);
   const logoutTxt: HTMLSpanElement = createElement("span", ["logout__txt"]);
   userName.textContent = user ? `User: ${user.login}` : "";
+  const linkToAbout = createElement<HTMLAnchorElement>(
+    "a",
+    ["about__link"],
+    "About",
+  );
+  linkToAbout.href = "/#/about";
+  header.nav.append(linkToAbout);
 
   logoutTxt.textContent = "Logout";
   logoutBtn.append(logoutTxt);

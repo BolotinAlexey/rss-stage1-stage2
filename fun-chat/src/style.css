@@ -52,6 +52,19 @@ body {
   padding-right: 1rem;
 }
 
+.about__link {
+  font:
+    400 2rem / 1 "Philosopher",
+    sans-serif;
+  color: var(--main-color);
+  transition: color 0.3s linear;
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    color: var(--accent-color);
+  }
+}
+
 /* Animation */
 
 @keyframes shake-rotate {

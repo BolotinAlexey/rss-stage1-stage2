@@ -3,6 +3,8 @@ import { User } from "../../interfaces/user";
 export default class UserStore {
   private static user: User | null = null;
 
+  public static isConnect: boolean = false;
+
   public static get getUser(): User | null {
     return this.user;
   }

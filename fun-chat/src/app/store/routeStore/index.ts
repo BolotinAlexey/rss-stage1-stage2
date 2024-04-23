@@ -1,4 +1,5 @@
 import routePaths from "../../components/router/routhePaths";
+import aboutPage from "../../pages/about/index";
 import chatPage from "../../pages/chat/index";
 import loginPage from "../../pages/login/index";
 
@@ -22,8 +23,11 @@ export default class RouteStore {
         loginPage();
         break;
 
+      case "/about":
+        aboutPage();
+        break;
+
       case "/chat":
-        console.log("choosePage");
         chatPage();
         break;
 

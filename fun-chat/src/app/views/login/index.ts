@@ -18,7 +18,14 @@ export default class LoginView extends View {
       "Authorization",
     );
     const { form, nameInput, passwordInput } = createForm();
-    this.getHTMLElement().append(title, form);
+    const linkToAbout = createElement<HTMLAnchorElement>(
+      "a",
+      ["about__link"],
+      "About",
+    );
+    linkToAbout.href = "/#/about";
+    this.getHTMLElement().append(linkToAbout, title, form);
+
     nameInput.addEventListener("input", checkLogin);
     passwordInput.addEventListener("input", checkLogin);
     nameInput.addEventListener("input", checkLogin);

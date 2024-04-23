@@ -1,4 +1,5 @@
 import { User } from "../interfaces/user";
+import UserStore from "../store/userStore/index";
 import WSStore from "../store/wsStore/index";
 import randomId from "../utils/randomId";
 
@@ -30,19 +31,23 @@ export default class WSApi {
   }
 
   public static usersActive() {
-    if (WSStore.getWS) {
-      WSStore.getWS.send(
-        JSON.stringify({
-          id: randomId(),
-          type: "USER_ACTIVE",
-          payload: null,
-        }),
-      );
+    try {
+      if (WSStore.getWS && UserStore.isConnect === true) {
+        WSStore.getWS.send(
+          JSON.stringify({
+            id: randomId(),
+            type: "USER_ACTIVE",
+            payload: null,
+          }),
+        );
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
   public static usersPassive() {
-    if (WSStore.getWS) {
+    if (WSStore.getWS && UserStore.isConnect === true) {
       WSStore.getWS.send(
         JSON.stringify({
           id: randomId(),
