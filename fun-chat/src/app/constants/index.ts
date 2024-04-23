@@ -6,6 +6,7 @@ const BASE_URL = "";
 const API_URL = "ws://localhost:4000";
 const SCROLL_DELAY = 1000;
 const TIME_SHOW_MESSAGE = 5000;
+const DELAY_RECONNECT = 3000;
 
 export {
   ALPHA_UPPER,
@@ -15,4 +16,5 @@ export {
   API_URL,
   SCROLL_DELAY,
   TIME_SHOW_MESSAGE,
+  DELAY_RECONNECT,
 };

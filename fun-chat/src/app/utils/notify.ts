@@ -1,7 +1,11 @@
 import { TIME_SHOW_MESSAGE } from "../constants/index";
 import { createElement, getElementDocument } from "./supFunctions";
 
-export default function notify(msg: string, isError: boolean) {
+export default function notify(
+  msg: string,
+  isError: boolean,
+  isInfinite?: boolean,
+) {
   const wrap = createElement("div", ["notify-wrap"]);
   const msgHtml = createElement("div", ["notify-msg"], msg);
   wrap.append(msgHtml);
@@ -12,6 +16,5 @@ export default function notify(msg: string, isError: boolean) {
   }
   const body = getElementDocument("body");
   body.append(wrap);
-
-  setTimeout(() => wrap.remove(), TIME_SHOW_MESSAGE);
+  if (!isInfinite) setTimeout(() => wrap.remove(), TIME_SHOW_MESSAGE);
 }

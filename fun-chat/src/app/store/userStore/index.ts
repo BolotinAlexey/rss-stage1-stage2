@@ -5,6 +5,8 @@ export default class UserStore {
 
   public static isConnect: boolean = false;
 
+  public static setIntervallId: number = 0;
+
   public static get getUser(): User | null {
     return this.user;
   }
