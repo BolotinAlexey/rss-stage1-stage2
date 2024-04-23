@@ -64,6 +64,32 @@ body {
   }
 }
 
+.error-bg {
+  background-color: rgba(var(--error-color), 0.7);
+}
+
+.success-bg {
+  background-color: rgba(var(--success-color), 0.7);
+}
+
+.notify-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 3rem;
+}
+.notify-msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font: 900 4.5rem / 1.1 "Lobster";
+  color: var(--accent-color);
+  -webkit-text-stroke: white 1px;
+}
+
 /* Animation */
 
 @keyframes shake-rotate {
