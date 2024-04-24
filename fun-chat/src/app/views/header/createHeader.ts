@@ -3,6 +3,7 @@ import logoutSvg from "../../markups/svg/logoutSvg";
 import SessionStorageAPI from "../../services/sessionStorageApi";
 import WSApi from "../../services/wsApi";
 import UserStore from "../../store/userStore/index";
+import UsersMsgsStore from "../../store/usersMsgsStore.ts/index";
 import logout from "../../utils/logout";
 import { createElement } from "../../utils/supFunctions";
 import HeaderView from "./headerView/headerView";
@@ -31,6 +32,7 @@ export default function createHeader(user: User | null): HTMLElement {
   logoutBtn.append(logoutTxt);
   logoutBtn.insertAdjacentHTML("beforeend", logoutSvg());
   logoutBtn.addEventListener("click", () => {
+    UsersMsgsStore.editedId = null;
     if (SessionStorageAPI.getUser) {
       if (UserStore.setIntervallId)
         window.clearInterval(UserStore.setIntervallId);

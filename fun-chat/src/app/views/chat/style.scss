@@ -186,3 +186,30 @@ main {
   cursor: pointer;
   background-color: rgba(var(--success-color), 0.2);
 }
+
+.action-list {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 1rem;
+}
+.action-del,
+.action-edit {
+  padding: 0.5rem 1rem;
+  color: white;
+  border: var(--main-color) 1px solid;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: transform 0.25s linear;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.action-del {
+  background-color: rgba(var(--error-color), 0.5);
+}
+
+.action-edit {
+  background-color: var(--accent-color);
+}

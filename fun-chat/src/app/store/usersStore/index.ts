@@ -4,9 +4,9 @@ import WSApi from "../../services/wsApi";
 import renderUsers from "../../utils/renderUsers";
 
 export default class UsersStore {
-  private static usersActive: UserResponse[] = [];
+  public static usersActive: UserResponse[] = [];
 
-  private static usersPassive: UserResponse[] = [];
+  public static usersPassive: UserResponse[] = [];
 
   private static word: string = "";
 

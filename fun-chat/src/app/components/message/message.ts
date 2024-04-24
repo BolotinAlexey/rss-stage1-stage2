@@ -57,8 +57,11 @@ export default class Message extends View {
       isEdited ? "edited" : " ",
     );
 
-    if (this.message.from === "you")
+    if (this.message.from === "you") {
       bottom.append(statusEditngHtml, statusSendingHtml);
+    } else {
+      bottom.append(statusEditngHtml);
+    }
 
     top.append(fromHtml, dateHtml);
     this.getHTMLElement().append(top, textHtml, bottom);

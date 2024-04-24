@@ -1,7 +1,9 @@
 import WSApi from "../services/wsApi";
+import UsersMsgsStore from "../store/usersMsgsStore.ts/index";
 import { createElement, getElementDocument } from "./supFunctions";
 
 export default function onClickUser(e: Event, status: "active" | "inactive") {
+  UsersMsgsStore.editedId = null;
   const { target } = e;
   if (!(target instanceof HTMLElement) || target.tagName !== "LI") return;
   const parent = getElementDocument(".messages__status");

@@ -1,10 +1,9 @@
 import WSApi from "../services/wsApi";
-import { getElementDocument } from "./supFunctions";
+import searchUserById from "./searchUserById";
 
 export default function editMessage(id: string) {
-  const userHtml: HTMLElement = getElementDocument(".message__status-user");
-  const user: string | null = userHtml.textContent;
+  const user = searchUserById(id);
   if (!user) return;
   WSApi.sendRequestMessages(user);
-  console.log(id);
+  console.log(id, user);
 }

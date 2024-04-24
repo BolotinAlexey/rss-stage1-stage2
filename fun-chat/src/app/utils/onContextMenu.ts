@@ -4,6 +4,8 @@ import { createElement } from "./supFunctions";
 
 export default function onContextMenu(e: Event, id: string) {
   e.preventDefault();
+  const openedMenu: HTMLElement | null = document.querySelector(".action-list");
+  if (openedMenu) openedMenu.remove();
   const { currentTarget } = e;
   if (
     !(currentTarget instanceof HTMLElement) ||

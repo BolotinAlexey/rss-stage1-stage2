@@ -5,8 +5,8 @@ const body: HTMLElement = getElementDocument("body");
 export default function aboutPage() {
   body.innerHTML = "";
   const main = createElement("main", ["main", "container"], "");
-  const aboutPage = new AboutView();
+  const aboutPageView = new AboutView();
 
-  main.append(aboutPage.getHTMLElement());
+  main.append(aboutPageView.getHTMLElement());
   body.append(main);
 }
