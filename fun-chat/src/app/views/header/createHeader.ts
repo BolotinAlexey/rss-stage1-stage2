@@ -25,7 +25,7 @@ export default function createHeader(user: User | null): HTMLElement {
     ["about__link"],
     "About",
   );
-  linkToAbout.href = "/#/about";
+  linkToAbout.href = "./#/about";
   header.nav.append(linkToAbout);
 
   logoutTxt.textContent = "Logout";

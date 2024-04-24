@@ -23,7 +23,7 @@ export default class LoginView extends View {
       ["about__link"],
       "About",
     );
-    linkToAbout.href = "/#/about";
+    linkToAbout.href = "./#/about";
     this.getHTMLElement().append(linkToAbout, title, form);
 
     nameInput.addEventListener("input", checkLogin);
