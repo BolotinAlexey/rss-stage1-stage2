@@ -10,7 +10,8 @@ export default function onLocation() {
   const hash = window.location.hash.slice(1);
   let path = hash || "/auth";
 
-  if (!routePaths.includes(path) || path === "/chat") path = changeRoutePath();
+  if (!routePaths.includes(path) || path === "/chat" || path === "/auth")
+    path = changeRoutePath();
   window.history.pushState({}, "", `#${path}`);
 
   switch (path) {

@@ -4,6 +4,7 @@ import UsersStore from "../store/usersStore/index";
 import changeStatusOtherUser from "./changeStatusOtherUser";
 import deleteMessage from "./deleteMessage";
 import editMessage from "./editMessage";
+import errorHandler from "./errorHandler";
 import existUser from "./existUser";
 import logout from "./logout";
 import notify from "./notify";
@@ -64,6 +65,7 @@ export default function routeWsMessage(e: MessageEvent) {
 
     case "ERROR":
       notify(data.payload.error, true);
+      errorHandler(data.payload.error);
       break;
 
     case "MSG_DELETE":
