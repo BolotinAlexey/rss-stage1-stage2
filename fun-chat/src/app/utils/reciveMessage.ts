@@ -1,6 +1,5 @@
 import { SendMsgUserRequest } from "../interfaces/sendMsg";
 import WSApi from "../services/wsApi";
-import UsersMsgsStore from "../store/usersMsgsStore.ts/index";
 
 export default function reciveMessage(data: SendMsgUserRequest) {
   const {
