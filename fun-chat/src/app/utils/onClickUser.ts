@@ -4,6 +4,10 @@ import { createElement, getElementDocument } from "./supFunctions";
 
 export default function onClickUser(e: Event, status: "active" | "inactive") {
   UsersMsgsStore.editedId = null;
+  const checkBox = document.querySelector(".burger__input");
+
+  if (checkBox && checkBox instanceof HTMLInputElement)
+    checkBox.checked = false;
   const { target } = e;
   if (!(target instanceof HTMLElement) || target.tagName !== "LI") return;
   const parent = getElementDocument(".messages__status");

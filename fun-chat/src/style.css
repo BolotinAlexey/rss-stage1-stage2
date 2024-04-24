@@ -53,6 +53,7 @@ body {
 }
 
 .about__link {
+  padding: 0.5rem 1rem 0.5rem 0;
   font:
     400 2rem / 1 "Philosopher",
     sans-serif;

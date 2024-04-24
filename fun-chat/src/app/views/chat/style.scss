@@ -9,6 +9,38 @@ main {
   padding-right: 0.5rem;
 }
 
+@media screen and (max-width: 800px) {
+  .users {
+    position: fixed;
+    left: -100%;
+    transition: all 0.5s linear;
+  }
+  label.burger__label {
+    display: block;
+  }
+  .chat:has(.burger__input:checked) .users {
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about__link,
+  p.header__logo,
+  span.logout__user,
+  .logout__txt,
+  button.messages__button {
+    font-size: 1.4rem;
+  }
+  div.logout {
+    gap: 1rem;
+  }
+  .messages__form {
+    flex-direction: column;
+  }
+}
+
 .section {
   height: calc(100vh - 200px);
   min-width: 300px;
@@ -20,6 +52,7 @@ main {
 .users {
   width: max-content;
   overflow-y: auto;
+  background-color: var(--bg-color);
 }
 
 .users__search {
@@ -212,4 +245,20 @@ main {
 
 .action-edit {
   background-color: var(--accent-color);
+}
+
+.burger__input {
+  display: none;
+}
+.burger__label {
+  display: none;
+  font-size: 2rem;
+  position: fixed;
+  top: 75px;
+  left: 50%;
+  transition: rotate 0.5s linear;
+  cursor: pointer;
+}
+.burger__label:has(.burger__input:checked) {
+  rotate: (180deg);
 }

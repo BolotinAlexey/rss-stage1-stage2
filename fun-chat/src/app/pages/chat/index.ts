@@ -1,3 +1,4 @@
+import checkboxBurger from "../../components/checkboxBurger/checkboxBurger";
 import { User } from "../../interfaces/user";
 import generateFooter from "../../markups/footer";
 import SessionStorageAPI from "../../services/sessionStorageApi";
@@ -24,7 +25,7 @@ export default function chatPage() {
     .append(createUsersSection(), createMessagesSection());
   body.append(chatView.getHTMLElement());
   body.insertAdjacentHTML("beforeend", generateFooter());
-  // WSApi.usersActive();
-  // WSApi.usersPassive();
+
   onSearchUser();
+  checkboxBurger();
 }

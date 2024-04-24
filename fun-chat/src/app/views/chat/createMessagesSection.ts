@@ -37,6 +37,5 @@ export default function createMessagesSection(): HTMLElement {
   input.addEventListener("input", () => {
     submitBtn.disabled = !input.value;
   });
-
   return section;
 }
