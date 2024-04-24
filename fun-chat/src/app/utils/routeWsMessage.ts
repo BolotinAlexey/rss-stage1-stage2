@@ -66,6 +66,8 @@ export default function routeWsMessage(e: MessageEvent) {
     case "MSG_DELETE":
       if (data.payload.message.status.isDeleted) {
         deleteMessage(data.payload.message.id);
+        WSApi.usersActive();
+        WSApi.usersPassive();
       }
       break;
 
