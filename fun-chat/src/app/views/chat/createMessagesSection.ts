@@ -35,7 +35,7 @@ export default function createMessagesSection(): HTMLElement {
     resetUnreadingStatus();
   });
   input.addEventListener("input", () => {
-    submitBtn.disabled = !input.value;
+    submitBtn.disabled = !input.value.trim();
   });
   return section;
 }
