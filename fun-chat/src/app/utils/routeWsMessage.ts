@@ -1,6 +1,7 @@
 import chatPage from "../pages/chat/index";
 import WSApi from "../services/wsApi";
 import UsersStore from "../store/usersStore/index";
+import changeStatusOtherUser from "./changeStatusOtherUser";
 import deleteMessage from "./deleteMessage";
 import editMessage from "./editMessage";
 import existUser from "./existUser";
@@ -32,11 +33,13 @@ export default function routeWsMessage(e: MessageEvent) {
     case "USER_EXTERNAL_LOGIN":
       WSApi.usersActive();
       WSApi.usersPassive();
+      changeStatusOtherUser(data.payload.user);
       break;
 
     case "USER_EXTERNAL_LOGOUT":
       WSApi.usersActive();
       WSApi.usersPassive();
+      changeStatusOtherUser(data.payload.user);
       break;
 
     case "MSG_SEND":
