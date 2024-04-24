@@ -25,11 +25,19 @@ export default function renderMessagesField(
   });
   const notReadMsg = document.querySelector(".not-read");
   if (notReadMsg) {
-    notReadMsg.scrollIntoView(true);
+    notReadMsg.scrollIntoView({
+      block: "start",
+      behavior: "smooth",
+    });
   } else {
     const htmlMessages = document.querySelectorAll(".message");
     if (htmlMessages.length) {
-      htmlMessages[htmlMessages.length - 1].scrollIntoView(true);
+      htmlMessages[htmlMessages.length - 1].scrollIntoView({
+        block: "end",
+        behavior: "smooth",
+      });
+      if (htmlMessages[0] instanceof HTMLElement)
+        htmlMessages[0].style.marginTop = "auto";
     }
   }
 }

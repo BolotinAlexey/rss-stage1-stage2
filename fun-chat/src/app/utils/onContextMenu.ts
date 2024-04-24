@@ -23,7 +23,7 @@ export default function onContextMenu(e: Event, id: string) {
   } else {
     wrap.classList.add("right-action");
   }
-  currentTarget.append(wrap);
+  currentTarget.prepend(wrap);
   del.addEventListener("click", () => {
     wrap.remove();
     WSApi.deleteMessage(id);
