@@ -43,6 +43,12 @@ export default function routeWsMessage(e: MessageEvent) {
       reciveMessage(data);
       break;
 
+    case "MSG_DELIVER":
+      if (data.payload.message.status.isDelivered) {
+        editMessage(data.payload.message.id);
+      }
+      break;
+
     case "MSG_FROM_USER":
       reciveMessagesFromUser(data.payload.messages);
       break;
