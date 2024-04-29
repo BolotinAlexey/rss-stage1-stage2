@@ -1,0 +1,94 @@
+Hi, everyone. Today, we delve into the fascinating world of regular expressions, often abbreviated as regex. Regular expressions are powerful tools used in computer science, data processing, and text manipulation. In this presentation, we'll explore what regular expressions are, why they are important, their syntax, common use cases, and some best practices. So, let's get started.
+
+1. Understanding Regular Expressions
+
+At its core, a regular expression is a sequence of characters that define a search pattern. It's like a specialized language for finding patterns in text. This pattern can then be used for searching, manipulating, and validating strings of text. Regular expressions are supported in many programming languages, text editors, and command-line utilities, making them highly universal.
+
+2. Why are Regular Expressions Important?
+
+Regular expressions provide a concise and flexible means for pattern matching and text manipulation tasks. They enable developers and data scientists to perform complex string operations with minimal code. Whether you're validating user input, extracting data from logs, or performing sophisticated text processing, regular expressions can significantly streamline your workflow.
+
+To create regular expression, use one of the ways: With the help of literals or through a special REGEXP. Yo can see examples
+
+3. Syntax of Regular Expressions
+
+Regular expressions consist of literal characters and metacharacters.
+
+Literal characters match themselves, while metacharacters have special meanings.
+
+Literals characters: These are characters that match themselves. For example, the literal "a" matches the character "a" in the text.
+Metacharacters: Metacharacters have special meanings in regular expressions. For instance, “^”(caret) denotes the start of a line, “$”(sign dollar) denotes the end of a line, and “.”(“dot") matches any single character except a newline. You can see all the metacharacters on the slide.
+
+You can also see different examples on the next slide.
+
+Quantifiers in Regex
+In regex, quantifiers enable you to specify the quantity of characters or character classes you want to match within a string. They are symbols or characters that define how many instances of a character or group you're looking for.
+
+Exact Count {n}: curly braces n"
+The simplest quantifier is {n}, which specifies an exact count of characters or character classes you want to match. Let's say we have a string "Year: 2022" and we want to extract the year from it:
+
+The Range {n,m}: curly brace n comma m
+ matches a character or character class from n to m times, inclusively.
+
+{n,} : curly brace n comma
+ quantifier matches a character or character class at least n times. Additionally, there are shorthand notations for common quantifiers.
+
+Shorthands: +, ?, *:
+The quantifiers +(plus), (question mark)?, and *(asterisk) are shorthand notations for common use cases. It's example the shorthand + to match one or more digits in a phone number:
+
+Quantifiers: Zero or One (?):
+The quantifier (question mark) ? in regular expressions means zero or one occurrence of the preceding(пресиден) character or group.  In this example, this regular expression  matches both "color" and "colour" in the given string, allowing for zero or one occurrence of the letter "u”.
+
+Quantifiers: Zero or More (*):
+The quantifier *(asterisk) in regular expressions means zero or more occurrences of the preceding character or group.
+
+Greedy Quantifiers:
+In regular expressions, quantifiers determine how many times a particular element can occur in a match.
+
+By default, quantifiers operate in what's called a "greedy" mode. This means they try to match as much of the preceding element as possible. For instance:  Instead of finding two separate matches ("Boy" and "Friends"), it finds one match encompassing(энкампасин) both ("Boy" and his "Friends”).
+
+Anchors : They specify positions within the text. Examples include "^” (caret) for the start of a line and “$”(dollar sign) for the end of a line. You can see examples
+
+  Modifiers are optional flags that control the behavior of the regex pattern. You can see their on the slide.
+
+
+Regular expressions are used with the RegExp methods like test() and exec() and with the string methods match() , replace() , search() , and split() . These methods are explained in detail below with examples.
+
+exec()
+This method will executes a search for a match in a string. It returns an array of information or null on a mismatch.
+test()
+This method tests for a match in a string. It returns true or false.
+match()
+This method will return an array containing all of the matches, including capturing groups, or null if no match is found
+search()
+This method will tests for a match in a string. It returns the index of the match, or -1 if the search fails.
+replace()
+This method will executes a search for a match in a string, and replaces the matched substring with a replacement substring.
+split()
+This method uses a regular expression or a fixed string to break a string into an array of substrings
+
+4. Common Use Cases
+Regular expressions find applications in various domains:
+
+Data Validation: Validate email addresses, phone numbers, and other input formats.
+Text Search and Extraction: Find specific patterns or extract information from large volumes of text data.
+Text Replacement: Perform find-and-replace operations efficiently.
+Parsing: Extract structured data from unstructured text, such as log files or HTML documents.
+URL Routing: Implement URL routing and parameter extraction in web applications.
+
+5. Best Practices
+
+While regular expressions are powerful, they can also be complex and error-prone. Here are some best practices to keep in mind:
+
+Start Simple: Begin with basic patterns and gradually increase complexity as needed.
+Test Regular Expressions: Use online testers or built-in debugging tools in your programming environment to validate your regex patterns.
+
+Document Your Patterns: Comment your regular expressions to make them understandable to other developers and your future self.
+
+Optimize for Readability: Write regex patterns that are easy to understand and maintain, even if it means sacrificing some performance.
+
+6. Conclusion
+
+In conclusion, regular expressions are invaluable( инваебл ) tools for pattern matching and text manipulation tasks. By understanding their syntax, common use cases, and best practices, you can harness the full power of regular expressions to enhance your programming and data processing workflows. Remember, practice makes perfect, so don't hesitate to experiment with regular expressions in your projects.
+
+Thank you for your attention. I hope this presentation has provided you with a solid understanding of regular expressions and their practical applications.
