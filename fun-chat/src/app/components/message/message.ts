@@ -3,7 +3,6 @@ import SessionStorageAPI from "../../services/sessionStorageApi";
 import onContextMenu from "../../utils/onContextMenu";
 import { createElement } from "../../utils/supFunctions";
 import View from "../../views/views";
-import "./style.scss";
 
 export default class Message extends View {
   message: IMessage;
@@ -31,18 +30,18 @@ export default class Message extends View {
 
     const fromHtml: HTMLElement = createElement(
       "span",
-      [`message__from`],
+      ["message__from"],
       from,
     );
-    const top: HTMLElement = createElement("div", [`message__top`]);
-    const textHtml: HTMLElement = createElement("div", [`message__text`], text);
+    const top: HTMLElement = createElement("div", ["message__top"]);
+    const textHtml: HTMLElement = createElement("div", ["message__text"], text);
     const dateHtml: HTMLElement = createElement(
       "span",
-      [`message__date`],
+      ["message__date"],
       new Date(datetime).toLocaleString(),
     );
 
-    const bottom: HTMLElement = createElement("div", [`message__bottom`]);
+    const bottom: HTMLElement = createElement("div", ["message__bottom"]);
 
     let statusSending = isDelivered ? "delivered" : "sended";
     statusSending = isReaded ? "readed" : statusSending;
