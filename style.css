@@ -1,0 +1,204 @@
+:root {
+  --animation: 7s linear;
+  --transition: all 0.3s linear;
+  --shadow-card: 3px 4px 5px 1px #eee, -3px 0 5px #eee;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  color: #333;
+}
+
+.main {
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* .container {
+  margin: 2rem auto;
+  padding: 0 1rem;
+} */
+.list {
+  list-style: none;
+  display: grid;
+  padding: 70px 0 0 0;
+  max-width: 1140px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-auto-rows: 480px;
+  grid-column-gap: 12px;
+  justify-content: center;
+}
+.project {
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  -webkit-box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.project:hover {
+}
+
+.project__title {
+  margin-bottom: 0;
+  text-align: center;
+  font-family: "Sedan SC", serif;
+  font-weight: 900;
+  font-size: 2rem;
+  -webkit-text-stroke: 1px rgba(33, 150, 243, 0.8);
+  color: #eee;
+  transition: var(--transition);
+}
+
+.project__links {
+  display: flex;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.link {
+  position: relative;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  /* width: 0; */
+  left: 50%;
+  right: 50%;
+  bottom: 0.5rem;
+  height: 1px;
+  background-color: red;
+  transition: var(--transition);
+}
+.link:hover::after {
+  left: 0;
+  right: 0;
+}
+
+.project__code {
+  font-family: "Press Start 2P", system-ui;
+}
+
+.project__deploy {
+  font-size: 1.2rem;
+  font-family: "Poetsen One", sans-serif;
+}
+
+.project__wrap {
+  position: relative;
+  /* z-index: 1; */
+  height: 80%;
+  border-radius: 10px;
+}
+
+.project__overlay-top {
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+  height: 75%;
+  top: 0;
+  z-index: 5;
+  background-color: rgba(33, 150, 243, 0.8);
+  transition: var(--transition);
+}
+.project__overlay-bottom {
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  bottom: 0;
+  z-index: 5;
+  background-color: rgba(33, 150, 243, 0.8);
+  transition: var(--transition);
+}
+
+.project__describe {
+  font-size: 1.4rem;
+  text-align: center;
+  color: #eee;
+  font-family: "Playwrite TZ", cursive;
+}
+
+.project__stack {
+  text-align: center;
+  color: #eee;
+  font-family: "Press Start 2P", system-ui;
+}
+
+.project__pet {
+  text-align: end;
+  margin-top: 0;
+  color: #eee;
+  font-family: "Poetsen One", sans-serif;
+}
+
+.project__wrap:hover .project__overlay-top {
+  transform: translateY(-150%);
+}
+.project__wrap:hover .project__overlay-bottom {
+  transform: translateY(100%);
+}
+.project__wrap:hover ~ .project__title {
+  transform: translateX(100%);
+}
+.project__wrap:hover ~ .project__links {
+  transform: translateX(-100%);
+}
+
+.project__img {
+  position: absolute;
+  width: 100%;
+  /* height: 100%; */
+
+  /* object-fit: cover; */
+  transform: translateY(0%);
+  transition: all 2s linear;
+  /* filter: brightness(0.95); */
+}
+
+.project__wrap:hover .project__img {
+  animation: scroll infinite var(--animation);
+  /* filter: brightness(1); */
+  cursor: pointer;
+}
+
+.link {
+}
+
+.code-style {
+  position: relative;
+  font-family: "Press Start 2P", system-ui;
+  color: inherit;
+  top: 2px;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 540px) {
+  .project__describe {
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(calc(250px - 100%));
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
