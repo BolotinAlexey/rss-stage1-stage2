@@ -27,8 +27,8 @@ body {
   list-style: none;
   display: grid;
   padding: 70px 0 0 0;
-  max-width: 1140px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* max-width: 1240px; */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
   grid-auto-rows: 480px;
   gap: 1rem;
   justify-content: center;
@@ -133,6 +133,13 @@ body {
   font-family: "Playwrite TZ", cursive;
 }
 
+.project__attention {
+  font-size: 1rem;
+  color: #eee;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+}
+
 .project__stack {
   text-align: center;
   color: #eee;
@@ -171,15 +178,14 @@ body {
   /* filter: brightness(0.95); */
 }
 
-.project__wrap:hover .project__img {
+li:not(.chat, .puzzle, .race) .project__wrap:hover .project__img {
   animation: scroll infinite var(--animation);
-  /* filter: brightness(1); */
   cursor: pointer;
 }
 
-.puzzle .project__wrap:hover .project__img {
+.puzzle .project__wrap:hover .project__img,
+.race .project__wrap:hover .project__img {
   animation: forwards scroll-half 2s linear;
-  /* filter: brightness(1); */
   cursor: pointer;
 }
 
@@ -212,8 +218,16 @@ body {
   background-color: #ddd;
 }
 
+.race:has(.project__wrap:hover) {
+  background-color: #111;
+}
+
 .puzzle:has(.project__wrap:hover) {
   background-color: #fff;
+}
+
+.chat:has(.project__wrap:hover) {
+  background-color: #eee;
 }
 
 @keyframes scroll {
