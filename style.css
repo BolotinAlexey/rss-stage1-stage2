@@ -177,6 +177,12 @@ body {
   cursor: pointer;
 }
 
+.puzzle .project__wrap:hover .project__img {
+  animation: forwards scroll-half 2s linear;
+  /* filter: brightness(1); */
+  cursor: pointer;
+}
+
 .link {
 }
 
@@ -201,6 +207,15 @@ body {
 .hangman:has(.project__wrap:hover) {
   background-color: antiquewhite;
 }
+
+.nonograms:has(.project__wrap:hover) {
+  background-color: #ddd;
+}
+
+.puzzle:has(.project__wrap:hover) {
+  background-color: #fff;
+}
+
 @keyframes scroll {
   0% {
     transform: translateY(0%);
@@ -212,5 +227,15 @@ body {
 
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes scroll-half {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(calc(350px - 100%));
   }
 }
