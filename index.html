@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+TZ:wght@100..400&family=Poetsen+One&family=Press+Start+2P&family=Sedan+SC&family=Ubuntu:wght@300;700&
+      family=Gochi+Hand&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Stage 1-2</title>
+
+  </head>
+  <body>
+    <script src="persistTheme.js" defer></script>
+  <!-- H E A D E R -->
+    <header class="header">
+      <div class="logo">
+        <h2 class="logo__title">
+          Oleksii Bolotin
+        </h2>
+      </div>
+        <!-- <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__item">
+              <a
+                href="https://bolotinalexey.github.io/rss-stage0/random-game/"
+                class="header__link"
+                >1024</a
+              >
+            </li>
+            <li class="header__item">
+              <a
+                href="https://bolotinalexey.github.io/cssMemeSlider/cssMemeSlider/"
+                class="header__link"
+                >Meme slider</a
+              >
+            </li>
+            <li class="header__item">
+              <a
+                href="https://bolotinalexey.github.io/rss-stage0/audio-player/"
+                class="header__link"
+                >Audio player</a
+              >
+            </li>
+            <li class="header__item">
+              <a
+                href="https://bolotinalexey.github.io/rss-stage0/image-gallery/"
+                class="header__link"
+                >Image gallery</a
+              >
+            </li>
+            <li class="header__item">
+              <a
+                href="https://bolotinalexey.github.io/rss-stage0/library/"
+                class="header__link"
+                >Library</a
+              >
+            </li>
+          </ul>
+        </nav> -->
+
+        <label class="theme-btn">
+        <svg class="weather__icon" width="20" height="20">
+                  <use href="./assets/sprite.svg#moon"></use>
+                </svg>
+          <input type="checkbox" class="theme-btn__input">
+          </input>
+          <span class="theme-btn__inner">
+          </span>
+          <svg class="weather__icon" width="20" height="20" fill="none">
+                  <use href="./assets/sprite.svg#sun"></use>
+                </svg>
+        </label>
+    </header>
+
+    <main class="main">
+      <h1 class="page-title">
+        My written projects in
+        <a class="link" href="https://rs.school/">RS-School</a> stage 1-2
+      </h1>
+      <ul class="list container">
+        <!-- eCommerce Application -->
+        <li
+          class="project ecommerce"
+          title="It's a comprehensive online shopping portal that provides an interactive and seamless experience to users. From product discovery to checkout, the application ensures a smooth journey for the user, enhancing their engagement and boosting their purchasing confidence. Users can browse through a vast range of products, view detailed descriptions, add their favorite items to the basket, and proceed to checkout. It includes features such as user registration and login, product search , product categorization, and sorting to make the shopping experience more streamlined and convenient."
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Team project</p>
+              <p class="project__describe">
+                Online computer components store using "commercetools" as a
+                backend
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">
+                [TypeScript,React,Redux, MUI, Vite, Vitest, SDK Commercetools]
+              </p>
+            </div>
+            <img
+              class="project__img"
+              src="assets/comp-store.jpg"
+              alt="eCommerce Application"
+            />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://comp-store-rss.netlify.app/"
+              class="project__deploy link"
+              >deploy</a
+            >
+            <a
+              href="https://github.com/rss-school-team-2023Q3/eCommerce-Application/tree/develop"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">eCommerce Application</h2>
+        </li>
+
+        <!-- COFFEE HOUSE -->
+        <li
+          class="project coffee"
+          title="Two page website business card for a coffee shop, having
+                automatic carousel and other various css and js tricks"
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Pet project</p>
+              <p class="project__describe">
+                Two page website business card for a coffee shop, having
+                automatic carousel and other various
+                <span class="code-style">css</span> and
+                <span class="code-style">js</span> tricks.
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">[HTML, CSS, JavaScript]</p>
+            </div>
+            <img
+              class="project__img"
+              src="assets/coffee-house.jpg"
+              alt="Coffee House"
+            />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://bolotinalexey.github.io/rss-stage1-stage2/coffee-house/home/"
+              class="project__deploy link"
+              >deploy</a
+            >
+            <a
+              href="https://github.com/BolotinAlexey/rss-stage1-stage2/tree/coffee-house/coffee-house"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">Coffee House</h2>
+        </li>
+
+        <!-- H A N G M A N -->
+        <li
+          title="Hangman is a classic word game in which you must find the correct answer by guessing letters one at a time."
+          class="project hangman"
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Pet project</p>
+              <p class="project__describe">
+                The intellectual browser game "Hangman", the meaning of which is
+                to guess the letters in the word.
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">[HTML, CSS, JavaScript]</p>
+            </div>
+            <img
+              class="project__img"
+              src="assets/hangman.jpg"
+              alt="Hangman game"
+            />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://bolotinalexey.github.io/rss-stage1-stage2/hangman/"
+              class="project__deploy link"
+              >deploy</a
+            >
+            <a
+              href="https://github.com/BolotinAlexey/rss-stage1-stage2/tree/hangman/hangman"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">Hangman Game</h2>
+        </li>
+
+        <!-- N O N O G R A M S -->
+        <li
+          title="Nonograms is a puzzle game to reveal a hidden picture by looking at the number clues. The clues are given at the top and left side of the grid. Each number in these clue defines a block of black cell. A number indicates an unbroken line of black cells, and they are in the same order as the lines. These puzzles are often black and white—describing a binary image—but they can also be colored."
+          class="project nonograms"
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Pet project</p>
+              <p class="project__describe">
+                Nonograms is a puzzle game to reveal a hidden picture by looking
+                at the number clues.
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">[HTML, CSS, JavaScript]</p>
+            </div>
+            <img
+              class="project__img"
+              src="assets/nonograms.jpg"
+              alt="Nonograms game"
+            />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://bolotinalexey.github.io/rss-stage1-stage2/nonograms/"
+              class="project__deploy link"
+              >deploy</a
+            >
+            <a
+              href="https://github.com/BolotinAlexey/rss-stage1-stage2/tree/nonograms/nonograms"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">Nonograms Game</h2>
+        </li>
+
+        <!-- P U Z Z L E  -->
+        <li
+          title="RSS Puzzle is an interactive mini-game aimed at enhancing English language skills. Players assemble sentences from jumbled words, inspired by Lingualeo's Phrase Constructor training. The game integrates various levels of difficulty, hint options, and a unique puzzle-like experience with artwork"
+          class="project puzzle"
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Pet project</p>
+              <p class="project__describe">
+                RSS Puzzle is an interactive mini-game aimed at enhancing
+                English language skills.
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">
+                [HTML, SCSS, TypeScript, WebPack, Husky]
+              </p>
+            </div>
+            <img
+              class="project__img"
+              src="assets/puzzle.png"
+              alt="Puzzle game"
+            />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://bolotinalexey.github.io/rss-stage1-stage2/rss-puzzle/"
+              class="project__deploy link"
+              >deploy</a
+            >
+            <a
+              href="https://github.com/BolotinAlexey/rss-stage1-stage2/tree/rss-puzzle/rss-puzzle"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">RSS-Puzzle Game</h2>
+        </li>
+
+        <!-- Async Race -->
+        <li
+          title="Async Race is race of cars that uses a Promise object with its methods for its imitation: Promise.any() and Promise.allSettled()"
+          class="project race"
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Pet project</p>
+              <p class="project__describe">Race of cars.</p>
+              <p class="project__attention">
+                ⚠️ Attention: for the functioning of the application, it is
+                necessary to install and to start the local server
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">
+                [HTML, SCSS, TypeScript, WebPack, Husky]
+              </p>
+            </div>
+            <img
+              class="project__img"
+              src="assets/async-race.jpg"
+              alt="async-race game"
+            />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://bolotinalexey.github.io/rss-stage1-stage2/async-race/"
+              class="project__deploy link"
+              >deploy</a
+            >
+
+            <a
+              href="https://github.com/mikhama/async-race-api"
+              class="project__deploy link"
+              >server</a
+            >
+
+            <a
+              href="https://github.com/BolotinAlexey/rss-stage1-stage2/tree/async-race"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">Async Race Game</h2>
+        </li>
+
+        <!-- Fun Chat -->
+        <li
+          title="A fun chat that uses a WebSocket protocol for sending and receiving messages. The function of determining online/offline users, as well as unread messages, as in Telegram and similar chats, has been implemented."
+          class="project chat"
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Pet project</p>
+              <p class="project__describe">Chat using WebSocket protocol.</p>
+              <p class="project__attention">
+                ⚠️ Attention: for the functioning of the application, it is
+                necessary to install and to start th local server
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">
+                [HTML, CSS, TypeScript, WebPack, Husky, WebSocket]
+              </p>
+            </div>
+            <img class="project__img" src="assets/chat.jpg" alt="Fun chat" />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://bolotinalexey.github.io/rss-stage1-stage2/fun-chat"
+              class="project__deploy link"
+              >deploy</a
+            >
+
+            <a
+              href="https://github.com/rolling-scopes-school/fun-chat-server/tree/main"
+              class="project__deploy link"
+              >server</a
+            >
+            <a
+              href="https://github.com/BolotinAlexey/rss-stage1-stage2/tree/fun-chat"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">Fun Chat</h2>
+        </li>
+
+        <!-- News Api -->
+        <li
+          title="The project is migrated from JS to TS, functionality and adaptability have been significantly added."
+          class="project news-api"
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Adding functionality</p>
+              <p class="project__describe">
+                The project is migrated from
+                <span class="code-style">JS</span> to
+                <span class="code-style">TS</span>, functionality have been
+                significantly added.
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">[HTML, CSS, TypeScript, WebPack]</p>
+            </div>
+            <img class="project__img" src="assets/news.jpg" alt="News Portal" />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://bolotinalexey.github.io/rss-stage1-stage2/news-api/"
+              class="project__deploy link"
+              >deploy</a
+            >
+            <a
+              href="https://github.com/BolotinAlexey/rss-stage1-stage2/tree/news-api/news-api"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">News Api</h2>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
