@@ -6,25 +6,67 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playwrite+TZ:wght@100..400&family=Poetsen+One&family=Press+Start+2P&family=Sedan+SC&family=Ubuntu:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playwrite+TZ:wght@100..400&family=Poetsen+One&family=Press+Start+2P&family=Sedan+SC&family=Ubuntu:wght@300;700&display=swap"
       rel="stylesheet"
     />
 
     <link rel="stylesheet" href="style.css" />
-    <title>Stage1-2</title>
+    <title>Stage 1-2</title>
   </head>
   <body>
     <header>
-      <h1>
-        My Written Projects In
-        <a href="https://rs.school/">RS-Scool</a>
-        RSS-Scool Stage1-2
+      <h1 class="page-title">
+        My written projects in
+        <a class="link" href="https://rs.school/">RS-School</a> stage 1-2
       </h1>
     </header>
     <main class="main">
       <ul class="list container">
+        <!-- eCommerce Application -->
+        <li
+          class="project ecommerce"
+          title="It's a comprehensive online shopping portal that provides an interactive and seamless experience to users. From product discovery to checkout, the application ensures a smooth journey for the user, enhancing their engagement and boosting their purchasing confidence. Users can browse through a vast range of products, view detailed descriptions, add their favorite items to the basket, and proceed to checkout. It includes features such as user registration and login, product search , product categorization, and sorting to make the shopping experience more streamlined and convenient."
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Team project</p>
+              <p class="project__describe">
+                Online computer components store using "commercetools" as a
+                backend
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">
+                [TypeScript,React,Redux, MUI, Vite, Vitest, SDK Commercetools]
+              </p>
+            </div>
+            <img
+              class="project__img"
+              src="assets/comp-store.jpg"
+              alt="eCommerce Application"
+            />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://comp-store-rss.netlify.app/"
+              class="project__deploy link"
+              >deploy</a
+            >
+            <a
+              href="https://github.com/rss-school-team-2023Q3/eCommerce-Application/tree/develop"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">eCommerce Application</h2>
+        </li>
+
         <!-- COFFEE HOUSE -->
-        <li class="project coffee">
+        <li
+          class="project coffee"
+          title="Two page website business card for a coffee shop, having
+                automatic carousel and other various css and js tricks"
+        >
           <div class="project__wrap">
             <div class="project__overlay-top">
               <p class="project__pet">Pet project</p>
@@ -182,8 +224,8 @@
               <p class="project__pet">Pet project</p>
               <p class="project__describe">Race of cars.</p>
               <p class="project__attention">
-                Attention: for the functioning of the application, it is
-                necessary to install and to start the server
+                ⚠️ Attention: for the functioning of the application, it is
+                necessary to install and to start the local server
               </p>
             </div>
             <div class="project__overlay-bottom">
@@ -229,13 +271,13 @@
               <p class="project__pet">Pet project</p>
               <p class="project__describe">Chat using WebSocket protocol.</p>
               <p class="project__attention">
-                Attention: for the functioning of the application, it is
-                necessary to install and to start the server
+                ⚠️ Attention: for the functioning of the application, it is
+                necessary to install and to start th local server
               </p>
             </div>
             <div class="project__overlay-bottom">
               <p class="project__stack">
-                [HTML, SCSS, TypeScript, WebPack, Husky, WebSocket]
+                [HTML, CSS, TypeScript, WebPack, Husky, WebSocket]
               </p>
             </div>
             <img class="project__img" src="assets/chat.jpg" alt="Fun chat" />
@@ -259,6 +301,41 @@
             >
           </div>
           <h2 class="project__title">Fun Chat</h2>
+        </li>
+
+        <!-- News Api -->
+        <li
+          title="The project is migrated from JS to TS, functionality and adaptability have been significantly added."
+          class="project news-api"
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Adding functionality</p>
+              <p class="project__describe">
+                The project is migrated from
+                <span class="code-style">JS</span> to
+                <span class="code-style">TS</span>, functionality have been
+                significantly added.
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">[HTML, CSS, TypeScript, WebPack]</p>
+            </div>
+            <img class="project__img" src="assets/news.jpg" alt="News Portal" />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://bolotinalexey.github.io/rss-stage1-stage2/news-api/"
+              class="project__deploy link"
+              >deploy</a
+            >
+            <a
+              href="https://github.com/BolotinAlexey/rss-stage1-stage2/tree/news-api/news-api"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">News Api</h2>
         </li>
       </ul>
     </main>
