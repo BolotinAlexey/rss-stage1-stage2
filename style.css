@@ -120,7 +120,12 @@ body {
   height: 70%;
   top: 0;
   z-index: 5;
-  background-color: rgba(33, 150, 243, 0.85);
+  /* background-color: rgba(33, 150, 243, 0.85); */
+  background: linear-gradient(
+    180deg,
+    rgba(30, 50, 100, 0.9) 0%,
+    rgba(33, 150, 243, 0.9) 100%
+  );
   transition: var(--transition);
 }
 .project__overlay-bottom {
@@ -130,7 +135,11 @@ body {
   height: 30%;
   bottom: 0;
   z-index: 5;
-  background-color: rgba(33, 150, 243, 0.85);
+  background: linear-gradient(
+    180deg,
+    rgba(33, 150, 243, 0.9) 0%,
+    rgba(30, 50, 100, 0.9) 100%
+  );
   transition: var(--transition);
 }
 
