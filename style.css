@@ -4,13 +4,14 @@
   --shadow-card: 3px 3px 10px#777, -3px -3px 10px #777;
   --accent: #f00;
   --bgColor: #eee;
-
   --color: #333;
+  --logo-gradient: rgba(49, 46, 124, 1) 0%, rgba(3, 109, 255, 1) 100%;
 }
 
 :root:has(.theme-btn__input:checked) {
   --bgColor: #333;
   --color: #eee;
+  --logo-gradient: rgb(164, 148, 43) 0%, rgb(228, 255, 0) 100%;
 }
 
 *,
@@ -22,6 +23,7 @@
 
 body {
   background-color: var(--bgColor);
+  transition: background-color 0.3s linear;
   margin: 0;
   padding: 0;
 }
@@ -51,6 +53,7 @@ a {
   color: var(--color);
   width: 100%;
   padding: 15px 20px;
+  transition: var(--transition);
   background-color: var(--bgColor);
   border-bottom: solid 2px var(--color);
 }
@@ -73,6 +76,12 @@ a {
   line-height: 1.66667;
   letter-spacing: 0.5px;
   margin: 0;
+  transition: var(--transition);
+  background: linear-gradient(90deg, var(--logo-gradient));
+  /* animation: gradient 10s linear; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .header__title::first-letter {
@@ -199,6 +208,7 @@ a {
   font-family: "Ubuntu", sans-serif;
   font-weight: 700;
   text-align: center;
+  transition: var(--transition);
 }
 
 .project__title {
@@ -417,5 +427,22 @@ li:not(.chat, .puzzle, .race, .news-api) .project__wrap:hover .project__img {
 
   100% {
     transform: translateY(-125px);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background: linear-gradient(
+      90deg,
+      rgb(30, 50, 100) 0%,
+      rgb(33, 150, 243) 100%
+    );
+  }
+
+  100% {
+    background: linear-gradient(
+      90deg,
+      rgb(33, 150, 243) 0% rgb(30, 50, 100) 100%
+    );
   }
 }
