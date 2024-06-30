@@ -45,11 +45,12 @@ a {
 .header {
   position: fixed;
   top: 0;
-  height: 70px;
+  min-height: 70px;
   z-index: 25;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   color: var(--color);
   width: 100%;
   padding: 15px 20px;
@@ -94,6 +95,11 @@ a {
   gap: 5px;
 }
 
+.header__item{
+  display: flex;
+  align-items: center;
+}
+
 a.header__link {
   font-family: "Poetsen One", sans-serif;;
   font-size: 1.3rem;
@@ -130,8 +136,6 @@ a.header__link {
 .theme-btn:hover > .weather__icon {
   color: var(--accent);
 }
-.theme-btn__inner {
-}
 
 .theme-btn__input {
   display: none;
@@ -166,7 +170,7 @@ a.header__link {
 /* M A I N */
 
 .main {
-  margin: calc(70px + 2rem) auto;
+  margin: calc(70px + 6rem) auto;
   padding: 0 1rem;
   color: var(--color);
 }
@@ -194,9 +198,6 @@ a.header__link {
   transition: var(--transition);
   border-radius: 10px;
   overflow: hidden;
-}
-
-.project:hover {
 }
 
 .page-title {
@@ -230,7 +231,6 @@ a.header__link {
   text-decoration: none;
   font-size: inherit;
   padding: 0.5rem;
-  margin-bottom: 1rem;
   transition: var(--transition);
 }
 
@@ -375,6 +375,19 @@ li:not(.chat, .puzzle, .race, .news-api) .project__wrap:hover .project__img {
 @media screen and (max-width: 540px) {
   .project__describe {
     font-size: 1.2rem;
+  }
+}
+
+
+@media screen and (max-width: 711px) {
+  .main {
+    margin: calc(70px + 10rem) auto;
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .main {
+    margin: calc(70px + 14rem) auto;
   }
 }
 
