@@ -478,7 +478,7 @@ svg{
   }
 
   100% {
-    transform: translateY(-125px);
+    transform: translateY(-100px);
   }
 }
 
